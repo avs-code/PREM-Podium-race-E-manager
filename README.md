@@ -20,7 +20,7 @@ Features
     Register as driver with name & picture.
     
     
-(C) Copyright 2017 Toni Vicente & Pablo Oña
+(C)© Copyright 2016-2017 Toni Vicente & Pablo Oña
 
 License
 GNU General Public License version 3.0 (GPLv3)
