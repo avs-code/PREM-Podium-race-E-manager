@@ -17,9 +17,13 @@ Features
     Show videos inserting youtube link.
     Show the rules to competition.
     Send simresults web page links to show in podium results web page.
+    Register as driver with name & picture.
+    
+    
+(C) Copyright 2017 Toni Vicente & Pablo Oña
 
 License
-GNU General Public License version 2.0 (GPLv2)
+GNU General Public License version 3.0 (GPLv3)
 
 Helment image:
 http://publicdomainvectors.org/de/kostenlose-vektorgrafiken/Motorrad-Renn-Helm-Vektor-Symbol/21533.html
