@@ -25,14 +25,14 @@ Features
 License
 GNU General Public License version 3.0 (GPLv3)
 
------------------------------------------------------------------------------------------
 
+---
 Helment image:
 http://publicdomainvectors.org/de/kostenlose-vektorgrafiken/Motorrad-Renn-Helm-Vektor-Symbol/21533.html
 
 Beschreibung. Vektor-Illustration von einem Renn-Helm. Lizenz Public domain.
------------------------------------------------------------------------------------------
 
+---
 
 
 # Original version readme:
