@@ -10,8 +10,13 @@ Features
     Drivers are assigned to a team and teams are assigned to a division.
     Support for different rulesets (points per finishing position/qualifying position/fastest lap).
     Show the races created with imagelink.
-    Show the circuits with image asociated
-    
+    Show the circuits with image asociated.
+    Show the teams with drivers roster.
+    Show the drivers with race records and image.
+    Upload images.
+    Show videos inserting youtube link.
+    Show the rules to competition.
+    Send simresults web page links to show in podium results web page.
 
 License
 GNU General Public License version 2.0 (GPLv2)
