@@ -1,7 +1,0 @@
-Edit this file with your rules, its located in your main installation PREM folder, name "rules.txt.
-
-Example:
-
-19.4 More than one change of direction to defend a position
-is not permitted. Any driver moving back towards the racing line,
-having earlier defended his position off-line, should leave at least one car width between his own car and the edge of the track on the approach to the corner.

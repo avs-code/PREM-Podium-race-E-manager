@@ -5,24 +5,87 @@ Version <?=VERSION?><br>
 </div>
 <!-- Automatic Slideshow Images -->
   <div class="mySlides w3-display-container">
-    <img src="imagescr/3.jpg" style="width:100%">
+    <img src="images/2011_FIA_GT1_Silverstone_2.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Los Angeles</h3>
-      <p><b>We had the best time playing at Venice Beach!</b></p>   
+      <h3>FIA GT1 at Silverstone in 2011</h3>
+      <p><b>By ToNG!? - FIA GT1, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=20368769</b></p>   
     </div>
   </div>
   <div class="mySlides w3-display-container">
-    <img src="imagescr/2.jpg" style="width:100%">
+    <img src="images/Formel3_racing_car_amk.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>New York</h3>
-      <p><b>The atmosphere in New York is lorem ipsum.</b></p>    
+      <h3>Formula three racing car at Hockenheimring.</h3>
+      <p><b>By user:AngMoKio - selfmade photo at Hockenheim 2008, CC BY-SA 2.5, https://commons.wikimedia.org/w/index.php?curid=3883701</b></p>    
     </div>
   </div>
   <div class="mySlides w3-display-container">
-    <img src="imagescr/1.jpg" style="width:100%">
+    <img src="images/2012_WTCC_Race_of_Japan_(Race_1)_opening_lap.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Chicago</h3>
-      <p><b>Thank you, Chicago - A night we won't forget.</b></p>    
+      <h3>World Touring Car Championship 2012 Race of Japan</h3>
+      <p><b>By Morio - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=22398475</b></p>    
+    </div>
+  </div>  
+   <div class="mySlides w3-display-container">
+    <img src="images/In_Car_Micheal_Fitzgerald_Cork_Racing.jpg" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>In Car Footage from a Van Diemen RF01 driven by Micheal Fitzgerald Cork Racing</h3>
+      <p><b>By Glen Duncombe - http://www.flickr.com/photos/corkracing/5412216243/, CC BY 2.0</b></p>    
+    </div>
+  </div>  
+    <div class="mySlides w3-display-container">
+    <img src="images/Audi_R18_e-tron_quattro_at_2013_Le_Mans.jpg" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Audi R18 e-tron quattro at 2013 Le Mans</h3>
+      <p><b>By kevinmcgill from Den Bosch, Netherlands - KAM_5118, CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=31689732</b></p>    
+    </div>
+  </div>  
+    <div class="mySlides w3-display-container">
+    <img src="images/Green_flag_at_Daytona.JPG" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>The green flag flies on a new season of NASCAR. 2015</h3>
+      <p><b>By Nascarking - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=38582044</b></p>    
+    </div>
+   </div> 
+    <div class="mySlides w3-display-container">
+    <img src="images/Andreas_Mikkelsen_-_WRC_Portugal_2013_(8647047945).jpg" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Andreas_Mikkelsen_-_WRC_Portugal_2013</h3>
+      <p><b>By Tiago J. G. Fernandes from Portimão, Portugal - Andreas Mikkelsen - WRC Portugal 2013, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=26871873</b></p>    
+    </div>
+   </div> 
+    <div class="mySlides w3-display-container">
+    <img src="images/pexels-photo-60881.jpeg" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>.</h3>
+      <p><b>.</b></p>    
+    </div>
+   </div> 
+    <div class="mySlides w3-display-container">
+    <img src="images/pexels-photo-158971.jpeg" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>.</h3>
+      <p><b>.</b></p>    
+    </div>
+   </div> 
+    <div class="mySlides w3-display-container">
+    <img src="images/pexels-photo-12789.jpeg" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>.</h3>
+      <p><b>.</b></p>    
+    </div>
+   </div> 
+    <div class="mySlides w3-display-container">
+    <img src="images/pexels-photo-169176.jpeg" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>.</h3>
+      <p><b>.</b></p>    
+    </div>
+   </div> 
+    <div class="mySlides w3-display-container">
+    <img src="images/car-race-ferrari-racing-car-pirelli-50704.jpeg" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>.</h3>
+      <p><b>.</b></p>    
     </div>
   </div>
 <script>
@@ -39,7 +102,7 @@ function carousel() {
     myIndex++;
     if (myIndex > x.length) {myIndex = 1}    
     x[myIndex-1].style.display = "block";  
-    setTimeout(carousel, 4000);    
+    setTimeout(carousel, 8000);    
 }
 
 </script>

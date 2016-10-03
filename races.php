@@ -54,24 +54,25 @@ $noseasonracecount = $s2item['racecount'];
 <? if($season == "0") { ?>
 
 <h2>Seasons</h2>
-<table border="0" cellspacing="0" cellpadding="1" width="100%">
-<tr class="head">
+<div class="w3-container">
+<table class="w3-table-all">
+<tr class="w3-dark-grey">
 	<td>Season</td>
 	<td>Division</td>
 	<td>Races</td>
 </tr>
 <?
 mysql_data_seek($sresult, 0);
-$style = "odd";
+#$style = "odd";
 while($sitem = mysql_fetch_array($sresult)) {
 	?>
-<tr class="<?=$style?>">
+<tr class="w3-hover-green">
 	<td><a href="?page=races&amp;season=<?=$sitem['id']?>"><?=$sitem['name']?></a></td>
 	<td><?=$sitem['dname']?></td>
 	<td><?=$sitem['racecount']?></td>
 </tr>
 <?
-	$style = $style == "odd" ? "even" : "odd";
+#	$style = $style == "odd" ? "even" : "odd";
 } ?>
 </table>
 
@@ -83,37 +84,38 @@ if(mysql_num_rows($result) == 0) {
 	return;
 }
 ?>
-<table border="0" cellspacing="0" cellpadding="1" width="100%">
-<tr class="head">
-	<td width="60">&nbsp;</td>
-	<td width="60">Date</td>
+<div class="w3-container">
+<table class="w3-table-all">
+<tr class="w3-dark-grey">
+	<td>&nbsp;</td>
+	<td>Date</td>
 	<? if ($season == 0) { ?>
 	<td>Name<br>Track</td>
 	<td>Division<br>Ruleset</td>
-	<td width="40" align="center">Drivers</td>
-	<td width="40" align="center">Laps</td>
-	<td width="40" align="center">MaxPl</td>
+	<td align="center">Drivers</td>
+	<td align="center">Laps</td>
+	<td align="center">MaxPl</td>
 	<? } else { ?>
 	<td>Name</td>
 	<td>Track</td>
-	<td width="40" align="center">Drivers</td>
-	<td width="40" align="center">Laps</td>
-	<td width="40" align="center">MaxPl</td>
+	<td align="center">Drivers</td>
+	<td align="center">Laps</td>
+	<td align="center">MaxPl</td>
 	<? } ?>
 </tr>
 
 <?
-$style = "odd";
+#$style = "odd";
 while($item = mysql_fetch_array($result)) {
 	$date = strtotime($item['date']);
 ?>
-<tr class="<?=$style?>">
-	<td width="60">
+<tr class="w3-hover-green">
+	<td>
 		<a href=".?page=race_results_chg&amp;id=<?=$item['id']?>"><img src="images/properties16.png" alt="props"></a>
 		<a href=".?page=race_chg&amp;id=<?=$item['id']?>"><img src="images/edit16.png" alt="chg"></a>
 		<a href=".?page=race_rem&amp;id=<?=$item['id']?>"><img src="images/delete16.png" alt="rem"></a>
 	</td>
-	<td width="60"><?=date("d/m/y", $date)?></td>
+	<td><?=date("d/m/y", $date)?></td>
 	<? if ($season == 0) { ?>
 	<td><?=$item['name']?><br><?=$item['track']?></td>
 	<td><?=$item['dname']?><br><?=$item['rsname']?><?=!empty($item['qrsname']) ? " / " . $item['qrsname'] : ""?></td>
@@ -123,13 +125,13 @@ while($item = mysql_fetch_array($result)) {
 	<? } else { ?>
 	<td><?=$item['name']?></td>
 	<td><?=$item['track']?></td>
-	<td width="40" align="center"><?=$item['drivers']?></td>
-	<td width="40" align="center"><?=$item['laps']?></td>
-	<td width="40" align="center"><?=$item['maxplayers']?></td>
+	<td align="center"><?=$item['drivers']?></td>
+	<td align="center"><?=$item['laps']?></td>
+	<td align="center"><?=$item['maxplayers']?></td>
 	<? } ?>
 </tr>
 <?
-	$style = $style == "odd" ? "even" : "odd";
+#	$style = $style == "odd" ? "even" : "odd";
 }
 ?>
 </table>

@@ -59,14 +59,15 @@ if($item['ruleset_qualifying'] != 0) {
 }
 ?>
 <h1>Race results</h1>
-<table border="0" cellspacing="0" cellpadding="1" width="100%">
-<tr>
+<div class="w3-container">
+<table class="w3-table-all">
+<tr class="w3-dark-grey">
 	<td width="20%">Name:</td>
 	<td width="30%"><?=$item['name']?></td>
 	<td width="20%">Laps:</td>
 	<td width="30%"><?=$item['laps']?></td>
 </tr>
-<tr>
+<tr class="w3-grey">
 	<td>Track:</td>
 	<td><?=$item['track']?></td>
 	<? if($item['season'] == 0) { ?>
@@ -77,7 +78,7 @@ if($item['ruleset_qualifying'] != 0) {
 	<td><?=$item['sname']?> / <?=$item['dname']?></td>
 	<? } ?>
 </tr>
-<tr>
+<tr class="w3-grey">
 	<td>Date/Time:</td>
 	<td>
 		<?=date("j F Y, H:i", $date)?>
@@ -85,7 +86,7 @@ if($item['ruleset_qualifying'] != 0) {
 	<td>Max players:</td>
 	<td><?=$item['maxplayers']?></td>
 </tr>
-<tr>
+<tr class="w3-amber">
 	<td colspan="4">
 	<div align="center">
 	<strong>
@@ -111,8 +112,9 @@ if($item['ruleset_qualifying'] != 0) {
 	</td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="1" width="100%">
-<tr class="head">
+<div class="w3-container">
+<table class="w3-table-all">
+<tr class="w3-dark-grey">
 	<td>&nbsp;</td>
 	<td>Driver</td>
 	<td>Team</td>
@@ -128,7 +130,7 @@ if($item['ruleset_qualifying'] != 0) {
 	<? } ?>
 </tr>
 <?
-$style = "odd";
+#$style = "odd";
 while($ditem = mysql_fetch_array($dresult)) {
 	if(!isset($best_time)) $best_time = $ditem['time'];
 	if(!isset($most_laps)) $most_laps = $ditem['laps'];
@@ -159,23 +161,24 @@ while($ditem = mysql_fetch_array($dresult)) {
 		$time = "";
 	}
 ?>
-<tr class="<?=$style?>">
-	<td width="30" align="right"><?=++$position?>&nbsp;</td>
+<!--<tr class="<?=$style?>">-->
+<tr class="w3-hover-green">
+	<td align="right"><?=++$position?>&nbsp;</td>
 	<td><?=$ditem['dname']?></td>
 	<td><?=$ditem['tname']?></td>
 	<? if($item['progress'] != RACE_NEW) { ?>
-	<td width="26" align="right"><?=$ditem['grid']?></td>
+	<td align="right"><?=$ditem['grid']?></td>
 	<? if($item['progress'] != RACE_QUALIFYING) { ?>
-	<td width="50" align="right"><?=$laps?></td>
-	<td width="20" align="right"><?if($ditem['fastest_lap']=='1') echo "<img src=\"images/ok16.png\" alt=\"yes\">";?></td>
-	<td width="80" align="right"><?=$time?></td>
-	<td width="80" align="right"><?=$gap?></td>
-	<td width="30" align="right"><?=points_total($position, $ditem['grid'], $ditem['fastest_lap'], $ruleset)?></td>
+	<td align="right"><?=$laps?></td>
+	<td align="right"><?if($ditem['fastest_lap']=='1') echo "<img src=\"images/chrono.png\" alt=\"yes\">";?></td>
+	<td align="right"><?=$time?></td>
+	<td align="right"><?=$gap?></td>
+	<td align="right"><?=points_total($position, $ditem['grid'], $ditem['fastest_lap'], $ruleset)?></td>
 	<? } ?>
 	<? } ?>
 </tr>
 <?
-	$style = $style == "odd" ? "even" : "odd";
+#$style = $style == "odd" ? "even" : "odd";
 }
 
 while($ditem = mysql_fetch_array($ndresult)) {
@@ -208,23 +211,24 @@ while($ditem = mysql_fetch_array($ndresult)) {
 		$time = "";
 	}
 ?>
-<tr class="<?=$style?>">
-	<td width="30" align="right">-&nbsp;</td>
+<!--<tr class="<?=$style?>">-->
+<tr class="w3-hover-green">
+	<td align="right">-&nbsp;</td>
 	<td><?=$ditem['dname']?></td>
 	<td><?=$ditem['tname']?></td>
 	<? if($item['progress'] != RACE_NEW) { ?>
-	<td width="26" align="right"><?=$ditem['grid']?></td>
+	<td align="right"><?=$ditem['grid']?></td>
 	<? if($item['progress'] != RACE_QUALIFYING) { ?>
-	<td width="50" align="right"><?=$laps?></td>
-	<td width="20" align="right"><?if($ditem['fastest_lap']=='1') echo "<img src=\"images/ok16.png\" alt=\"yes\">";?></td>
-	<td width="80" align="right"><?=$race_status_s[$ditem['status']]?></td>
-	<td width="80" align="right">-</td>
-	<td width="30" align="right">-</td>
+	<td align="right"><?=$laps?></td>
+	<td align="right"><?if($ditem['fastest_lap']=='1') echo "<img src=\"images/chrono.png\" alt=\"yes\">";?></td>
+	<td align="right"><?=$race_status_s[$ditem['status']]?></td>
+	<td align="right">-</td>
+	<td align="right">-</td>
 	<? } ?>
 	<? } ?>
 </tr>
 <?
-	$style = $style == "odd" ? "even" : "odd";
+#$style = $style == "odd" ? "even" : "odd";
 }
 ?>
 </table>

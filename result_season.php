@@ -123,20 +123,21 @@ usort($driver, "point_sort");
 usort($team, "point_sort");
 ?>
 <h1>Season results</h1>
-<table border="0" cellspacing="0" cellpadding="1" width="100%">
-<tr>
+<div class="w3-container">
+<table class="w3-table-all">
+<tr class="w3-dark-grey">
 	<td width="20%">Name:</td>
 	<td width="30%"><?=$item['name']?></td>
 	<td width="20%">Races:</td>
 	<td width="30%"><?=$item['racecount']?></td>
 </tr>
-<tr>
+<tr class="w3-grey">
 	<td width="20%">Division:</td>
 	<td width="30%"><?=$item['dname']?></td>
 	<td width="20%">Ruleset:</td>
 	<td width="30%"><?=$ruleset['name']?><?if(isset($ruleset_qualifying)) echo " (qual: " . $ruleset_qualifying['name'] . ")"?></td>
 </tr>
-<tr>
+<tr class="w3-green">
 	<td colspan="4" align="center">
 		<a href=".?page=result_season&amp;season=<?=$season?>&amp;show=<?=SHOW_POINTS?>">points per race</a> |
 		<a href=".?page=result_season&amp;season=<?=$season?>&amp;show=<?=SHOW_INCREMENTAL?>">points incremental</a> |
@@ -146,9 +147,10 @@ usort($team, "point_sort");
 </table>
 
 <h2>Drivers</h2>
-<table border="0" cellspacing="0" cellpadding="1" width="100%">
+<div class="w3-container">
+<table class="w3-table-all">
 <tr><td></td><td></td><td></td></tr>
-<tr class="head">
+<tr class="w3-dark-grey">
 	<td>&nbsp;</td>
 	<td>Driver</td>
 	<td>Team</td>
@@ -162,7 +164,7 @@ $style = "odd";
 $pos = 0;
 foreach($driver as $id => $ditem) {
 ?>
-<tr class="<?=$style?>">
+<tr class="w3-hover-green">
 	<td width="30" align="right"><?=++$pos?>&nbsp;</td>
 	<td><?=$ditem['name']?></td>
 	<td><?=$ditem['team']?></td>
@@ -187,13 +189,14 @@ for($x = 1; $x <= $race; $x++) {
 	<td width="30" align="right"><strong><?=!empty($ditem['points']) ? $ditem['points'] : "0" ?></strong></td>
 </tr>
 <? 
-	$style = $style == "odd" ? "even" : "odd";
+#$style = $style == "odd" ? "even" : "odd";
 } ?>
 </table>
 
 <h2>Teams</h2>
-<table border="0" cellspacing="0" cellpadding="1" width="100%">
-<tr class="head">
+<div class="w3-container">
+<table class="w3-table-all">
+<tr class="w3-dark-grey">
 	<td>&nbsp;</td>
 	<td>Team</td>
 <? for($x = 1; $x <= $race; $x++) { ?>
@@ -202,11 +205,12 @@ for($x = 1; $x <= $race; $x++) {
 	<td width="30" align="right">Pts</td>
 </tr>
 <?
-$style = "odd";
+#$style = "odd";
 $pos = 0;
 foreach($team as $id => $titem) {
 ?>
-<tr class="<?=$style?>">
+<!--<tr class="<?=$style?>">-->
+<tr class="w3-hover-green">
 	<td width="30" align="right"><?=++$pos?>&nbsp;</td>
 	<td><?=$titem['name']?></td>
 <?
@@ -228,7 +232,7 @@ for($x = 1; $x <= $race; $x++) {
 	<td width="30" align="right"><strong><?=!empty($titem['points']) ? $titem['points'] : "0" ?></strong></td>
 </tr>
 <? 
-	$style = $style == "odd" ? "even" : "odd";
+#$style = $style == "odd" ? "even" : "odd";
 } ?>
 </table>
 
@@ -236,8 +240,9 @@ for($x = 1; $x <= $race; $x++) {
 	usort($driver, 'point_sort_qual');
 	?>
 <h2>Drivers qualifying</h2>
-<table border="0" cellspacing="0" cellpadding="1" width="100%">
-<tr class="head">
+<div class="w3-container">
+<table class="w3-table-all">
+<tr class="w3-dark-grey">
 	<td>&nbsp;</td>
 	<td>Driver</td>
 	<td>Team</td>
@@ -247,11 +252,12 @@ for($x = 1; $x <= $race; $x++) {
 	<td width="30" align="right">Pts</td>
 </tr>
 <?
-$style = "odd";
+#$style = "odd";
 $pos = 0;
 foreach($driver as $id => $ditem) {
 ?>
-<tr class="<?=$style?>">
+<!--<tr class="<?=$style?>">-->
+<tr class="w3-hover-green">
 	<td width="30" align="right"><?=++$pos?>&nbsp;</td>
 	<td><?=$ditem['name']?></td>
 	<td><?=$ditem['team']?></td>
@@ -261,7 +267,7 @@ foreach($driver as $id => $ditem) {
 	<td width="30" align="right"><strong><?=!empty($ditem['pointsqualifying']) ? $ditem['pointsqualifying'] : "0" ?></strong></td>
 </tr>
 <? 
-	$style = $style == "odd" ? "even" : "odd";
+#$style = $style == "odd" ? "even" : "odd";
 } ?>
 </table>
 <? } ?>

@@ -3,8 +3,9 @@
 <h1>Add driver</h1>
 
 <form action="driver_add_do_user.php" method="post">
-<table border="0">
-<tr>
+<div class="w3-container">
+<table class="w3-table-all">
+<tr class="w3-dark-grey">
 	<td width="120">Name:</td>
 	<td><input type="text" name="name" maxlength="30"></td>
 </tr>

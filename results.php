@@ -16,29 +16,32 @@ if(!$rresult) {
 ?>
 <h1>Results</h1>
 <h2>Seasons</h2>
-<table border="0" cellspacing="0" cellpadding="1" width="100%">
-<tr class="head">
+<div class="w3-container">
+<table class="w3-table-all">
+<tr class="w3-dark-grey">
 	<td>Season</td>
 	<td>Division</td>
 	<td>Races</td>
 </tr>
 <?
-$style = "odd";
+#$style = "odd";
 while($sitem = mysql_fetch_array($sresult)) { ?>
-<tr class="<?=$style?>">
+<!--<tr class="<?=$style?>">-->
+<tr class="w3-hover-green">
 	<td><a href=".?page=result_season&amp;season=<?=$sitem['id']?>"><?=$sitem['name']?></a></td>
 	<td><?=$sitem['dname']?></td>
 	<td><?=$sitem['racecount']?></td>
 </tr>
 <? 
-	$style = $style == "odd" ? "even" : "odd";
+#$style = $style == "odd" ? "even" : "odd";
 }
 ?>
 </table>
 
 <h2>Events</h2>
-<table border="0" cellspacing="0" cellpadding="1" width="100%">
-<tr class="head">
+<div class="w3-container">
+<table class="w3-table-all">
+<tr class="w3-dark-grey">
 	<td>Name</td>
 	<td>Track</td>
 	<td>Date</td>
@@ -46,11 +49,12 @@ while($sitem = mysql_fetch_array($sresult)) { ?>
 	<td>Ruleset</td>
 </tr>
 <?
-$style = "odd";
+#$style = "odd";
 while($ritem = mysql_fetch_array($rresult)) {
 	$date = strtotime($ritem['date']);
 	?>
-<tr class="<?=$style?>">
+<!--<tr class="<?=$style?>">-->
+<tr class="w3-hover-green">
 	<td><a href=".?page=result_race&amp;race=<?=$ritem['id']?>"><?=$ritem['name']?></a></td>
 	<td><?=$ritem['track']?></td>
 	<td><?=date("d M Y", $date)?></td>
@@ -58,7 +62,7 @@ while($ritem = mysql_fetch_array($rresult)) {
 	<td><?=$ritem['rsname']?><?=isset($ritem['qrsname']) ? " / " . $ritem['qrsname'] : ""?></td>
 </tr>
 <? 
-	$style = $style == "odd" ? "even" : "odd";
+#$style = $style == "odd" ? "even" : "odd";
 }
 ?>
 </table>

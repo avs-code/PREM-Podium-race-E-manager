@@ -1,13 +1,16 @@
 <? if(!defined("CONFIG")) exit(); ?>
 
-<script src="http://www.w3schools.com/lib/w3data.js"></script>
-<body>
 
-<div w3-include-html="rules.html"></div> 
+<!DOCTYPE html>
+<meta charset="utf-8">
 
-<script>
-w3IncludeHTML();
-</script>
+
+<?php 
+$str= file_get_contents("rules.rtf");
+$str = nl2br($str, true); // for XHMTL (in other words <br />). Use false for <br>. i.e $str = nl2br($str, false);
+echo $str;
+?>
+
 
 </body>
 </html>

@@ -27,8 +27,9 @@ $teamcount = mysql_num_rows($tresult);
 <h1>Modify driver</h1>
 
 <form action="driver_chg_do.php" method="post">
-<table border="0">
-<tr>
+<div class="w3-container">
+<table class="w3-table-all">
+<tr class="w3-dark-grey">
 	<td width="120">Name:</td>
 	<td><input type="text" name="name" value="<?=$item['name']?>" maxlength="30"></td>
     <td width="120">Number of times in the first place:</td>
@@ -40,7 +41,7 @@ $teamcount = mysql_num_rows($tresult);
     <td width="120">Photo:</td>
 	<td><input type="url" name="driver_photo" value="<?=$item['driver_photo']?>" maxlength="200"></td>
 </tr>
-<tr>
+<tr class="w3-hover-green">
 	<td>Teams (<?=$teamcount?>):</td>
 	<td>
 	<? while($titem = mysql_fetch_array($tresult)) { ?>

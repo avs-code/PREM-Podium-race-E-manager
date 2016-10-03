@@ -11,8 +11,9 @@ if (!$result) {
 ?>
 <h1>Drivers</h1>
 <h2>Drivers</h2>
-<table border="0" width="100%" cellspacing="0" cellpadding="1">
-<tr class="head">
+<div class="w3-container">
+<table class="w3-table-all">
+<tr class="w3-dark-grey">
 <td><h1>Name</h1></td>
 <td><h1><strong>1st</strong> <img src="images/cup1st.png" alt="" width="150" height="150" /></h1></td>
 <td><h1>2nd <img src="images/cup2nd.png" alt="" width="150" height="150" /></h1></td>
@@ -20,11 +21,12 @@ if (!$result) {
 <td><h1><strong>Photo</strong></h1></td>
 </tr>
 <?
-$style = "odd";
+#$style = "odd";
 while ($sitem = mysql_fetch_array($result)) {
  if ($sitem['driver_photo'] == '') { $url = 'images/helmet.png' ; } else { $url = $sitem['driver_photo']; } 
 ?>
-<tr class="<?= $style ?>">
+<tr class="w3-hover-green">
+<!--<tr class="<?= $style ?>">-->
 <td><?= $sitem['name'] ?></td>
 <td><?= $sitem['1st'] ?></td>
 <td><?= $sitem['2nd'] ?></td>
@@ -32,7 +34,7 @@ while ($sitem = mysql_fetch_array($result)) {
 <td><a><img src="<?=$url;?>" width="150" height="150"/></a></td>
 </tr>
 <?
-    $style = $style == "odd" ? "even" : "odd";
+#$style = $style == "odd" ? "even" : "odd";
 }
 ?>
 </table>

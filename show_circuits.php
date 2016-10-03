@@ -10,8 +10,9 @@ if (!$result) {
 ?>
 <h1>Circuits</h1>
 <h2>Circuits</h2>
-<table border="0" cellspacing="0" cellpadding="1" width="100%">
-<tr class="head">
+<div class="w3-container">
+<table class="w3-table-all">
+<tr class="w3-dark-grey">
 	<td>Name</td>
 	<td>Track</td>
 	<td>Season</td>
@@ -19,9 +20,10 @@ if (!$result) {
     <td>Image</td>
 </tr>
 <?
-$style = "odd";
+#$style = "odd";
 while ($sitem = mysql_fetch_array($result)) { ?>
-<tr class="<?= $style ?>">
+<!--<tr class="<?= $style ?>">-->
+<tr class="w3-hover-blue">
 <td><?= $sitem['name'] ?></td>
 <td><?= $sitem['track'] ?></td>
 <td><?= $sitem['season_name'] ?></td>
@@ -29,7 +31,7 @@ while ($sitem = mysql_fetch_array($result)) { ?>
 <td><a href="<?= $sitem['imagelink'] ?>" target="_blank"><img src="<?= $sitem['imagelink']; ?>" width="250" height="165"/></a></td>
 </tr>
 <?
-    $style = $style == "odd" ? "even" : "odd";
+#$style = $style == "odd" ? "even" : "odd";
 }
 ?>
 </table>

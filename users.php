@@ -28,23 +28,26 @@ if(mysql_num_rows($result) == 0) {
 	return;
 }
 ?>
-<table border="0" cellspacing="0" cellpadding="1" width="100%">
-<tr class="head"><td width="40">&nbsp;</td><td>Name</td></tr>
+<div class="w3-container">
+<table class="w3-table-all">
+<tr class="w3-dark-grey">
+<td>&nbsp;</td><td>Name</td></tr>
 
 <?
 
-$style = "odd";
+#$style = "odd";
 while($item = mysql_fetch_array($result)) {
 ?>
-<tr class="<?=$style?>">
-	<td width="40">
+<!--<tr class="<?=$style?>">-->
+<tr class="w3-hover-green">
+	<td>
 		<a href=".?page=user_chg&amp;id=<?=$item['id']?>"><img src="images/edit16.png" alt="chg"></a>
 		<a href=".?page=user_rem&amp;id=<?=$item['id']?>"><img src="images/delete16.png" alt="rem"></a>
 	</td>
 	<td><?=$item['name']?></td>
 </tr>
 <?
-	$style = $style == "odd" ? "even" : "odd";
+#$style = $style == "odd" ? "even" : "odd";
 }
 ?>
 </table>

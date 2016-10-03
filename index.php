@@ -33,7 +33,7 @@ if(defined("USE_MYSQL")) {
 
 // Start output
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
 <head>
 <title><?=TITLE?> - <?=$config['org']?></title>
@@ -41,17 +41,18 @@ if(defined("USE_MYSQL")) {
 <meta name="description" content="PREM-Podium-Racing-E-Manager is management software for races and race leagues. It can be used to create overviews of race results.">
 <meta name="keywords" content="Podium, PREM, manager, racing, assetto corsa, Life for Speed, Rfactor">
 <meta name="author" content="Spark, InGuNi">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="refresh" content="900">
+ <meta charset="utf-8">
+
 
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="w3-colors-signal.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 <!--
 <link rel="stylesheet" type="text/css" href="w3.css">
 <link rel="stylesheet" type="text/css" href="font-awesome_min.css">
-<link rel="stylesheet" type="text/css" href="style.css">
+
 -->
 
 
@@ -63,6 +64,9 @@ body {font-family: "Lato", sans-serif}
 
 <!--[if lt IE 7]>
 <script defer type="text/javascript" src="pngfix.js"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <![endif]-->
 </head>
 <body>
