@@ -11,7 +11,7 @@ define("TITLE", "PREM");
 define("SUBTITLE", "Podium race E manager");
 define("VERSION", "8.0beta");
 
-define("PAGE_DEFAULT", "results");
+define("PAGE_DEFAULT", "main");
 define("PAGE_ERROR", "error");
 
 // Comment these if you do not need them:

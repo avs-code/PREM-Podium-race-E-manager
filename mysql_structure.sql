@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: sql101.0lx.net
--- Tiempo de generación: 01-10-2016 a las 07:50:08
+-- Tiempo de generación: 02-10-2016 a las 20:55:52
 -- Versión del servidor: 5.6.21-69.0
 -- Versión de PHP: 5.3.3
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `0lx_2282133_pruebas`
+-- Base de datos: `0lx_2282133_prem`
 --
 
 -- --------------------------------------------------------
@@ -163,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `sim_results` (
   `season` int(11) NOT NULL DEFAULT '0',
   `simresults_url` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -213,10 +213,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 CREATE TABLE IF NOT EXISTS `video` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `video_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `video_url` text COLLATE utf8_unicode_ci NOT NULL,
+  `video_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `video_url` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
