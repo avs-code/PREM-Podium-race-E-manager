@@ -52,6 +52,11 @@ Beschreibung. Vektor-Illustration von einem Renn-Helm. Lizenz Public domain.
 *Creative Commons Zero (CC0) license.
 *pexels-photo-60881.jpeg; pexels-photo-158971.jpeg; car-race-ferrari-racing-car-pirelli-50704.jpeg; pexels-photo-169176.jpeg; pexels-photo-12789.jpeg; CC0 License ✓ Free for personal and commercial use ✓ No attribution required
 
+*CC0 Public Domain
+*https://pixabay.com/es/copa-campe%C3%B3n-premio-trofeo-segundo-1614673/
+https://pixabay.com/es/copa-campe%C3%B3n-nr1-ganador-premio-1614530/
+https://pixabay.com/es/copa-campe%C3%B3n-tercera-parte-3-%C2%BA-3-1614844/
+
 ---
 
 
