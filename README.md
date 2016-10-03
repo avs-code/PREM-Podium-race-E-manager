@@ -1,9 +1,9 @@
-# PREM (Podium race e manager) is management software for races and race leagues. It can be used to create overviews of race results. Based on Paddock 7.10beta by: demontpx
+* # PREM (Podium race e manager) is management software for races and race leagues. It can be used to create overviews of race results. Based on Paddock 7.10beta by: demontpx
 
 # PREM (Podium race e manager) by:
 Toni Vicente & Pablo Oña.
 
-Features
+*Features
 
     Import results from Assetto Corsa, rFactor and LFSPoints XML files.
     Show results of races per season.
@@ -22,17 +22,40 @@ Features
     
 (C)© Copyright 2016-2017 Toni Vicente & Pablo Oña
 
-License
+*License
 GNU General Public License version 3.0 (GPLv3)
 
 
 ---
-Helment image:
+#Images, pictures used (please, respect the respectives licences):
+
+*Helment image:
 http://publicdomainvectors.org/de/kostenlose-vektorgrafiken/Motorrad-Renn-Helm-Vektor-Symbol/21533.html
 
 Beschreibung. Vektor-Illustration von einem Renn-Helm. Lizenz Public domain.
 
+
+*By ToNG!? - FIA GT1, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=20368769
+
+*By user:AngMoKio - selfmade photo at Hockenheim 2008, CC BY-SA 2.5, https://commons.wikimedia.org/w/index.php?curid=3883701
+
+*By Morio - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=22398475
+
+*By Glen Duncombe - http://www.flickr.com/photos/corkracing/5412216243/, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=15127520
+
+*By kevinmcgill from Den Bosch, Netherlands - KAM_5118, CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=31689732
+
+*By Nascarking - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=38582044
+
+*By Tiago J. G. Fernandes from Portimão, Portugal - Andreas Mikkelsen - WRC Portugal 2013, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=26871873
+
+
+*Creative Commons Zero (CC0) license.
+*pexels-photo-60881.jpeg;  CC0 License ✓ Free for personal and commercial use ✓ No attribution required
+
 ---
+
+
 
 
 # Original version readme:
