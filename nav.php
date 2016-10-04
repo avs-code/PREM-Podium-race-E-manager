@@ -48,6 +48,7 @@
     <a href="?page=teams" class="w3-hover-red">Teams</a>
     <a href="?page=points" class="w3-hover-red">Rulesets</a>
     <a href="?page=sim_results_add" class="w3-hover-red">Send Simresults url</a>
+    <a href="?page=upload" class="w3-hover-red">Upload files</a>
     <a href="?page=users" class="w3-hover-red">Admins</a>
     <a href="?page=logout" class="w3-hover-red">Logout</a></li>
     </div>
@@ -78,10 +79,12 @@
     <li><a class="w3-padding-large" href="?page=divisions">Division</a></li>
     <li><a class="w3-padding-large" href="?page=drivers">Drivers</a></li>
     <li><a class="w3-padding-large" href="?page=teams">Teams</a></li>
-    <li><a class="w3-padding-large" href="?page=points">Rulesets</a></li>
-    <li><a class="w3-padding-large" href="?page=sim_results_add">Send Simresults url</a></li>
-    <li><a class="w3-padding-large" href="?page=users">Admins</a></li>
     <li><a class="w3-padding-large" href="?page=logout">Logout</a></li>
+    <li><a class="w3-padding-large" href="?page=sim_results_add">Send Simresults url</a></li>
+    <li><a class="w3-padding-large" href="?page=points">Rulesets</a></li>
+    <li><a class="w3-padding-large" href="?page=upload">Upload_files</a></li>
+    <li><a class="w3-padding-large" href="?page=users">Admins</a></li>
+    
   </ul>
 </div>
 <? } ?>

@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html>
-<body>
-
+You can upload for exampe image files to get after the url, to write it in drivers or teams profile, in image url text field.<br />
+Your uploads files will be in http://your_installation_url/uploads/<br />
+<p></p> 
 <form action="upload.php" method="post" enctype="multipart/form-data">
     Select image to upload:
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Upload Image" name="submit">
 </form>
+<p></p>
 
-</body>
-</html>
+
 
 <?php
 $target_dir = "uploads/";
