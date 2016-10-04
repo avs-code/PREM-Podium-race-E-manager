@@ -48,7 +48,7 @@
     <a href="?page=teams" class="w3-hover-red">Teams</a>
     <a href="?page=points" class="w3-hover-red">Rulesets</a>
     <a href="?page=sim_results_add" class="w3-hover-red">Send Simresults url</a>
-    <a href="?page=users" class="w3-hover-red">Users</a>
+    <a href="?page=users" class="w3-hover-red">Admins</a>
     <a href="?page=logout" class="w3-hover-red">Logout</a></li>
     </div>
   </li>
@@ -56,5 +56,34 @@
 </div>
 <? } ?>
 <? } ?>
-</nav>
 
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <ul class="w3-navbar w3-left-align w3-black">
+    <li><a class="w3-padding-large" href="?page=main">HOME</a></li>
+    <li><a class="w3-padding-large" href="?page=results">Results</a></li>
+    <li><a class="w3-padding-large" href="?page=sim_results">Sim_Results</a></li>
+    <li><a class="w3-padding-large" href="?page=show_circuits">Show_circuits</a></li>
+    <li><a class="w3-padding-large" href="?page=show_drivers">Show_drivers</a></li>
+    <li><a class="w3-padding-large" href="?page=show_teams">Show_teams</a></li>
+    <li><a class="w3-padding-large" href="?page=show_rules">Show_rules</a></li>
+    <li><a class="w3-padding-large" href="?page=show_videos">Show_videos</a></li>
+    <li><a class="w3-padding-large" href="?page=driver_add_user">New_Driver</a></li>
+<? if(defined("USE_MYSQL") && defined("USE_LOGIN")) { ?>
+<? if(!isset($login)) { ?>
+    <li><a class="w3-padding-large" href="?page=login">Login_Admin</a></li>
+<? } else { ?>
+    <li><a class="w3-padding-large" href="?page=races">Races</a></li>
+    <li><a class="w3-padding-large" href="?page=seasons">Season</a></li>
+    <li><a class="w3-padding-large" href="?page=divisions">Division</a></li>
+    <li><a class="w3-padding-large" href="?page=drivers">Drivers</a></li>
+    <li><a class="w3-padding-large" href="?page=teams">Teams</a></li>
+    <li><a class="w3-padding-large" href="?page=points">Rulesets</a></li>
+    <li><a class="w3-padding-large" href="?page=sim_results_add">Send Simresults url</a></li>
+    <li><a class="w3-padding-large" href="?page=users">Admins</a></li>
+    <li><a class="w3-padding-large" href="?page=logout">Logout</a></li>
+  </ul>
+</div>
+<? } ?>
+<? } ?>
+</nav>
