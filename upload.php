@@ -45,7 +45,7 @@ if(isset($_POST['btn-upload']))
  $file_size = $_FILES['file']['size'];
  $file_type = $_FILES['file']['type'];
  $folder="uploads/";
- $target_file = $folder . $_FILES["fileToUpload"]["name"];
+ $target_file = $folder . $_FILES["file"]["name"];
 if (file_exists($target_file))
 {
 echo "Sorry, file already exists.";
