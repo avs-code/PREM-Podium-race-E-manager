@@ -48,7 +48,6 @@
     <a href="?page=teams" class="w3-hover-red">Teams</a>
     <a href="?page=points" class="w3-hover-red">Rulesets</a>
     <a href="?page=sim_results_add" class="w3-hover-red">Send Simresults url</a>
-    <a href="?page=upload" class="w3-hover-red">Upload files</a>
     <a href="?page=users" class="w3-hover-red">Admins</a>
     <a href="?page=logout" class="w3-hover-red">Logout</a></li>
     </div>
