@@ -1,8 +1,7 @@
 <? if(!defined("CONFIG")) exit(); ?>
 
 
-<!DOCTYPE html>
-<meta charset="utf-8">
+
 
 
 <?php 
@@ -11,6 +10,7 @@ $str = nl2br($str, true); // for XHMTL (in other words <br />). Use false for <b
 echo $str;
 ?>
 
+<?php
 
-</body>
-</html>
+echo(stripslashes($_POST['content']));
+?>
