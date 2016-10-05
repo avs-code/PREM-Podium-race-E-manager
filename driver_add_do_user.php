@@ -29,5 +29,5 @@ $query = "INSERT INTO driver (name, driver_photo) VALUES ('$name','$photo')";
 $result = mysql_query($query);
 if(!$result) error("MySQL Error: " . mysql_error() . "\n");
 
-return_do(".?page=drivers", "Driver succesfully added\n$msg");
+return_do(".?page=show_drivers", "Driver succesfully added\n$msg");
 ?>
