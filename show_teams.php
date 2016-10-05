@@ -1,5 +1,4 @@
 <? if (!defined("CONFIG"))    exit();
-
 $sql_drivers = "SELECT driver.id as driverID, driver.name as driverName, team.team as teamID FROM driver LEFT JOIN team_driver as team ON team.driver = driver.id ORDER BY driver.id LIMIT 0, 30";
 $exe_drivers = mysql_query($sql_drivers);
 if (!$exe_drivers) {
@@ -10,12 +9,10 @@ while ($drivers = mysql_fetch_array($exe_drivers)) {
 	$driver[$drivers['teamID']][$drivers['driverID']] = $drivers['driverName'];
 }
 mysql_free_result($exe_drivers);
-
 if (!isset($driver)) {
     show_error("Drivers has been not found.\n");
     return;
 }
-
 $teams = "SELECT `team`.`id`, `team`.`name` , `team`.`logo` FROM team ORDER BY `team`.`name` ASC LIMIT 0 , 30";
 $result = mysql_query($teams);
 if (!$result) {
