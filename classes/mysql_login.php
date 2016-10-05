@@ -126,7 +126,8 @@ class mysql_login {
 	}
 
 	function get_data($key) {
-		return $this->userdata[$key];
+		if (array_key_exists($key, $this->userdata))
+			return $this->userdata[$key];
 	}
 
 	function is_loggedin() {
