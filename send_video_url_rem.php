@@ -1,23 +1,22 @@
-<? if(!defined("CONFIG")) exit(); ?>
-<? if(!isset($login)) { show_error("You do not have administrator rights\n"); return; } ?>
-<h1>Delete video</h1>
+<? if(!defined("CONFIG")) exit();
+if(!isset($login)) { show_error("You do not have administrator rights\n"); return; }
 
-<?
-$id = addslashes($_GET['id']);
-$query = "SELECT * FROM video WHERE id = '$id'";
+$id = intval($_GET['id']);
+$query = "SELECT * FROM video WHERE id = '$id' LIMIT 1";
 $result = mysql_query($query);
 if(!$result) {
 	show_error("MySQL error: " . mysql_error());
 	return;
 }
 if(mysql_num_rows($result) == 0) {
-	show_error("User does not exist\n");
+	show_error("Video does not exist\n");
 	return;
 }
 $item = mysql_fetch_array($result);
 ?>
+<h1>Delete video</h1>
 
-<form action="send_video_url_do.php" method="post">
+<form action="send_video_url_rem_do.php" method="post">
 <table border="0">
 <tr>
 	<td>Name:</td>
