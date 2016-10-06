@@ -1,16 +1,10 @@
-<? if(!defined("CONFIG")) exit(); ?>
-
-
-
-
-
-<?php 
-$str= file_get_contents("rules.rtf");
-$str = nl2br($str, true); // for XHMTL (in other words <br />). Use false for <br>. i.e $str = nl2br($str, false);
-echo $str;
-?>
-
-<?php
-
-echo(stripslashes($_POST['content']));
+<? if(!defined("CONFIG")) exit();
+$exe_rules = mysql_query("SELECT `rules` FROM config WHERE `id` = 1 LIMIT 1");
+list($rules) = mysql_fetch_array($exe_rules);
+mysql_free_result($exe_rules);
+if (!$rules) {
+    show_error("There\'s no rules at the moment.");
+    return;
+}
+echo $rules;
 ?>
