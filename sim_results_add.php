@@ -25,7 +25,7 @@ if(!$sresult) {
 	<td><input type="text" name="race_name" maxlength="30"></td>
 </tr>
 <tr>
-	<td>Simresults_link:</td>
+	<td>Simresults_url:</td>
 	<td><input type="url" name="simresults_url" maxlength="200"></td>
 </tr>
 

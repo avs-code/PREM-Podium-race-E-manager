@@ -37,7 +37,7 @@ if(mysql_num_rows($result) == 0) {
 </tr>
 
 <?
-$style = "odd";
+#$style = "odd";
 while($item = mysql_fetch_array($result)) {
 ?>
 <!--<tr class="#<?=$style?>">-->
