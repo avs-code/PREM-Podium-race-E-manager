@@ -1,13 +1,20 @@
 <? if (!defined("CONFIG"))
-    exit(); ?>
-<?
+    exit();
 
-$drivers = "SELECT `driver`.`name` , `driver`.`1st` , `driver`.`2nd` , `driver`.`3rd` , `driver`.`driver_photo` FROM driver ORDER BY `driver`.`name` ASC LIMIT 0 , 30";
-$result = mysql_query($drivers);
-if (!$result) {
+$sql_positions = "SELECT `team_driver`, `position` FROM race_driver WHERE `position` <= 3";
+$exe_positions = mysql_query($sql_positions);
+while ($positions = mysql_fetch_array($exe_positions)) {
+	$position[$positions['team_driver']][$positions['position']]++;
+}
+mysql_free_result($exe_positions);
+
+$sql_drivers = "SELECT `driver`.`id`, `driver`.`name`, `driver`.`driver_photo`, `team_driver`.`id` as teamDriverID FROM driver LEFT JOIN team_driver ON driver.id = team_driver.driver ORDER BY `driver`.`name` ASC LIMIT 0 , 30";
+$exe_drivers = mysql_query($sql_drivers);
+if (!$exe_drivers) {
     show_error("MySQL Error: " . mysql_error() . "\n");
     return;
 }
+
 ?>
 <h1>Drivers</h1>
 <h2>Drivers</h2>
@@ -22,19 +29,23 @@ if (!$result) {
 </tr>
 <?
 #$style = "odd";
-while ($sitem = mysql_fetch_array($result)) {
- if ($sitem['driver_photo'] == '') { $url = 'images/helmet.png' ; } else { $url = $sitem['driver_photo']; } 
-?>
-<tr class="w3-hover-green">
-<!--<tr class="<?= $style ?>">-->
-<td><?= $sitem['name'] ?></td>
-<td><?= $sitem['1st'] ?></td>
-<td><?= $sitem['2nd'] ?></td>
-<td><?= $sitem['3rd'] ?></td>
-<td><a><img src="<?=$url;?>" width="150" height="150"/></a></td>
-</tr>
-<?
-#$style = $style == "odd" ? "even" : "odd";
+while ($sitem = mysql_fetch_array($exe_drivers)) {
+	if ($sitem['driver_photo'] == '') { $url = 'images/helmet.png' ; } else { $url = $sitem['driver_photo']; } 
+	$first_position = intval($position[$sitem['teamDriverID']][1]);
+	$second_position = intval($position[$sitem['teamDriverID']][2]);
+	$third_position = intval($position[$sitem['teamDriverID']][3]);
+	?>
+	<tr class="w3-hover-green">
+	<!--<tr class="<?= $style ?>">-->
+	<td><?= $sitem['name'] ?></td>
+	<td><?= $first_position ?></td>
+	<td><?= $second_position ?></td>
+	<td><?= $third_position ?></td>
+	<td><a><img src="<?=$url;?>" width="150" height="150"/></a></td>
+	</tr>
+	<?
+	#$style = $style == "odd" ? "even" : "odd";
 }
+mysql_free_result($exe_drivers);
 ?>
 </table>
