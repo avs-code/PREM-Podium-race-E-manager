@@ -41,15 +41,16 @@
   <li class="w3-hide-small w3-dropdown-hover">
     <a href="javascript:void(0)" class="w3-hover-red w3-padding-large" title="Login Admin">Login Admin <i class="fa fa-caret-down"></i></a>     
     <div class="w3-dropdown-content w3-white w3-card-4">
-    <a href="?page=races" class="w3-hover-red">Races</a>
-    <a href="?page=seasons" class="w3-hover-red">Seasons</a>
     <a href="?page=divisions" class="w3-hover-red">Divisions</a>
+    <a href="?page=points" class="w3-hover-red">Rulesets</a>
+    <a href="?page=seasons" class="w3-hover-red">Seasons</a>
+    <a href="?page=races" class="w3-hover-red">Races</a>
     <a href="?page=drivers" class="w3-hover-red">Drivers</a>
     <a href="?page=teams" class="w3-hover-red">Teams</a>
-    <a href="?page=points" class="w3-hover-red">Rulesets</a>
     <a href="?page=edit_rules_mods" class="w3-hover-red">Edit_rules_and_mods</a>
     <a href="?page=sim_results_add" class="w3-hover-red">Send Simresults url</a>
     <a href="?page=send_video_url" class="w3-hover-red">Send video url</a>
+    <a href="?page=upload" class="w3-hover-red">Upload_file</a>
     <a href="?page=users" class="w3-hover-red">Admins</a>
     <a href="?page=logout" class="w3-hover-red">Logout</a></li>
     </div>
@@ -75,10 +76,8 @@
 <? if(!isset($login)) { ?>
     <li><a class="w3-padding-large" href="?page=login">Login_Admin</a></li>
 <? } else { ?>
-    <li><a class="w3-padding-large" href="?page=races">Races</a></li>
-    <li><a class="w3-padding-large" href="?page=seasons">Season</a></li>
-    <li><a class="w3-padding-large" href="?page=drivers">Drivers</a></li>
-    <li><a class="w3-padding-large" href="?page=teams">Teams</a></li>
+    <li><a class="w3-padding-large" href="?page=drivers">Edit drivers</a></li>
+    <li><a class="w3-padding-large" href="?page=teams">Edit teams</a></li>
     <li><a class="w3-padding-large" href="?page=sim_results_add">Send Simresults url</a></li>
     <li><a class="w3-padding-large" href="?page=users">Admins</a></li>
     <li><a class="w3-padding-large" href="?page=logout">Logout</a></li>
