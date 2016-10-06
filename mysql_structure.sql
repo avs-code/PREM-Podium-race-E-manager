@@ -23,6 +23,45 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `config`
+--
+
+CREATE TABLE IF NOT EXISTS `config` (
+  `id` tinyint(1) NOT NULL,
+  `default_language` varchar(15) NOT NULL,
+  `rules` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `config`
+--
+
+INSERT INTO `config` (`id`, `default_language`, `rules`) VALUES
+(1, 'english', '<p>Set your rules.</p>');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `config`
+--
+ALTER TABLE `config`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `config`
+--
+ALTER TABLE `config`
+  MODIFY `id` tinyint(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `division`
 --
 
