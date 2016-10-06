@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `config` (
 --
 
 INSERT INTO `config` (`id`, `default_language`, `rules`) VALUES
-(1, 'english', '<p>Set your rules.</p>');
+(1, 'english', '<p>Set your rules and mods here.</p>');
 
 --
 -- Índices para tablas volcadas
