@@ -1,5 +1,5 @@
-<? if(!defined("CONFIG")) exit(); ?>
-<? if(!isset($login)) { show_error("You do not have administrator rights\n"); return; } ?>
+<? if(!defined("CONFIG")) exit();
+if(!isset($login)) { show_error("You do not have administrator rights\n"); return; } ?>
 <?
 $id = addslashes($_GET['id']);
 
@@ -32,12 +32,6 @@ $teamcount = mysql_num_rows($tresult);
 <tr class="w3-dark-grey">
 	<td width="120">Name:</td>
 	<td><input type="text" name="name" value="<?=$item['name']?>" maxlength="30"></td>
-    <td width="120">Number of times in the first place:</td>
-	<td><input type="text" name="1st" value="<?=$item['1st']?>" maxlength="30"></td>
-    <td width="120">Number of times in the second place:</td>
-	<td><input type="text" name="2nd" value="<?=$item['2nd']?>" maxlength="30"></td>
-    <td width="120">Number of times in the third place:</td>
-	<td><input type="text" name="3rd" value="<?=$item['3rd']?>" maxlength="30"></td>
     <td width="120">Photo:</td>
 	<td><input type="url" name="driver_photo" value="<?=$item['driver_photo']?>" maxlength="200"></td>
 </tr>
