@@ -48,7 +48,8 @@ if(isset($_POST['btn-upload']))
  $target_file = $folder . $_FILES["file"]["name"];
 if (file_exists($target_file))
 {
-echo "Sorry, file already exists.";
+echo "SORRY, FILE ALREADY EXISTS.";
+return;
 } 
  // new file size in KB
  $new_size = $file_size/5000;  
@@ -90,6 +91,7 @@ echo "Sorry, file already exists.";
     <th colspan="4">your uploads...<label><a href="?page=upload">upload new files...</a></label></th>
     </tr>
     <tr>
+    <td>Delete</td>
     <td>File Name</td>
     <td>File Type</td>
     <td>File Size(KB)</td>
@@ -102,6 +104,7 @@ echo "Sorry, file already exists.";
  {
   ?>
         <tr class="w3-hover-green">
+        <td><a href=".?page=upload_rem&amp;id=<?=$row['id']?>"><img src="images/delete16.png" alt="rem"></a></td>
         <td><?php echo $row['file'] ?></td>
         <td><?php echo $row['type'] ?></td>
         <td><?php echo $row['size'] ?></td>
@@ -111,10 +114,3 @@ echo "Sorry, file already exists.";
  }
  ?>
     </table>
-
-<!--Remove files-->
-
-$res=mysql_query("SELECT file FROM uploads WHERE id=".$_GET['remove_id']);
-$row=mysql_fetch_array($res);
-mysql_query("DELETE FROM uploads WHERE id=".$_GET['remove_id']);
-unlink("uploads/".$row['file']);
