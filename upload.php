@@ -112,3 +112,9 @@ echo "Sorry, file already exists.";
  ?>
     </table>
 
+<!--Remove files-->
+
+$res=mysql_query("SELECT file FROM uploads WHERE id=".$_GET['remove_id']);
+$row=mysql_fetch_array($res);
+mysql_query("DELETE FROM uploads WHERE id=".$_GET['remove_id']);
+unlink("uploads/".$row['file']);
