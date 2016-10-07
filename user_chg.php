@@ -1,6 +1,6 @@
 <? if(!defined("CONFIG")) exit(); ?>
 <? if(!isset($login)) { show_error("You do not have administrator rights\n"); return; } ?>
-<h1>Modify user</h1>
+<h1>Modify admin</h1>
 
 <?
 $id = addslashes($_GET['id']);

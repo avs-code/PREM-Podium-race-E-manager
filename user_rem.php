@@ -1,6 +1,6 @@
 <? if(!defined("CONFIG")) exit(); ?>
 <? if(!isset($login)) { show_error("You do not have administrator rights\n"); return; } ?>
-<h1>Delete user</h1>
+<h1>Delete admin</h1>
 
 <?
 $id = addslashes($_GET['id']);
@@ -11,7 +11,7 @@ if(!$result) {
 	return;
 }
 if(mysql_num_rows($result) == 0) {
-	show_error("User does not exist\n");
+	show_error("User admin does not exist\n");
 	return;
 }
 $item = mysql_fetch_array($result);

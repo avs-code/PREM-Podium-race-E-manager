@@ -7,6 +7,8 @@ $id = intval($_POST['id']);
 mysqlconnect();
 $query = "DELETE FROM uploads WHERE id='$id' LIMIT 1";
 $result = mysql_query($query);
+unlink("uploads/".$result['file']);
+
 if(!$result) error("MySQL Error: " . mysql_error() . "\n");
 
 return_do(".?page=upload", "File succesfully removed\n");

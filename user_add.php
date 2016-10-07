@@ -1,6 +1,6 @@
 <? if(!defined("CONFIG")) exit(); ?>
 <? if(!isset($login)) { show_error("You do not have administrator rights\n"); return; } ?>
-<h1>Add user</h1>
+<h1>Add admin</h1>
 
 <form action="user_add_do.php" method="post">
 <table border="0">

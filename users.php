@@ -13,7 +13,7 @@ if(!$result) {
 }
 
 ?>
-<h1>Users</h1>
+<h1>Admins</h1>
 
 <div align="right">
 <form action="." method="GET">
@@ -21,10 +21,10 @@ if(!$result) {
 <input type="text" class="search" name="filter" value="<?=$_GET['filter']?>">
 </form>
 </div>
-<a href=".?page=user_add">Add user</a>
+<a href=".?page=user_add">Add admin</a>
 <?
 if(mysql_num_rows($result) == 0) {
-	show_msg("No users found\n");
+	show_msg("No admins found\n");
 	return;
 }
 ?>
