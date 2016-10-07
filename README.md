@@ -18,6 +18,7 @@ Toni Vicente & Pablo Oña.
     Show the rules to competition.
     Send simresults web page links to show in podium results web page.
     Register as driver with name & picture.
+    Edit your rules and mods page with WYSIWYG tinymce editor.
     
     
 (C)© Copyright 2016-2017 Toni Vicente & Pablo Oña
@@ -25,6 +26,10 @@ Toni Vicente & Pablo Oña.
 *License
 GNU General Public License version 3.0 (GPLv3)
 
+---
+
+TinyMCE is a platform independent web-based JavaScript HTML WYSIWYG
+editor control released as open source under LGPL
 
 ---
 #Images, pictures used (please, respect the respectives licences):
