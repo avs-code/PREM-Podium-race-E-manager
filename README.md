@@ -26,6 +26,8 @@ Toni Vicente & Pablo Oña.
 *License
 GNU General Public License version 3.0 (GPLv3)
 
+https://arv187.github.io/PREM-Podium-race-E-manager/
+
 ---
 
 TinyMCE is a platform independent web-based JavaScript HTML WYSIWYG
