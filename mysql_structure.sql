@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
    `default_language` varchar(15) NOT NULL,
 -  `rules` text NOT NULL
 +  `rules` text NOT NULL,
--) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 +  PRIMARY KEY (`id`)
 -
 +) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
