@@ -22,44 +22,38 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
- CREATE TABLE IF NOT EXISTS `config` (
- CREATE TABLE IF NOT EXISTS `config` (
--  `id` tinyint(1) NOT NULL,
-+  `id` tinyint(1) NOT NULL AUTO_INCREMENT,
-   `default_language` varchar(15) NOT NULL,
-   `default_language` varchar(15) NOT NULL,
--  `rules` text NOT NULL
-+  `rules` text NOT NULL,
--) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-+  PRIMARY KEY (`id`)
--
-+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
----
---- Volcado de datos para la tabla `config`
----
--
--INSERT INTO `config` (`id`, `default_language`, `rules`) VALUES
--(1, 'english', '<p>Set your rules and mods here.</p>');
--
----
---- Índices para tablas volcadas
----
--
----
---- Indices de la tabla `config`
----
--ALTER TABLE `config`
--  ADD PRIMARY KEY (`id`);
--
----
---- AUTO_INCREMENT de las tablas volcadas
----
--
----
---- AUTO_INCREMENT de la tabla `config`
----
--ALTER TABLE `config`
--  MODIFY `id` tinyint(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+CREATE TABLE IF NOT EXISTS `config` (
+  `id` tinyint(1) NOT NULL,
+  `default_language` varchar(15) NOT NULL,
+  `rules` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `config`
+--
+
+INSERT INTO `config` (`id`, `default_language`, `rules`) VALUES
+(1, 'english', '<p>Set your rules and mods here.</p>');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `config`
+--
+ALTER TABLE `config`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `config`
+--
+ALTER TABLE `config`
+  MODIFY `id` tinyint(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 -- --------------------------------------------------------
 
