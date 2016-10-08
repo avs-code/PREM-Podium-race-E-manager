@@ -120,8 +120,8 @@ if (defined("USE_MYSQL")) {
   <a href="#" class="w3-hover-text-light-blue"><i class="fa fa-twitter"></i></a>
   <a href="#" class="w3-hover-text-grey"><i class="fa fa-flickr"></i></a>
   <a href="#" class="w3-hover-text-indigo"><i class="fa fa-linkedin"></i></a>
-  <a href="https://github.com/arv187/PREM-Podium-race-E-manager" class="w3-hover-text-indigo"><i class="fa fa-github"></i></a>
-  <p class="w3-medium">Powered by <a href="https://github.com/arv187/PREM-Podium-race-E-manager" target="_blank">PREM</a></p>
+  <a href="https://arv187.github.io/PREM-Podium-race-E-manager/" class="w3-hover-text-indigo"><i class="fa fa-github"></i></a>
+  <p class="w3-medium">Powered by <a href="https://arv187.github.io/PREM-Podium-race-E-manager" target="_blank">PREM</a></p>
 </footer>
 
 
