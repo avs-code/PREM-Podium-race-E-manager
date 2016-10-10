@@ -3,7 +3,7 @@
 if ($simresultID = intval($_GET['sres']))
 	$sim_results = "SELECT simresults_url FROM sim_results WHERE `id` = '$simresultID' LIMIT 1";
 else
-	$sim_results = "SELECT `sim_results`.`id`, `sim_results`.`race_name` , `season`.`name` AS season_name, `sim_results`.`simresults_url` FROM sim_results LEFT JOIN season ON `sim_results`.`season` = `season`.`id` ORDER BY `season`.`name` ASC LIMIT 0 , 30";
+	$sim_results = "SELECT `sim_results`.`id`, `sim_results`.`race_name` , `season`.`name` AS season_name, `sim_results`.`simresults_url` FROM sim_results LEFT JOIN season ON `sim_results`.`season` = `season`.`id` ORDER BY `season`.`name`, `sim_results`.`id` ASC LIMIT 0 , 30";
 $result = mysql_query($sim_results);
 if (!$result) {
     show_error("MySQL Error: " . mysql_error() . "\n");
