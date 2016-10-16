@@ -24,7 +24,7 @@ if (!$exe_drivers) {
 <td><h1>Name</h1></td>
 <td><h1><strong>1st</strong> <img src="images/cup1st.png" alt="" width="150" height="150" /></h1></td>
 <td><h1>2nd <img src="images/cup2nd.png" alt="" width="150" height="150" /></h1></td>
-<td><h1><strong>3rd</strong> <img src="images/cup3rd.png" alt="" width="150" height="150" /></h1></td>
+<td><h1><strong>3rd</strong> <img src="images/cup3rd.png" alt="" width="60" height="60" /></h1></td>
 <td><h1><strong>Photo</strong></h1></td>
 </tr>
 <?
