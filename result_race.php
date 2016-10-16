@@ -86,6 +86,10 @@ if($item['ruleset_qualifying'] != 0) {
 	<td>Max players:</td>
 	<td><?=$item['maxplayers']?></td>
 </tr>
+<tr class="w3-grey">
+    <td>Replay:</td>
+<td><a href="<?=$item['replay']?>" target="_blank"><img src="images/replay.png" alt="replay"></a></td>
+</tr>
 <tr class="w3-amber">
 	<td colspan="4">
 	<div align="center">

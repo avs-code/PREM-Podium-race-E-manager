@@ -137,6 +137,7 @@ CREATE TABLE IF NOT EXISTS `race` (
   `result_official` tinyint(1) NOT NULL DEFAULT '0',
   `progress` int(11) NOT NULL DEFAULT '0',
   `imagelink` varchar(200) CHARACTER SET utf8 NOT NULL,
+  `replay` varchar(200) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 

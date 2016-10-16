@@ -97,6 +97,9 @@ if(!$rdresult) {
 	</td>
 	<td>Max players:</td>
 	<td><?=$item['maxplayers']?></td>
+<tr>
+    <td>Replay link:</td>
+	<td><input type="url" name="replay" value="<?=$item['replay']?>" maxlength="200"></td>
 </tr>
 <tr>
 	<td>

@@ -7,6 +7,7 @@ require_once("results_functions.php");
 
 $id = addslashes($_POST['id']);
 $season = addslashes($_POST['season']);
+$replay = htmlspecialchars($_POST['replay']);
 $official = isset($_POST['official']) ? 1 : 0;
 $driver = $_POST['driver'];
 $grid = $_POST['grid'];
@@ -109,7 +110,7 @@ $progress = RACE_NEW;
 if($has_qualifying) $progress = RACE_QUALIFYING;
 if($has_race) $progress = RACE_RACE;
 
-$query = "UPDATE race SET result_official='$official', progress='$progress' WHERE id='$id'";
+$query = "UPDATE race SET result_official='$official', progress='$progress', replay='$replay' WHERE id='$id'";
 $result = mysql_query($query);
 if(!$result) error("MySQL Error: " . mysql_error() . "\n");
 
