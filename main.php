@@ -1,7 +1,8 @@
-<? if(!defined("CONFIG")) exit(); ?>
-Welcome to the Podium Racing E Manager for <a href="<?=$config['org_link']?>"><?=$config['org']?></a>.<br>
+<? if (!defined("CONFIG"))
+    exit(); ?>
+Welcome to the Podium Racing E Manager for <a href="<?= $config['org_link'] ?>"><?= $config['org'] ?></a>.<br>
 <div class="small">
-Version <?=VERSION?><br>
+Version <?= VERSION ?><br>
 </div>
 <!-- Automatic Slideshow Images -->
   <div class="mySlides w3-display-container">
@@ -106,3 +107,41 @@ function carousel() {
 }
 
 </script>
+
+<!-- Main page content-->
+
+<!--NEWS-->
+<div class="w3-container">
+
+
+<div class="w3-row w3-border">
+<div class="w3-threequarter w3-panel">
+  <h2>NEWS</h2>
+  <p></p>  
+  php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sqlphp/sql
+</div>
+<div class="w3-quarter w3-panel w3-round-xlarge w3-gray">
+<div>
+    <h2>Last Race</h2>
+    <p></p>
+  php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql
+  <button class="w3-btn w3-green">Show</button>
+  <button class="w3-btn w3-red">Hide</button>
+</div>
+<div>
+    <h2>Team standings</h2>
+    <p></p>
+  php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql
+  <button class="w3-btn w3-green">Show</button>
+  <button class="w3-btn w3-red">Hide</button>
+</div>
+<div>
+    <h2>Driver standings</h2>
+    <p></p>
+    php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql
+  <button class="w3-btn w3-green">Show</button>
+  <button class="w3-btn w3-red">Hide</button>
+</div>
+
+</div>
+</div>
