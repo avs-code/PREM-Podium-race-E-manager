@@ -111,37 +111,54 @@ function carousel() {
 <!-- Main page content-->
 
 <!--NEWS-->
-<div class="w3-container">
-
-
-<div class="w3-row w3-border">
-<div class="w3-threequarter w3-panel">
-  <h2>NEWS</h2>
-  <p></p>  
-  php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sqlphp/sql
-</div>
-<div class="w3-quarter w3-panel w3-round-xlarge w3-gray">
+<div class="w3-row">
+<div class="w3-col w3-gray w3-round-xlarge w3-text-shadow" style="width:250px">
 <div>
     <h2>Last Race</h2>
-    <p></p>
+    <p><button class="w3-btn w3-green">Show</button>
+  <button class="w3-btn w3-red">Hide</button></p>
   php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql
-  <button class="w3-btn w3-green">Show</button>
-  <button class="w3-btn w3-red">Hide</button>
 </div>
+
+<div>
+    <h2>Last Race</h2>
+    <p><button class="w3-btn w3-green">Show</button>
+  <button class="w3-btn w3-red">Hide</button></p>
+  php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql
+</div>
+
 <div>
     <h2>Team standings</h2>
-    <p></p>
+    <p><button class="w3-btn w3-green">Show</button>
+  <button class="w3-btn w3-red">Hide</button></p>
   php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql
-  <button class="w3-btn w3-green">Show</button>
-  <button class="w3-btn w3-red">Hide</button>
 </div>
+
 <div>
     <h2>Driver standings</h2>
-    <p></p>
+    <p><button class="w3-btn w3-green">Show</button>
+  <button class="w3-btn w3-red">Hide</button></p>
     php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql
-  <button class="w3-btn w3-green">Show</button>
-  <button class="w3-btn w3-red">Hide</button>
 </div>
+
+</div>
+
+    <div class="w3-rest w3-dark-gray w3-round-xlarge">
+
+  <h2>NEWS</h2>
+<p>
+<?php
+$exe_news = mysql_query("SELECT `news` FROM main LIMIT 1 ORDER BY id DESC");
+list($news) = mysql_fetch_array($exe_news);
+mysql_free_result($exe_news);
+if (!$news) {
+    show_error("There\'s no news at the moment.");
+    return;
+}
+echo $news;
+?>
+</p>  
+
 
 </div>
 </div>
