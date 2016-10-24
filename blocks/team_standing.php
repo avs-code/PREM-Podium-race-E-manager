@@ -35,7 +35,7 @@ show driver name - points
 	  Show season.name nº2<br />
 	  Show Team - Points<br />
    
-<!--Driver setanding-->
+<!--Driver standing-->
 
 	<div class="w3-center w3-black w3-text-white"><h2>Driver Standings</h2></div>
 
@@ -50,7 +50,7 @@ show driver name - points
 	  Show season.name nº3<br />
 	  Show Team - Points<br />
 	
-<!--Driver setanding-->
+<!--Driver standing-->
 
 	<div class="w3-center w3-black w3-text-white"><h2>Driver Standings</h2></div>
 
@@ -66,7 +66,7 @@ show driver name - points
 	  Show Team - Points<br />
 	
 
-<!--Driver setanding-->
+<!--Driver standing-->
 
 	<div class="w3-center w3-black w3-text-white"><h2>Driver Standings</h2></div>
 
@@ -82,7 +82,7 @@ show driver name - points
 	  Show Team - Points<br />
 	
 
-<!--Driver setanding-->
+<!--Driver standing-->
 
 	<div class="w3-center w3-black w3-text-white"><h2>Driver Standings</h2></div>
 
@@ -98,7 +98,7 @@ show driver name - points
 	  Show Team - Points<br />
 	
 
-<!--Driver setanding-->
+<!--Driver standing-->
 
 	<div class="w3-center w3-black w3-text-white"><h2>Driver Standings</h2></div>
 

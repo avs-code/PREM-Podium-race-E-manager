@@ -66,6 +66,9 @@ https://pixabay.com/es/copa-campe%C3%B3n-nr1-ganador-premio-1614530/
 https://pixabay.com/es/copa-campe%C3%B3n-tercera-parte-3-%C2%BA-3-1614844/
 https://pixabay.com/es/cron%C3%B3metro-acceso-telef%C3%B3nico-34108/
 
+*Font Awesome by Dave Gandy - http://fontawesome.io
+Font Awesome is fully open source and is GPL friendly. http://fontawesome.io/license/ 
+
 ---
 
 
