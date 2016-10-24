@@ -63,6 +63,33 @@ INSERT INTO `division` (`id`, `name`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `blocks`
+--
+
+CREATE TABLE IF NOT EXISTS `blocks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(250) NOT NULL,
+  `content_file` varchar(150) NOT NULL,
+  `content_html` text NOT NULL,
+  `language` varchar(150) NOT NULL,
+  `sort_order` int(11) NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sort_order` (`sort_order`),
+  KEY `active` (`active`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `blocks`
+--
+
+INSERT INTO `blocks` (`id`, `title`, `content_file`, `content_html`, `language`, `sort_order`, `active`) VALUES
+(1, 'Next Events', 'next_events', '', 'english', 1, 1),
+(2, 'Last Race', 'last_race', '', 'english', 2, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `driver`
 --
 

@@ -71,6 +71,25 @@ CREATE TABLE IF NOT EXISTS `division` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `blocks`
+--
+
+CREATE TABLE IF NOT EXISTS `blocks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(250) NOT NULL,
+  `content_file` varchar(150) NOT NULL,
+  `content_html` text NOT NULL,
+  `language` varchar(150) NOT NULL,
+  `sort_order` int(11) NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sort_order` (`sort_order`),
+  KEY `active` (`active`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `driver`
 --
 
