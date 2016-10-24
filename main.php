@@ -121,7 +121,7 @@ function carousel() {
 <!--Next events-->
 <div>
 
-    <div class="w3-center"><h2>Next Events</h2></div>
+    <div class="w3-center w3-black w3-text-white"><h2>Next Events</h2></div>
     <p><button class="w3-btn w3-green">Show</button>
   <button class="w3-btn w3-red">Hide</button></p>
   
@@ -165,7 +165,7 @@ while ($sitem = mysql_fetch_array($result)) { ?>
   
 <!--Last race-->
 <div>
-    <div class="w3-center"><h2>Last Race</h2></div>
+    <div class="w3-center w3-black w3-text-white"><h2>Last Race</h2></div>
     <p><button class="w3-btn w3-green">Show</button>
   <button class="w3-btn w3-red">Hide</button></p>
 Show race.season<br />
@@ -178,7 +178,7 @@ fast lap time<br />
 
 <!--Team standing-->
 <div>
-    <div class="w3-center"><h2>Team Standings</h2></div>
+    <div class="w3-center w3-black w3-text-white"><h2>Team Standings</h2></div>
     <p><button class="w3-btn w3-green">Show</button>
   <button class="w3-btn w3-red">Hide</button></p>
 
@@ -201,7 +201,7 @@ Numbers of page (1,2,3,4,5) indicate season number in database ( for example: 1 
     
 <!--Driver standing-->
 
-    <div class="w3-center"><h2>Driver Standings</h2></div>
+    <div class="w3-center w3-black w3-text-white"><h2>Driver Standings</h2></div>
 
 show driver name - points
 
@@ -216,7 +216,7 @@ show driver name - points
    
 <!--Driver setanding-->
 
-    <div class="w3-center"><h2>Driver Standings</h2></div>
+    <div class="w3-center w3-black w3-text-white"><h2>Driver Standings</h2></div>
 
 show driver name - points
 
@@ -231,7 +231,7 @@ show driver name - points
     
 <!--Driver setanding-->
 
-    <div class="w3-center"><h2>Driver Standings</h2></div>
+    <div class="w3-center w3-black w3-text-white"><h2>Driver Standings</h2></div>
 
 show driver name - points
 
@@ -247,7 +247,7 @@ show driver name - points
 
 <!--Driver setanding-->
 
-    <div class="w3-center"><h2>Driver Standings</h2></div>
+    <div class="w3-center w3-black w3-text-white"><h2>Driver Standings</h2></div>
 
 show driver name - points
 
@@ -263,7 +263,7 @@ show driver name - points
 
 <!--Driver setanding-->
 
-    <div class="w3-center"><h2>Driver Standings</h2></div>
+    <div class="w3-center w3-black w3-text-white"><h2>Driver Standings</h2></div>
 
 show driver name - points
 
@@ -279,7 +279,7 @@ show driver name - points
 
 <!--Driver setanding-->
 
-    <div class="w3-center"><h2>Driver Standings</h2></div>
+    <div class="w3-center w3-black w3-text-white"><h2>Driver Standings</h2></div>
 
 show driver name - points
 
@@ -313,12 +313,12 @@ document.getElementsByClassName("tablink")[0].click();
 
 <!--NEWS-->
 
-<div class="w3-rest w3-dark-gray w3-round-xlarge">
+<div class="w3-rest w3-dark-gray w3-round-xlarge w3-center">
 
-  <div class="w3-center"><h2>NEWS</h2></div>
+  <div class="w3-center w3-black w3-text-white"><h2>NEWS</h2></div>
 <p>
 <?php
-$exe_news = mysql_query("SELECT `news` FROM main LIMIT 1 ORDER BY id DESC");
+$exe_news = mysql_query("SELECT `news` FROM main LIMIT 5 ORDER BY id DESC");
 list($news) = mysql_fetch_array($exe_news);
 mysql_free_result($exe_news);
 if (!$news) {
@@ -327,6 +327,7 @@ if (!$news) {
 }
 echo $news;
 ?>
+
 </p>  
 
 </div>
