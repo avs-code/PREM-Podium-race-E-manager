@@ -4,7 +4,9 @@ Welcome to the Podium Racing E Manager for <a href="<?= $config['org_link'] ?>">
 <div class="small">
 Version <?= VERSION ?><br>
 </div>
+
 <!-- Automatic Slideshow Images -->
+
   <div class="mySlides w3-display-container">
     <img src="images/2011_FIA_GT1_Silverstone_2.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
@@ -110,38 +112,98 @@ function carousel() {
 
 <!-- Main page content-->
 
-<!--NEWS-->
+<!--Side Bar-->
 <div class="w3-row">
 <div class="w3-col w3-gray w3-round-xlarge w3-text-shadow" style="width:250px">
 <div>
-    <h2>Next Event</h2>
+
+<!--Next events-->
+
+    <h2>Next Events</h2>
     <p><button class="w3-btn w3-green">Show</button>
   <button class="w3-btn w3-red">Hide</button></p>
-  php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql
+  
+  
+<?
+$circuits = "SELECT race.track, race.name, race.division, race.date, race.imagelink, race.maxplayers, race.season, season.name AS season_name
+FROM race INNER JOIN season on season.id=race.season
+WHERE race.date>=CURDATE()
+ORDER BY race.date ASC LIMIT 2";
+$result = mysql_query($circuits);
+if (!$result) {
+    show_error("MySQL Error: " . mysql_error() . "\n");
+    return;
+}
+?>
+<div class="w3-responsive">
+<table class="w3-table-all">
+<tr class="w3-dark-grey">
+	<td>Date</td>    
+	<td>Track</td>
+	<td>Season</td>
+</tr>
+<?
+
+while ($sitem = mysql_fetch_array($result)) { ?>
+
+<tr class="w3-hover-blue">
+<td><?= $sitem['date'] ?></td>
+<td><?= $sitem['track'] ?></td>
+<td><?= $sitem['season_name'] ?></td>
+</tr>
+<?
+
+}
+?>
+</table>
+</div>  
+  
+  
 </div>
 
+<!--Last race-->
 <div>
     <h2>Last Race</h2>
     <p><button class="w3-btn w3-green">Show</button>
   <button class="w3-btn w3-red">Hide</button></p>
-  php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql
+Show race.season<br />
+Show race.name<br />
+1º driver name - team<br />
+2º driver name - team<br />
+3º driver name - team<br />
+fast lap time<br />
 </div>
 
+<!--Team standing-->
 <div>
-    <h2>Team Standings</h2>
+    <h2>Team standings</h2>
     <p><button class="w3-btn w3-green">Show</button>
   <button class="w3-btn w3-red">Hide</button></p>
-  php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql
+<ul class="w3-pagination">
+
+    <li><a class="w3-green" href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+
+</ul>
+<br />
+Numbers of page (1,2,3,4,5) indicate season number in database ( for example: 1 blancpain, 2 WTCC, 3 F3)
+<br />
+Show season.name<br />
+Show Team - Points<br />
+
+<!--Driver setanding-->
+
+    <h2>Driver standings</h2>
+
+
+</div>
 </div>
 
-<div>
-    <h2>Driver Standings</h2>
-    <p><button class="w3-btn w3-green">Show</button>
-  <button class="w3-btn w3-red">Hide</button></p>
-    php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql
-</div>
 
-</div>
+<!--NEWS-->
 
     <div class="w3-rest w3-dark-gray w3-round-xlarge">
 
