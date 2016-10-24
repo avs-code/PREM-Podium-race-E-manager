@@ -6,7 +6,7 @@ Version <?= VERSION ?><br>
 </div>
 
 <!-- Automatic Slideshow Images -->
-<div class="w3-container" align="center">
+<div class="w3-container w3-black" align="center">
   <div class="mySlides w3-display-container">
     <img src="images/2011_FIA_GT1_Silverstone_2.jpg" style="height:638px">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
