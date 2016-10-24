@@ -92,6 +92,7 @@ Version <?= VERSION ?><br>
     </div>
   </div>
 </div>
+
 <script>
 // Automatic Slideshow - change image every 8 seconds
 var myIndex = 0;
@@ -115,12 +116,12 @@ function carousel() {
 
 <!--Side Bar-->
 <div class="w3-row">
-<div class="w3-col w3-gray w3-round-xlarge w3-text-shadow" style="width:250px">
-<div>
+<div class="w3-col w3-gray w3-round-xlarge" style="width:250px">
 
 <!--Next events-->
+<div>
 
-    <h2>Next Events</h2>
+    <div class="w3-center"><h2>Next Events</h2></div>
     <p><button class="w3-btn w3-green">Show</button>
   <button class="w3-btn w3-red">Hide</button></p>
   
@@ -158,13 +159,13 @@ while ($sitem = mysql_fetch_array($result)) { ?>
 ?>
 </table>
 </div>  
-  
-  
-</div>
+ 
 
+</div> 
+  
 <!--Last race-->
 <div>
-    <h2>Last Race</h2>
+    <div class="w3-center"><h2>Last Race</h2></div>
     <p><button class="w3-btn w3-green">Show</button>
   <button class="w3-btn w3-red">Hide</button></p>
 Show race.season<br />
@@ -177,41 +178,144 @@ fast lap time<br />
 
 <!--Team standing-->
 <div>
-    <h2>Team standings</h2>
+    <div class="w3-center"><h2>Team Standings</h2></div>
     <p><button class="w3-btn w3-green">Show</button>
   <button class="w3-btn w3-red">Hide</button></p>
-<ul class="w3-pagination">
 
-    <li><a class="w3-green" href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
+    <ul class="w3-pagination">
+      <li><a href="javascript:void(0)" class="tablink" onclick="openLink(event, '1');"><i class="w3-margin-center"></i>1</a></li>
+      <li><a href="javascript:void(0)" class="tablink" onclick="openLink(event, '2');"><i class="w3-margin-center"></i>2</a></li>
+      <li><a href="javascript:void(0)" class="tablink" onclick="openLink(event, '3');"><i class="w3-margin-center"></i>3</a></li>
+      <li><a href="javascript:void(0)" class="tablink" onclick="openLink(event, '4');"><i class="w3-margin-center"></i>4</a></li>
+      <li><a href="javascript:void(0)" class="tablink" onclick="openLink(event, '5');"><i class="w3-margin-center"></i>5</a></li>
+      <li><a href="javascript:void(0)" class="tablink" onclick="openLink(event, '6');"><i class="w3-margin-center"></i>6</a></li>
+    </ul>
 
-</ul>
-<br />
+
 Numbers of page (1,2,3,4,5) indicate season number in database ( for example: 1 blancpain, 2 WTCC, 3 F3)
-<br />
-Show season.name<br />
-Show Team - Points<br />
 
-<!--Driver setanding-->
 
-    <h2>Driver standings</h2>
+<div id="1" class="myLink">
+      Show season.name nº1<br />
+      Show Team - Points<br />
+    
+<!--Driver standing-->
+
+    <div class="w3-center"><h2>Driver Standings</h2></div>
 
 show driver name - points
 
 
 <p></p>
 </div>
+
+
+<div id="2" class="myLink">
+      Show season.name nº2<br />
+      Show Team - Points<br />
+   
+<!--Driver setanding-->
+
+    <div class="w3-center"><h2>Driver Standings</h2></div>
+
+show driver name - points
+
+
+<p></p>
+
+</div>
+
+<div id="3" class="myLink">
+      Show season.name nº3<br />
+      Show Team - Points<br />
+    
+<!--Driver setanding-->
+
+    <div class="w3-center"><h2>Driver Standings</h2></div>
+
+show driver name - points
+
+
+<p></p>
+
+</div>
+
+<div id="4" class="myLink">
+      Show season.name nº4<br />
+      Show Team - Points<br />
+    
+
+<!--Driver setanding-->
+
+    <div class="w3-center"><h2>Driver Standings</h2></div>
+
+show driver name - points
+
+
+<p></p>
+
+</div>
+
+<div id="5" class="myLink">
+      Show season.name nº5<br />
+      Show Team - Points<br />
+    
+
+<!--Driver setanding-->
+
+    <div class="w3-center"><h2>Driver Standings</h2></div>
+
+show driver name - points
+
+
+<p></p>
+
+</div>
+
+<div id="6" class="myLink">
+      Show season.name nº6<br />
+      Show Team - Points<br />
+    
+
+<!--Driver setanding-->
+
+    <div class="w3-center"><h2>Driver Standings</h2></div>
+
+show driver name - points
+
+
+<p></p>
 </div>
 
 
+<script>
+// Team and driver Standings
+function openLink(evt, linkName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("myLink");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(linkName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+// Click on the first tablink on load
+document.getElementsByClassName("tablink")[0].click();
+</script>
+
+
+</div>
+</div>
+
 <!--NEWS-->
 
-    <div class="w3-rest w3-dark-gray w3-round-xlarge">
+<div class="w3-rest w3-dark-gray w3-round-xlarge">
 
-  <h2>NEWS</h2>
+  <div class="w3-center"><h2>NEWS</h2></div>
 <p>
 <?php
 $exe_news = mysql_query("SELECT `news` FROM main LIMIT 1 ORDER BY id DESC");
@@ -225,6 +329,8 @@ echo $news;
 ?>
 </p>  
 
+</div>
+</div>
 
-</div>
-</div>
+
+
