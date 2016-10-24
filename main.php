@@ -114,7 +114,7 @@ function carousel() {
 <div class="w3-row">
 <div class="w3-col w3-gray w3-round-xlarge w3-text-shadow" style="width:250px">
 <div>
-    <h2>Last Race</h2>
+    <h2>Next Event</h2>
     <p><button class="w3-btn w3-green">Show</button>
   <button class="w3-btn w3-red">Hide</button></p>
   php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql
@@ -128,14 +128,14 @@ function carousel() {
 </div>
 
 <div>
-    <h2>Team standings</h2>
+    <h2>Team Standings</h2>
     <p><button class="w3-btn w3-green">Show</button>
   <button class="w3-btn w3-red">Hide</button></p>
   php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql
 </div>
 
 <div>
-    <h2>Driver standings</h2>
+    <h2>Driver Standings</h2>
     <p><button class="w3-btn w3-green">Show</button>
   <button class="w3-btn w3-red">Hide</button></p>
     php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql php/sql
