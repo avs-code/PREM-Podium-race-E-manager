@@ -2,34 +2,42 @@
     exit();
 
 $exe_blocks = mysql_query("SELECT `id`, `title`, `content_file`, `content_html`, `language`, `sort_order` FROM blocks WHERE `active` = 1 ORDER BY `sort_order` ASC");
-while (list($blockID, $blockTitle, $blockContentFile, $blockContentHtml, $blockSortOrder) = mysql_fetch_array($exe_blocks)) {
-	if (!$blockTitle)
-		continue;
-
-	if ($blockContentFile) {
-		
-		if (strpos($blockContentFile, '/') !== false)
+if ($exe_blocks) {
+	while (list($blockID, $blockTitle, $blockContentFile, $blockContentHtml, $blockSortOrder) = mysql_fetch_array($exe_blocks)) {
+		if (!$blockTitle)
 			continue;
 
-		if (file_exists('blocks/'.$blockContentFile.'.php')) {
-			ob_start();
-			include("blocks/$blockContentFile.php");
-			$blockContent = ob_get_clean();
-		} else {
-			$blockContent = "<p align='center'>File <strong>$blockContentFile</strong> has not been found</p>";
-		}
+		if ($blockContentFile) {
 			
-	} elseif ($blockContentHtml) {
-		$blockContent = $blockContentHtml;
-	} else
-		$blockContent = "<p align='center'>Content has not been found</p>";
-	
-	$blocks[] = array(
-		"id" => $blockID,
-		"title" => $blockTitle,
-		"content" => $blockContent
-	);
-}
+			if (strpos($blockContentFile, '/') !== false)
+				continue;
+
+			if (file_exists('blocks/'.$blockContentFile.'.php')) {
+				ob_start();
+				include("blocks/$blockContentFile.php");
+				$blockContent = ob_get_clean();
+			} else {
+				$blockContent = "<p align='center'>File <strong>$blockContentFile</strong> has not been found</p>";
+			}
+				
+		} elseif ($blockContentHtml) {
+			$blockContent = $blockContentHtml;
+		} else
+			$blockContent = "<p align='center'>Content has not been found</p>";
+		
+		$blocks[] = array(
+			"id" => $blockID,
+			"title" => $blockTitle,
+			"content" => $blockContent
+		);
+	}
+	mysql_free_result($exe_blocks);
+} else
+	$blocks = array();
+
+# News
+$exe_news = mysql_query("SELECT `id`, `title`, `content`, `datetime` FROM news ORDER BY datetime DESC LIMIT 5");
+
 ?>
 Welcome to the Podium Racing E Manager for <a href="<?= $config['org_link'] ?>"><?= $config['org'] ?></a>.<br>
 <div class="small">
@@ -174,25 +182,23 @@ if ($blocks) {
 
 <!--NEWS-->
 
-<div class="w3-rest w3-dark-gray w3-round-xlarge w3-center">
-
-  <div class="w3-center w3-black w3-text-white"><h2>NEWS</h2></div>
-<p>
 <?php
-$exe_news = mysql_query("SELECT `news` FROM main LIMIT 5 ORDER BY id DESC");
-list($news) = mysql_fetch_array($exe_news);
-mysql_free_result($exe_news);
-if (!$news) {
-    show_error("There\'s no news at the moment.");
-    return;
+if ($exe_news) {
+	?>
+
+	<?php
+	while (list($newsID, $newsTitle, $newsContent, $newsDatetime) = mysql_fetch_array($exe_news)) {
+		?>
+		<div class="w3-rest w3-dark-gray w3-round-xlarge w3-center">
+			<div class="w3-center w3-black w3-text-white"><h2><?=$newsTitle;?></h2></div>
+
+			<p><?=$newsContent;?></p>
+		</div>
+		<?php
+	}
+	mysql_free_result($exe_news);	
 }
-echo $news;
 ?>
-
-</p>  
-
-</div>
-</div>
 
 
 
