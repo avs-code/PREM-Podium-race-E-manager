@@ -33,7 +33,8 @@
   <li class="w3-hide-small w3-dropdown-hover">
     <a href="javascript:void(0)" class="w3-hover-red w3-padding-large" title="Join">Join <i class="fa fa-caret-down"></i></a>     
     <div class="w3-dropdown-content w3-white w3-card-4">
-    <a href="?page=driver_add_user" class="w3-hover-red">New Driver</a></li>
+    <a href="?page=driver_add_user" class="w3-hover-red">New Driver</a>
+    <a href="your_forum_url" class="w3-hover-red">Forum</a></li>
 <? if(defined("USE_MYSQL") && defined("USE_LOGIN")) { ?>
 <? if(!isset($login)) { ?>
     <li class="w3-hide-small"><a href="?page=login" class="w3-padding-large">Login Admin</a></li>
@@ -71,7 +72,9 @@
     <li><a class="w3-padding-large" href="?page=show_teams">Show_teams</a></li>
     <li><a class="w3-padding-large" href="?page=show_rules">Show_rules</a></li>
     <li><a class="w3-padding-large" href="?page=show_videos">Show_videos</a></li>
-    <li><a class="w3-padding-large" href="?page=driver_add_user">New_Driver</a></li>
+    <li><a class="w3-padding-large" href="?page=driver_add_user">New_Driver</a>
+    <li><a class="w3-padding-large" href="your_forum_url">Forum</a>
+    
 <? if(defined("USE_MYSQL") && defined("USE_LOGIN")) { ?>
 <? if(!isset($login)) { ?>
     <li><a class="w3-padding-large" href="?page=login">Login_Admin</a></li>

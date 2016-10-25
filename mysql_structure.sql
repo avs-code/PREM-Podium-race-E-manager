@@ -274,6 +274,13 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+--
+-- Volcado de datos para la tabla `config`
+--
+
+INSERT INTO `user` (`name`, `passwd`, `active`) VALUES
+('admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1);
+
 -- --------------------------------------------------------
 
 --

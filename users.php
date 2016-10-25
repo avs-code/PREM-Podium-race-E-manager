@@ -15,6 +15,8 @@ if(!$result) {
 ?>
 <h1>Admins</h1>
 
+Admin default user and password: admin/admin <strong>PLEASE CHANGE THIS PASSWORD URGENTLY!!!</strong>
+
 <div align="right">
 <form action="." method="GET">
 <input type="hidden" name="page" value="users">
