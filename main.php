@@ -181,7 +181,8 @@ if ($blocks) {
 ?>
 
 <!--NEWS-->
-
+<div class="w3-rest w3-dark-gray w3-round-xlarge w3-center">
+<div class="w3-center w3-black w3-text-white"><h2>News</h2></div>
 <?php
 if ($exe_news) {
 	?>
@@ -189,8 +190,8 @@ if ($exe_news) {
 	<?php
 	while (list($newsID, $newsTitle, $newsContent, $newsDatetime) = mysql_fetch_array($exe_news)) {
 		?>
-		<div class="w3-rest w3-dark-gray w3-round-xlarge w3-center">
-			<div class="w3-center w3-black w3-text-white"><h2><?=$newsTitle;?></h2></div>
+		
+			<div class="w3-center w3-black w3-text-white"><h3><?=$newsTitle;?></h3></div>
 
 			<p><?=$newsContent;?></p>
 		</div>
