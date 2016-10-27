@@ -1,11 +1,12 @@
+
 -- phpMyAdmin SQL Dump
--- version 3.5.8.2
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- Servidor: sql101.0lx.net
--- Tiempo de generación: 16-10-2016 a las 05:09:18
--- Versión del servidor: 5.6.21-69.0
--- Versión de PHP: 5.3.3
+-- Servidor: localhost
+-- Tiempo de generación: 27-10-2016 a las 00:33:47
+-- Versión del servidor: 10.0.22-MariaDB
+-- Versión de PHP: 5.2.17
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,8 +18,35 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `0lx_2282133_prem`
+-- Base de datos: `u275158832_prem`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `blocks`
+--
+
+CREATE TABLE IF NOT EXISTS `blocks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(250) NOT NULL,
+  `content_file` varchar(150) NOT NULL,
+  `content_html` text NOT NULL,
+  `language` varchar(150) NOT NULL,
+  `sort_order` int(11) NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sort_order` (`sort_order`),
+  KEY `active` (`active`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `blocks`
+--
+
+INSERT INTO `blocks` (`id`, `title`, `content_file`, `content_html`, `language`, `sort_order`, `active`) VALUES
+(1, 'Next Events', 'next_events', '', 'english', 1, 1),
+(2, 'Last Race', 'last_race', '', 'english', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -31,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `config` (
   `default_language` varchar(15) NOT NULL,
   `rules` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `config`
@@ -51,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `division` (
   `name` varchar(30) NOT NULL DEFAULT '',
   `type` varchar(30) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `division`
@@ -59,33 +87,6 @@ CREATE TABLE IF NOT EXISTS `division` (
 
 INSERT INTO `division` (`id`, `name`, `type`) VALUES
 (5, 'Blancpain GT Series Sprint Cup', 'Case D');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `blocks`
---
-
-CREATE TABLE IF NOT EXISTS `blocks` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(250) NOT NULL,
-  `content_file` varchar(150) NOT NULL,
-  `content_html` text NOT NULL,
-  `language` varchar(150) NOT NULL,
-  `sort_order` int(11) NOT NULL,
-  `active` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `sort_order` (`sort_order`),
-  KEY `active` (`active`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `blocks`
---
-
-INSERT INTO `blocks` (`id`, `title`, `content_file`, `content_html`, `language`, `sort_order`, `active`) VALUES
-(1, 'Next Events', 'next_events', '', 'english', 1, 1),
-(2, 'Last Race', 'last_race', '', 'english', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `driver` (
   `3rd` int(30) NOT NULL,
   `driver_photo` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=61 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=58 ;
 
 --
 -- Volcado de datos para la tabla `driver`
@@ -179,6 +180,7 @@ CREATE TABLE IF NOT EXISTS `race` (
   `result_official` tinyint(1) NOT NULL DEFAULT '0',
   `progress` int(11) NOT NULL DEFAULT '0',
   `imagelink` varchar(200) NOT NULL,
+  `replay` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
@@ -186,15 +188,15 @@ CREATE TABLE IF NOT EXISTS `race` (
 -- Volcado de datos para la tabla `race`
 --
 
-INSERT INTO `race` (`id`, `name`, `track`, `laps`, `season`, `division`, `ruleset`, `ruleset_qualifying`, `date`, `maxplayers`, `result_official`, `progress`, `imagelink`) VALUES
-(10, 'Monza Italy', 'Autodromo Nazionale', 20, 4, 5, 4, 4, '2016-09-12 02:30:00', 24, 1, 2, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Monza_track_map.svg/2000px-Monza_track_map.svg.png'),
-(11, 'A. Vallelunga Piero Taruffi', 'Autodromo Vallelunga Piero T.', 20, 4, 5, 4, 4, '2016-09-18 03:00:00', 20, 1, 2, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Autodromo_Vallelunga.svg/1280px-Autodromo_Vallelunga.svg.png'),
-(13, 'Silverstone International', 'Silverstone Circuit', 37, 4, 5, 4, 4, '2016-09-25 03:30:00', 20, 1, 2, 'http://silverstone.co.uk/wp-content/uploads/2016/05/si2417_map_international_v7.png__2744x3371_q85_crop_subsampling-2_upscale-834x1024.png'),
-(14, 'GP short circuit 3.8km', 'Circuit Paul Ricard', 26, 4, 5, 4, 4, '2016-10-16 03:00:00', 20, 1, 2, 'http://motorsportm8.com/wp-content/uploads/2014/04/Image80.png'),
-(15, 'Spa-Francorchamps GT3', 'Circuito de Spa-Francorchamps', 16, 4, 5, 4, 4, '2016-10-30 03:00:00', 20, 0, 0, 'https://upload.wikimedia.org/wikipedia/commons/5/54/Spa-Francorchamps_of_Belgium.svg'),
-(16, 'Budapest Truck Grand Prix', 'Hungaroring', 23, 4, 5, 4, 4, '2016-11-13 04:00:00', 20, 0, 0, 'https://upload.wikimedia.org/wikipedia/commons/9/91/Hungaroring.svg'),
-(17, 'Bridgehampton', 'Bridgehampton Race Circuit', 25, 4, 5, 4, 4, '2016-11-27 04:00:00', 20, 0, 0, 'http://bridgehamptonraceway.net/wp-content/uploads/2016/04/UsE-THIStrackscan.jpg'),
-(18, 'Mid-Ohio', 'Mid-Ohio Sports Car Course', 27, 4, 5, 4, 4, '2016-12-11 04:00:00', 20, 0, 0, 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Mid-Ohio.svg');
+INSERT INTO `race` (`id`, `name`, `track`, `laps`, `season`, `division`, `ruleset`, `ruleset_qualifying`, `date`, `maxplayers`, `result_official`, `progress`, `imagelink`, `replay`) VALUES
+(10, 'Monza Italy', 'Autodromo Nazionale', 20, 4, 5, 4, 4, '2016-09-12 02:30:00', 24, 1, 2, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Monza_track_map.svg/2000px-Monza_track_map.svg.png', 'https://mega.nz/#!pMoyERJK!6GYYHDQcs3JUfZPpGD9XFfTMVs-qdDR4lOLbpZRwcMA'),
+(11, 'A. Vallelunga Piero Taruffi', 'Autodromo Vallelunga Piero T.', 20, 4, 5, 4, 4, '2016-09-18 03:00:00', 20, 1, 2, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Autodromo_Vallelunga.svg/1280px-Autodromo_Vallelunga.svg.png', ''),
+(13, 'Silverstone International', 'Silverstone Circuit', 37, 4, 5, 4, 4, '2016-09-25 03:30:00', 20, 1, 2, 'http://silverstone.co.uk/wp-content/uploads/2016/05/si2417_map_international_v7.png__2744x3371_q85_crop_subsampling-2_upscale-834x1024.png', ''),
+(14, 'GP short circuit 3.8km', 'Circuit Paul Ricard', 26, 4, 5, 4, 4, '2016-10-16 03:00:00', 20, 1, 2, 'http://motorsportm8.com/wp-content/uploads/2014/04/Image80.png', ''),
+(15, 'Spa-Francorchamps GT3', 'Circuito de Spa-Francorchamps', 16, 4, 5, 4, 4, '2016-10-30 03:00:00', 20, 0, 0, 'https://upload.wikimedia.org/wikipedia/commons/5/54/Spa-Francorchamps_of_Belgium.svg', ''),
+(16, 'Budapest Truck Grand Prix', 'Hungaroring', 23, 4, 5, 4, 4, '2016-11-13 04:00:00', 20, 0, 0, 'https://upload.wikimedia.org/wikipedia/commons/9/91/Hungaroring.svg', ''),
+(17, 'Bridgehampton', 'Bridgehampton Race Circuit', 25, 4, 5, 4, 4, '2016-11-27 04:00:00', 20, 0, 0, 'http://bridgehamptonraceway.net/wp-content/uploads/2016/04/UsE-THIStrackscan.jpg', ''),
+(18, 'Mid-Ohio', 'Mid-Ohio Sports Car Course', 27, 4, 5, 4, 4, '2016-12-11 04:00:00', 20, 0, 0, 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Mid-Ohio.svg', '');
 
 -- --------------------------------------------------------
 
@@ -219,11 +221,11 @@ CREATE TABLE IF NOT EXISTS `race_driver` (
 --
 
 INSERT INTO `race_driver` (`race`, `team_driver`, `grid`, `position`, `fastest_lap`, `laps`, `time`, `status`) VALUES
+(10, 80, 2, 2, 0, 20, 2424370, 0),
+(10, 76, 6, 5, 0, 17, 353000, 1),
 (10, 82, 4, 4, 0, 19, 2478016, 0),
 (10, 75, 1, 1, 1, 20, 2335867, 0),
-(10, 76, 6, 5, 0, 17, 353000, 1),
 (10, 83, 5, 3, 0, 20, 2456008, 0),
-(10, 80, 2, 2, 0, 20, 2424370, 0),
 (11, 92, 8, 8, 0, 0, 0, 3),
 (11, 87, 4, 7, 0, 20, 2155045, 0),
 (11, 83, 6, 6, 0, 20, 2151051, 0),
@@ -263,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `season` (
   `ruleset_qualifying` int(11) NOT NULL DEFAULT '0',
   `maxteams` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `season`
@@ -333,7 +335,7 @@ CREATE TABLE IF NOT EXISTS `team` (
   `name` varchar(30) NOT NULL DEFAULT '',
   `logo` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
 
 --
 -- Volcado de datos para la tabla `team`
@@ -357,7 +359,7 @@ CREATE TABLE IF NOT EXISTS `team_driver` (
   `team` int(11) NOT NULL DEFAULT '0',
   `driver` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=98 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=94 ;
 
 --
 -- Volcado de datos para la tabla `team_driver`
