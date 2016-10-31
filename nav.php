@@ -48,9 +48,10 @@
     <a href="?page=races" class="w3-hover-red">Races</a>
     <a href="?page=drivers" class="w3-hover-red">Drivers</a>
     <a href="?page=teams" class="w3-hover-red">Teams</a>
-    <a href="?page=edit_rules_mods" class="w3-hover-red">Edit_rules_and_mods</a>
+    <a href="?page=edit_rules_mods" class="w3-hover-red">Edit rules and mods</a>
     <a href="?page=sim_results_add" class="w3-hover-red">Send Simresults url</a>
     <a href="?page=send_video_url" class="w3-hover-red">Send video url</a>
+    <a href="?page=main_news" class="w3-hover-red">News mainpage</a>
     <a href="?page=upload" class="w3-hover-red">Upload_file</a>
     <a href="?page=users" class="w3-hover-red">Admins</a>
     <a href="?page=logout" class="w3-hover-red">Logout</a></li>
@@ -81,6 +82,7 @@
 <? } else { ?>
     <li><a class="w3-padding-large" href="?page=drivers">Edit drivers</a></li>
     <li><a class="w3-padding-large" href="?page=teams">Edit teams</a></li>
+    <li><a class="w3-padding-large" href="?page=main_news">News mainpage</a></li>
     <li><a class="w3-padding-large" href="?page=sim_results_add">Send Simresults url</a></li>
     <li><a class="w3-padding-large" href="?page=users">Admins</a></li>
     <li><a class="w3-padding-large" href="?page=logout">Logout</a></li>
