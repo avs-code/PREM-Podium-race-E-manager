@@ -159,14 +159,14 @@ function carousel() {
 if ($blocks) {
 	?>
 
-	<div class="w3-col w3-gray w3-round-xlarge" style="width:250px">
+	<div class="w3-col w3-gray w3-border w3-border-black w3-round-xlarge" style="width:250px">
 		<?php
 		foreach($blocks as $blockTempID => $blockDetails) {
 			?>
 			<div>
 
 				<div class="w3-center w3-black w3-text-white"><h2><?=$blockDetails['title'];?></h2></div>
-				<div class="w3-responsive">
+				<div class="w3-responsive w3-padding-tiny">
 					<?=$blockDetails['content'];?>
 				</div>
 				
@@ -181,7 +181,7 @@ if ($blocks) {
 ?>
 
 <!--NEWS-->
-<div class="w3-rest w3-dark-gray w3-round-xlarge w3-center">
+<div class="w3-rest w3-dark-gray w3-border w3-border-black w3-round-xlarge w3-center">
 <div class="w3-center w3-black w3-text-white"><h2>News</h2></div>
 <?php
 if ($exe_news) {
@@ -193,7 +193,7 @@ if ($exe_news) {
 		
 			<div class="w3-center w3-black w3-text-white"><h3><?=$title;?>&nbsp;<?=$day;?></h3></div>
 
-			<p><?=$news;?></p>
+			<p><div class="w3-padding-large"><?=$news;?></div> </p>
 		
 		<?php
 	}

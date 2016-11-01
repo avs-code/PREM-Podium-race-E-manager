@@ -89,6 +89,21 @@ CREATE TABLE IF NOT EXISTS `blocks` (
 
 -- --------------------------------------------------------
 
+
+--
+-- Estructura de tabla para la tabla `main_news`
+--
+
+CREATE TABLE IF NOT EXISTS `main_news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `news` text CHARACTER SET utf8 NOT NULL,
+  `day` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
 --
 -- Estructura de tabla para la tabla `driver`
 --
