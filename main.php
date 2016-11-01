@@ -36,7 +36,7 @@ if ($exe_blocks) {
 	$blocks = array();
 
 # News
-$exe_news = mysql_query("SELECT `id`, `title`, `content`, `datetime` FROM news ORDER BY datetime DESC LIMIT 5");
+$exe_news = mysql_query("SELECT `id`, `title`, `news`, `day` FROM main_news ORDER BY day DESC LIMIT 5");
 
 ?>
 Welcome to the Podium Racing E Manager for <a href="<?= $config['org_link'] ?>"><?= $config['org'] ?></a>.<br>
@@ -188,18 +188,19 @@ if ($exe_news) {
 	?>
 
 	<?php
-	while (list($newsID, $newsTitle, $newsContent, $newsDatetime) = mysql_fetch_array($exe_news)) {
+	while (list($id, $title, $news, $day) = mysql_fetch_array($exe_news)) {
 		?>
 		
-			<div class="w3-center w3-black w3-text-white"><h3><?=$newsTitle;?></h3></div>
+			<div class="w3-center w3-black w3-text-white"><h3><?=$title;?>&nbsp;<?=$day;?></h3></div>
 
-			<p><?=$newsContent;?></p>
-		</div>
+			<p><?=$news;?></p>
+		
 		<?php
 	}
 	mysql_free_result($exe_news);	
 }
-?>
 
+?>
+</div>
 
 

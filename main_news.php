@@ -2,9 +2,8 @@
 <? if(!isset($login)) { show_error("You do not have administrator rights\n"); return; } ?>
 
 <!--ADD-->
-<h1>Add news to show in main page</h1><br />
-<p></p>
-<a href=".?page=add_news">Add news</a>
+<h1>Add news to show in main page</h1>
+<a href=".?page=add_news"><input type="button" value="Add news"/></a>
 
 
 <!--REMOVE-->
@@ -42,7 +41,8 @@ if(mysql_num_rows($result) == 0) {
 		?>
 		<tr class="w3-hover-green">
 			<td>
-				<a href=".?page=main_news_rem&amp;id=<?=$item['id']?>"><img src="images/delete16.png" alt="rem"></a>
+				<a href=".?page=remove_news&amp;id=<?=$item['id']?>"><img src="images/delete16.png" alt="rem"></a>
+                <a href=".?page=edit_news&amp;id=<?=$item['id']?>"><img src="images/edit16.png" alt="chg"></a>
 			</td>
 			<td><?=$item['day']?></td>
 			<td><?=$item['title']?></td>	

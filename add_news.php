@@ -1,16 +1,6 @@
 <? if(!defined("CONFIG")) exit();
-if(!isset($login)) { show_error("You do not have administrator rights\n"); return; }?>
+if(!isset($login)) { show_error("You do not have administrator rights\n"); return; }
 
-<form action="add_news.php" method="post">
-<table border="0">
-<tr>
-	<td width="120">title:</td>
-	<td><input type="text" name="title" maxlength="30"></td>
-</tr>
-</table>
-</form>
-
-<?
 
 if (isset($_POST['news'])) {
     $title = mysql_real_escape_string($_POST['title']);
@@ -28,6 +18,12 @@ $news = htmlspecialchars($news);
 ?>
 
 <form method="post" action="index.php?page=add_news">
+<table border="0">
+<tr>
+	<td width="120">title:</td>
+	<td><input type="text" name="title" maxlength="30"></td>
+</tr>
+</table>
     <textarea id="tinyeditor" name="news" cols="50" rows="15"><?php echo $news; ?></textarea>
     <input type="submit" value="Save" />
 </form>
