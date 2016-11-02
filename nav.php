@@ -5,7 +5,7 @@
 <nav>
 <div class="w3-top w3-opacity w3-hover-opacity-off">
 <ul class="w3-navbar w3-black w3-card-2 w3-left-align w3-topnav">
-  <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
+  <li class="w3-hide-medium w3-hide-large w3-opennav w3-left">
     <a class="w3-padding-large" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
   </li>
   <li class="w3-hide-small w3-right"><a href="javascript:void(0)" class="w3-padding-large w3-hover-red"><i class="fa fa-search"></i></a></li>  
