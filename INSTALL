@@ -1,5 +1,0 @@
-How to install PREM:
-
-- Create and configure config.php (see config.php.dist)
-- Import mysql_structure.sql to a mysql database
-- Make sure config.php points to the right database
