@@ -1,10 +1,11 @@
 # *PREM (Podium race e manager) is management software for races and race leagues. It can be used to create overviews of race results. Based on Paddock 7.10beta by: demontpx
 
 # PREM (Podium race e manager) by:
-Toni Vicente & Pablo Oña.
+Toni Vicente (Administrator) & Pablo Oña (Programmer).
 
 *Features
 
+    Responsive page.
     Import results from Assetto Corsa, rFactor and LFSPoints XML files.
     Show results of races per season.
     Drivers are assigned to a team and teams are assigned to a division.
@@ -19,6 +20,9 @@ Toni Vicente & Pablo Oña.
     Send simresults web page links to show in podium results web page.
     Register as driver with name & picture.
     Edit your rules and mods page with WYSIWYG tinymce editor.
+    Show news and modules as next events, last results, etc. in main page.
+    Apply sanctions to drivers.
+    Multilenguage option.
     
     
 (C)© Copyright 2016-2017 Toni Vicente & Pablo Oña
@@ -27,6 +31,9 @@ Toni Vicente & Pablo Oña.
 GNU General Public License version 3.0 (GPLv3)
 
 https://arv187.github.io/PREM-Podium-race-E-manager/
+
+---
+To installation and help info go to https://github.com/arv187/PREM-Podium-race-E-manager/wiki
 
 ---
 
