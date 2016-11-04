@@ -33,7 +33,7 @@ GNU General Public License version 3.0 (GPLv3)
 https://arv187.github.io/PREM-Podium-race-E-manager/
 
 ---
-To installation and help info go to https://github.com/arv187/PREM-Podium-race-E-manager/wiki
+For installation and help info go to https://github.com/arv187/PREM-Podium-race-E-manager/wiki
 
 ---
 
