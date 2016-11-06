@@ -39,15 +39,16 @@ if (defined("USE_MYSQL")) {
 	<meta charset="utf-8">
 
 
-	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+	<!--
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="w3-colors-signal.css">
+    -->
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<!--
+    <link rel="stylesheet" type="text/css" href="lato.css">	
 	<link rel="stylesheet" type="text/css" href="w3.css">
-	<link rel="stylesheet" type="text/css" href="font-awesome_min.css">
-	-->
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+	
 
 	<style>
 	body {font-family: "Lato", sans-serif}
