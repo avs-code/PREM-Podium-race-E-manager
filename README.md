@@ -22,7 +22,6 @@ Toni Vicente (Administrator) & Pablo Oña (Programmer).
     Edit your rules and mods page with WYSIWYG tinymce editor.
     Show news and modules as next events, last results, etc. in main page.
     Apply sanctions to drivers.
-    Multilenguage option.
     
     
 (C)© Copyright 2016-2017 Toni Vicente & Pablo Oña
