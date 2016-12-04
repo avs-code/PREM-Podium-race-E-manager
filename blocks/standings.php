@@ -1,7 +1,6 @@
 <!--Team standing block-->
 <div>
-	<p><button class="w3-btn w3-green">Show</button>
-  <button class="w3-btn w3-red">Hide</button></p>
+	
 
 	<ul class="w3-pagination">
 	  <li><a href="javascript:void(0)" class="tablink" onclick="openLink(event, '1');"><i class="w3-margin-center"></i>1</a></li>
@@ -13,7 +12,9 @@
 	</ul>
 
 
+<!--
 Numbers of page (1,2,3,4,5) indicate season number in database ( for example: 1 blancpain, 2 WTCC, 3 F3)
+-->
 
 
 <div id="1" class="myLink">
