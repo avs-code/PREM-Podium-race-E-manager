@@ -1,8 +1,6 @@
 <!--Next events block-->
 <div>
-	<p><button class="w3-btn w3-green">Show</button>
-	<button class="w3-btn w3-red">Hide</button></p>
-  
+	  
 	<?php
 	$circuits = "SELECT race.track, race.date, race.season, season.name AS season_name
 	FROM race INNER JOIN season on season.id=race.season
