@@ -41,7 +41,7 @@ require_once("session_start.php");
     	show_error("MySQL error: " . mysql_error());
     	return;
     }
-
+    
 ?>
 
 <br />
@@ -76,6 +76,7 @@ require_once("session_start.php");
     </tr>
     <?
     }
+    mysql_free_result($result_sp_list)
     ?>
 </table>
 
