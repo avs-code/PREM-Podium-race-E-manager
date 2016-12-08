@@ -7,11 +7,26 @@ require_once("session_start.php");
 <h1>Next events</h1>
 <form action="blocks.php" method="post"> 
   Activate:
-  <input type="radio" name="active_next" value="1">Yes
-  <input type="radio" name="active_next" value="0">No
-  &nbsp;</b> </b> <input type="submit" name="submit" value="Set">
+  <input type="radio" name="active_next" <?php if (isset($active_next) && $active_next=="1") echo "checked";?> value="1">Yes
+  <input type="radio" name="active_next" <?php if (isset($active_next) && $active_next=="0") echo "checked";?> value="0">No
+   &nbsp;
+   </b> </b> <input type="submit" name="submit_next" value="Set">
   <br><br> 
 </form>
+
+<?PHP
+mysqlconnect();
+
+if (isset($_POST['submit_next'])){
+$query_next = "UPDATE blocks SET active='$active_next' WHERE content_file='$next_events'";
+$result_next = mysql_query($query_next);
+if(!$result_next) error("MySQL Error: " . mysql_error() . "\n");
+
+return_do(".?page=blocks", "activated succesfully modified\n$msg");}
+mysql_free_result($result_next)
+
+?>
+
 
 <!--Last race block-->
 <h1>Last race</h1>

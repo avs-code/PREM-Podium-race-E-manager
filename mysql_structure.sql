@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: sql112.byethost17.com
--- Tiempo de generación: 04-12-2016 a las 16:20:55
+-- Tiempo de generación: 08-12-2016 a las 17:15:49
 -- Versión del servidor: 5.6.32-78.0
 -- Versión de PHP: 5.3.3
 
@@ -196,7 +196,7 @@ CREATE TABLE IF NOT EXISTS `season` (
   `ruleset_qualifying` int(11) NOT NULL DEFAULT '0',
   `maxteams` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -223,6 +223,20 @@ CREATE TABLE IF NOT EXISTS `sim_results` (
   `simresults_url` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `standing_pages`
+--
+
+CREATE TABLE IF NOT EXISTS `standing_pages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `page` int(11) NOT NULL,
+  `season` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `season` (`season`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -262,7 +276,7 @@ CREATE TABLE IF NOT EXISTS `uploads` (
   `type` varchar(10) NOT NULL,
   `size` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
 -- --------------------------------------------------------
 
