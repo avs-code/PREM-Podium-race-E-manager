@@ -52,6 +52,7 @@
     <a href="?page=sim_results_add" class="w3-hover-red">Send Simresults url</a>
     <a href="?page=send_video_url" class="w3-hover-red">Send video url</a>
     <a href="?page=main_news" class="w3-hover-red">News mainpage</a>
+    <a href="?page=blocks" class="w3-hover-red">Blocks_setup</a>    
     <a href="?page=upload" class="w3-hover-red">Upload_file</a>
     <a href="?page=users" class="w3-hover-red">Admins</a>
     <a href="?page=logout" class="w3-hover-red">Logout</a></li>
