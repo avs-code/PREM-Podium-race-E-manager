@@ -3,7 +3,7 @@
 	  
 	<?php
 	$circuits = "SELECT race.track, race.date, race.season, season.name AS season_name
-	FROM race INNER JOIN season on season.id=race.season
+	FROM race LEFT JOIN season on season.id=race.season
 	WHERE race.date>=CURDATE()
 	ORDER BY race.date ASC LIMIT 2";
 	$result = mysql_query($circuits);
