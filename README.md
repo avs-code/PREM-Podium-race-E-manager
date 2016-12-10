@@ -22,7 +22,7 @@ Toni Vicente (Project administrator, web designer) & Pablo Oña (Programmer, web
     Register as driver with name & picture.
     Edit your rules and mods page with WYSIWYG tinymce editor.
     Show news and modules as next events, last results, etc. in main page.
-    Apply sanctions to drivers.
+    
     
     
 (C)© Copyright 2016-2017 Toni Vicente & Pablo Oña
@@ -34,6 +34,7 @@ https://arv187.github.io/PREM-Podium-race-E-manager/
 
 ---
 For installation and help info go to https://github.com/arv187/PREM-Podium-race-E-manager/wiki
+Releases progress: https://github.com/arv187/PREM-Podium-race-E-manager/milestones
 
 ---
 
