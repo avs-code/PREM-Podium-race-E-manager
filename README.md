@@ -77,7 +77,7 @@ Font Awesome is fully open source and is GPL friendly. http://fontawesome.io/lic
 
 # Contributing
 
-You can help out with the ongoing development by looking for potential bugs in our code base, or by contributing new features. To contribute something to PREM, simply fork this repository and submit your pull requests for review by other collaborators. Remember to add yourself to the author with a comment in file.
+You can help out with the ongoing development by looking for potential bugs in our code base, or by contributing new features. To contribute something to PREM, simply fork this repository and submit your pull requests for review by other collaborators.
 
 ---
 
