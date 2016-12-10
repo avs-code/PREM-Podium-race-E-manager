@@ -75,6 +75,10 @@ https://pixabay.com/es/cron%C3%B3metro-acceso-telef%C3%B3nico-34108/
 *Font Awesome by Dave Gandy - http://fontawesome.io
 Font Awesome is fully open source and is GPL friendly. http://fontawesome.io/license/ 
 
+# Contributing
+
+You can help out with the ongoing development by looking for potential bugs in our code base, or by contributing new features. To contribute something to PREM, simply fork this repository and submit your pull requests for review by other collaborators. Remember to add yourself to the author with a comment in file.
+
 ---
 
 
