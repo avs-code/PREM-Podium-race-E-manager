@@ -1,4 +1,6 @@
 <!--Last race block-->
+<div>
+
 <?php
 require_once("results_functions.php");
 
@@ -23,39 +25,34 @@ $last = ($item['id']);
     	show_error("MySQL Error: " . mysql_error() . "\n");
     	return;
     }
-    
-$ditem = mysql_fetch_array($dresult);
+
+
 
 mysql_free_result($result);
-mysql_free_result($dresult);
+
 
 ?>
  
-<div>
-<table>
-    <td><strong>Season:&nbsp;</strong>
+	
+<table class="w3-table-all">
+    <td class="w3-dark-grey"><strong>Season:&nbsp;</strong>
     <tr></tr>    
     <td><?=$item['sname']?></td>
     <tr></tr>
-	<td><strong>Track:&nbsp;</strong><?=$item['name']?></td>
+	<td class="w3-dark-grey"><strong>Track:&nbsp;</strong></td>
+    <tr></tr>
+    <td><?=$item['name']?></td>
     <tr></tr>
 </table>
-<table>
-    <td><strong>Pos</strong></td><td><strong>Driver</strong></td><td><strong>Team</strong></td>
-    <tr></tr>
-    <td><?=$ditem['position']?></td>
+    <tr></tr>  
+<table class="w3-table-all">
+    <td class="w3-dark-grey"><strong>Pos</strong></td><td class="w3-dark-grey"><strong>Driver</strong></td><td class="w3-dark-grey"><strong>Team</strong></td>
+    <? while($ditem = mysql_fetch_array($dresult)) {    ?>
+    <tr class="w3-hover-blue">
+    <td class="w3-dark-grey"><?=$ditem['position']?></td>
     <td><?=$ditem['dname']?></td>
 	<td><?=$ditem['tname']?></td>
+    </tr>
+    <?     } mysql_free_result($dresult);    ?>
 </table>
 </div>
-
-<!--
-<div>
-<strong>Final example:</strong><br />
-Show race.season<br />
-Show race.name<br />
-1º driver name - team<br />
-2º driver name - team<br />
-3º driver name - team<br />
-fast lap time<br />
-</div>-->
