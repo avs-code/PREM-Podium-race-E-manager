@@ -39,10 +39,10 @@ if ($exe_blocks) {
 $exe_news = mysql_query("SELECT `id`, `title`, `news`, `day` FROM main_news ORDER BY day DESC LIMIT 5");
 
 ?>
-Welcome to the Podium Racing E Manager for <a href="<?= $config['org_link'] ?>"><?= $config['org'] ?></a>.<br>
+<div class="w3-right-align">Welcome to the Podium Racing E Manager for <a href="<?= $config['org_link'] ?>"><?= $config['org'] ?></a>.<br>
 <div class="small">
 Version <?= VERSION ?><br>
-</div>
+</div></div>
 
 <!-- Automatic Slideshow Images -->
 <div class="w3-container w3-black" align="center">
