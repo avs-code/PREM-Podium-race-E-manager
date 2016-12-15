@@ -1,54 +1,102 @@
-<? if(!defined("CONFIG")) exit();
+<?
+if(!defined("CONFIG")) exit();
 if(!isset($login)) { show_error("You do not have administrator rights\n"); return; }
 require_once("session_start.php");
-?>
 
-<!--Next events block-->
+mysqlconnect(); ?> 
+
+
+<!--Next events-->
 <h1>Next events</h1>
-<form action="blocks.php" method="post"> 
-  Activate:
-  <input type="radio" name="active_next" <?php if (isset($active_next) && $active_next=="1") echo "checked";?> value="1">Yes
-  <input type="radio" name="active_next" <?php if (isset($active_next) && $active_next=="0") echo "checked";?> value="0">No
-   &nbsp;
-   </b> </b> <input type="submit" name="submit_next" value="Set">
-  <br><br> 
-</form>
+   
+<?   
+    $query_next_status = "SELECT active FROM blocks WHERE content_file='next_events'";
+    $result_next_status = mysql_query($query_next_status);
+    mysql_free_result($result_next_status);
 
-<?PHP
-mysqlconnect();
-
-if (isset($_POST['submit_next'])){
-$query_next = "UPDATE blocks SET active='$active_next' WHERE content_file='$next_events'";
-$result_next = mysql_query($query_next);
-if(!$result_next) error("MySQL Error: " . mysql_error() . "\n");
-
-return_do(".?page=blocks", "activated succesfully modified\n$msg");}
-mysql_free_result($result_next)
-
+$active_next = $_POST["active_next"];
+    
+    if (isset($_POST['active_next'])) {
+        $query_next = "UPDATE blocks SET active='$active_next' WHERE content_file='next_events'";
+        $result_next = mysql_query($query_next);
+        if (!$result_next) error("MySQL Error: ".mysql_error()."\n");
+        echo "<br /> <strong><h2>Next events succesfully modified</h2></strong>";
+    }else{
 ?>
+
+
+
+    <form action=".?page=blocks" method="post"> 
+        Activate:
+        <input type="radio" name="active_next" <?php if (isset($result_next_status) && $result_next_status=="1") echo "checked";?> value="1">Yes
+        <input type="radio" name="active_next" <?php if (isset($result_next_status) && $result_next_status=="0") echo "checked";?> value="0">No
+        &nbsp;
+        </b> </b> <input type="submit" name="submit" value="Set">
+        <br><br> 
+    </form>
+<? } ?> 
+
+
 
 
 <!--Last race block-->
 <h1>Last race</h1>
-<form action="blocks.php" method="post"> 
-  Activate:
-  <input type="radio" name="active_last" value="1">Yes
-  <input type="radio" name="active_last" value="0">No
-  &nbsp;</b> </b> <input type="submit" name="submit" value="Set">
-  <br><br>
-</form>
+
+<?
+    $query_last_status = "SELECT active FROM blocks WHERE content_file='last_race'";
+    $result_last_status = mysql_query($query_last_status);
+    mysql_free_result($result_last_status);
+
+$active_last = $_POST["active_last"];
+    
+    if (isset($_POST['active_last'])) {
+        $query_last = "UPDATE blocks SET active='$active_last' WHERE content_file='last_race'";
+        $result_last = mysql_query($query_last);
+        if (!$result_last) error("MySQL Error: ".mysql_error()."\n");
+        echo "<br /> <strong><h2>Last_race succesfully modified</h2></strong>";
+    }else{ ?>
+
+
+    <form action=".?page=blocks" method="post"> 
+        Activate:
+        <input type="radio" name="active_last" <?php if (isset($result_last_status) && $result_last_status=="1") echo "checked";?> value="1">Yes
+        <input type="radio" name="active_last" <?php if (isset($result_last_status) && $result_last_status=="0") echo "checked";?> value="0">No
+        &nbsp;
+        </b> </b> <input type="submit" name="submit" value="Set">
+        <br><br> 
+    </form>
+<? } ?> 
 
 <!--standings block-->
 <h1>Standings block</h1>
-<form action="blocks.php" method="post"> 
-  Activate:
-  <input type="radio" name="active_standings" value="1">Yes
-  <input type="radio" name="active_standings" value="0">No
-  &nbsp;</b> </b> <input type="submit" name="submit" value="Set">
-  <br><br>
-  
-</form>
 
+<?
+    $query_standings_status = "SELECT active FROM blocks WHERE content_file='standings'";
+    $result_standings_status = mysql_query($query_standings_status);
+    mysql_free_result($result_standings_status);
+
+$active_standings = $_POST["active_standings"];
+    
+    if (isset($_POST['active_standings'])) {
+        $query_standings = "UPDATE blocks SET active='$active_standings' WHERE content_file='standings'";
+        $result_standings = mysql_query($query_standings);
+        if (!$result_standings) error("MySQL Error: ".mysql_error()."\n");
+        echo "<br /> <strong><h2>Standings succesfully modified</h2></strong>";
+    }else{ ?>
+
+
+    <form action=".?page=blocks" method="post"> 
+        Activate:
+        <input type="radio" name="active_standings" <?php if (isset($result_standings_status) && $result_standings_status=="1") echo "checked";?> value="1">Yes
+        <input type="radio" name="active_standings" <?php if (isset($result_standings_status) && $result_standings_status=="0") echo "checked";?> value="0">No
+        &nbsp;
+        </b> </b> <input type="submit" name="submit" value="Set">
+        <br><br> 
+    </form>
+<? } ?> 
+
+
+<!--Standing_block_pages-->
 <?
     $sql_sp_list = "SELECT sp.*, s.name FROM standing_pages sp JOIN season s ON (sp.season = s.id) ORDER BY sp.page ASC";
     $result_sp_list = mysql_query($sql_sp_list);
@@ -94,5 +142,3 @@ mysql_free_result($result_next)
     mysql_free_result($result_sp_list)
     ?>
 </table>
-
-
