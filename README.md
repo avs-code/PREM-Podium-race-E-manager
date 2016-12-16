@@ -4,7 +4,7 @@
 # PREM (Podium race e manager) Initial development by:
 Toni Vicente (Project administrator, web designer) & Pablo Oña (Programmer, web developer).
 
-*Features
+**Features**
 
     Responsive page.
     Import results from Assetto Corsa, rFactor and LFSPoints XML files.
@@ -24,13 +24,13 @@ Toni Vicente (Project administrator, web designer) & Pablo Oña (Programmer, web
     Show news and modules as next events, last results, etc. in main page.
     
     
-*Credits:    
+**Credits:**    
 (C)© Copyright 2016-2017
 Toni Vicente & Pablo Oña.
 Bert Hekman. (original autor of Paddock 7.10beta).
 
-*License
-GNU General Public License version 3.0 (GPLv3)
+**License
+GNU General Public License version 3.0 (GPLv3)**
 
 https://arv187.github.io/PREM-Podium-race-E-manager/
 
@@ -109,16 +109,11 @@ Features
     Import results from rFactor and LFSPoints XML files
 
 Additional Project Details
-Languages
-English
-Intended Audience
-End Users/Desktop
-User Interface
-Web-based
-Programming Language
-PHP
-Registered
-2007-02-28
+Languages: English
+Intended Audience: End Users/Desktop
+User Interface: Web-based
+Programming Language: PHP
+Registered: 2007-02-28
 
 License
 GNU General Public License version 2.0 (GPLv2)
