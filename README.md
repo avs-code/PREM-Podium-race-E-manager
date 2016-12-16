@@ -33,6 +33,7 @@ Bert Hekman. (original autor of Paddock 7.10beta).
 
 
 **License: GNU General Public License version 3.0 (GPLv3)**
+
 https://github.com/arv187/PREM-Podium-race-E-manager/blob/master/LICENSE
 
 **Project page:** https://arv187.github.io/PREM-Podium-race-E-manager/
