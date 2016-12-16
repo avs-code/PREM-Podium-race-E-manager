@@ -1,7 +1,7 @@
 # *PREM (Podium race e manager) is management software for races and race leagues. It can be used to create overviews of race results. Based on Paddock 7.10beta by: demontpx
 
 
-# PREM (Podium race e manager) by:
+# PREM (Podium race e manager) Initial development by:
 Toni Vicente (Project administrator, web designer) & Pablo Oña (Programmer, web developer).
 
 *Features
@@ -24,8 +24,10 @@ Toni Vicente (Project administrator, web designer) & Pablo Oña (Programmer, web
     Show news and modules as next events, last results, etc. in main page.
     
     
-    
-(C)© Copyright 2016-2017 Toni Vicente & Pablo Oña
+*Credits:    
+(C)© Copyright 2016-2017
+Toni Vicente & Pablo Oña
+
 
 *License
 GNU General Public License version 3.0 (GPLv3)
