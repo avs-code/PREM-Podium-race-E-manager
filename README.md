@@ -26,8 +26,8 @@ Toni Vicente (Project administrator, web designer) & Pablo Oña (Programmer, web
     
 *Credits:    
 (C)© Copyright 2016-2017
-Toni Vicente & Pablo Oña
-
+Toni Vicente & Pablo Oña.
+Bert Hekman. (original autor of Paddock 7.10beta).
 
 *License
 GNU General Public License version 3.0 (GPLv3)
