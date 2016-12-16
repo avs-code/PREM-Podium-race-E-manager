@@ -31,15 +31,17 @@ Toni Vicente & Pablo Oña.
 
 Bert Hekman. (original autor of Paddock 7.10beta).
 
+
 **License
 GNU General Public License version 3.0 (GPLv3)**
+https://github.com/arv187/PREM-Podium-race-E-manager/blob/master/LICENSE
 
-https://arv187.github.io/PREM-Podium-race-E-manager/
+**Project page:** https://arv187.github.io/PREM-Podium-race-E-manager/
 
 ---
-For installation and help info go to https://github.com/arv187/PREM-Podium-race-E-manager/wiki
+**For installation and help info** go to https://github.com/arv187/PREM-Podium-race-E-manager/wiki
 
-Releases progress: https://github.com/arv187/PREM-Podium-race-E-manager/milestones
+**Releases progress:** https://github.com/arv187/PREM-Podium-race-E-manager/milestones
 
 ---
 
@@ -84,7 +86,7 @@ Font Awesome is fully open source and is GPL friendly. http://fontawesome.io/lic
 
 # Contributing
 
-Read the contributing.md file.
+Read the contributing.md file. https://github.com/arv187/PREM-Podium-race-E-manager/blob/master/CONTRIBUTING.md
 
 ---
 
