@@ -35,9 +35,9 @@ mysql_free_result($result);
  
 	
 <table class="w3-table-all">
-    <td class="w3-dark-grey"><strong>Season:&nbsp;</strong>
+    <td class="w3-dark-grey"><strong>Division:&nbsp;</strong>
     <tr></tr>    
-    <td><?=$item['sname']?></td>
+    <td><?=$item['dname']?></td>
     <tr></tr>
 	<td class="w3-dark-grey"><strong>Track:&nbsp;</strong></td>
     <tr></tr>

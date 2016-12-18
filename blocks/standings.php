@@ -1,15 +1,18 @@
 <?php
-$sql_standing_pages = "SELECT sp.id, sp.page, sp.season, s.name FROM `standing_pages` AS sp LEFT JOIN `season` AS s ON sp.season = s.id ORDER BY sp.page ASC";
+$sql_standing_pages = "SELECT sp.id, sp.page, sp.season, s.name, s.division, d.name FROM `standing_pages` AS sp LEFT JOIN `season` AS s ON sp.season = s.id LEFT JOIN `division` AS d ON d.id = s.division ORDER BY sp.page ASC";
 $exe_standing_pages = mysql_query($sql_standing_pages);
 if(!$exe_standing_pages) {
 	error("MySQL error: " . mysql_error() . "\n");
 }
 if(mysql_num_rows($exe_standing_pages) > 0) {
-	while(list($spID, $spPage, $spSeason, $seasonName) = mysql_fetch_array($exe_standing_pages)) {
+	while(list($spID, $spPage, $spSeason, $seasonName, $divisionName, $seasonDivision_n) = mysql_fetch_array($exe_standing_pages)) {
 		$standing_pages[$spID] = array(
 			'page' => $spPage,
 			'season' => $spSeason,
-			'seasonName' => $seasonName
+			'seasonName' => $seasonName,
+            'divisionName' => $divisionName,
+            'seasonDivision' => $seasonDivision_n            
+            
 		);
 	}
 	mysql_free_result($exe_standing_pages);
@@ -60,7 +63,7 @@ mysql_free_result($exe_point_ruleset);
 		<?php
 		foreach ($standing_pages as $spID => $spDetails) {
 			?>
-			<li><a href="javascript:void(0)" class="tablink" onclick="openLink(event, 'standing_<?=$spID;?>');" title="<?=$spDetails['seasonName'];?>"><i class="w3-margin-center"></i><?=$spDetails['page'];?></a></li>
+			<li><a href="javascript:void(0)" class="tablink" onclick="openLink(event, 'standing_<?=$spID;?>');" title="<?=$spDetails['seasonName'];?>/<?=$spDetails['seasonDivision'];?>"><i class="w3-margin-center"></i><?=$spDetails['page'];?></a></li>
 			<?php
 		}
 		?>
@@ -74,7 +77,7 @@ mysql_free_result($exe_point_ruleset);
 			
 			
 			<!--Team standing-->
-			<div class="w3-center w3-black w3-text-white"><h2><?=$spDetails['seasonName'];?></div></h2><div class="w3-center w3-indigo w3-text-white"><h3>Team Standings</h3></div>
+			<div class="w3-center w3-black w3-text-white"><h2><?=$spDetails['seasonName'];?><br /><?=$spDetails['seasonDivision'];?></div></h2><div class="w3-center w3-indigo w3-text-white"><h3>Team Standings</h3></div>
 			<?php
 			$sql_teams = "SELECT t.id, t.name FROM `team` AS t LEFT JOIN `season_team` AS st ON st.team = t.id WHERE st.season = ".intval($spDetails['season']);
 			$exe_teams = mysql_query($sql_teams);
