@@ -41,7 +41,7 @@ mysql_free_result($result);
     <tr></tr>
 	<td class="w3-dark-grey"><strong>Track:&nbsp;</strong></td>
     <tr></tr>
-    <td><?=$item['name']?></td>
+    <td><?=$item['track']?></td>
     <tr></tr>
 </table>
     <tr></tr>  
