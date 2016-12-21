@@ -4,6 +4,7 @@ You can help out with the ongoing development by looking for potential bugs in o
 **To contribute something to PREM, simply fork this repository and submit your pull requests for review by other collaborators, another option is with the messages in the issue section.**
 Of course, open does not mean that you can copy and attribute the work.
 The project is mine and the previous author on which is based almost the entire project and also all who collaborate now and in the future (see credits in README.md https://github.com/arv187/PREM-Podium-race-E-manager/blob/master/README.md).
+
 Contributing Guide: https://guides.github.com/activities/contributing-to-open-source/
 
 Puedes ayudar con el desarrollo o buscando bugs, o con menor prioridad pidiendo nuevas features.
