@@ -20,13 +20,13 @@
   </li>
   
   <li class="w3-hide-small w3-dropdown-hover">
-    <a href="javascript:void(0)" class="w3-hover-red w3-padding-large" title="Show Data">Show Data <i class="fa fa-caret-down"></i></a>     
+    <a href="javascript:void(0)" class="w3-hover-red w3-padding-large" title="Data">Data <i class="fa fa-caret-down"></i></a>     
     <div class="w3-dropdown-content w3-white w3-card-4">
-    <a href="?page=show_circuits" class="w3-hover-red">Show_Circuits</a>
-    <a href="?page=show_drivers" class="w3-hover-red">Show_Drivers</a>
-    <a href="?page=show_teams" class="w3-hover-red">Show_Teams</a>
-    <a href="?page=show_rules" class="w3-hover-red">Show_Rules</a>
-    <a href="?page=show_videos" class="w3-hover-red">Show_Videos</a>
+    <a href="?page=show_circuits" class="w3-hover-red">Circuit calendar</a>
+    <a href="?page=show_drivers" class="w3-hover-red">Drivers</a>
+    <a href="?page=show_teams" class="w3-hover-red">Teams</a>
+    <a href="?page=show_rules" class="w3-hover-red">Rules</a>
+    <a href="?page=show_videos" class="w3-hover-red">Videos</a>
     </div>
   </li>
   
@@ -69,11 +69,11 @@
     <li><a class="w3-padding-large" href="?page=main">HOME</a></li>
     <li><a class="w3-padding-large" href="?page=results">Results</a></li>
     <li><a class="w3-padding-large" href="?page=sim_results">Sim_Results</a></li>
-    <li><a class="w3-padding-large" href="?page=show_circuits">Show_circuits</a></li>
-    <li><a class="w3-padding-large" href="?page=show_drivers">Show_drivers</a></li>
-    <li><a class="w3-padding-large" href="?page=show_teams">Show_teams</a></li>
-    <li><a class="w3-padding-large" href="?page=show_rules">Show_rules</a></li>
-    <li><a class="w3-padding-large" href="?page=show_videos">Show_videos</a></li>
+    <li><a class="w3-padding-large" href="?page=show_circuits">Circuit calendar</a></li>
+    <li><a class="w3-padding-large" href="?page=show_drivers">Drivers</a></li>
+    <li><a class="w3-padding-large" href="?page=show_teams">Teams</a></li>
+    <li><a class="w3-padding-large" href="?page=show_rules">Rules</a></li>
+    <li><a class="w3-padding-large" href="?page=show_videos">Videos</a></li>
     <li><a class="w3-padding-large" href="?page=driver_add_user">New_Driver</a>
     <li><a class="w3-padding-large" href="your_forum_url">Forum</a>
     
