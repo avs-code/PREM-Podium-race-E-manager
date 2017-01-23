@@ -45,18 +45,25 @@ https://github.com/arv187/PREM-Podium-race-E-manager/blob/master/LICENSE
 
 ---
 
-TinyMCE is a platform independent web-based JavaScript HTML WYSIWYG
+<strong>TinyMCE</strong> is a platform independent web-based JavaScript HTML WYSIWYG
 editor control released as open source under LGPL
 
 ---
 
-Simresults:
-The core of Simresults is open-sourced software licensed under the ISC license [http://opensource.org/licenses/ISC] and available at GitHub [https://github.com/mauserrifle/simresults]. \s\s
-The project is created and maintained by Maurice van der Star [http://twitter.com/mauserrifleNL]. \s\s
-Thread for discussion is located at: \s\s
-ISI forums[http://isiforums.net/f/showthread.php/12562-Simresults-net-a-webbased-result-reader-PHP-library] \s\s
-AC forums[http://www.assettocorsa.net/forum/index.php?threads/simresults-net-a-webbased-result-reader-php-library.2658/] \s\s  
-PC forums [http://forum.projectcarsgame.com/showthread.php?41853-Simresults-net-a-webbased-result-reader-amp-PHP-library] \s\s
+<strong>Simresults:</strong>
+
+The core of Simresults is open-sourced software licensed under the ISC license [http://opensource.org/licenses/ISC] and available at GitHub [https://github.com/mauserrifle/simresults].
+
+The project is created and maintained by Maurice van der Star [http://twitter.com/mauserrifleNL].
+
+Thread for discussion is located at:
+
+ISI forums[http://isiforums.net/f/showthread.php/12562-Simresults-net-a-webbased-result-reader-PHP-library]
+
+AC forums[http://www.assettocorsa.net/forum/index.php?threads/simresults-net-a-webbased-result-reader-php-library.2658/]  
+
+PC forums [http://forum.projectcarsgame.com/showthread.php?41853-Simresults-net-a-webbased-result-reader-amp-PHP-library]
+
 Please consider donating to cover hosting costs and any future development. 
 
 ---
