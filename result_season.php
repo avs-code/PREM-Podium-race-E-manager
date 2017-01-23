@@ -155,7 +155,7 @@ usort($team, "point_sort");
 	<td>Driver</td>
 	<td>Team</td>
 <? for($x = 1; $x <= $race; $x++) { ?>
-	<td width="30" align="right"><a href="?page=result_race&amp;race=<?=$races[$x]['id']?>"><img src="img_season_race.php?text=<?=urlencode($races[$x]['name'])?>&amp;text2=<?=urlencode($races[$x]['track'])?>" alt="<?=$x?>"></a></td>
+	<td width="30" align="right"><javascript:void(0)" class="tablink" title="Click to more details"><div class="w3-container w3-hover-red"><a href="?page=result_race&amp;race=<?=$races[$x]['id']?>"><img src="img_season_race.php?text=<?=urlencode($races[$x]['name'])?>&amp;text2=<?=urlencode($races[$x]['track'])?>" alt="<?=$x?>"></a></td>
 <? } ?>
 	<td width="30" align="right">Pts</td>
 </tr>
