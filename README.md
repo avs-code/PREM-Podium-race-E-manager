@@ -49,6 +49,17 @@ TinyMCE is a platform independent web-based JavaScript HTML WYSIWYG
 editor control released as open source under LGPL
 
 ---
+
+Simresults:
+The core of Simresults is open-sourced software licensed under the ISC license [http://opensource.org/licenses/ISC] and available at GitHub [https://github.com/mauserrifle/simresults].
+The project is created and maintained by Maurice van der Star [http://twitter.com/mauserrifleNL].
+Thread for discussion is located at:
+ISI forumshttp://isiforums.net/f/showthread.php/12562-Simresults-net-a-webbased-result-reader-PHP-library, 
+AC forums[http://www.assettocorsa.net/forum/index.php?threads/simresults-net-a-webbased-result-reader-php-library.2658/] and 
+PC forums [http://forum.projectcarsgame.com/showthread.php?41853-Simresults-net-a-webbased-result-reader-amp-PHP-library].
+Please consider donating to cover hosting costs and any future development. 
+
+---
 #Images, pictures used (please, respect the respectives licences):
 
 *Helment image:
