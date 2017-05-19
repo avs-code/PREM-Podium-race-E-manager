@@ -25,7 +25,7 @@ Toni Vicente (Project administrator, web designer) & Pablo Oña (Programmer, web
     
     
 **Credits:**    
-(C)© Copyright 2016-2017
+(C)© Copyright Sep 25, 2016-2017
 
 Toni Vicente & Pablo Oña.
 
