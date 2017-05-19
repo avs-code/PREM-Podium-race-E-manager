@@ -1,0 +1,1280 @@
+{
+	"TrackName": "monaco_osrw_1.1",
+	"TrackConfig": "",
+	"Type": "QUALIFY",
+	"DurationSecs": 0,
+	"RaceLaps": 0,
+	"Cars": [
+		{
+			"CarId": 0,
+			"Driver": {
+				"Name": "InGuNi",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197991326646",
+				"GuidsList": [
+					"76561197991326646"
+				]
+			},
+			"Model": "dallara_f312",
+			"Skin": "Buzzin_Hornets_25",
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"CarId": 1,
+			"Driver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"Model": "dallara_f312",
+			"Skin": "Buzzin_Hornets_23",
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"CarId": 2,
+			"Driver": {
+				"Name": "Luft",
+				"Team": "Repsol 111 Racing Team",
+				"Nation": "",
+				"Guid": "76561198007853260",
+				"GuidsList": [
+					"76561198007853260"
+				]
+			},
+			"Model": "dallara_f312",
+			"Skin": "Repsol_79",
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"CarId": 3,
+			"Driver": {
+				"Name": "martinwrx",
+				"Team": "Repsol 111 Racing Team",
+				"Nation": "",
+				"Guid": "76561198134729208",
+				"GuidsList": [
+					"76561198134729208"
+				]
+			},
+			"Model": "dallara_f312",
+			"Skin": "Repsol_36",
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"CarId": 4,
+			"Driver": {
+				"Name": "Flame",
+				"Team": "Bullseye Honda",
+				"Nation": "",
+				"Guid": "76561198069648432",
+				"GuidsList": [
+					"76561198069648432"
+				]
+			},
+			"Model": "dallara_f312",
+			"Skin": "Bullseye_7",
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"CarId": 5,
+			"Driver": {
+				"Name": "Munchkin",
+				"Team": "Bullseye Honda",
+				"Nation": "",
+				"Guid": "76561198038330993",
+				"GuidsList": [
+					"76561198038330993"
+				]
+			},
+			"Model": "dallara_f312",
+			"Skin": "Bullseye_24",
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"CarId": 6,
+			"Driver": {
+				"Name": "Mistral",
+				"Team": "Noob Racing",
+				"Nation": "",
+				"Guid": "76561198025378848",
+				"GuidsList": [
+					"76561198025378848"
+				]
+			},
+			"Model": "dallara_f312",
+			"Skin": "Noob_Racing_27",
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"CarId": 7,
+			"Driver": {
+				"Name": "Hammer",
+				"Team": "Noob Racing",
+				"Nation": "",
+				"Guid": "76561198046906809",
+				"GuidsList": [
+					"76561198046906809"
+				]
+			},
+			"Model": "dallara_f312",
+			"Skin": "Noob_Racing_6",
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"CarId": 8,
+			"Driver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": [
+					""
+				]
+			},
+			"Model": "mercedes_sls",
+			"Skin": "Rosso_Opale",
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"CarId": 9,
+			"Driver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": [
+					""
+				]
+			},
+			"Model": "dallara_f312",
+			"Skin": "F3EU_Verstappen",
+			"BallastKG": 0,
+			"Restrictor": 0
+		}
+	],
+	"Result": [
+		{
+			"DriverName": "InGuNi",
+			"DriverGuid": "76561197991326646",
+			"CarId": 0,
+			"CarModel": "dallara_f312",
+			"BestLap": 97158,
+			"TotalTime": 940035,
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "Spark",
+			"DriverGuid": "76561197988392320",
+			"CarId": 1,
+			"CarModel": "dallara_f312",
+			"BestLap": 105251,
+			"TotalTime": 831598,
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "Luft",
+			"DriverGuid": "76561198007853260",
+			"CarId": 2,
+			"CarModel": "dallara_f312",
+			"BestLap": 999999999,
+			"TotalTime": 0,
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "martinwrx",
+			"DriverGuid": "76561198134729208",
+			"CarId": 3,
+			"CarModel": "dallara_f312",
+			"BestLap": 999999999,
+			"TotalTime": 0,
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "Flame",
+			"DriverGuid": "76561198069648432",
+			"CarId": 4,
+			"CarModel": "dallara_f312",
+			"BestLap": 999999999,
+			"TotalTime": 0,
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "Munchkin",
+			"DriverGuid": "76561198038330993",
+			"CarId": 5,
+			"CarModel": "dallara_f312",
+			"BestLap": 999999999,
+			"TotalTime": 0,
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "Mistral",
+			"DriverGuid": "76561198025378848",
+			"CarId": 6,
+			"CarModel": "dallara_f312",
+			"BestLap": 999999999,
+			"TotalTime": 0,
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "Hammer",
+			"DriverGuid": "76561198046906809",
+			"CarId": 7,
+			"CarModel": "dallara_f312",
+			"BestLap": 999999999,
+			"TotalTime": 0,
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "",
+			"DriverGuid": "",
+			"CarId": 8,
+			"CarModel": "mercedes_sls",
+			"BestLap": 999999999,
+			"TotalTime": 0,
+			"BallastKG": 0,
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "",
+			"DriverGuid": "",
+			"CarId": 9,
+			"CarModel": "dallara_f312",
+			"BestLap": 999999999,
+			"TotalTime": 0,
+			"BallastKG": 0,
+			"Restrictor": 0
+		}
+	],
+	"Laps": [
+		{
+			"DriverName": "InGuNi",
+			"DriverGuid": "76561197991326646",
+			"CarId": 0,
+			"CarModel": "dallara_f312",
+			"Timestamp": 1526280,
+			"LapTime": 136661,
+			"Sectors": [
+				62421,
+				42731,
+				31509
+			],
+			"Cuts": 0,
+			"BallastKG": 0,
+			"Tyre": "M",
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "Spark",
+			"DriverGuid": "76561197988392320",
+			"CarId": 1,
+			"CarModel": "dallara_f312",
+			"Timestamp": 1550452,
+			"LapTime": 160842,
+			"Sectors": [
+				75962,
+				47925,
+				36955
+			],
+			"Cuts": 0,
+			"BallastKG": 0,
+			"Tyre": "M",
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "InGuNi",
+			"DriverGuid": "76561197991326646",
+			"CarId": 0,
+			"CarModel": "dallara_f312",
+			"Timestamp": 1623437,
+			"LapTime": 97158,
+			"Sectors": [
+				25878,
+				40243,
+				31037
+			],
+			"Cuts": 0,
+			"BallastKG": 0,
+			"Tyre": "M",
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "Spark",
+			"DriverGuid": "76561197988392320",
+			"CarId": 1,
+			"CarModel": "dallara_f312",
+			"Timestamp": 1658212,
+			"LapTime": 107761,
+			"Sectors": [
+				29276,
+				44479,
+				34006
+			],
+			"Cuts": 0,
+			"BallastKG": 0,
+			"Tyre": "M",
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "InGuNi",
+			"DriverGuid": "76561197991326646",
+			"CarId": 0,
+			"CarModel": "dallara_f312",
+			"Timestamp": 1749997,
+			"LapTime": 126562,
+			"Sectors": [
+				35563,
+				42286,
+				48713
+			],
+			"Cuts": 0,
+			"BallastKG": 0,
+			"Tyre": "M",
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "Spark",
+			"DriverGuid": "76561197988392320",
+			"CarId": 1,
+			"CarModel": "dallara_f312",
+			"Timestamp": 1764529,
+			"LapTime": 106318,
+			"Sectors": [
+				29238,
+				43177,
+				33903
+			],
+			"Cuts": 0,
+			"BallastKG": 0,
+			"Tyre": "M",
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "Spark",
+			"DriverGuid": "76561197988392320",
+			"CarId": 1,
+			"CarModel": "dallara_f312",
+			"Timestamp": 1869779,
+			"LapTime": 105251,
+			"Sectors": [
+				27834,
+				43510,
+				33907
+			],
+			"Cuts": 0,
+			"BallastKG": 0,
+			"Tyre": "M",
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "InGuNi",
+			"DriverGuid": "76561197991326646",
+			"CarId": 0,
+			"CarModel": "dallara_f312",
+			"Timestamp": 1870430,
+			"LapTime": 120435,
+			"Sectors": [
+				29944,
+				53357,
+				37134
+			],
+			"Cuts": 0,
+			"BallastKG": 0,
+			"Tyre": "M",
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "Spark",
+			"DriverGuid": "76561197988392320",
+			"CarId": 1,
+			"CarModel": "dallara_f312",
+			"Timestamp": 2109382,
+			"LapTime": 239605,
+			"Sectors": [
+				133526,
+				57096,
+				48983
+			],
+			"Cuts": 0,
+			"BallastKG": 0,
+			"Tyre": "M",
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "InGuNi",
+			"DriverGuid": "76561197991326646",
+			"CarId": 0,
+			"CarModel": "dallara_f312",
+			"Timestamp": 2109540,
+			"LapTime": 239112,
+			"Sectors": [
+				133407,
+				56934,
+				48771
+			],
+			"Cuts": 0,
+			"BallastKG": 0,
+			"Tyre": "M",
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "Spark",
+			"DriverGuid": "76561197988392320",
+			"CarId": 1,
+			"CarModel": "dallara_f312",
+			"Timestamp": 2221189,
+			"LapTime": 111808,
+			"Sectors": [
+				28482,
+				45215,
+				38111
+			],
+			"Cuts": 0,
+			"BallastKG": 0,
+			"Tyre": "M",
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "InGuNi",
+			"DriverGuid": "76561197991326646",
+			"CarId": 0,
+			"CarModel": "dallara_f312",
+			"Timestamp": 2221413,
+			"LapTime": 111874,
+			"Sectors": [
+				28588,
+				45180,
+				38106
+			],
+			"Cuts": 0,
+			"BallastKG": 0,
+			"Tyre": "M",
+			"Restrictor": 0
+		},
+		{
+			"DriverName": "InGuNi",
+			"DriverGuid": "76561197991326646",
+			"CarId": 0,
+			"CarModel": "dallara_f312",
+			"Timestamp": 2329636,
+			"LapTime": 108226,
+			"Sectors": [
+				28698,
+				43874,
+				35654
+			],
+			"Cuts": 0,
+			"BallastKG": 0,
+			"Tyre": "M",
+			"Restrictor": 0
+		}
+	],
+	"Events": [
+		{
+			"Type": "COLLISION_WITH_ENV",
+			"CarId": 0,
+			"Driver": {
+				"Name": "InGuNi",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197991326646",
+				"GuidsList": [
+					"76561197991326646"
+				]
+			},
+			"OtherCarId": -1,
+			"OtherDriver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": null
+			},
+			"ImpactSpeed": 1.0922649,
+			"WorldPosition": {
+				"X": 126.658264,
+				"Y": 25.58871,
+				"Z": -278.7689
+			},
+			"RelPosition": {
+				"X": 0.6418399,
+				"Y": -0.1622994,
+				"Z": 2.446751
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_ENV",
+			"CarId": 1,
+			"Driver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"OtherCarId": -1,
+			"OtherDriver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": null
+			},
+			"ImpactSpeed": 21.851257,
+			"WorldPosition": {
+				"X": 169.34947,
+				"Y": 24.130192,
+				"Z": -218.68465
+			},
+			"RelPosition": {
+				"X": 0.88765717,
+				"Y": -0.15447864,
+				"Z": -1.4373811
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_ENV",
+			"CarId": 0,
+			"Driver": {
+				"Name": "InGuNi",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197991326646",
+				"GuidsList": [
+					"76561197991326646"
+				]
+			},
+			"OtherCarId": -1,
+			"OtherDriver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": null
+			},
+			"ImpactSpeed": 21.665478,
+			"WorldPosition": {
+				"X": -297.93726,
+				"Y": -9.576506,
+				"Z": -16.207586
+			},
+			"RelPosition": {
+				"X": 0.9049998,
+				"Y": -0.15447222,
+				"Z": -1.4373851
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_ENV",
+			"CarId": 0,
+			"Driver": {
+				"Name": "InGuNi",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197991326646",
+				"GuidsList": [
+					"76561197991326646"
+				]
+			},
+			"OtherCarId": -1,
+			"OtherDriver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": null
+			},
+			"ImpactSpeed": 116.76591,
+			"WorldPosition": {
+				"X": -29.043995,
+				"Y": 13.481895,
+				"Z": -62.07338
+			},
+			"RelPosition": {
+				"X": -0.87134135,
+				"Y": -0.16194983,
+				"Z": 1.7993789
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_ENV",
+			"CarId": 0,
+			"Driver": {
+				"Name": "InGuNi",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197991326646",
+				"GuidsList": [
+					"76561197991326646"
+				]
+			},
+			"OtherCarId": -1,
+			"OtherDriver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": null
+			},
+			"ImpactSpeed": 122.26819,
+			"WorldPosition": {
+				"X": 150.87936,
+				"Y": 22.063807,
+				"Z": -114.76978
+			},
+			"RelPosition": {
+				"X": -0.8640149,
+				"Y": -0.16220771,
+				"Z": 1.8152889
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_ENV",
+			"CarId": 1,
+			"Driver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"OtherCarId": -1,
+			"OtherDriver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": null
+			},
+			"ImpactSpeed": 84.09239,
+			"WorldPosition": {
+				"X": -316.72476,
+				"Y": -10.618091,
+				"Z": -16.1685
+			},
+			"RelPosition": {
+				"X": 0.9010346,
+				"Y": -0.16209285,
+				"Z": 1.4433973
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_CAR",
+			"CarId": 0,
+			"Driver": {
+				"Name": "InGuNi",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197991326646",
+				"GuidsList": [
+					"76561197991326646"
+				]
+			},
+			"OtherCarId": 1,
+			"OtherDriver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"ImpactSpeed": 38.915195,
+			"WorldPosition": {
+				"X": -317.6007,
+				"Y": -10.623738,
+				"Z": -14.007557
+			},
+			"RelPosition": {
+				"X": -0.88265544,
+				"Y": 0.005891647,
+				"Z": 1.7993217
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_ENV",
+			"CarId": 0,
+			"Driver": {
+				"Name": "InGuNi",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197991326646",
+				"GuidsList": [
+					"76561197991326646"
+				]
+			},
+			"OtherCarId": -1,
+			"OtherDriver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": null
+			},
+			"ImpactSpeed": 31.77121,
+			"WorldPosition": {
+				"X": -317.74496,
+				"Y": -10.485006,
+				"Z": -16.700615
+			},
+			"RelPosition": {
+				"X": 0.6440167,
+				"Y": -0.16255444,
+				"Z": 2.4480274
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_CAR",
+			"CarId": 1,
+			"Driver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"OtherCarId": 0,
+			"OtherDriver": {
+				"Name": "InGuNi",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197991326646",
+				"GuidsList": [
+					"76561197991326646"
+				]
+			},
+			"ImpactSpeed": 49.50492,
+			"WorldPosition": {
+				"X": -317.87936,
+				"Y": -10.658905,
+				"Z": -14.228952
+			},
+			"RelPosition": {
+				"X": 0.7788823,
+				"Y": -0.15164557,
+				"Z": -1.3872635
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_ENV",
+			"CarId": 1,
+			"Driver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"OtherCarId": -1,
+			"OtherDriver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": null
+			},
+			"ImpactSpeed": 31.714132,
+			"WorldPosition": {
+				"X": -313.3983,
+				"Y": -10.384096,
+				"Z": -16.066187
+			},
+			"RelPosition": {
+				"X": 0.8713148,
+				"Y": -0.16206047,
+				"Z": 1.8056847
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_ENV",
+			"CarId": 1,
+			"Driver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"OtherCarId": -1,
+			"OtherDriver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": null
+			},
+			"ImpactSpeed": 34.348045,
+			"WorldPosition": {
+				"X": 179.00198,
+				"Y": 22.674063,
+				"Z": -139.19981
+			},
+			"RelPosition": {
+				"X": -0.905,
+				"Y": 0.06821142,
+				"Z": -1.458119
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_CAR",
+			"CarId": 0,
+			"Driver": {
+				"Name": "InGuNi",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197991326646",
+				"GuidsList": [
+					"76561197991326646"
+				]
+			},
+			"OtherCarId": 1,
+			"OtherDriver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"ImpactSpeed": 21.685446,
+			"WorldPosition": {
+				"X": 175.29158,
+				"Y": 24.094563,
+				"Z": -223.8424
+			},
+			"RelPosition": {
+				"X": 0.13541204,
+				"Y": 0.009184236,
+				"Z": 2.4659162
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_CAR",
+			"CarId": 1,
+			"Driver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"OtherCarId": 0,
+			"OtherDriver": {
+				"Name": "InGuNi",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197991326646",
+				"GuidsList": [
+					"76561197991326646"
+				]
+			},
+			"ImpactSpeed": 23.04277,
+			"WorldPosition": {
+				"X": 175.29182,
+				"Y": 24.099234,
+				"Z": -223.83952
+			},
+			"RelPosition": {
+				"X": 0.022521794,
+				"Y": -0.036907177,
+				"Z": -1.8250654
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_ENV",
+			"CarId": 1,
+			"Driver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"OtherCarId": -1,
+			"OtherDriver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": null
+			},
+			"ImpactSpeed": 6.052021,
+			"WorldPosition": {
+				"X": 175.7364,
+				"Y": 24.213692,
+				"Z": -224.87587
+			},
+			"RelPosition": {
+				"X": -0.89697,
+				"Y": 0.06821398,
+				"Z": -1.4581041
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_ENV",
+			"CarId": 1,
+			"Driver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"OtherCarId": -1,
+			"OtherDriver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": null
+			},
+			"ImpactSpeed": 49.5204,
+			"WorldPosition": {
+				"X": 278.7459,
+				"Y": 10.170474,
+				"Z": -454.15417
+			},
+			"RelPosition": {
+				"X": 0.75882125,
+				"Y": -0.0244591,
+				"Z": 1.8283954
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_CAR",
+			"CarId": 1,
+			"Driver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"OtherCarId": 0,
+			"OtherDriver": {
+				"Name": "InGuNi",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197991326646",
+				"GuidsList": [
+					"76561197991326646"
+				]
+			},
+			"ImpactSpeed": 29.010477,
+			"WorldPosition": {
+				"X": 275.14267,
+				"Y": 10.073022,
+				"Z": -451.3911
+			},
+			"RelPosition": {
+				"X": 0.90501416,
+				"Y": -0.15447329,
+				"Z": -1.4373966
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_CAR",
+			"CarId": 0,
+			"Driver": {
+				"Name": "InGuNi",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197991326646",
+				"GuidsList": [
+					"76561197991326646"
+				]
+			},
+			"OtherCarId": 1,
+			"OtherDriver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"ImpactSpeed": 28.172363,
+			"WorldPosition": {
+				"X": 275.14142,
+				"Y": 10.1266985,
+				"Z": -451.38406
+			},
+			"RelPosition": {
+				"X": 0.35508344,
+				"Y": -0.05979199,
+				"Z": 2.4315822
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_CAR",
+			"CarId": 1,
+			"Driver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"OtherCarId": 0,
+			"OtherDriver": {
+				"Name": "InGuNi",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197991326646",
+				"GuidsList": [
+					"76561197991326646"
+				]
+			},
+			"ImpactSpeed": 18.660902,
+			"WorldPosition": {
+				"X": 279.9374,
+				"Y": 9.644436,
+				"Z": -448.56717
+			},
+			"RelPosition": {
+				"X": 0.6522332,
+				"Y": -0.09212156,
+				"Z": 2.0758712
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_ENV",
+			"CarId": 1,
+			"Driver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"OtherCarId": -1,
+			"OtherDriver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": null
+			},
+			"ImpactSpeed": 9.129761,
+			"WorldPosition": {
+				"X": 277.4073,
+				"Y": 9.645956,
+				"Z": -445.38495
+			},
+			"RelPosition": {
+				"X": -0.02396977,
+				"Y": 0.03769263,
+				"Z": -1.8424549
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_CAR",
+			"CarId": 0,
+			"Driver": {
+				"Name": "InGuNi",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197991326646",
+				"GuidsList": [
+					"76561197991326646"
+				]
+			},
+			"OtherCarId": 1,
+			"OtherDriver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"ImpactSpeed": 16.927738,
+			"WorldPosition": {
+				"X": 277.9146,
+				"Y": 9.941836,
+				"Z": -449.74268
+			},
+			"RelPosition": {
+				"X": 0.0526644,
+				"Y": 0.031631593,
+				"Z": 2.4863362
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_ENV",
+			"CarId": 1,
+			"Driver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"OtherCarId": -1,
+			"OtherDriver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": null
+			},
+			"ImpactSpeed": 33.3231,
+			"WorldPosition": {
+				"X": -269.40973,
+				"Y": -16.595284,
+				"Z": 364.4143
+			},
+			"RelPosition": {
+				"X": -0.05507828,
+				"Y": 0.03316957,
+				"Z": 2.4848487
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_ENV",
+			"CarId": 1,
+			"Driver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"OtherCarId": -1,
+			"OtherDriver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": null
+			},
+			"ImpactSpeed": 17.821161,
+			"WorldPosition": {
+				"X": 311.92773,
+				"Y": -4.6717596,
+				"Z": -436.09973
+			},
+			"RelPosition": {
+				"X": 0.64400405,
+				"Y": -0.16255309,
+				"Z": 2.448054
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_ENV",
+			"CarId": 1,
+			"Driver": {
+				"Name": "Spark",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197988392320",
+				"GuidsList": [
+					"76561197988392320"
+				]
+			},
+			"OtherCarId": -1,
+			"OtherDriver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": null
+			},
+			"ImpactSpeed": 15.560297,
+			"WorldPosition": {
+				"X": -295.60074,
+				"Y": -15.278893,
+				"Z": 38.361023
+			},
+			"RelPosition": {
+				"X": -0.9050014,
+				"Y": 0.068212435,
+				"Z": -1.4581113
+			}
+		},
+		{
+			"Type": "COLLISION_WITH_ENV",
+			"CarId": 0,
+			"Driver": {
+				"Name": "InGuNi",
+				"Team": "Buzzin Hornets",
+				"Nation": "ESP",
+				"Guid": "76561197991326646",
+				"GuidsList": [
+					"76561197991326646"
+				]
+			},
+			"OtherCarId": -1,
+			"OtherDriver": {
+				"Name": "",
+				"Team": "",
+				"Nation": "",
+				"Guid": "",
+				"GuidsList": null
+			},
+			"ImpactSpeed": 9.247762,
+			"WorldPosition": {
+				"X": -298.97244,
+				"Y": -15.662129,
+				"Z": 45.779705
+			},
+			"RelPosition": {
+				"X": -0.8969468,
+				"Y": -0.16419426,
+				"Z": -1.4321631
+			}
+		}
+	]
+}
