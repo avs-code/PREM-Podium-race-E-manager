@@ -189,7 +189,7 @@ for($x = 1; $x <= $race; $x++) {
 	<td width="30" align="right"><strong><?=!empty($ditem['points']) ? $ditem['points'] : "0" ?></strong></td>
 </tr>
 <? 
-#$style = $style == "odd" ? "even" : "odd";
+
 } ?>
 </table>
 
@@ -200,16 +200,16 @@ for($x = 1; $x <= $race; $x++) {
 	<td>&nbsp;</td>
 	<td>Team</td>
 <? for($x = 1; $x <= $race; $x++) { ?>
-	<td width="30" align="right"><a href="?page=result_race&amp;race=<?=$races[$x]['id']?>"><img src="img_season_race.php?text=<?=urlencode($races[$x]['name'])?>&amp;text2=<?=urlencode($races[$x]['track'])?>" alt="<?=$x?>"></a></td>
+	<td width="30" align="right"><javascript:void(0)" class="tablink" title="Click to more details"><div class="w3-container w3-hover-red"><a href="?page=result_race&amp;race=<?=$races[$x]['id']?>"><img src="img_season_race.php?text=<?=urlencode($races[$x]['name'])?>&amp;text2=<?=urlencode($races[$x]['track'])?>" alt="<?=$x?>"></a></td>
 <? } ?>
 	<td width="30" align="right">Pts</td>
 </tr>
 <?
-#$style = "odd";
+
 $pos = 0;
 foreach($team as $id => $titem) {
 ?>
-<!--<tr class="<?=$style?>">-->
+
 <tr class="w3-hover-green">
 	<td width="30" align="right"><?=++$pos?>&nbsp;</td>
 	<td><?=$titem['name']?></td>
@@ -232,7 +232,7 @@ for($x = 1; $x <= $race; $x++) {
 	<td width="30" align="right"><strong><?=!empty($titem['points']) ? $titem['points'] : "0" ?></strong></td>
 </tr>
 <? 
-#$style = $style == "odd" ? "even" : "odd";
+
 } ?>
 </table>
 
@@ -247,16 +247,16 @@ for($x = 1; $x <= $race; $x++) {
 	<td>Driver</td>
 	<td>Team</td>
 <? for($x = 1; $x <= $race; $x++) { ?>
-	<td width="30" align="right"><a href="?page=result_race&amp;race=<?=$races[$x]['id']?>"><img src="img_season_race.php?text=<?=urlencode($races[$x]['name'])?>&amp;text2=<?=urlencode($races[$x]['track'])?>" alt="<?=$x?>"></a></td>
+	<td width="30" align="right"><javascript:void(0)" class="tablink" title="Click to more details"><div class="w3-container w3-hover-red"><a href="?page=result_race&amp;race=<?=$races[$x]['id']?>"><img src="img_season_race.php?text=<?=urlencode($races[$x]['name'])?>&amp;text2=<?=urlencode($races[$x]['track'])?>" alt="<?=$x?>"></a></td>
 <? } ?>
 	<td width="30" align="right">Pts</td>
 </tr>
 <?
-#$style = "odd";
+
 $pos = 0;
 foreach($driver as $id => $ditem) {
 ?>
-<!--<tr class="<?=$style?>">-->
+
 <tr class="w3-hover-green">
 	<td width="30" align="right"><?=++$pos?>&nbsp;</td>
 	<td><?=$ditem['name']?></td>
@@ -267,7 +267,7 @@ foreach($driver as $id => $ditem) {
 	<td width="30" align="right"><strong><?=!empty($ditem['pointsqualifying']) ? $ditem['pointsqualifying'] : "0" ?></strong></td>
 </tr>
 <? 
-#$style = $style == "odd" ? "even" : "odd";
+
 } ?>
 </table>
 <? } ?>

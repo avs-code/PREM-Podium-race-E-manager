@@ -134,7 +134,7 @@ if($item['ruleset_qualifying'] != 0) {
 	<? } ?>
 </tr>
 <?
-#$style = "odd";
+
 while($ditem = mysql_fetch_array($dresult)) {
 	if(!isset($best_time)) $best_time = $ditem['time'];
 	if(!isset($most_laps)) $most_laps = $ditem['laps'];
@@ -165,7 +165,7 @@ while($ditem = mysql_fetch_array($dresult)) {
 		$time = "";
 	}
 ?>
-<!--<tr class="<?=$style?>">-->
+
 <tr class="w3-hover-green">
 	<td align="right"><?=++$position?>&nbsp;</td>
 	<td><?=$ditem['dname']?></td>
