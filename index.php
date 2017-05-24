@@ -29,7 +29,7 @@ if (defined("USE_MYSQL")) {
 // Start output
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
 	<title><?= TITLE ?> - <?= $config['org'] ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
