@@ -48,6 +48,31 @@ if(mysql_num_rows($result) == 0) {
 	<td width="22" align="center">13</td>
 	<td width="22" align="center">14</td>
 	<td width="22" align="center">15</td>
+	<td width="22" align="center">16</td>
+	<td width="22" align="center">17</td>
+	<td width="22" align="center">18</td>
+	<td width="22" align="center">19</td>
+	<td width="22" align="center">20</td>
+	<td width="22" align="center">21</td>
+	<td width="22" align="center">22</td>
+	<td width="22" align="center">23</td>
+	<td width="22" align="center">24</td>
+	<td width="22" align="center">25</td>
+	<td width="22" align="center">26</td>
+	<td width="22" align="center">27</td>
+	<td width="22" align="center">28</td>
+	<td width="22" align="center">29</td>
+	<td width="22" align="center">30</td>
+	<td width="22" align="center">31</td>
+	<td width="22" align="center">32</td>
+	<td width="22" align="center">33</td>
+	<td width="22" align="center">34</td>
+	<td width="22" align="center">35</td>
+	<td width="22" align="center">36</td>
+	<td width="22" align="center">37</td>
+	<td width="22" align="center">38</td>
+	<td width="22" align="center">39</td>
+	<td width="22" align="center">40</td>
 	<td width="22" align="center">q1</td>
 	<td width="22" align="center">q2</td>
 	<td width="22" align="center">q3</td>
@@ -57,7 +82,6 @@ if(mysql_num_rows($result) == 0) {
 </tr>
 
 <?
-$style = "odd";
 while($item = mysql_fetch_array($result)) {
 ?>
 <tr class="w3-hover-green">
@@ -81,6 +105,31 @@ while($item = mysql_fetch_array($result)) {
 	<td width="22" align="center"><?=$item['rp13']?></td>
 	<td width="22" align="center"><?=$item['rp14']?></td>
 	<td width="22" align="center"><?=$item['rp15']?></td>
+	<td width="22" align="center"><?=$item['rp16']?></td>
+	<td width="22" align="center"><?=$item['rp17']?></td>
+	<td width="22" align="center"><?=$item['rp18']?></td>
+	<td width="22" align="center"><?=$item['rp19']?></td>
+	<td width="22" align="center"><?=$item['rp20']?></td>
+	<td width="22" align="center"><?=$item['rp21']?></td>
+	<td width="22" align="center"><?=$item['rp22']?></td>
+	<td width="22" align="center"><?=$item['rp23']?></td>
+	<td width="22" align="center"><?=$item['rp24']?></td>
+	<td width="22" align="center"><?=$item['rp25']?></td>
+	<td width="22" align="center"><?=$item['rp26']?></td>
+	<td width="22" align="center"><?=$item['rp27']?></td>
+	<td width="22" align="center"><?=$item['rp28']?></td>
+	<td width="22" align="center"><?=$item['rp29']?></td>
+	<td width="22" align="center"><?=$item['rp30']?></td>
+	<td width="22" align="center"><?=$item['rp31']?></td>
+	<td width="22" align="center"><?=$item['rp32']?></td>
+	<td width="22" align="center"><?=$item['rp33']?></td>
+	<td width="22" align="center"><?=$item['rp34']?></td>
+	<td width="22" align="center"><?=$item['rp35']?></td>
+	<td width="22" align="center"><?=$item['rp36']?></td>
+	<td width="22" align="center"><?=$item['rp37']?></td>
+	<td width="22" align="center"><?=$item['rp38']?></td>
+	<td width="22" align="center"><?=$item['rp39']?></td>
+	<td width="22" align="center"><?=$item['rp40']?></td>
 	<td width="22" align="center"><?=$item['qp1']?></td>
 	<td width="22" align="center"><?=$item['qp2']?></td>
 	<td width="22" align="center"><?=$item['qp3']?></td>
@@ -89,7 +138,6 @@ while($item = mysql_fetch_array($result)) {
 	<td width="22" align="center"><?=$item['fl']?></td>
 </tr>
 <?
-#	$style = $style == "odd" ? "even" : "odd";
 }
 ?>
 </table>

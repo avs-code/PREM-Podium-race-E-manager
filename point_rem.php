@@ -97,6 +97,56 @@ if(!empty($error)) {
 			<td><?=$item['rp14']?></td>
 			<td width="22" align="right">15:</td>
 			<td><?=$item['rp15']?></td>
+			<td width="22" align="right">16:</td>
+			<td><?=$item['rp16']?></td>
+			<td width="22" align="right">17:</td>
+			<td><?=$item['rp17']?></td>
+			<td width="22" align="right">18:</td>
+			<td><?=$item['rp18']?></td>
+			<td width="22" align="right">19:</td>
+			<td><?=$item['rp19']?></td>
+			<td width="22" align="right">20:</td>
+			<td><?=$item['rp20']?></td>
+			<td width="22" align="right">21:</td>
+			<td><?=$item['rp21']?></td>
+			<td width="22" align="right">22:</td>
+			<td><?=$item['rp22']?></td>
+			<td width="22" align="right">23:</td>
+			<td><?=$item['rp23']?></td>
+			<td width="22" align="right">24:</td>
+			<td><?=$item['rp24']?></td>
+			<td width="22" align="right">25:</td>
+			<td><?=$item['rp25']?></td>
+			<td width="22" align="right">26:</td>
+			<td><?=$item['rp26']?></td>
+			<td width="22" align="right">27:</td>
+			<td><?=$item['rp27']?></td>
+			<td width="22" align="right">28:</td>
+			<td><?=$item['rp28']?></td>
+			<td width="22" align="right">29:</td>
+			<td><?=$item['rp29']?></td>
+			<td width="22" align="right">30:</td>
+			<td><?=$item['rp30']?></td>
+			<td width="22" align="right">31:</td>
+			<td><?=$item['rp31']?></td>
+			<td width="22" align="right">32:</td>
+			<td><?=$item['rp32']?></td>
+			<td width="22" align="right">33:</td>
+			<td><?=$item['rp33']?></td>
+			<td width="22" align="right">34:</td>
+			<td><?=$item['rp34']?></td>
+			<td width="22" align="right">35:</td>
+			<td><?=$item['rp35']?></td>
+			<td width="22" align="right">36:</td>
+			<td><?=$item['rp36']?></td>
+			<td width="22" align="right">37:</td>
+			<td><?=$item['rp37']?></td>
+			<td width="22" align="right">38:</td>
+			<td><?=$item['rp38']?></td>
+			<td width="22" align="right">39:</td>
+			<td><?=$item['rp39']?></td>
+			<td width="22" align="right">40:</td>
+			<td><?=$item['rp40']?></td>
 		</tr>
 		</table>
 	</td>
