@@ -173,6 +173,7 @@ CREATE TABLE IF NOT EXISTS `race` (
   `progress` int(11) NOT NULL DEFAULT '0',
   `imagelink` varchar(200) NOT NULL,
   `replay` varchar(200) NOT NULL,
+  `simresults` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 

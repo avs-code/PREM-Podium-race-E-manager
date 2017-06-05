@@ -15,7 +15,7 @@ if(!$sresult) {
 <h1>Add Sim_results</h1><br />
 <p></p>1. First upload your result here (push green arrow button): <a href="http://simresults.net" target="_blank"><img src="images/arrow.png" style="border-width: 0px; border-style: solid; width: 50px; height: 50px;" /></a><br />
 2. After having uploaded result race file, click in "yes, save permanently"<br />
-3. copy the url of page (similar to http://simresults.net/160530-B7t) this is your <strong>simresult_link</strong><br /><p></p>
+3. copy the url of page (similar to http://simresults.net/160530-B7t) this is your <strong>simresult_url</strong><br /><p></p>
 <form action="sim_results_add_do.php" method="post">
 <table border="0">
 <tr>

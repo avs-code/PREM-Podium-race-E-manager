@@ -102,6 +102,10 @@ if(!$rdresult) {
 	<td><input type="url" name="replay" value="<?=$item['replay']?>" maxlength="200"></td>
 </tr>
 <tr>
+    <td>Simresults URL:</td>
+	<td><input type="url" name="simresults" value="<?=$item['simresults']?>" maxlength="200"></td>
+</tr>
+<tr>
 	<td>
 	Official result?
 	</td>
