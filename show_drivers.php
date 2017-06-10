@@ -8,7 +8,7 @@ while ($positions = mysql_fetch_array($exe_positions)) {
 }
 mysql_free_result($exe_positions);
 
-$sql_drivers = "SELECT `driver`.`id`, `driver`.`name`, `driver`.`driver_photo`, `team_driver`.`id` as teamDriverID FROM driver LEFT JOIN team_driver ON driver.id = team_driver.driver ORDER BY `driver`.`name` ASC LIMIT 0 , 30";
+$sql_drivers = "SELECT `driver`.`id`, `driver`.`name`, `driver`.`driver_photo`, `team_driver`.`id` as teamDriverID FROM driver LEFT JOIN team_driver ON driver.id = team_driver.driver ORDER BY `driver`.`name` ASC";
 $exe_drivers = mysql_query($sql_drivers);
 if (!$exe_drivers) {
     show_error("MySQL Error: " . mysql_error() . "\n");
@@ -35,7 +35,7 @@ if (!$exe_drivers) {
 </tr>
 </tr>
 <?
-#$style = "odd";
+
 while ($sitem = mysql_fetch_array($exe_drivers)) {
 	if ($sitem['driver_photo'] == '') { $url = 'images/helmet.png' ; } else { $url = $sitem['driver_photo']; } 
 	$first_position = intval($position[$sitem['teamDriverID']][1]);
@@ -51,7 +51,7 @@ while ($sitem = mysql_fetch_array($exe_drivers)) {
 	<td><a><img src="<?=$url;?>" width="150" height="150"/></a></td>
 	</tr>
 	<?
-	#$style = $style == "odd" ? "even" : "odd";
+	
 }
 mysql_free_result($exe_drivers);
 ?>
