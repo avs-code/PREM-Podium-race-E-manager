@@ -1,6 +1,6 @@
 <? if (!defined("CONFIG"))
     exit();
-$video = "SELECT `id`, `video_name`, `video_url` FROM video ORDER BY `id` DESC LIMIT 0 , 30";
+$video = "SELECT `id`, `video_name`, `video_url` FROM video ORDER BY `id` DESC";
 $result = mysql_query($video);
 if (!$result) {
     show_error("MySQL Error: " . mysql_error() . "\n");

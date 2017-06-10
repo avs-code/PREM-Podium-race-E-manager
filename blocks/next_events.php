@@ -12,6 +12,7 @@
 		return;
 	}
 	?>
+	<div class="w3-responsive">
 	<table class="w3-table-all">
 		<tr class="w3-dark-grey">
 			<td>Date</td>    
@@ -32,4 +33,5 @@
 		}
 		?>
 	</table>
+</div>
 </div>

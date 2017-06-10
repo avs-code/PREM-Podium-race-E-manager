@@ -33,7 +33,7 @@ mysql_free_result($result);
 
 ?>
  
-	
+<div class="w3-responsive">
 <table class="w3-table-all">
     <td class="w3-dark-grey"><strong>Division:&nbsp;</strong>
     <tr></tr>    
@@ -55,4 +55,5 @@ mysql_free_result($result);
     </tr>
     <?     } mysql_free_result($dresult);    ?>
 </table>
+</div>
 </div>

@@ -57,8 +57,9 @@ mysql_free_result($exe_point_ruleset);
 <!--Standing block-->
 
 <div>
-	
 
+	
+	<div class="w3-responsive">
 	<ul class="w3-pagination">
 		<?php
 		foreach ($standing_pages as $spID => $spDetails) {
@@ -138,4 +139,5 @@ mysql_free_result($exe_point_ruleset);
 	</script>
 
 
+</div>
 </div>

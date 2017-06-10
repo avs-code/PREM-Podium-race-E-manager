@@ -13,7 +13,7 @@ if (!isset($driver)) {
     show_error("Drivers has been not found.\n");
     return;
 }
-$teams = "SELECT `team`.`id`, `team`.`name` , `team`.`logo` FROM team ORDER BY `team`.`name` ASC LIMIT 0 , 30";
+$teams = "SELECT `team`.`id`, `team`.`name` , `team`.`logo` FROM team ORDER BY `team`.`name` ASC";
 $result = mysql_query($teams);
 if (!$result) {
     show_error("MySQL Error: " . mysql_error() . "\n");
@@ -22,6 +22,7 @@ if (!$result) {
 ?>
 <h1>Teams</h1>
 <div class="w3-container">
+<div class="w3-responsive">
 <table class="w3-table-all">
 	<tr class="w3-dark-grey">
 		<td><h1><strong>Name</strong></h1></td>
@@ -53,3 +54,5 @@ if (!$result) {
 	mysql_free_result($result);
 	?>
 </table>
+</div>
+</div>

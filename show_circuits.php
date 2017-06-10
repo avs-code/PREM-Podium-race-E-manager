@@ -2,7 +2,7 @@
 
 
 $circuits = "SELECT race.track, race.name, race.division, race.date, race.imagelink, race.maxplayers, race.season, division.name AS division_name
-    	FROM race LEFT JOIN division on division.id=race.division WHERE race.date>=CURDATE() ORDER BY race.division ASC, race.date ASC LIMIT 0, 30";
+    	FROM race LEFT JOIN division on division.id=race.division WHERE race.date>=CURDATE() ORDER BY race.division ASC, race.date ASC";
 $result = mysql_query($circuits);
 if (!$result) {
     show_error("MySQL Error: " . mysql_error() . "\n");
@@ -14,6 +14,7 @@ if (!$result) {
 <h2>Circuits ordered by division</h2>
 
 <div class="w3-container">
+<div class="w3-responsive">
 <table class="w3-table-all">
     <tr class="w3-dark-grey">
     	<td>Name</td>
@@ -35,3 +36,5 @@ if (!$result) {
     
 <? } ?>
 </table>
+</div>
+</div>

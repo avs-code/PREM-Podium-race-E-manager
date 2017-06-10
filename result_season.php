@@ -124,6 +124,7 @@ usort($team, "point_sort");
 ?>
 <h1>Season results</h1>
 <div class="w3-container">
+<div class="w3-responsive">
 <table class="w3-table-all">
 <tr class="w3-dark-grey">
 	<td width="20%">Name:</td>
@@ -145,9 +146,12 @@ usort($team, "point_sort");
 	</td>
 </tr>
 </table>
+</div>
+</div>
 
 <h2>Drivers</h2>
 <div class="w3-container">
+<div class="w3-responsive">
 <table class="w3-table-all">
 <tr><td></td><td></td><td></td></tr>
 <tr class="w3-dark-grey">
@@ -192,9 +196,12 @@ for($x = 1; $x <= $race; $x++) {
 
 } ?>
 </table>
+</div>
+</div>
 
 <h2>Teams</h2>
 <div class="w3-container">
+<div class="w3-responsive">
 <table class="w3-table-all">
 <tr class="w3-dark-grey">
 	<td>&nbsp;</td>
@@ -235,12 +242,15 @@ for($x = 1; $x <= $race; $x++) {
 
 } ?>
 </table>
+</div>
+</div>
 
 <? if($show_qualifypoint) { 
 	usort($driver, 'point_sort_qual');
 	?>
 <h2>Drivers qualifying</h2>
 <div class="w3-container">
+<div class="w3-responsive">
 <table class="w3-table-all">
 <tr class="w3-dark-grey">
 	<td>&nbsp;</td>
@@ -270,4 +280,6 @@ foreach($driver as $id => $ditem) {
 
 } ?>
 </table>
+</div>
+</div>
 <? } ?>

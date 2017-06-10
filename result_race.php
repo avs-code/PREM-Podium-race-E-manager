@@ -60,6 +60,7 @@ if($item['ruleset_qualifying'] != 0) {
 ?>
 <h1>Race results</h1>
 <div class="w3-container">
+<div class="w3-responsive">
 <table class="w3-table-all">
 <tr class="w3-dark-grey">
 	<td width="20%">Name:</td>
@@ -118,7 +119,11 @@ if($item['ruleset_qualifying'] != 0) {
 	</td>
 </tr>
 </table>
+</div>
+</div>
+
 <div class="w3-container">
+<div class="w3-responsive">
 <table class="w3-table-all">
 <tr class="w3-dark-grey">
 	<td>&nbsp;</td>
@@ -184,7 +189,6 @@ while($ditem = mysql_fetch_array($dresult)) {
 	<? } ?>
 </tr>
 <?
-#$style = $style == "odd" ? "even" : "odd";
 }
 
 while($ditem = mysql_fetch_array($ndresult)) {
@@ -217,7 +221,6 @@ while($ditem = mysql_fetch_array($ndresult)) {
 		$time = "";
 	}
 ?>
-<!--<tr class="<?=$style?>">-->
 <tr class="w3-hover-green">
 	<td align="right">-&nbsp;</td>
 	<td><?=$ditem['dname']?></td>
@@ -234,7 +237,8 @@ while($ditem = mysql_fetch_array($ndresult)) {
 	<? } ?>
 </tr>
 <?
-#$style = $style == "odd" ? "even" : "odd";
 }
 ?>
 </table>
+</div>
+</div>

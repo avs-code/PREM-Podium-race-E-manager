@@ -19,6 +19,7 @@ if (!$exe_drivers) {
 <h1>Drivers</h1>
 <h2>Drivers</h2>
 <div class="w3-container">
+<div class="w3-responsive">
 <table class="w3-table-all">
 <tr class="w3-dark-grey">
 <td><h1><strong>Name</strong></h1></td>
@@ -56,3 +57,5 @@ while ($sitem = mysql_fetch_array($exe_drivers)) {
 mysql_free_result($exe_drivers);
 ?>
 </table>
+</div>
+</div>
