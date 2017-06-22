@@ -90,8 +90,7 @@ if($item['ruleset_qualifying'] != 0) {
 <tr class="w3-grey">
     <td>Replay:</td>
 <td><a href="<?=$item['replay']?>" target="_blank"><img src="images/replay.png" alt="replay"></a></td>
-    <td>View Simresults:</td>
-<td><a href="<?=$item['simresults']?>" target="_blank"><img src="images/simresults.jpg" alt="view_simresults"></a></td>
+   
 </tr>
 <tr class="w3-amber">
 	<td colspan="4">
@@ -240,5 +239,11 @@ while($ditem = mysql_fetch_array($ndresult)) {
 }
 ?>
 </table>
+</div>
+</div>
+</br>
+<div class="w3-container">
+<div class="w3-responsive">
+<iframe src="<?=$item['simresults'];?>" width="100%" height="1080px"></iframe>
 </div>
 </div>
