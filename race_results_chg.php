@@ -102,8 +102,8 @@ if(!$rdresult) {
 	<td><i class="fa fa-link"></i><input type="url" name="replay" value="<?=$item['replay']?>" maxlength="200"></td>
 </tr>
 <tr>
-	<td>Upload Json results to Simresults:</a></td>
-	<td><a href="http://simresults.net"><i class="fa fa-upload fa-5x" aria-hidden="true"></i></td>
+	<td>Upload result file to Simresults:</a></td>
+	<td><a href="http://simresults.net" target="_blank"><i class="fa fa-upload fa-4x" aria-hidden="true"></i></td>
 </tr>
 <tr>
     <td>Simresults URL:</td>
