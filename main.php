@@ -179,7 +179,7 @@ if ($blocks) {
 	<?php
 }
 ?>
-</div>
+
 
 <!--NEWS-->
 <div class="w3-col s12 l9 w3-dark-gray w3-border w3-border-black w3-round-large w3-center">
@@ -203,5 +203,5 @@ if ($exe_news) {
 
 ?>
 </div>
-
+</div>
 
