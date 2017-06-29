@@ -17,7 +17,6 @@ if (!$exe_drivers) {
 
 ?>
 <h1>Drivers</h1>
-<h2>Drivers</h2>
 <div class="w3-container">
 <div class="w3-responsive">
 <table class="w3-table-all">
@@ -44,7 +43,6 @@ while ($sitem = mysql_fetch_array($exe_drivers)) {
 	$third_position = intval($position[$sitem['teamDriverID']][3]);
 	?>
 	<tr class="w3-hover-green">
-	<!--<tr class="<?= $style ?>">-->
 	<td><?= $sitem['name'] ?></td>
 	<td><?= $first_position ?></td>
 	<td><?= $second_position ?></td>

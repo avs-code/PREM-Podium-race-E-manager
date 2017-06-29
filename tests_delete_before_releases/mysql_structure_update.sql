@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: sql112.byethost17.com
--- Tiempo de generación: 08-12-2016 a las 17:15:49
--- Versión del servidor: 5.6.32-78.0
+-- Tiempo de generación: 29-06-2017 a las 13:22:48
+-- Versión del servidor: 5.6.35-81.0
 -- Versión de PHP: 5.3.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
@@ -37,19 +37,9 @@ CREATE TABLE IF NOT EXISTS `blocks` (
   PRIMARY KEY (`id`),
   KEY `sort_order` (`sort_order`),
   KEY `active` (`active`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
-
---
--- Volcado de datos para la tabla `blocks`
---
-
-INSERT INTO `blocks` (`id`, `title`, `content_file`, `content_html`, `language`, `sort_order`, `active`) VALUES
-(1, 'Next Events', 'next_events', '', 'english', 1, 1),
-(2, 'Last Race', 'last_race', '', 'english', 2, 1),
-(3, 'Standings', 'standings', '', 'english', 3, 1),
-(4, 'Comms viewer', 'comms_viewer', '', 'english', 4, 1);
 
 --
 -- Estructura de tabla para la tabla `division`
@@ -60,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `division` (
   `name` varchar(30) NOT NULL DEFAULT '',
   `type` varchar(30) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -76,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `driver` (
   `3rd` int(30) NOT NULL,
   `driver_photo` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -88,16 +78,9 @@ CREATE TABLE IF NOT EXISTS `languages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `language_name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
-
---
--- Volcado de datos para la tabla `languages`
---
-
-INSERT INTO `languages` (`id`, `language_name`) VALUES
-(1, 'english');
 
 --
 -- Estructura de tabla para la tabla `main_news`
@@ -109,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `main_news` (
   `news` text CHARACTER SET utf8 NOT NULL,
   `day` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -167,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `point_ruleset` (
   `qp5` int(11) NOT NULL DEFAULT '0',
   `fl` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -192,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `race` (
   `replay` varchar(200) NOT NULL,
   `simresults` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -223,16 +206,9 @@ CREATE TABLE IF NOT EXISTS `rules_table` (
   `default_language` varchar(15) NOT NULL,
   `rules` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
-
---
--- Volcado de datos para la tabla `rules_table`
---
-
-INSERT INTO `rules_table` (`id`, `default_language`, `rules`) VALUES
-(1, 'english', '<p>Set your rules and mods here.</p>');
 
 --
 -- Estructura de tabla para la tabla `season`
@@ -246,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `season` (
   `ruleset_qualifying` int(11) NOT NULL DEFAULT '0',
   `maxteams` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -272,7 +248,7 @@ CREATE TABLE IF NOT EXISTS `sim_results` (
   `season` int(11) NOT NULL DEFAULT '0',
   `simresults_url` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -286,7 +262,7 @@ CREATE TABLE IF NOT EXISTS `standing_pages` (
   `season` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `season` (`season`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -299,7 +275,7 @@ CREATE TABLE IF NOT EXISTS `team` (
   `name` varchar(30) NOT NULL DEFAULT '',
   `logo` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -312,7 +288,7 @@ CREATE TABLE IF NOT EXISTS `team_driver` (
   `team` int(11) NOT NULL DEFAULT '0',
   `driver` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -326,7 +302,7 @@ CREATE TABLE IF NOT EXISTS `uploads` (
   `type` varchar(10) NOT NULL,
   `size` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -340,7 +316,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `passwd` varchar(40) NOT NULL DEFAULT '',
   `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -353,7 +329,7 @@ CREATE TABLE IF NOT EXISTS `video` (
   `video_name` varchar(30) NOT NULL,
   `video_url` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

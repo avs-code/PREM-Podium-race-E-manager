@@ -115,17 +115,6 @@ if (defined("USE_MYSQL")) {
 </div>
 </div>
 <!-- Footer -->
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- e111-racing -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1435469147537876"
-     data-ad-slot="1696560336"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
   <a href="#" class="w3-hover-text-indigo"><i class="fa fa-facebook-official"></i></a>
   <a href="#" class="w3-hover-text-red"><i class="fa fa-pinterest-p"></i></a>

@@ -67,6 +67,36 @@ $active_last = $_POST["active_last"];
     </form>
 <? } ?> 
 
+
+<!--comms_viewer-->
+<h1>Comms viewer</h1>
+
+<?
+    $query_comms_status = "SELECT active FROM blocks WHERE content_file='comms_viewer'";
+    $result_comms_status = mysql_query($query_comms_status);
+    mysql_free_result($result_comms_status);
+
+$active_comms = $_POST["active_comms"];
+    
+    if (isset($_POST['active_comms'])) {
+        $query_comms = "UPDATE blocks SET active='$active_comms' WHERE content_file='comms_viewer'";
+        $result_comms = mysql_query($query_comms);
+        if (!$result_comms) error("MySQL Error: ".mysql_error()."\n");
+        echo "<br /> <strong><h2>Comms viewer succesfully modified</h2></strong>";
+    }else{ ?>
+
+
+    <form action=".?page=blocks" method="post"> 
+        Activate:
+        <input type="radio" name="active_comms" <?php if (isset($result_comms_status) && $result_comms_status=="1") echo "checked";?> value="1">Yes
+        <input type="radio" name="active_comms" <?php if (isset($result_comms_status) && $result_comms_status=="0") echo "checked";?> value="0">No
+        &nbsp;
+        </b> </b> <input type="submit" name="submit" value="Set">
+        <br><br> 
+    </form>
+<? } ?> 
+
+
 <!--standings block-->
 <h1>Standings block</h1>
 
