@@ -66,7 +66,7 @@
     <a href="?page=logout" class="w3-hover-red">Logout</a></li>
     
     <!--welcome message-->
-    <div class="w3-right-align">Welcome to the Podium Racing E Manager for <a href="<?= $config['org_link'] ?>"><?= $config['org'] ?></a>.<br>
+    <div class="w3-right-align">Welcome to the Podium Racing E Manager for <a href="<?= $config['org_link'] ?>"><?= $config['org'] ?></a>Logged in as <?=$username?>.<br>
     <div class="small">
     Version <?= VERSION ?><br>
     </div></div>
@@ -113,7 +113,7 @@
     <li><a class="w3-padding-large" href="?page=logout">Logout</a></li>
     
     <!--welcome message-->
-    <div class="w3-right-align">Welcome to the Podium Racing E Manager for <a href="<?= $config['org_link'] ?>"><?= $config['org'] ?></a>.<br>
+    <div class="w3-right-align">Welcome to the Podium Racing E Manager for <a href="<?= $config['org_link'] ?>"><?= $config['org'] ?></a>Logged in as <?=$username?>.<br>
     <div class="small">
     Version <?= VERSION ?><br>
     </div></div>
