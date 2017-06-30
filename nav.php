@@ -38,6 +38,14 @@
 <? if(defined("USE_MYSQL") && defined("USE_LOGIN")) { ?>
 <? if(!isset($login)) { ?>
     <li class="w3-hide-small"><a href="?page=login" class="w3-padding-large">Login Admin</a></li>
+    
+    <!--welcome message-->
+    <div class="w3-right-align">Welcome to the Podium Racing E Manager for <a href="<?= $config['org_link'] ?>"><?= $config['org'] ?></a>.<br>
+    <div class="small">
+    Version <?= VERSION ?><br>
+    </div></div>
+    <!--end welcome message-->
+    
 <? } else { ?> 
   <li class="w3-hide-small w3-dropdown-hover">
     <a href="javascript:void(0)" class="w3-hover-red w3-padding-large" title="Login Admin">Login Admin <i class="fa fa-caret-down"></i></a>     
@@ -56,6 +64,14 @@
     <a href="?page=upload" class="w3-hover-red">Upload_file</a>
     <a href="?page=users" class="w3-hover-red">Admins</a>
     <a href="?page=logout" class="w3-hover-red">Logout</a></li>
+    
+    <!--welcome message-->
+    <div class="w3-right-align">Welcome to the Podium Racing E Manager for <a href="<?= $config['org_link'] ?>"><?= $config['org'] ?></a>.<br>
+    <div class="small">
+    Version <?= VERSION ?><br>
+    </div></div>
+    <!--end welcome message-->
+    
     </div>
   </li>
 </ul>
@@ -80,6 +96,14 @@
 <? if(defined("USE_MYSQL") && defined("USE_LOGIN")) { ?>
 <? if(!isset($login)) { ?>
     <li><a class="w3-padding-large" href="?page=login">Login_Admin</a></li>
+    
+    <!--welcome message-->
+    <div class="w3-right-align">Welcome to the Podium Racing E Manager for <a href="<?= $config['org_link'] ?>"><?= $config['org'] ?></a>.<br>
+    <div class="small">
+    Version <?= VERSION ?><br>
+    </div></div>
+    <!--end welcome message-->
+    
 <? } else { ?>
     <li><a class="w3-padding-large" href="?page=drivers">Edit drivers</a></li>
     <li><a class="w3-padding-large" href="?page=teams">Edit teams</a></li>
@@ -87,6 +111,13 @@
     <!--Disabled<li><a class="w3-padding-large" href="?page=sim_results_add">Send Simresults url</a></li>-->
     <li><a class="w3-padding-large" href="?page=users">Admins</a></li>
     <li><a class="w3-padding-large" href="?page=logout">Logout</a></li>
+    
+    <!--welcome message-->
+    <div class="w3-right-align">Welcome to the Podium Racing E Manager for <a href="<?= $config['org_link'] ?>"><?= $config['org'] ?></a>.<br>
+    <div class="small">
+    Version <?= VERSION ?><br>
+    </div></div>
+    <!--end welcome message-->
     
   </ul>
 </div>
