@@ -9,7 +9,7 @@
 // Version information
 define("TITLE", "PREM");
 define("SUBTITLE", "Podium race E manager");
-define("VERSION", "1.1.0");
+define("VERSION", "1.1.0-b3");
 
 define("PAGE_DEFAULT", "main");
 define("PAGE_ERROR", "error");
