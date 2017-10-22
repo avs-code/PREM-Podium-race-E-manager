@@ -22,10 +22,7 @@ if ($page != "error") {
         }
     }
 }
-if (defined("USE_MYSQL")) {
-    // Connect to the database
-    mysqlconnect();
-}
+
 // Start output
 ?>
 <!DOCTYPE html>
@@ -45,10 +42,10 @@ if (defined("USE_MYSQL")) {
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     -->
 	<link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="lato.css">	
+    <link rel="stylesheet" type="text/css" href="lato.css">
 	<link rel="stylesheet" type="text/css" href="w3.css">
 	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
-	
+
 
 	<style>
 	body {font-family: "Lato", sans-serif}
@@ -78,7 +75,7 @@ if (defined("USE_MYSQL")) {
 		var x = document.getElementById("navDemo");
 		if (x.className.indexOf("w3-show") == -1) {
 			x.className += " w3-show";
-		} else { 
+		} else {
 			x.className = x.className.replace(" w3-show", "");
 		}
 	}

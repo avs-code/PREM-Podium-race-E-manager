@@ -14,4 +14,5 @@ $config['mysql']['host'] = "localhost";
 $config['mysql']['user'] = "";
 $config['mysql']['pass'] = "";
 $config['mysql']['db'] = "racemanager";
+$config['mysql']['port'] = "3306";
 ?>
