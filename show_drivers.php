@@ -1,20 +1,20 @@
 <? if (!defined("CONFIG"))
     exit();
 
-$sql_positions = "SELECT `team_driver`, `position` FROM race_driver WHERE `position` <= 3";
-$exe_positions = mysql_query($sql_positions);
-while ($positions = mysql_fetch_array($exe_positions)) {
-	$position[$positions['team_driver']][$positions['position']]++;
-}
-mysql_free_result($exe_positions);
+$sql_drivers = "SELECT name, driver_photo,
+    SUM(position_1_count) AS pos_1,
+    SUM(position_2_count) AS pos_2,
+    SUM(position_3_count) AS pos_3
+FROM team_driver, team_driver_top3, driver
+WHERE (team_driver.id = team_driver_top3.team_driver AND team_driver.driver = driver.id)
+GROUP BY driver
+ORDER BY pos_1 DESC, pos_2 DESC, pos_3 DESC;";
 
-$sql_drivers = "SELECT `driver`.`id`, `driver`.`name`, `driver`.`driver_photo`, `team_driver`.`id` as teamDriverID FROM driver LEFT JOIN team_driver ON driver.id = team_driver.driver ORDER BY `driver`.`name` ASC";
 $exe_drivers = mysql_query($sql_drivers);
 if (!$exe_drivers) {
     show_error("MySQL Error: " . mysql_error() . "\n");
     return;
 }
-
 ?>
 <h1>Drivers</h1>
 <div class="w3-container">
@@ -37,20 +37,17 @@ if (!$exe_drivers) {
 <?
 
 while ($sitem = mysql_fetch_array($exe_drivers)) {
-	if ($sitem['driver_photo'] == '') { $url = 'images/helmet.png' ; } else { $url = $sitem['driver_photo']; } 
-	$first_position = intval($position[$sitem['teamDriverID']][1]);
-	$second_position = intval($position[$sitem['teamDriverID']][2]);
-	$third_position = intval($position[$sitem['teamDriverID']][3]);
+	if ($sitem['driver_photo'] == '') { $url = 'images/helmet.png' ; } else { $url = $sitem['driver_photo']; }
 	?>
 	<tr class="w3-hover-green">
 	<td><?= $sitem['name'] ?></td>
-	<td><?= $first_position ?></td>
-	<td><?= $second_position ?></td>
-	<td><?= $third_position ?></td>
+	<td><?= $sitem['pos_1'] ?></td>
+	<td><?= $sitem['pos_2'] ?></td>
+	<td><?= $sitem['pos_3'] ?></td>
 	<td><a><img src="<?=$url;?>" width="150" height="150"/></a></td>
 	</tr>
 	<?
-	
+
 }
 mysql_free_result($exe_drivers);
 ?>
