@@ -4,7 +4,7 @@ require_once("functions.php"); // import mysql function
 $link = mysqlconnect(); // call mysql function to get the link to the database
 $id = intval($_GET['id']);
 if (isset($_POST['news'])) {
-    $news = mysql_real_escape_string($_POST['news']);
+    $news = mysqli_real_escape_string($link,$_POST['news']);
     $id = addslashes($_POST['id']);
     $title = addslashes($_POST['title']);
     mysqli_query($link,"UPDATE main_news SET `title` = '$title', `news` = '$news' WHERE id='$id'");

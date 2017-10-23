@@ -29,12 +29,12 @@ Example: https://www.youtube.com/<strong>embed</strong>/yAkJ97ago7g This is the 
 <!--REMOVE-->
 
 <?
-if(isset($_GET['filter'])) {
-	$filter = mysql_real_escape_string($_GET['filter']);
-	$query_where = "WHERE video_name LIKE '%$filter%'";
-}
 require_once("functions.php"); // import mysql function
 $link = mysqlconnect(); // call mysql function to get the link to the database
+if(isset($_GET['filter'])) {
+	$filter = mysqli_real_escape_string($link,$_GET['filter']);
+	$query_where = "WHERE video_name LIKE '%$filter%'";
+}
 $query = "SELECT id, video_name, video_url FROM video $query_where ORDER BY id ASC";
 $result = mysqli_query($link,$query);
 

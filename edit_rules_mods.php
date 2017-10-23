@@ -4,7 +4,7 @@ require_once("functions.php"); // import mysql function
 $link = mysqlconnect(); // call mysql function to get the link to the database
 
 if (isset($_POST['rules'])) {
-	$rules = mysql_real_escape_string($_POST['rules']);
+	$rules = mysqli_real_escape_string($link,$_POST['rules']);
 	mysqli_query($link,"UPDATE rules_table SET `rules` = '$rules' WHERE `id` = 1 LIMIT 1");
 }
 $exe_rules = mysqli_query($link,"SELECT `rules` FROM rules_table WHERE `id` = 1 LIMIT 1");

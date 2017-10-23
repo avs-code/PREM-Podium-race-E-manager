@@ -64,7 +64,7 @@ showOptions();
 <!--REMOVE-->
 <?
 if(isset($_GET['filter'])) {
-	$filter = mysql_real_escape_string($_GET['filter']);
+	$filter = mysqli_real_escape_string($link,$_GET['filter']);
 	$query_where = "WHERE sim_results LIKE '%$filter%'";
 }
 $query = "SELECT `sim_results`.`id`, `sim_results`.`race_name` , `season`.`name` AS season_name, `sim_results`.`simresults_url` FROM sim_results LEFT JOIN season ON `sim_results`.`season` = `season`.`id` $query_where ORDER BY id ASC";

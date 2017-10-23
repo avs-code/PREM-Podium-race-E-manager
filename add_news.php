@@ -4,8 +4,8 @@ require_once("functions.php"); // import mysql function
 $link = mysqlconnect(); // call mysql function to get the link to the database
 
 if (isset($_POST['news'])) {
-    $title = mysql_real_escape_string($_POST['title']);
-    $news = mysql_real_escape_string($_POST['news']);
+    $title = mysqli_real_escape_string($link,$_POST['title']);
+    $news = mysqli_real_escape_string($link,$_POST['news']);
     $day = date('Y-m-d H:i:s');
     mysqli_query($link,"INSERT INTO main_news (title, news, day) VALUES ('$title', '$news', '$day')");
 }

@@ -49,7 +49,7 @@ if(is_array($driver) && count($driver > 0)) {
 	if(is_array($preserve) && count($preserve) > 0) {
 		$query_preserve .= " AND (";
 		foreach($preserve as $p) {
-			$query_preserve .= "driver != '" . mysql_real_escape_string($p) . "' AND ";
+			$query_preserve .= "driver != '" . mysqli_real_escape_string($link,$p) . "' AND ";
 		}
 		$query_preserve = substr($query_preserve, 0, -4) . ")";
 	}
