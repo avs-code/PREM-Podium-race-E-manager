@@ -37,7 +37,7 @@ if (!$exe_drivers) {
 </tr>
 </tr>
 <?
-while ($sitem = mysql_fetch_array($exe_drivers)) {
+while ($sitem = mysqli_fetch_array($exe_drivers)) {
 	if ($sitem['driver_photo'] == '') { $url = 'images/helmet.png' ; } else { $url = $sitem['driver_photo']; }
 	?>
 	<tr class="w3-hover-green">
