@@ -1,5 +1,9 @@
 <? if (!defined("CONFIG"))
     exit();
+
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
+
 $sql_drivers = "SELECT name, driver_photo,
     SUM(position_1_count) AS pos_1,
     SUM(position_2_count) AS pos_2,
@@ -8,9 +12,9 @@ FROM team_driver, team_driver_top3, driver
 WHERE (team_driver.id = team_driver_top3.team_driver AND team_driver.driver = driver.id)
 GROUP BY driver
 ORDER BY driver.name;";
-$exe_drivers = mysql_query($sql_drivers);
+$exe_drivers = mysqli_query($link,$sql_drivers);
 if (!$exe_drivers) {
-    show_error("MySQL Error: " . mysql_error() . "\n");
+    show_error("MySQL Error: " . mysqli_error($link) . "\n");
     return;
 }
 ?>
@@ -45,7 +49,7 @@ while ($sitem = mysql_fetch_array($exe_drivers)) {
 	</tr>
 	<?
 }
-mysql_free_result($exe_drivers);
+mysqli_free_result($exe_drivers);
 ?>
 </table>
 </div>
