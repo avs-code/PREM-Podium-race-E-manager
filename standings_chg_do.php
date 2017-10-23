@@ -22,5 +22,5 @@ $result = mysqli_query($link,$query);
 if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=blocks", "Standing page succesfully modified\n$msg");
-mysql_free_result($result)
+mysqli_free_result($result)
 ?>

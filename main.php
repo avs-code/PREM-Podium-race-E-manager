@@ -34,7 +34,7 @@ if ($exe_blocks) {
 			"content" => $blockContent
 		);
 	}
-	mysql_free_result($exe_blocks);
+	mysqli_free_result($exe_blocks);
 } else
 	$blocks = array();
 
@@ -198,7 +198,7 @@ if ($exe_news) {
 
 		<?php
 	}
-	mysql_free_result($exe_news);
+	mysqli_free_result($exe_news);
 }
 
 ?>

@@ -11,7 +11,7 @@ if (isset($_POST['news'])) {
 }
 $exe_news = mysqli_query($link,"SELECT title, news FROM main_news WHERE id='$id' LIMIT 1");
 list($title, $news) = mysqli_fetch_array($exe_news);
-mysql_free_result($exe_news);
+mysqli_free_result($exe_news);
 $news = htmlspecialchars($news);
 ?>
 

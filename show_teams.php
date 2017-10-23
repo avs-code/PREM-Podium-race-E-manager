@@ -10,7 +10,7 @@ if (!$exe_drivers) {
 while ($drivers = mysqli_fetch_array($exe_drivers)) {
 	$driver[$drivers['teamID']][$drivers['driverID']] = $drivers['driverName'];
 }
-mysql_free_result($exe_drivers);
+mysqli_free_result($exe_drivers);
 if (!isset($driver)) {
     show_error("Drivers has been not found.\n");
     return;
@@ -53,7 +53,7 @@ if (!$result) {
 	<?
 	#$style = $style == "odd" ? "even" : "odd";
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 	?>
 </table>
 </div>

@@ -14,7 +14,7 @@ if (empty($title))
     $error .= "You must fill in a title\n";
 $exe_news = mysqli_query($link,"SELECT news FROM main_news ORDER BY day DESC");
 list($news) = mysqli_fetch_array($exe_news);
-mysql_free_result($exe_news);
+mysqli_free_result($exe_news);
 $news = htmlspecialchars($news);
 ?>
 

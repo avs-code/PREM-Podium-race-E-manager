@@ -29,7 +29,7 @@ $last = ($item['id']);
 
 
 
-mysql_free_result($result);
+mysqli_free_result($result);
 
 
 ?>
@@ -54,7 +54,7 @@ mysql_free_result($result);
     <td><?=$ditem['dname']?></td>
 	<td><?=$ditem['tname']?></td>
     </tr>
-    <?     } mysql_free_result($dresult);    ?>
+    <?     } mysqli_free_result($dresult);    ?>
 </table>
 </div>
 </div>

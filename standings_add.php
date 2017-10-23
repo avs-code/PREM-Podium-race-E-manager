@@ -31,7 +31,7 @@ if(!$sresult) {
 		<? while($sitem = mysqli_fetch_array($sresult)) { ?>
 			<option value="<?=$sitem['id']?>"<?=$season == $sitem['id'] ? " selected=\"1\"" : ""?>><?=$sitem['name']?></option>
 		<? }
-        mysql_free_result($sresult)
+        mysqli_free_result($sresult)
         ?>
 		</select>
 	</td>

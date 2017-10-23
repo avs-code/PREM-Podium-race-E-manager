@@ -11,7 +11,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 <?
     $query_next_status = "SELECT active FROM blocks WHERE content_file='next_events'";
     $result_next_status = mysqli_query($link,$query_next_status);
-    mysql_free_result($result_next_status);
+    mysqli_free_result($result_next_status);
 
 $active_next = $_POST["active_next"];
 
@@ -44,7 +44,7 @@ $active_next = $_POST["active_next"];
 <?
     $query_last_status = "SELECT active FROM blocks WHERE content_file='last_race'";
     $result_last_status = mysqli_query($link,$query_last_status);
-    mysql_free_result($result_last_status);
+    mysqli_free_result($result_last_status);
 
 $active_last = $_POST["active_last"];
 
@@ -73,7 +73,7 @@ $active_last = $_POST["active_last"];
 <?
     $query_comms_status = "SELECT active FROM blocks WHERE content_file='comms_viewer'";
     $result_comms_status = mysqli_query($link,$query_comms_status);
-    mysql_free_result($result_comms_status);
+    mysqli_free_result($result_comms_status);
 
 $active_comms = $_POST["active_comms"];
 
@@ -102,7 +102,7 @@ $active_comms = $_POST["active_comms"];
 <?
     $query_standings_status = "SELECT active FROM blocks WHERE content_file='standings'";
     $result_standings_status = mysqli_query($link,$query_standings_status);
-    mysql_free_result($result_standings_status);
+    mysqli_free_result($result_standings_status);
 
 $active_standings = $_POST["active_standings"];
 
@@ -168,6 +168,6 @@ $active_standings = $_POST["active_standings"];
     </tr>
     <?
     }
-    mysql_free_result($result_sp_list)
+    mysqli_free_result($result_sp_list)
     ?>
 </table>

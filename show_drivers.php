@@ -8,7 +8,7 @@ $exe_positions = mysqli_query($link,$sql_positions);
 while ($positions = mysqli_fetch_array($exe_positions)) {
 	$position[$positions['team_driver']][$positions['position']]++;
 }
-mysql_free_result($exe_positions);
+mysqli_free_result($exe_positions);
 
 $sql_drivers = "SELECT `driver`.`id`, `driver`.`name`, `driver`.`driver_photo`, `team_driver`.`id` as teamDriverID FROM driver LEFT JOIN team_driver ON driver.id = team_driver.driver ORDER BY `driver`.`name` ASC";
 $exe_drivers = mysqli_query($link,$sql_drivers);
@@ -54,7 +54,7 @@ while ($sitem = mysqli_fetch_array($exe_drivers)) {
 	<?
 
 }
-mysql_free_result($exe_drivers);
+mysqli_free_result($exe_drivers);
 ?>
 </table>
 </div>

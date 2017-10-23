@@ -18,7 +18,7 @@ if(mysql_num_rows($exe_standing_pages) > 0) {
 
 		);
 	}
-	mysql_free_result($exe_standing_pages);
+	mysqli_free_result($exe_standing_pages);
 }
 
 
@@ -31,7 +31,7 @@ while(list($seasonID, $seasonName, $seasonDivision, $seasonRuleset) = mysqli_fet
 		'ruleset' => $seasonRuleset
 	);
 }
-mysql_free_result($exe_season_details);
+mysqli_free_result($exe_season_details);
 
 $sql_point_ruleset = "SELECT pr.id, pr.rp1, pr.rp2, pr.rp3, pr.rp4, pr.rp5, pr.rp6, pr.rp7, pr.rp8, pr.rp9, pr.rp10, pr.rp11, pr.rp12, pr.rp13, pr.rp14, pr.rp15 FROM `point_ruleset` AS pr";
 $exe_point_ruleset = mysqli_query($link,$sql_point_ruleset);
@@ -54,7 +54,7 @@ while(list($prID, $prrp1, $prrp2, $prrp3, $prrp4, $prrp5, $prrp6, $prrp7, $prrp8
 		'rp15' => $prrp15
 	);
 }
-mysql_free_result($exe_point_ruleset);
+mysqli_free_result($exe_point_ruleset);
 ?>
 
 <!--Standing block-->
@@ -88,7 +88,7 @@ mysql_free_result($exe_point_ruleset);
 			while(list($teamID, $teamName) = mysqli_fetch_array($exe_teams)) {
 				echo $teamName."<br/>";
 			}
-			mysql_free_result($exe_teams);
+			mysqli_free_result($exe_teams);
 			?>
 			<!--Mercedes 	765<br />
 			Red Bull Racing TAG Heuer 	468<br />
@@ -105,7 +105,7 @@ mysql_free_result($exe_point_ruleset);
 			while(list($driverID, $driverName) = mysqli_fetch_array($exe_drivers)) {
 				echo $driverName."<br/>";
 			}
-			mysql_free_result($exe_drivers);
+			mysqli_free_result($exe_drivers);
 			?>
 			<!--
 			Nico Rosberg Mercedes 385<br />

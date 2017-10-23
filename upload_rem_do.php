@@ -9,7 +9,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $sql_fileInfo = "SELECT `file` FROM uploads WHERE id='$id' LIMIT 1";
 $exe_fileInfo = mysqli_query($link,$sql_fileInfo);
 $fileInfo = mysqli_fetch_array($exe_fileInfo);
-mysql_free_result($exe_fileInfo);
+mysqli_free_result($exe_fileInfo);
 
 $result = mysqli_query($link,"DELETE FROM uploads WHERE id='$id' LIMIT 1");
 unlink("uploads/".$fileInfo['file']);

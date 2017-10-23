@@ -31,7 +31,7 @@ $item = mysqli_fetch_array($result);
 </tr>
 
 	<?
-    mysql_free_result($result)
+    mysqli_free_result($result)
     ?>
 
 <tr>
