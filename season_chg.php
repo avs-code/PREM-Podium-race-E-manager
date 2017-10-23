@@ -103,7 +103,7 @@ if(!$stresult) {
 	<td>Ruleset qualifying:</td>
 	<td>
 	<select name="ruleset_qualifying">
-	<? mysql_data_seek($rsresult, 0); ?>
+	<? mysqli_data_seek($rsresult, 0); ?>
 	<option value="0">&nbsp;</option>
 	<? while($rsitem = mysqli_fetch_array($rsresult)) { ?>
 		<option value="<?=$rsitem['id']?>"<?=($rsitem['id'] == $item['ruleset_qualifying']) ? " selected" : ""?>><?=$rsitem['name']?></option>

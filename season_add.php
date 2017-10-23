@@ -58,7 +58,7 @@ if(mysql_num_rows($rsresult) == 0) {
 	<td>
 	<select name="ruleset_qualifying">
 	<option value="0">&nbsp;</option>
-	<? mysql_data_seek($rsresult, 0); ?>
+	<? mysqli_data_seek($rsresult, 0); ?>
 	<? while($rsitem = mysqli_fetch_array($rsresult)) { ?>
 		<option value="<?=$rsitem['id']?>"><?=$rsitem['name']?></option>
 	<? } ?>

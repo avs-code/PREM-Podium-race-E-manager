@@ -85,7 +85,7 @@ if(!$rresult) {
 	<td>Ruleset qualifying:</td>
 	<td>
 		<select name="ruleset_qualifying" onchange="void(0);">
-		<? mysql_data_seek($rresult, 0); ?>
+		<? mysqli_data_seek($rresult, 0); ?>
 		<option value="">&nbsp;</option>
 		<? while($ritem = mysqli_fetch_array($rresult)) { ?>
 			<option value="<?=$ritem['id']?>"><?=$ritem['name']?></option>

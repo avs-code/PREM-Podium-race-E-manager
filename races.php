@@ -64,7 +64,7 @@ $noseasonracecount = $s2item['racecount'];
 	<td>Races</td>
 </tr>
 <?
-mysql_data_seek($sresult, 0);
+mysqli_data_seek($sresult, 0);
 #$style = "odd";
 while($sitem = mysqli_fetch_array($sresult)) {
 	?>
