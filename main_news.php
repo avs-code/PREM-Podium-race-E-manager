@@ -16,7 +16,7 @@ $query = "SELECT id, title, day FROM main_news ORDER BY id DESC";
 $result = mysqli_query($link,$query);
 
 if(!$result) {
-	show_error("MySQL error: " . mysql_error($link));
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 

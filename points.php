@@ -10,7 +10,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM point_ruleset $query_where ORDER BY name ASC";
 $result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error($link));
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 

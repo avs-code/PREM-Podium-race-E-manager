@@ -24,7 +24,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "INSERT INTO video (video_name, video_url) VALUES ('$video_name', '$video_url')";
 $result = mysqli_query($link,$query);
 if (!$result)
-    error("MySQL Error: " . mysql_error($link) . "\n");
+    error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=show_videos", "video_url succesfully added\n$msg");
 ?>

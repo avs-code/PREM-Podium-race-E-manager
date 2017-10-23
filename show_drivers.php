@@ -13,7 +13,7 @@ mysql_free_result($exe_positions);
 $sql_drivers = "SELECT `driver`.`id`, `driver`.`name`, `driver`.`driver_photo`, `team_driver`.`id` as teamDriverID FROM driver LEFT JOIN team_driver ON driver.id = team_driver.driver ORDER BY `driver`.`name` ASC";
 $exe_drivers = mysqli_query($link,$sql_drivers);
 if (!$exe_drivers) {
-    show_error("MySQL Error: " . mysql_error($link) . "\n");
+    show_error("MySQL Error: " . mysqli_error($link) . "\n");
     return;
 }
 

@@ -10,7 +10,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $squery = "SELECT s.name FROM division d JOIN season s ON (s.division = d.id) WHERE s.division='$id'";
 $sresult = mysqli_query($link,$squery);
 if(!$sresult) {
-	error("MySQL error: " . mysql_error($link) . "\n");
+	error("MySQL error: " . mysqli_error($link) . "\n");
 }
 if(mysql_num_rows($sresult) > 0) {
 	$seasons = "";
@@ -22,7 +22,7 @@ if(mysql_num_rows($sresult) > 0) {
 
 $query = "DELETE FROM division WHERE id='$id'";
 $result = mysqli_query($link,$query);
-if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=divisions", "Division succesfully deleted\n$msg");
 ?>

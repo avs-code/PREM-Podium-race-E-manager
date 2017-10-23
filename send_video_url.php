@@ -39,7 +39,7 @@ $query = "SELECT id, video_name, video_url FROM video $query_where ORDER BY id A
 $result = mysqli_query($link,$query);
 
 if(!$result) {
-	show_error("MySQL error: " . mysql_error($link));
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 

@@ -10,7 +10,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT s.*, d.name dname, rs.name rsname, qrs.name qrsname, COUNT(st.team) teamcount FROM season s JOIN division d ON (s.division = d.id) JOIN point_ruleset rs ON (rs.id = s.ruleset) LEFT JOIN point_ruleset qrs ON (qrs.id = s.ruleset_qualifying) LEFT JOIN season_team st ON (st.season = s.id) $query_where GROUP BY s.id ORDER BY s.name ASC, d.name ASC";
 $result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error($link));
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 

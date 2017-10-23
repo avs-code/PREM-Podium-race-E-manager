@@ -98,12 +98,12 @@ if(is_array($driver)) {
 
 	$query = "DELETE FROM race_driver WHERE race='$id'";
 	$result = mysqli_query($link,$query);
-	if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+	if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 	if(!empty($query_values)) {
 		$query = "INSERT INTO race_driver (race, team_driver, grid, position, laps, time, fastest_lap, status) VALUES $query_values";
 		$result = mysqli_query($link,$query);
-		if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+		if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 	}
 }
 
@@ -113,7 +113,7 @@ if($has_race) $progress = RACE_RACE;
 
 $query = "UPDATE race SET result_official='$official', progress='$progress', replay='$replay', simresults='$simresults' WHERE id='$id'";
 $result = mysqli_query($link,$query);
-if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=races&season=$season", "Race results succesfully modified\n$msg");
 ?>

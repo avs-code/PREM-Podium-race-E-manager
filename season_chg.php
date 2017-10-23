@@ -8,7 +8,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM season WHERE id='$id'";
 $result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error($link) . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($result) == 0){
@@ -20,14 +20,14 @@ $item = mysqli_fetch_array($result);
 $diquery = "SELECT * FROM division ORDER BY name ASC";
 $diresult = mysqli_query($link,$diquery);
 if(!$diresult) {
-	show_error("MySQL error: " . mysql_error($link) . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
 
 $rsquery = "SELECT * FROM point_ruleset ORDER BY name ASC";
 $rsresult = mysqli_query($link,$rsquery);
 if(!$rsresult) {
-	show_error("MySQL error: " . mysql_error($link) . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($rsresult) == 0) {
@@ -38,7 +38,7 @@ if(mysql_num_rows($rsresult) == 0) {
 $tquery = "SELECT * FROM team ORDER BY name ASC";
 $tresult = mysqli_query($link,$tquery);
 if(!$tresult) {
-	show_error("MySQL error: " . mysql_error($link) . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($tresult) == 0) {
@@ -67,7 +67,7 @@ function show_team_combo($tid = 0) {
 $stquery = "SELECT * FROM season_team WHERE season='$id'";
 $stresult = mysqli_query($link,$stquery);
 if(!$stresult) {
-	show_error("MySQL error: " . mysql_error($link) . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
 ?>

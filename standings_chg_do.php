@@ -19,7 +19,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 
 $query = "UPDATE standing_pages SET page='$page', season='$season' WHERE id='$id'";
 $result = mysqli_query($link,$query);
-if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=blocks", "Standing page succesfully modified\n$msg");
 mysql_free_result($result)

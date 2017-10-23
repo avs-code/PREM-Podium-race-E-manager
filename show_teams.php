@@ -4,7 +4,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $sql_drivers = "SELECT driver.id as driverID, driver.name as driverName, team.team as teamID FROM driver LEFT JOIN team_driver as team ON team.driver = driver.id ORDER BY driver.id LIMIT 0, 30";
 $exe_drivers = mysqli_query($link,$sql_drivers);
 if (!$exe_drivers) {
-    show_error("MySQL Error: " . mysql_error($link) . "\n");
+    show_error("MySQL Error: " . mysqli_error($link) . "\n");
     return;
 }
 while ($drivers = mysqli_fetch_array($exe_drivers)) {
@@ -18,7 +18,7 @@ if (!isset($driver)) {
 $teams = "SELECT `team`.`id`, `team`.`name` , `team`.`logo` FROM team ORDER BY `team`.`name` ASC";
 $result = mysqli_query($link,$teams);
 if (!$result) {
-    show_error("MySQL Error: " . mysql_error($link) . "\n");
+    show_error("MySQL Error: " . mysqli_error($link) . "\n");
     return;
 }
 ?>

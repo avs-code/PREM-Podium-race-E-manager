@@ -14,21 +14,21 @@ require_once("functions.php"); // import mysql function
 $link = mysqlconnect(); // call mysql function to get the link to the database
 $result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error($link));
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 
 $squery = "SELECT s.*, d.name dname, COUNT(r.id) racecount FROM season s JOIN division d ON (d.id = s.division) LEFT JOIN race r ON (r.season = s.id) GROUP BY s.id ORDER BY name ASC, dname ASC";
 $sresult = mysqli_query($link,$squery);
 if(!$sresult) {
-	show_error("MySQL error: " . mysql_error($link));
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 
 $s2query = "SELECT COUNT(id) racecount FROM race WHERE season = 0";
 $s2result = mysqli_query($link,$s2query);
 if(!$s2result) {
-	show_error("MySQL error: " . mysql_error($link));
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 

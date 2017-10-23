@@ -8,7 +8,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM team WHERE id='$id'";
 $result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error($link) . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($result) == 0){
@@ -20,7 +20,7 @@ $item = mysqli_fetch_array($result);
 $dquery = "SELECT d.name FROM team_driver td JOIN driver d ON (td.driver = d.id) WHERE team='$id'";
 $dresult = mysqli_query($link,$dquery);
 if(!$dresult) {
-	show_error("MySQL error: " . mysql_error($link) . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($dresult) > 0) {

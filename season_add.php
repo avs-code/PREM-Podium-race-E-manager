@@ -6,7 +6,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $diquery = "SELECT * FROM division ORDER BY name ASC";
 $diresult = mysqli_query($link,$diquery);
 if(!$diresult) {
-	show_error("MySQL error: " . mysql_error($link) . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($diresult) == 0) {
@@ -17,7 +17,7 @@ if(mysql_num_rows($diresult) == 0) {
 $rsquery = "SELECT * FROM point_ruleset ORDER BY name ASC";
 $rsresult = mysqli_query($link,$rsquery);
 if(!$rsresult) {
-	show_error("MySQL error: " . mysql_error($link) . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($rsresult) == 0) {

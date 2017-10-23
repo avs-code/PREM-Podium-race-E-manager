@@ -8,7 +8,7 @@ require_once("functions.php"); // import mysql function
 $link = mysqlconnect(); // call mysql function to get the link to the database
 $result = mysqli_query($link,$sim_results);
 if (!$result) {
-    show_error("MySQL Error: " . mysql_error($link) . "\n");
+    show_error("MySQL Error: " . mysqli_error($link) . "\n");
     return;
 }
 ?>

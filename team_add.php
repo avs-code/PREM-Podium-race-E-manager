@@ -7,7 +7,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $ndquery = "SELECT * FROM driver ORDER BY name ASC";
 $ndresult = mysqli_query($link,$ndquery);
 if(!$ndresult) {
-	show_error("MySQL error: " . mysql_error($link) . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
 

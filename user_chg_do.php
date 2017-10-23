@@ -37,7 +37,7 @@ $query = "UPDATE user SET ";
 if(isset($passwd)) $query .= " passwd='$passwd'";
 $query .= "WHERE id='$id'";
 $result = mysqli_query($link,$query);
-if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=users", "User succesfully modified\n$msg");
 ?>

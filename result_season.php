@@ -15,7 +15,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT s.*, d.name dname, COUNT(r.id) racecount FROM season s JOIN division d ON (s.division = d.id) LEFT JOIN race r ON (r.season = s.id) WHERE s.id='$season' GROUP BY s.id";
 $result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL Error: " . mysql_error($link) . "\n");
+	show_error("MySQL Error: " . mysqli_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($result) == 0) {
@@ -29,7 +29,7 @@ $item = mysqli_fetch_array($result);
 $rsquery = "SELECT * FROM point_ruleset";
 $rsresult = mysqli_query($link,$rsquery);
 if(!$rsresult) {
-	show_error("MySQL Error: " . mysql_error($link) . "\n");
+	show_error("MySQL Error: " . mysqli_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($rsresult) == 0) {
@@ -44,7 +44,7 @@ while($rsitem = mysqli_fetch_array($rsresult)) {
 $drquery = "SELECT d.id did, d.name dname, t.id tid, t.name tname FROM season_team st JOIN team t ON (st.team = t.id) JOIN team_driver td ON (td.team = t.id) JOIN driver d ON (d.id = td.driver) WHERE st.season = '$season' ORDER BY t.name ASC, d.name ASC";
 $drresult = mysqli_query($link,$drquery);
 if(!$drresult) {
-	show_error("MySQL Error: " . mysql_error($link) . "\n");
+	show_error("MySQL Error: " . mysqli_error($link) . "\n");
 	return;
 }
 
@@ -77,7 +77,7 @@ ORDER BY r.date ASC, rd.position ASC
 EOF;
 $rresult = mysqli_query($link,$rquery);
 if(!$rresult) {
-	show_error("MySQL Error: " . mysql_error($link) . "\n");
+	show_error("MySQL Error: " . mysqli_error($link) . "\n");
 	return;
 }
 

@@ -8,7 +8,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $squery = "SELECT s.*, d.name dname FROM season s JOIN division d ON (d.id = s.division)";
 $sresult = mysqli_query($link,$squery);
 if(!$sresult) {
-	show_error("MySQL error: " . mysql_error($link));
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 ?>
@@ -71,7 +71,7 @@ $query = "SELECT `sim_results`.`id`, `sim_results`.`race_name` , `season`.`name`
 $result = mysqli_query($link,$query);
 
 if(!$result) {
-	show_error("MySQL error: " . mysql_error($link));
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 

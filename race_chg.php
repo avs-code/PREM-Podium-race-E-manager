@@ -14,7 +14,7 @@ WHERE r.id='$id'
 EOF;
 $result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error($link) . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($result) == 0){
@@ -28,21 +28,21 @@ $date = strtotime($item['date']);
 $squery = "SELECT s.*, d.name dname FROM season s JOIN division d ON (d.id = s.division)";
 $sresult = mysqli_query($link,$squery);
 if(!$sresult) {
-	show_error("MySQL error: " . mysql_error($link));
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 
 $dquery = "SELECT * FROM division";
 $dresult = mysqli_query($link,$dquery);
 if(!$dresult) {
-	show_error("MySQL error: " . mysql_error($link));
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 
 $rquery = "SELECT id, name FROM point_ruleset";
 $rresult = mysqli_query($link,$rquery);
 if(!$rresult) {
-	show_error("MySQL error: " . mysql_error($link));
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 

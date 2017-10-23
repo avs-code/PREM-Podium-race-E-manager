@@ -9,7 +9,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $squery = "SELECT s.* FROM season s";
 $sresult = mysqli_query($link,$squery);
 if(!$sresult) {
-	show_error("MySQL error: " . mysql_error($link));
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 

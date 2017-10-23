@@ -5,7 +5,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $sql_standing_pages = "SELECT sp.id, sp.page, sp.season, s.name, s.division, d.name FROM `standing_pages` AS sp LEFT JOIN `season` AS s ON sp.season = s.id LEFT JOIN `division` AS d ON d.id = s.division ORDER BY sp.page ASC";
 $exe_standing_pages = mysqli_query($link,$sql_standing_pages);
 if(!$exe_standing_pages) {
-	error("MySQL error: " . mysql_error($link) . "\n");
+	error("MySQL error: " . mysqli_error($link) . "\n");
 }
 if(mysql_num_rows($exe_standing_pages) > 0) {
 	while(list($spID, $spPage, $spSeason, $seasonName, $divisionName, $seasonDivision_n) = mysqli_fetch_array($exe_standing_pages)) {

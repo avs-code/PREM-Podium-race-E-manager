@@ -55,7 +55,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "UPDATE point_ruleset SET rp1='$rp1', rp2='$rp2', rp3='$rp3', rp4='$rp4', rp5='$rp5', rp6='$rp6', rp7='$rp7', rp8='$rp8', rp9='$rp9', rp10='$rp10', rp11='$rp11', rp12='$rp12', rp13='$rp13', rp14='$rp14', rp15='$rp15', rp16='$rp16', rp17='$rp17', rp18='$rp18', rp19='$rp19', rp20='$rp20', rp21='$rp21', rp22='$rp22', rp23='$rp23', rp24='$rp24', rp25='$rp25', rp26='$rp26', rp27='$rp27', rp28='$rp28', rp29='$rp29', rp30='$rp30', rp31='$rp31', rp32='$rp32', rp33='$rp33', rp34='$rp34', rp35='$rp35', rp36='$rp36', rp37='$rp37', rp38='$rp38', rp39='$rp39', rp40='$rp40', qp1='$qp1', qp2='$qp2', qp3='$qp3', qp4='$qp4', qp5='$qp5', fl='$fl'";
 $query .= "WHERE id='$id'";
 $result = mysqli_query($link,$query);
-if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=points", "Ruleset succesfully modified\n$msg");
 ?>

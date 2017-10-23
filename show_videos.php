@@ -5,7 +5,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $video = "SELECT `id`, `video_name`, `video_url` FROM video ORDER BY `id` DESC";
 $result = mysqli_query($link,$video);
 if (!$result) {
-    show_error("MySQL Error: " . mysql_error($link) . "\n");
+    show_error("MySQL Error: " . mysqli_error($link) . "\n");
     return;
 }
 while ($sitem = mysqli_fetch_array($result)) {

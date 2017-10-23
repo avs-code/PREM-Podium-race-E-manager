@@ -6,7 +6,7 @@ $circuits = "SELECT race.track, race.name, race.division, race.date, race.imagel
     	FROM race LEFT JOIN division on division.id=race.division WHERE race.date>=CURDATE() ORDER BY race.division ASC, race.date ASC";
 $result = mysqli_query($link,$circuits);
 if (!$result) {
-    show_error("MySQL Error: " . mysql_error($link) . "\n");
+    show_error("MySQL Error: " . mysqli_error($link) . "\n");
     return;
 }
 ?>

@@ -11,7 +11,7 @@ $error = "";
 
 $squery = "SELECT s.name, d.name division FROM season s JOIN division d ON (s.division = d.id) WHERE (s.ruleset='$id' OR s.ruleset_qualifying='$id')";
 $sresult = mysqli_query($link,$squery);
-if(!$sresult) error("MySQL error: " . mysql_error($link) . "\n");
+if(!$sresult) error("MySQL error: " . mysqli_error($link) . "\n");
 if(mysql_num_rows($sresult) > 0) {
 	$seasons = "";
 	while($s = mysqli_fetch_array($sresult)) {
@@ -22,7 +22,7 @@ if(mysql_num_rows($sresult) > 0) {
 
 $rquery = "SELECT r.name, r.track FROM race r WHERE (r.ruleset='$id' OR r.ruleset_qualifying='$id') AND r.season='0'";
 $rresult = mysqli_query($link,$rquery);
-if(!$rresult) error("MySQL error: " . mysql_error($link) . "\n");
+if(!$rresult) error("MySQL error: " . mysqli_error($link) . "\n");
 if(mysql_num_rows($rresult) > 0) {
 	$races = "";
 	while($r = mysqli_fetch_array($rresult)) {
@@ -35,7 +35,7 @@ if(!empty($error)) error($error);
 
 $query = "DELETE FROM point_ruleset WHERE id='$id'";
 $result = mysqli_query($link,$query);
-if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=points", "Ruleset succesfully deleted\n$msg");
 ?>

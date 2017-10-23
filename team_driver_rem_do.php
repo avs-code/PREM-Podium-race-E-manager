@@ -9,7 +9,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 
 $query = "DELETE FROM team_driver WHERE id='$id'";
 $result = mysqli_query($link,$query);
-if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=drivers", "Driver succesfully deleted\n$msg");
 ?>

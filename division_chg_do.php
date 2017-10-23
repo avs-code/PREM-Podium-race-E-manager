@@ -10,7 +10,7 @@ $type = htmlspecialchars($_POST['type']);
 mysqlconnect();
 $query = "UPDATE division SET type='$type' WHERE id='$id'";
 $result = mysqli_query($link,$query);
-if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=divisions", "Division succesfully modified\n$msg");
 ?>

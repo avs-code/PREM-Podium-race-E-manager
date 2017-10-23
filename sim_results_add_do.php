@@ -25,7 +25,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "INSERT INTO sim_results (race_name, season, simresults_url) VALUES ('$name', '$season', '$simresults_url')";
 $result = mysqli_query($link,$query);
 if (!$result)
-    error("MySQL Error: " . mysql_error($link) . "\n");
+    error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=sim_results", "sim_results_url succesfully added\n$msg");
 ?>

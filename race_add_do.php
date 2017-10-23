@@ -34,7 +34,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 if($season != 0) {
 	$query = "SELECT division, ruleset, ruleset_qualifying FROM season s WHERE id='$season'";
 	$result = mysqli_query($link,$query);
-	if(!$result) error("MySQL error: " . mysql_error($link) . "\n");
+	if(!$result) error("MySQL error: " . mysqli_error($link) . "\n");
 	if(mysql_num_rows($result) == 0) error("Season does not exist\n");
 
 	$item = mysqli_fetch_array($result);
@@ -48,7 +48,7 @@ if($season != 0) {
 
 $query = "INSERT INTO race (name, track, laps, season, division, ruleset, ruleset_qualifying, date, maxplayers, imagelink) VALUES ('$name', '$track', '$laps', '$season', '$division', '$ruleset', '$ruleset_qualifying', '$date', '$maxplayers', '$imagelink')";
 $result = mysqli_query($link,$query);
-if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=races&season=$season", "Race succesfully added\n$msg");
 ?>

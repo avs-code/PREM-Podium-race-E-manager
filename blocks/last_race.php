@@ -9,7 +9,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
     $query = "SELECT r.*, s.name sname, d.name dname FROM race_driver rd, race r LEFT JOIN season s ON (s.id = r.season) JOIN division d ON (d.id = r.division) WHERE ((r.id =rd.race) AND (r.progress = 2) AND (rd.status =0)) ORDER BY r.date DESC, rd.position ASC LIMIT 1";
     $result = mysqli_query($link,$query);
     if(!$result) {
-    	show_error("MySQL Error: " . mysql_error($link) . "\n");
+    	show_error("MySQL Error: " . mysqli_error($link) . "\n");
     	return;
     }
     if(mysql_num_rows($result) == 0) {
@@ -23,7 +23,7 @@ $last = ($item['id']);
     $dquery = "SELECT rd.*, d.name dname, t.name tname FROM race_driver rd JOIN team_driver td ON (td.id = rd.team_driver) JOIN team t ON (t.id = td.team) JOIN driver d ON (d.id = td.driver) JOIN race r ON (rd.race = r.id) WHERE rd.race='$last' AND (rd.status = 0) ORDER BY rd.position ASC LIMIT 3";
     $dresult = mysqli_query($link,$dquery);
     if(!$dresult) {
-    	show_error("MySQL Error: " . mysql_error($link) . "\n");
+    	show_error("MySQL Error: " . mysqli_error($link) . "\n");
     	return;
     }
 

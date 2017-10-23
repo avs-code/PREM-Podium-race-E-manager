@@ -31,7 +31,7 @@ require_once("functions.php"); // import mysql function
 $link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "UPDATE team SET name='$name', logo='$logo' WHERE id='$id'";
 $result = mysqli_query($link,$query);
-if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 if(is_array($driver) && count($driver > 0)) {
 	$query_values = "";
@@ -55,12 +55,12 @@ if(is_array($driver) && count($driver > 0)) {
 	}
 	$query = "DELETE FROM team_driver WHERE team='$id'" . $query_preserve;
 	$result = mysqli_query($link,$query);
-	if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+	if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 	if(!empty($query_values)) {
 		$query = "INSERT INTO team_driver (team, driver) VALUES $query_values";
 		$result = mysqli_query($link,$query);
-		if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+		if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 	}
 }
 

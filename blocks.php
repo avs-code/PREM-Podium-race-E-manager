@@ -18,7 +18,7 @@ $active_next = $_POST["active_next"];
     if (isset($_POST['active_next'])) {
         $query_next = "UPDATE blocks SET active='$active_next' WHERE content_file='next_events'";
         $result_next = mysqli_query($link,$query_next);
-        if (!$result_next) error("MySQL Error: ".mysql_error($link)."\n");
+        if (!$result_next) error("MySQL Error: ".mysqli_error($link)."\n");
         echo "<br /> <strong><h2>Next events succesfully modified</h2></strong>";
     }else{
 ?>
@@ -51,7 +51,7 @@ $active_last = $_POST["active_last"];
     if (isset($_POST['active_last'])) {
         $query_last = "UPDATE blocks SET active='$active_last' WHERE content_file='last_race'";
         $result_last = mysqli_query($link,$query_last);
-        if (!$result_last) error("MySQL Error: ".mysql_error($link)."\n");
+        if (!$result_last) error("MySQL Error: ".mysqli_error($link)."\n");
         echo "<br /> <strong><h2>Last_race succesfully modified</h2></strong>";
     }else{ ?>
 
@@ -80,7 +80,7 @@ $active_comms = $_POST["active_comms"];
     if (isset($_POST['active_comms'])) {
         $query_comms = "UPDATE blocks SET active='$active_comms' WHERE content_file='comms_viewer'";
         $result_comms = mysqli_query($link,$query_comms);
-        if (!$result_comms) error("MySQL Error: ".mysql_error($link)."\n");
+        if (!$result_comms) error("MySQL Error: ".mysqli_error($link)."\n");
         echo "<br /> <strong><h2>Comms viewer succesfully modified</h2></strong>";
     }else{ ?>
 
@@ -109,7 +109,7 @@ $active_standings = $_POST["active_standings"];
     if (isset($_POST['active_standings'])) {
         $query_standings = "UPDATE blocks SET active='$active_standings' WHERE content_file='standings'";
         $result_standings = mysqli_query($link,$query_standings);
-        if (!$result_standings) error("MySQL Error: ".mysql_error($link)."\n");
+        if (!$result_standings) error("MySQL Error: ".mysqli_error($link)."\n");
         echo "<br /> <strong><h2>Standings succesfully modified</h2></strong>";
     }else{ ?>
 
@@ -130,7 +130,7 @@ $active_standings = $_POST["active_standings"];
     $sql_sp_list = "SELECT sp.*, s.name FROM standing_pages sp JOIN season s ON (sp.season = s.id) ORDER BY sp.page ASC";
     $result_sp_list = mysqli_query($link,$sql_sp_list);
     if(!$result_sp_list) {
-    	show_error("MySQL error: " . mysql_error($link));
+    	show_error("MySQL error: " . mysqli_error($link));
     	return;
     }
 

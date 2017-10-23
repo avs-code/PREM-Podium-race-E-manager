@@ -11,7 +11,7 @@
 	ORDER BY race.date ASC LIMIT 3";
 	$result = mysqli_query($link,$circuits);
 	if (!$result) {
-		show_error("MySQL Error: " . mysql_error($link) . "\n");
+		show_error("MySQL Error: " . mysqli_error($link) . "\n");
 		return;
 	}
 	?>

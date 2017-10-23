@@ -11,7 +11,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $dquery = "SELECT d.name FROM team_driver td JOIN driver d ON (td.driver = d.id) WHERE team='$id'";
 $dresult = mysqli_query($link,$dquery);
 if(!$dresult) {
-	error("MySQL error: " . mysql_error($link) . "\n");
+	error("MySQL error: " . mysqli_error($link) . "\n");
 }
 if(mysql_num_rows($dresult) > 0) {
 	$drivers = "";
@@ -23,7 +23,7 @@ if(mysql_num_rows($dresult) > 0) {
 
 $query = "DELETE FROM team WHERE id='$id'";
 $result = mysqli_query($link,$query);
-if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=teams", "Team succesfully deleted\n$msg");
 ?>

@@ -18,12 +18,12 @@ $photo = htmlspecialchars($_POST['driver_photo']);
 
 $query = "SELECT * FROM driver WHERE name = '$name'";
 $result = mysqli_query($link,$query);
-if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 if(mysql_num_rows($result) > 0) error("Driver name is already in use\n");
 
 $query = "INSERT INTO driver (name, driver_photo) VALUES ('$name','$photo')";
 $result = mysqli_query($link,$query);
-if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=show_drivers", "Driver succesfully added\n$msg");
 ?>

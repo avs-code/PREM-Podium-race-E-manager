@@ -33,12 +33,12 @@ require_once("functions.php"); // import mysql function
 $link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM user WHERE name = '$name'";
 $result = mysqli_query($link,$query);
-if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 if(mysql_num_rows($result) > 0) error("Username is already in use\n");
 
 $query = "INSERT INTO user (name, passwd) VALUES ('$name', '$passwd')";
 $result = mysqli_query($link,$query);
-if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=users", "User succesfully added\n$msg");
 ?>

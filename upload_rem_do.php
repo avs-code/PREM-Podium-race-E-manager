@@ -14,7 +14,7 @@ mysql_free_result($exe_fileInfo);
 $result = mysqli_query($link,"DELETE FROM uploads WHERE id='$id' LIMIT 1");
 unlink("uploads/".$fileInfo['file']);
 
-if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=upload", "File succesfully removed\n");
 ?>
