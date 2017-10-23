@@ -358,3 +358,13 @@ CREATE TABLE IF NOT EXISTS `video` (
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- helper view for show drivers page
+CREATE OR REPLACE VIEW `team_driver_top3` AS
+SELECT `race_driver`.`team_driver` AS `team_driver`,
+  sum((case when (`race_driver`.`position` = 1) then 1 else 0 end)) AS `position_1_count`,
+  sum((case when (`race_driver`.`position` = 2) then 1 else 0 end)) AS `position_2_count`,
+  sum((case when (`race_driver`.`position` = 3) then 1 else 0 end)) AS `position_3_count`
+FROM `race_driver`
+GROUP BY `race_driver`.`team_driver`
+ORDER BY `position_1_count` DESC;

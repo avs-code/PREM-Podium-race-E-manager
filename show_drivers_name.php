@@ -1,9 +1,5 @@
 <? if (!defined("CONFIG"))
     exit();
-
-require_once("functions.php"); // import mysql function
-$link = mysqlconnect(); // call mysql function to get the link to the database
-
 $sql_drivers = "SELECT name, driver_photo,
     SUM(position_1_count) AS pos_1,
     SUM(position_2_count) AS pos_2,
@@ -11,21 +7,21 @@ $sql_drivers = "SELECT name, driver_photo,
 FROM team_driver, team_driver_top3, driver
 WHERE (team_driver.id = team_driver_top3.team_driver AND team_driver.driver = driver.id)
 GROUP BY driver
-ORDER BY pos_1 DESC, pos_2 DESC, pos_3 DESC;";
-$exe_drivers = mysqli_query($link,$sql_drivers);
+ORDER BY driver.name;";
+$exe_drivers = mysql_query($sql_drivers);
 if (!$exe_drivers) {
-    show_error("MySQL Error: " . mysqli_error($link) . "\n");
+    show_error("MySQL Error: " . mysql_error() . "\n");
     return;
 }
 ?>
-<h1>Drivers by podiums</h1>
+<h1>Drivers by name</h1>
 <div class="w3-container">
 <div class="w3-responsive">
 <table class="w3-table-all">
 <tr class="w3-dark-grey">
-<td><h1><strong><javascript:void(0)" class="tablink" title="Sort by driver name"><a href="?page=show_drivers_name" target="_self"><button class="w3-btn w3-dark-gray w3-border w3-border-red w3-round-large w3-hover-red">Name - <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></button></a></strong></h1></td>
+<td><h1><strong><button class="w3-button w3-text-green w3-dark-grey w3-border w3-border-red w3-round-large">Name - <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></button></strong></td>
 <td></td>
-<td><h1><strong><button class="w3-button w3-text-green w3-dark-grey w3-border w3-border-red w3-round-large">Podiums - <i class="fa fa-sort-numeric-desc" aria-hidden="true"></i></button></strong></td>
+<td><h1><strong><javascript:void(0)" class="tablink" title="Sort by driver podiums"><a href="?page=show_drivers" target="_self"><button class="w3-btn w3-dark-gray w3-border w3-border-red w3-round-large w3-hover-red">Podiums - <i class="fa fa-sort-numeric-desc" aria-hidden="true"></i></button></a></strong></h1></td>
 <td></td>
 <td><h1><strong>Photo</strong></h1></td>
 <tr class="w3-dark-grey">
@@ -37,7 +33,7 @@ if (!$exe_drivers) {
 </tr>
 </tr>
 <?
-while ($sitem = mysqli_fetch_array($exe_drivers)) {
+while ($sitem = mysql_fetch_array($exe_drivers)) {
 	if ($sitem['driver_photo'] == '') { $url = 'images/helmet.png' ; } else { $url = $sitem['driver_photo']; }
 	?>
 	<tr class="w3-hover-green">
@@ -49,7 +45,7 @@ while ($sitem = mysqli_fetch_array($exe_drivers)) {
 	</tr>
 	<?
 }
-mysqli_free_result($exe_drivers);
+mysql_free_result($exe_drivers);
 ?>
 </table>
 </div>
