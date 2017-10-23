@@ -25,7 +25,7 @@ class mysql_login {
 
 	function login($username, $password) {
 		// Kijken of er link is met de sql database
-		if(!mysql_ping($this->mysql_link)) {
+		if(!mysqli_ping($this->mysql_link)) {
 			$this->lasterror = "There was no link with the SQL server<br>\n";
 			return self::ERR_SQL_CONNECTION; // Geen link
 		}
@@ -74,7 +74,7 @@ class mysql_login {
 			return false;
 
 		// Kijken of er link is met de sql database
-		if(!mysql_ping($this->mysql_link)) {
+		if(!mysqli_ping($this->mysql_link)) {
 			$this->lasterror = "There was no link with the SQL server<br>\n";
 			$this->flush(); // Gebruikersdata wissen
 			return self::ERR_SQL_CONNECTION; // Geen link
