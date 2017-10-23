@@ -3,6 +3,8 @@
 <?
 $id = addslashes($_GET['id']);
 
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = <<<EOF
 SELECT r.*,
 	s.ruleset sruleset, s.ruleset_qualifying srulesetqual
@@ -10,9 +12,9 @@ FROM race r
 	LEFT JOIN season s ON (s.id = r.season)
 WHERE r.id='$id'
 EOF;
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysql_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($result) == 0){
@@ -24,23 +26,23 @@ $item = mysql_fetch_array($result);
 $date = strtotime($item['date']);
 
 $squery = "SELECT s.*, d.name dname FROM season s JOIN division d ON (d.id = s.division)";
-$sresult = mysql_query($squery);
+$sresult = mysqli_query($link,$squery);
 if(!$sresult) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysql_error($link));
 	return;
 }
 
 $dquery = "SELECT * FROM division";
-$dresult = mysql_query($dquery);
+$dresult = mysqli_query($link,$dquery);
 if(!$dresult) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysql_error($link));
 	return;
 }
 
 $rquery = "SELECT id, name FROM point_ruleset";
-$rresult = mysql_query($rquery);
+$rresult = mysqli_query($link,$rquery);
 if(!$rresult) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysql_error($link));
 	return;
 }
 
@@ -148,7 +150,7 @@ if($item['season'] != 0) {
 		<? for($x = 0; $x <= 23; $x++) { ?>
 			<option<?=date("H", $date) == $x ? " selected" : ""?>><?=sprintf("%02d", $x)?></option>
 		<? } ?>
-		</select> : 
+		</select> :
 		<select name="minute">
 		<? for($x = 0; $x <= 59; $x = $x + 5) { ?>
 			<option<?=date("i", $date) == $x ? " selected" : ""?>><?=sprintf("%02d", $x)?></option>
@@ -177,7 +179,7 @@ if($item['season'] != 0) {
 function showOptions() {
 	var season = ele("season").value;
 	var chk_diff_ruleset = ele("chk_diff_ruleset").checked;
-	
+
 	if(season == 0) {
 		ele("diff_ruleset").style.display = "none";
 		ele("division").style.display = "table-row";

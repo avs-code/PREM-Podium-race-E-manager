@@ -14,11 +14,12 @@ if(!empty($error)) error($error);
 
 $msg = "";
 
-mysqlconnect();
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 
 $query = "UPDATE standing_pages SET page='$page', season='$season' WHERE id='$id'";
-$result = mysql_query($query);
-if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+$result = mysqli_query($link,$query);
+if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
 
 return_do(".?page=blocks", "Standing page succesfully modified\n$msg");
 mysql_free_result($result)

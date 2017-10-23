@@ -29,15 +29,16 @@ if($passgen) {
 	$passwd = sha1($pass1);
 }
 
-mysqlconnect();
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM user WHERE name = '$name'";
-$result = mysql_query($query);
-if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+$result = mysqli_query($link,$query);
+if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
 if(mysql_num_rows($result) > 0) error("Username is already in use\n");
 
 $query = "INSERT INTO user (name, passwd) VALUES ('$name', '$passwd')";
-$result = mysql_query($query);
-if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+$result = mysqli_query($link,$query);
+if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
 
 return_do(".?page=users", "User succesfully added\n$msg");
 ?>

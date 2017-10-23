@@ -1,11 +1,13 @@
 <? if(!defined("CONFIG")) exit(); ?>
 <? if(!isset($login)) { show_error("You do not have administrator rights\n"); return; } ?>
 <?
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 // Potential new drivers
 $ndquery = "SELECT * FROM driver ORDER BY name ASC";
-$ndresult = mysql_query($ndquery);
+$ndresult = mysqli_query($link,$ndquery);
 if(!$ndresult) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysql_error($link) . "\n");
 	return;
 }
 

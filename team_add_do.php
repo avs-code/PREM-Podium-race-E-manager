@@ -30,15 +30,16 @@ $msg = "";
 
 $logo = htmlspecialchars($_POST['logo']);
 
-mysqlconnect();
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM team WHERE name = '$name'";
-$result = mysql_query($query);
-if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+$result = mysqli_query($link,$query);
+if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
 if(mysql_num_rows($result) > 0) error("team name is already in use\n");
 
 $query = "INSERT INTO team (name, logo) VALUES ('$name','$logo')";
-$result = mysql_query($query);
-if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+$result = mysqli_query($link,$query);
+if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
 
 $team_id = mysql_insert_id();
 
@@ -48,7 +49,7 @@ if(is_array($driver) && count($driver > 0)) {
 	for($x = 0; $x < count($driver); $x++) {
 		if(empty($driver[$x]))
 			continue;
-		
+
 		$d = addslashes($driver[$x]);
 		$query_values .= "('$team_id',  '$d'), ";
 	}
@@ -56,8 +57,8 @@ if(is_array($driver) && count($driver > 0)) {
 
 	if(!empty($query_values)) {
 		$query = "INSERT INTO team_driver (team, driver) VALUES $query_values";
-		$result = mysql_query($query);
-		if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+		$result = mysqli_query($link,$query);
+		if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
 	}
 }
 

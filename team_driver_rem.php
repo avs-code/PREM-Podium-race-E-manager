@@ -3,13 +3,15 @@
 <?
 $id = addslashes($_GET['id']);
 
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM team_driver WHERE id='$id'";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 
 $item = mysql_fetch_array($result);
 
 $tquery = "SELECT t.name FROM team_driver td JOIN team t ON (td.team = t.id) WHERE driver='$id'";
-$tresult = mysql_query($tquery);
+$tresult = mysqli_query($link,$tquery);
 ?>
 
 <form action="team_driver_rem_do.php" method="post">

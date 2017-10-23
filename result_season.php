@@ -9,11 +9,13 @@ define("SHOW_POSITIONS", 2);
 $season = $_GET['season'];
 $show = isset($_GET['show']) ? $_GET['show'] : 0;
 
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 // Get season information
 $query = "SELECT s.*, d.name dname, COUNT(r.id) racecount FROM season s JOIN division d ON (s.division = d.id) LEFT JOIN race r ON (r.season = s.id) WHERE s.id='$season' GROUP BY s.id";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL Error: " . mysql_error() . "\n");
+	show_error("MySQL Error: " . mysql_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($result) == 0) {
@@ -25,9 +27,9 @@ $item = mysql_fetch_array($result);
 
 // Get the rulesets
 $rsquery = "SELECT * FROM point_ruleset";
-$rsresult = mysql_query($rsquery);
+$rsresult = mysqli_query($link,$rsquery);
 if(!$rsresult) {
-	show_error("MySQL Error: " . mysql_error() . "\n");
+	show_error("MySQL Error: " . mysql_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($rsresult) == 0) {
@@ -40,9 +42,9 @@ while($rsitem = mysql_fetch_array($rsresult)) {
 
 // Get all teams and driver for this season
 $drquery = "SELECT d.id did, d.name dname, t.id tid, t.name tname FROM season_team st JOIN team t ON (st.team = t.id) JOIN team_driver td ON (td.team = t.id) JOIN driver d ON (d.id = td.driver) WHERE st.season = '$season' ORDER BY t.name ASC, d.name ASC";
-$drresult = mysql_query($drquery);
+$drresult = mysqli_query($link,$drquery);
 if(!$drresult) {
-	show_error("MySQL Error: " . mysql_error() . "\n");
+	show_error("MySQL Error: " . mysql_error($link) . "\n");
 	return;
 }
 
@@ -73,9 +75,9 @@ FROM race r
 WHERE r.season='$season' AND r.progress = 2 AND (rd.status = 0 OR rd.status = 1)
 ORDER BY r.date ASC, rd.position ASC
 EOF;
-$rresult = mysql_query($rquery);
+$rresult = mysqli_query($link,$rquery);
 if(!$rresult) {
-	show_error("MySQL Error: " . mysql_error() . "\n");
+	show_error("MySQL Error: " . mysql_error($link) . "\n");
 	return;
 }
 
@@ -191,7 +193,7 @@ for($x = 1; $x <= $race; $x++) {
 <? } ?>
 	<td width="1" align="right"><strong><?=!empty($ditem['points']) ? $ditem['points'] : "0" ?></strong></td>
 </tr>
-<? 
+<?
 
 } ?>
 </table>
@@ -237,14 +239,14 @@ for($x = 1; $x <= $race; $x++) {
 <? } ?>
 	<td width="1" align="right"><strong><?=!empty($titem['points']) ? $titem['points'] : "0" ?></strong></td>
 </tr>
-<? 
+<?
 
 } ?>
 </table>
 </div>
 </div>
 
-<? if($show_qualifypoint) { 
+<? if($show_qualifypoint) {
 	usort($driver, 'point_sort_qual');
 	?>
 <h2>Drivers qualifying</h2>
@@ -275,7 +277,7 @@ foreach($driver as $id => $ditem) {
 <? } ?>
 	<td width="1" align="right"><strong><?=!empty($ditem['pointsqualifying']) ? $ditem['pointsqualifying'] : "0" ?></strong></td>
 </tr>
-<? 
+<?
 
 } ?>
 </table>

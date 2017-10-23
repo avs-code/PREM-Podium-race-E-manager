@@ -10,23 +10,25 @@ if(isset($_GET['filter'])) {
 	$query_where .= " AND (r.name LIKE '%$filter%' OR r.track LIKE '%$filter%')";
 }
 $query = "SELECT r.*, d.name dname, rs.name rsname, qrs.name qrsname, COUNT(rd.team_driver) drivers FROM race r JOIN division d ON (d.id = r.division) JOIN point_ruleset rs ON (rs.id = r.ruleset) LEFT JOIN point_ruleset qrs ON (qrs.id = r.ruleset_qualifying) LEFT JOIN race_driver rd ON (r.id = rd.race) $query_where GROUP BY r.id ORDER BY r.date DESC";
-$result = mysql_query($query);
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysql_error($link));
 	return;
 }
 
 $squery = "SELECT s.*, d.name dname, COUNT(r.id) racecount FROM season s JOIN division d ON (d.id = s.division) LEFT JOIN race r ON (r.season = s.id) GROUP BY s.id ORDER BY name ASC, dname ASC";
-$sresult = mysql_query($squery);
+$sresult = mysqli_query($link,$squery);
 if(!$sresult) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysql_error($link));
 	return;
 }
 
 $s2query = "SELECT COUNT(id) racecount FROM race WHERE season = 0";
-$s2result = mysql_query($s2query);
+$s2result = mysqli_query($link,$s2query);
 if(!$s2result) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysql_error($link));
 	return;
 }
 

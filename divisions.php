@@ -6,9 +6,11 @@ if(isset($_GET['filter'])) {
 	$query_where = "WHERE name LIKE '%$filter%' OR type LIKE '%$filter%'";
 }
 $query = "SELECT * FROM division $query_where ORDER BY name ASC";
-$result = mysql_query($query);
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysql_error($link));
 	return;
 }
 

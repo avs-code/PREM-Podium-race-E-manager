@@ -1,17 +1,19 @@
 <? if (!defined("CONFIG"))
     exit();
 
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $sql_positions = "SELECT `team_driver`, `position` FROM race_driver WHERE `position` <= 3";
-$exe_positions = mysql_query($sql_positions);
+$exe_positions = mysqli_query($link,$sql_positions);
 while ($positions = mysql_fetch_array($exe_positions)) {
 	$position[$positions['team_driver']][$positions['position']]++;
 }
 mysql_free_result($exe_positions);
 
 $sql_drivers = "SELECT `driver`.`id`, `driver`.`name`, `driver`.`driver_photo`, `team_driver`.`id` as teamDriverID FROM driver LEFT JOIN team_driver ON driver.id = team_driver.driver ORDER BY `driver`.`name` ASC";
-$exe_drivers = mysql_query($sql_drivers);
+$exe_drivers = mysqli_query($link,$sql_drivers);
 if (!$exe_drivers) {
-    show_error("MySQL Error: " . mysql_error() . "\n");
+    show_error("MySQL Error: " . mysql_error($link) . "\n");
     return;
 }
 
@@ -37,7 +39,7 @@ if (!$exe_drivers) {
 <?
 
 while ($sitem = mysql_fetch_array($exe_drivers)) {
-	if ($sitem['driver_photo'] == '') { $url = 'images/helmet.png' ; } else { $url = $sitem['driver_photo']; } 
+	if ($sitem['driver_photo'] == '') { $url = 'images/helmet.png' ; } else { $url = $sitem['driver_photo']; }
 	$first_position = intval($position[$sitem['teamDriverID']][1]);
 	$second_position = intval($position[$sitem['teamDriverID']][2]);
 	$third_position = intval($position[$sitem['teamDriverID']][3]);
@@ -50,7 +52,7 @@ while ($sitem = mysql_fetch_array($exe_drivers)) {
 	<td><a><img src="<?=$url;?>" width="150" height="150"/></a></td>
 	</tr>
 	<?
-	
+
 }
 mysql_free_result($exe_drivers);
 ?>

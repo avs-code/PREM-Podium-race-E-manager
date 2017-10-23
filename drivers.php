@@ -5,10 +5,12 @@ if(isset($_GET['filter'])) {
 	$filter = $_GET['filter'];
 	$query_where = "WHERE d.name LIKE '%$filter%'";
 }
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT d.*, COUNT(td.id) teamcount FROM driver d LEFT JOIN team_driver td ON (td.driver = d.id) $query_where GROUP BY d.id ORDER BY name ASC";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysql_error($link));
 	return;
 }
 

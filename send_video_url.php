@@ -33,11 +33,13 @@ if(isset($_GET['filter'])) {
 	$filter = mysql_real_escape_string($_GET['filter']);
 	$query_where = "WHERE video_name LIKE '%$filter%'";
 }
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT id, video_name, video_url FROM video $query_where ORDER BY id ASC";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 
 if(!$result) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysql_error($link));
 	return;
 }
 
@@ -73,7 +75,7 @@ if(mysql_num_rows($result) == 0) {
 				<a href=".?page=send_video_url_rem&amp;id=<?=$item['id']?>"><img src="images/delete16.png" alt="rem"></a>
 			</td>
 			<td><?=$item['video_name']?></td>
-			<td><?=$item['video_url']?></td>	
+			<td><?=$item['video_url']?></td>
 		</tr>
 		<?
 	}

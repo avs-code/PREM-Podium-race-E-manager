@@ -9,96 +9,96 @@ class mysql_login {
 	var $userdata;
 
 	var $lasterror;
-	
+
 	function mysql_login($mysql_link, $mysql_table) {
 		$this->mysql_link = $mysql_link;
 		$this->mysql_table = $mysql_table;
 		$this->loggedin = false;
 	}
-	
+
 	function login($username, $password) {
 		// Kijken of er link is met de sql database
 		if(!mysql_ping($this->mysql_link)) {
 			$this->lasterror = "There was no link with the SQL server<br>\n";
 			return 0x10; // Geen link
 		}
-		
+
 		$query = "SELECT * FROM " . addslashes($this->mysql_table) . " WHERE " . $this->userfield . "='" . addslashes($username) . "' LIMIT 1";
-		$result = mysql_query($query, $this->mysql_link);
-		
+		$result = mysqli_query($this->mysql_link,$query);
+
 		if(!$result) {
-			$this->lasterror = mysql_error() . "<br>Query: " . $query;
+			$this->lasterror = mysqli_error($link) . "<br>Query: " . $query;
 			return 0x11; // MySQL error
 		}
-		
+
 		if(mysql_num_rows($result)==0) {
 			$this->lasterror = "User does not exist";
 			return 0x20;
 		}
-		
-		$user = mysql_fetch_array($result);
-		
+
+		$user = mysqli_fetch_array($result);
+
 		$enc_password = sha1($password);
 
 		if($user['active'] != "1") {
 			$this->lasterror = "User is not activated";
 			return 0x21; // Gebruiker is niet actief
 		}
-		
+
 		if($user[$this->passfield] !== $enc_password) {
 			$this->lasterror = "Password was incorrect";
 			return 0x20;
 		}
-		
+
 		// de gebruiker is succesvol ingelogd. Nu gaan we de gegevens in de classvariablen opslaan.
 
 		$this->loggedin = true;
 		$this->username = $user[$this->userfield];
 
 		$this->userdata = $user;
-		
+
 		// en klaar is kees.
-		
+
 		return 0;
 	}
 
 	function refresh() {
 		if(!$this->loggedin || $this->username == "")
 			return false;
-		
+
 		// Kijken of er link is met de sql database
 		if(!mysql_ping($this->mysql_link)) {
 			$this->lasterror = "There was no link with the SQL server<br>\n";
 			$this->flush(); // Gebruikersdata wissen
 			return 0x10; // Geen link
 		}
-		
+
 		$query = "SELECT * FROM " . addslashes($this->mysql_table) . " WHERE " . $this->userfield . "='" . $this->username . "' LIMIT 1";
-		$result = mysql_query($query, $this->mysql_link);
-		
+		$result = mysqli_query($this->mysql_link,$query);
+
 		if(!$result) {
-			$this->lasterror = mysql_error() . "<br>Query: " . $query;
+			$this->lasterror = mysqli_error($link) . "<br>Query: " . $query;
 			$this->flush(); // Gebruikersdata wissen
 			return 0x11; // MySQL error
 		}
-		
+
 		if(mysql_num_rows($result)==0) {
 			$this->lasterror = "User does not exist";
 			$this->flush(); // Gebruikersdata wissen
 			return 0x20;
 		}
-		
-		$user = mysql_fetch_array($result);
-		
+
+		$user = mysqli_fetch_array($result);
+
 		if($user['active'] != "1") {
 			$this->lasterror = "User is not activated";
 			$this->flush(); // Gebruikersdata wissen
 			return 0x21; // Gebruiker is niet actief
 		}
-		
+
 		// Gebruikersdata verversen
 		$this->userdata = $user;
-		
+
 		return 0;
 	}
 
@@ -133,7 +133,7 @@ class mysql_login {
 	function username() {
 		return $this->username;
 	}
-	
+
 	function last_error() {
 		#return "mysql_login.php: " . $this->lasterror;
 		return $this->lasterror;

@@ -3,10 +3,12 @@ if(!isset($login)) { show_error("You do not have administrator rights\n"); retur
 <?
 $season = $_GET['season'];
 
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $squery = "SELECT s.*, d.name dname FROM season s JOIN division d ON (d.id = s.division)";
-$sresult = mysql_query($squery);
+$sresult = mysqli_query($link,$squery);
 if(!$sresult) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysql_error($link));
 	return;
 }
 ?>
@@ -66,10 +68,10 @@ if(isset($_GET['filter'])) {
 	$query_where = "WHERE sim_results LIKE '%$filter%'";
 }
 $query = "SELECT `sim_results`.`id`, `sim_results`.`race_name` , `season`.`name` AS season_name, `sim_results`.`simresults_url` FROM sim_results LEFT JOIN season ON `sim_results`.`season` = `season`.`id` $query_where ORDER BY id ASC";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 
 if(!$result) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysql_error($link));
 	return;
 }
 
@@ -108,7 +110,7 @@ if(mysql_num_rows($result) == 0) {
 			</td>
 			<td><?=$item['race_name']?></td>
             <td><?=$item['season_name']?></td>
-			<td><?=$item['simresults_url']?></td>	
+			<td><?=$item['simresults_url']?></td>
 		</tr>
 		<?
 	}

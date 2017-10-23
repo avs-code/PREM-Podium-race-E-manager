@@ -19,12 +19,13 @@ if (!empty($error))
 
 $msg = "";
 
-mysqlconnect();
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 
 $query = "INSERT INTO sim_results (race_name, season, simresults_url) VALUES ('$name', '$season', '$simresults_url')";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 if (!$result)
-    error("MySQL Error: " . mysql_error() . "\n");
+    error("MySQL Error: " . mysql_error($link) . "\n");
 
 return_do(".?page=sim_results", "sim_results_url succesfully added\n$msg");
 ?>

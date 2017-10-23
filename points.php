@@ -5,10 +5,12 @@ if(isset($_GET['filter'])) {
 	$filter = $_GET['filter'];
 	$query_where = "WHERE name LIKE '%$filter%'";
 }
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM point_ruleset $query_where ORDER BY name ASC";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysql_error($link));
 	return;
 }
 

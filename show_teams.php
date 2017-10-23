@@ -1,8 +1,10 @@
 <? if (!defined("CONFIG"))    exit();
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $sql_drivers = "SELECT driver.id as driverID, driver.name as driverName, team.team as teamID FROM driver LEFT JOIN team_driver as team ON team.driver = driver.id ORDER BY driver.id LIMIT 0, 30";
-$exe_drivers = mysql_query($sql_drivers);
+$exe_drivers = mysqli_query($link,$sql_drivers);
 if (!$exe_drivers) {
-    show_error("MySQL Error: " . mysql_error() . "\n");
+    show_error("MySQL Error: " . mysql_error($link) . "\n");
     return;
 }
 while ($drivers = mysql_fetch_array($exe_drivers)) {
@@ -14,9 +16,9 @@ if (!isset($driver)) {
     return;
 }
 $teams = "SELECT `team`.`id`, `team`.`name` , `team`.`logo` FROM team ORDER BY `team`.`name` ASC";
-$result = mysql_query($teams);
+$result = mysqli_query($link,$teams);
 if (!$result) {
-    show_error("MySQL Error: " . mysql_error() . "\n");
+    show_error("MySQL Error: " . mysql_error($link) . "\n");
     return;
 }
 ?>
@@ -32,7 +34,7 @@ if (!$result) {
 	<?php
 	#$style = "odd";
 	while ($sitem = mysql_fetch_array($result)) {
-	 if ($sitem['logo'] == '') { $url = 'images/logo.png' ; } else { $url = $sitem['logo']; } 
+	 if ($sitem['logo'] == '') { $url = 'images/logo.png' ; } else { $url = $sitem['logo']; }
 	?>
 	<tr class="w3-hover-green">
 	<!--<tr class="<?= $style ?>">-->

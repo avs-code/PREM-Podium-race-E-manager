@@ -4,10 +4,12 @@ require_once("results_functions.php");
 
 $race = addslashes($_GET['race']);
 
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT r.*, s.name sname, d.name dname, rs.name rsname, qrs.name qrsname FROM race r LEFT JOIN season s ON (s.id = r.season) JOIN division d ON (d.id = r.division) JOIN point_ruleset rs ON (rs.id = r.ruleset) LEFT JOIN point_ruleset qrs ON (qrs.id = r.ruleset_qualifying) WHERE r.id='$race'";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL Error: " . mysql_error() . "\n");
+	show_error("MySQL Error: " . mysql_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($result) == 0) {
@@ -19,23 +21,23 @@ $item = mysql_fetch_array($result);
 $date = strtotime($item['date']);
 
 $dquery = "SELECT rd.*, d.name dname, t.name tname FROM race_driver rd JOIN team_driver td ON (td.id = rd.team_driver) JOIN team t ON (t.id = td.team) JOIN driver d ON (d.id = td.driver) WHERE rd.race='$race' AND (rd.status = 0) ORDER BY rd.position ASC";
-$dresult = mysql_query($dquery);
+$dresult = mysqli_query($link,$dquery);
 if(!$dresult) {
-	show_error("MySQL Error: " . mysql_error() . "\n");
+	show_error("MySQL Error: " . mysql_error($link) . "\n");
 	return;
 }
 
 $ndquery = "SELECT rd.*, d.name dname, t.name tname FROM race_driver rd JOIN team_driver td ON (td.id = rd.team_driver) JOIN team t ON (t.id = td.team) JOIN driver d ON (d.id = td.driver) WHERE rd.race='$race' AND (rd.status != 0) ORDER BY rd.position ASC";
-$ndresult = mysql_query($ndquery);
+$ndresult = mysqli_query($link,$ndquery);
 if(!$dresult) {
-	show_error("MySQL Error: " . mysql_error() . "\n");
+	show_error("MySQL Error: " . mysql_error($link) . "\n");
 	return;
 }
 
 $rsquery = "SELECT * FROM point_ruleset WHERE id='{$item['ruleset']}'";
-$rsresult = mysql_query($rsquery);
+$rsresult = mysqli_query($link,$rsquery);
 if(!$rsresult) {
-	show_error("MySQL Error: " . mysql_error() . "\n");
+	show_error("MySQL Error: " . mysql_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($rsresult) == 0) {
@@ -46,9 +48,9 @@ $ruleset = mysql_fetch_array($rsresult);
 
 if($item['ruleset_qualifying'] != 0) {
 	$qrsquery = "SELECT * FROM point_ruleset WHERE id='{$item['ruleset_qualifying']}'";
-	$qrsresult = mysql_query($qrsquery);
+	$qrsresult = mysqli_query($link,$qrsquery);
 	if(!$qrsresult) {
-		show_error("MySQL Error: " . mysql_error() . "\n");
+		show_error("MySQL Error: " . mysql_error($link) . "\n");
 		return;
 	}
 	if(mysql_num_rows($qrsresult) == 0) {
@@ -90,7 +92,7 @@ if($item['ruleset_qualifying'] != 0) {
 <tr class="w3-grey">
     <td>Replay:</td>
 <td><a href="<?=$item['replay']?>" target="_blank"><img src="images/replay.png" alt="replay"></a></td>
-   
+
 </tr>
 <tr class="w3-amber">
 	<td colspan="4">
@@ -159,7 +161,7 @@ while($ditem = mysql_fetch_array($dresult)) {
 				$gap = "+" . time_hr($ditem['time'] - $best_time);
 			else
 				$gap = time_hr($ditem['time'] - $best_time);
-		}	
+		}
 		else {
 			$gap = "";
 			$time = "";
@@ -208,7 +210,7 @@ while($ditem = mysql_fetch_array($ndresult)) {
 				$gap = "+" . time_hr($ditem['time'] - $best_time);
 			else
 				$gap = time_hr($ditem['time'] - $best_time);
-		}	
+		}
 		else {
 			$gap = "";
 			$time = "";

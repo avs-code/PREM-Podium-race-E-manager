@@ -3,24 +3,26 @@
 <?
 $season = $_GET['season'];
 
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $squery = "SELECT s.*, d.name dname FROM season s JOIN division d ON (d.id = s.division)";
-$sresult = mysql_query($squery);
+$sresult = mysqli_query($link,$squery);
 if(!$sresult) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysql_error($link));
 	return;
 }
 
 $dquery = "SELECT * FROM division";
-$dresult = mysql_query($dquery);
+$dresult = mysqli_query($link,$dquery);
 if(!$dresult) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysql_error($link));
 	return;
 }
 
 $rquery = "SELECT id, name FROM point_ruleset";
-$rresult = mysql_query($rquery);
+$rresult = mysqli_query($link,$rquery);
 if(!$rresult) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysql_error($link));
 	return;
 }
 ?>
@@ -119,7 +121,7 @@ if(!$rresult) {
 		<? for($x = 0; $x <= 23; $x++) { ?>
 			<option<?=$x == "12" ? " selected" : ""?>><?=sprintf("%02d", $x)?></option>
 		<? } ?>
-		</select> : 
+		</select> :
 		<select name="minute">
 		<? for($x = 0; $x <= 59; $x = $x + 5) { ?>
 			<option><?=sprintf("%02d", $x)?></option>
@@ -147,7 +149,7 @@ if(!$rresult) {
 function showOptions() {
 	var season = ele("season").value;
 	var chk_diff_ruleset = ele("chk_diff_ruleset").checked;
-	
+
 	if(season == 0) {
 		ele("diff_ruleset").style.display = "none";
 		ele("division").style.display = "table-row";

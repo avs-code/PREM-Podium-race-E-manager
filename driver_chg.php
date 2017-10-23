@@ -1,12 +1,12 @@
 <? if(!defined("CONFIG")) exit();
-if(!isset($login)) { show_error("You do not have administrator rights\n"); return; } ?>
-<?
+if(!isset($login)) { show_error("You do not have administrator rights\n"); return; }
 $id = addslashes($_GET['id']);
-
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM driver WHERE id='$id'";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysql_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($result) == 0){
@@ -16,9 +16,9 @@ if(mysql_num_rows($result) == 0){
 $item = mysql_fetch_array($result);
 
 $tquery = "SELECT td.*, t.name teamname FROM team_driver td JOIN team t ON (t.id = td.team) WHERE td.driver = '$id'";
-$tresult = mysql_query($tquery);
+$tresult = mysqli_query($link,$tquery);
 if(!$tresult) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysql_error($link));
 	return;
 }
 

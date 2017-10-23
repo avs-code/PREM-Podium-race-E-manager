@@ -1,10 +1,12 @@
 <? if(!defined("CONFIG")) exit(); ?>
 <? if(!isset($login)) { show_error("You do not have administrator rights\n"); return; } ?>
 <?
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $diquery = "SELECT * FROM division ORDER BY name ASC";
-$diresult = mysql_query($diquery);
+$diresult = mysqli_query($link,$diquery);
 if(!$diresult) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysql_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($diresult) == 0) {
@@ -13,9 +15,9 @@ if(mysql_num_rows($diresult) == 0) {
 }
 
 $rsquery = "SELECT * FROM point_ruleset ORDER BY name ASC";
-$rsresult = mysql_query($rsquery);
+$rsresult = mysqli_query($link,$rsquery);
 if(!$rsresult) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysql_error($link) . "\n");
 	return;
 }
 if(mysql_num_rows($rsresult) == 0) {

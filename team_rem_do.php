@@ -4,13 +4,14 @@ if(!isset($login)) error("You do not have administrator rights\n");
 
 $id = addslashes($_POST['id']);
 
-mysqlconnect();
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 
 // Check if drivers are related to the team
 $dquery = "SELECT d.name FROM team_driver td JOIN driver d ON (td.driver = d.id) WHERE team='$id'";
-$dresult = mysql_query($dquery);
+$dresult = mysqli_query($link,$dquery);
 if(!$dresult) {
-	error("MySQL error: " . mysql_error() . "\n");
+	error("MySQL error: " . mysql_error($link) . "\n");
 }
 if(mysql_num_rows($dresult) > 0) {
 	$drivers = "";
@@ -21,8 +22,8 @@ if(mysql_num_rows($dresult) > 0) {
 }
 
 $query = "DELETE FROM team WHERE id='$id'";
-$result = mysql_query($query);
-if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+$result = mysqli_query($link,$query);
+if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
 
 return_do(".?page=teams", "Team succesfully deleted\n$msg");
 ?>

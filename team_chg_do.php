@@ -27,10 +27,11 @@ $error = "";
 if(has_duplicates($driver, 0)) $error .= "Duplicate drivers selected\n";
 if(!empty($error)) error($error);
 
-mysqlconnect();
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "UPDATE team SET name='$name', logo='$logo' WHERE id='$id'";
-$result = mysql_query($query);
-if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+$result = mysqli_query($link,$query);
+if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
 
 if(is_array($driver) && count($driver > 0)) {
 	$query_values = "";
@@ -38,7 +39,7 @@ if(is_array($driver) && count($driver > 0)) {
 	for($x = 0; $x < count($driver); $x++) {
 		if(empty($driver[$x]))
 			continue;
-		
+
 		$d = addslashes($driver[$x]);
 		$query_values .= "('$id',  '$d'), ";
 	}
@@ -46,20 +47,20 @@ if(is_array($driver) && count($driver > 0)) {
 
 	$query_preserve = "";
 	if(is_array($preserve) && count($preserve) > 0) {
-		$query_preserve .= " AND ("; 
+		$query_preserve .= " AND (";
 		foreach($preserve as $p) {
 			$query_preserve .= "driver != '" . mysql_real_escape_string($p) . "' AND ";
 		}
 		$query_preserve = substr($query_preserve, 0, -4) . ")";
 	}
 	$query = "DELETE FROM team_driver WHERE team='$id'" . $query_preserve;
-	$result = mysql_query($query);
-	if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+	$result = mysqli_query($link,$query);
+	if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
 
 	if(!empty($query_values)) {
 		$query = "INSERT INTO team_driver (team, driver) VALUES $query_values";
-		$result = mysql_query($query);
-		if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+		$result = mysqli_query($link,$query);
+		if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
 	}
 }
 

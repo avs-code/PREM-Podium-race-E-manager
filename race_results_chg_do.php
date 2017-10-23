@@ -44,8 +44,8 @@ if(count($fl) > 1) $error .= "Only one driver can have the fastest lap\n";
 
 if(!empty($error)) error($error);
 
-mysqlconnect();
-
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 
 $has_qualifying = false;
 $has_race = false;
@@ -62,7 +62,7 @@ if(is_array($driver)) {
 	for($x = 0; $x < count($driver); $x++) {
 		if(empty($driver[$x]))
 			continue;
-		
+
 		if((int)$grid[$x] != 0) $has_qualifying = true;
 		if((int)$pos[$x] != 0) $has_race = true;
 
@@ -97,13 +97,13 @@ if(is_array($driver)) {
 		error("Please fill in the grid positions for all drivers\n");
 
 	$query = "DELETE FROM race_driver WHERE race='$id'";
-	$result = mysql_query($query);
-	if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+	$result = mysqli_query($link,$query);
+	if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
 
 	if(!empty($query_values)) {
 		$query = "INSERT INTO race_driver (race, team_driver, grid, position, laps, time, fastest_lap, status) VALUES $query_values";
-		$result = mysql_query($query);
-		if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+		$result = mysqli_query($link,$query);
+		if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
 	}
 }
 
@@ -112,8 +112,8 @@ if($has_qualifying) $progress = RACE_QUALIFYING;
 if($has_race) $progress = RACE_RACE;
 
 $query = "UPDATE race SET result_official='$official', progress='$progress', replay='$replay', simresults='$simresults' WHERE id='$id'";
-$result = mysql_query($query);
-if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+$result = mysqli_query($link,$query);
+if(!$result) error("MySQL Error: " . mysql_error($link) . "\n");
 
 return_do(".?page=races&season=$season", "Race results succesfully modified\n$msg");
 ?>
