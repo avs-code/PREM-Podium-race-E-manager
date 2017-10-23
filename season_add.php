@@ -9,7 +9,7 @@ if(!$diresult) {
 	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($diresult) == 0) {
+if(mysqli_num_rows($diresult) == 0) {
 	show_error("There are no divisions.\n<a href=\"?page=division_add\">Add one</a> first.\n");
 	return;
 }
@@ -20,7 +20,7 @@ if(!$rsresult) {
 	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($rsresult) == 0) {
+if(mysqli_num_rows($rsresult) == 0) {
 	show_error("There are no rulesets.\n<a href=\"?page=point_add\">Add one</a> first.\n");
 	return;
 }

@@ -9,7 +9,7 @@ if(!$result) {
 	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($result) == 0){
+if(mysqli_num_rows($result) == 0){
 	show_error("Driver does not exist\n");
 	return;
 }
@@ -22,7 +22,7 @@ if(!$tresult) {
 	return;
 }
 
-$teamcount = mysql_num_rows($tresult);
+$teamcount = mysqli_num_rows($tresult);
 ?>
 <h1>Modify driver</h1>
 

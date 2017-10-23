@@ -31,7 +31,7 @@ class mysql_login {
 			return 0x11; // MySQL error
 		}
 
-		if(mysql_num_rows($result)==0) {
+		if(mysqli_num_rows($result)==0) {
 			$this->lasterror = "User does not exist";
 			return 0x20;
 		}
@@ -82,7 +82,7 @@ class mysql_login {
 			return 0x11; // MySQL error
 		}
 
-		if(mysql_num_rows($result)==0) {
+		if(mysqli_num_rows($result)==0) {
 			$this->lasterror = "User does not exist";
 			$this->flush(); // Gebruikersdata wissen
 			return 0x20;

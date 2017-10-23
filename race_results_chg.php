@@ -13,7 +13,7 @@ if(!$result) {
 	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($result) == 0){
+if(mysqli_num_rows($result) == 0){
 	show_error("Race does not exist\n");
 	return;
 }
@@ -31,7 +31,7 @@ if(!$dresult) {
 	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($dresult) == 0){
+if(mysqli_num_rows($dresult) == 0){
 	show_error("No drivers exist in teams or no teams are in this season\n");
 	return;
 }

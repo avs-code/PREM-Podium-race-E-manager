@@ -35,7 +35,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM team WHERE name = '$name'";
 $result = mysqli_query($link,$query);
 if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
-if(mysql_num_rows($result) > 0) error("team name is already in use\n");
+if(mysqli_num_rows($result) > 0) error("team name is already in use\n");
 
 $query = "INSERT INTO team (name, logo) VALUES ('$name','$logo')";
 $result = mysqli_query($link,$query);

@@ -27,7 +27,7 @@ Admin default user and password: admin/admin <strong>PLEASE CHANGE THIS PASSWORD
 </div>
 <a href=".?page=user_add">Add admin</a>
 <?
-if(mysql_num_rows($result) == 0) {
+if(mysqli_num_rows($result) == 0) {
 	show_msg("No admins found\n");
 	return;
 }

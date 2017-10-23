@@ -22,7 +22,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM season WHERE name = '$name' AND division = '$division'";
 $result = mysqli_query($link,$query);
 if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
-if(mysql_num_rows($result) > 0) error("Season with the same name and division does already exist\n");
+if(mysqli_num_rows($result) > 0) error("Season with the same name and division does already exist\n");
 
 $query = "INSERT INTO season (name, division, ruleset, ruleset_qualifying, maxteams) VALUES ('$name', '$division', '$ruleset', '$ruleset_qualifying', '$maxteams')";
 $result = mysqli_query($link,$query);

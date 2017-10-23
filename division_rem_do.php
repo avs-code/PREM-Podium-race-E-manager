@@ -12,7 +12,7 @@ $sresult = mysqli_query($link,$squery);
 if(!$sresult) {
 	error("MySQL error: " . mysqli_error($link) . "\n");
 }
-if(mysql_num_rows($sresult) > 0) {
+if(mysqli_num_rows($sresult) > 0) {
 	$seasons = "";
 	while($s = mysqli_fetch_array($sresult)) {
 		$seasons .= "&bull; " . $s['name'] . "\n";

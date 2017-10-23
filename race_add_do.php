@@ -35,7 +35,7 @@ if($season != 0) {
 	$query = "SELECT division, ruleset, ruleset_qualifying FROM season s WHERE id='$season'";
 	$result = mysqli_query($link,$query);
 	if(!$result) error("MySQL error: " . mysqli_error($link) . "\n");
-	if(mysql_num_rows($result) == 0) error("Season does not exist\n");
+	if(mysqli_num_rows($result) == 0) error("Season does not exist\n");
 
 	$item = mysqli_fetch_array($result);
 

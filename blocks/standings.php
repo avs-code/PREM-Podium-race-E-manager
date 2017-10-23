@@ -7,7 +7,7 @@ $exe_standing_pages = mysqli_query($link,$sql_standing_pages);
 if(!$exe_standing_pages) {
 	error("MySQL error: " . mysqli_error($link) . "\n");
 }
-if(mysql_num_rows($exe_standing_pages) > 0) {
+if(mysqli_num_rows($exe_standing_pages) > 0) {
 	while(list($spID, $spPage, $spSeason, $seasonName, $divisionName, $seasonDivision_n) = mysqli_fetch_array($exe_standing_pages)) {
 		$standing_pages[$spID] = array(
 			'page' => $spPage,

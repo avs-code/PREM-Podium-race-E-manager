@@ -20,7 +20,7 @@ mysqlconnect();
 $query = "SELECT * FROM division WHERE name = '$name'";
 $result = mysqli_query($link,$query);
 if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
-if(mysql_num_rows($result) > 0) error("Division name is already in use\n");
+if(mysqli_num_rows($result) > 0) error("Division name is already in use\n");
 
 $query = "INSERT INTO division (name, type) VALUES ('$name', '$type')";
 $result = mysqli_query($link,$query);

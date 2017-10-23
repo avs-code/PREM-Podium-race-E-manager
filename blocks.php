@@ -140,7 +140,7 @@ $active_standings = $_POST["active_standings"];
 <br />
 <a href=".?page=standings_add">Add Standing page</a>
 <?
-    if(mysql_num_rows($result_sp_list) == 0) {
+    if(mysqli_num_rows($result_sp_list) == 0) {
     	show_msg("No standings pages found\n");
     	return;
     }

@@ -11,7 +11,7 @@ if(!$result) {
 	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($result) == 0){
+if(mysqli_num_rows($result) == 0){
 	show_error("Team does not exist\n");
 	return;
 }
@@ -24,7 +24,7 @@ if(!$dresult) {
 	return;
 }
 
-$drivercount = mysql_num_rows($dresult);
+$drivercount = mysqli_num_rows($dresult);
 
 // Potential new drivers
 $ndquery = "SELECT * FROM driver ORDER BY name ASC";

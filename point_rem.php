@@ -11,7 +11,7 @@ if(!$result) {
 	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($result) == 0){
+if(mysqli_num_rows($result) == 0){
 	show_error("Ruleset does not exist\n");
 	return;
 }
@@ -25,7 +25,7 @@ if(!$sresult) {
 	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($sresult) > 0) {
+if(mysqli_num_rows($sresult) > 0) {
 	$seasons = "";
 	while($s = mysqli_fetch_array($sresult)) {
 		$seasons .= "&bull; " . $s['name'] . " (" . $s['division'] . ")\n";
@@ -39,7 +39,7 @@ if(!$rresult) {
 	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($rresult) > 0) {
+if(mysqli_num_rows($rresult) > 0) {
 	$races = "";
 	while($r = mysqli_fetch_array($rresult)) {
 		$races .= "&bull; " . $r['name'] . " (" . $r['track'] . ")\n";

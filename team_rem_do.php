@@ -13,7 +13,7 @@ $dresult = mysqli_query($link,$dquery);
 if(!$dresult) {
 	error("MySQL error: " . mysqli_error($link) . "\n");
 }
-if(mysql_num_rows($dresult) > 0) {
+if(mysqli_num_rows($dresult) > 0) {
 	$drivers = "";
 	while($d = mysqli_fetch_array($dresult)) {
 		$drivers .= "&bull; " . $d['name'] . "\n";

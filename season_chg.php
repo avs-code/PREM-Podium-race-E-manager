@@ -11,7 +11,7 @@ if(!$result) {
 	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($result) == 0){
+if(mysqli_num_rows($result) == 0){
 	show_error("Season does not exist\n");
 	return;
 }
@@ -30,7 +30,7 @@ if(!$rsresult) {
 	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($rsresult) == 0) {
+if(mysqli_num_rows($rsresult) == 0) {
 	show_error("There are no rulesets.\n<a href=\"?page=point_add\">Add one</a> first.\n");
 	return;
 }
@@ -41,7 +41,7 @@ if(!$tresult) {
 	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($tresult) == 0) {
+if(mysqli_num_rows($tresult) == 0) {
 	show_error("There are no teams.\n<a href=\"?page=team_add\">Add one</a> first.\n");
 	return;
 }

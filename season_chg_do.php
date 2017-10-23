@@ -24,7 +24,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM season WHERE name = '$name' AND division = '$division' AND id != '$id'";
 $result = mysqli_query($link,$query);
 if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
-if(mysql_num_rows($result) > 0) error("Season with the same name and division does already exist\n");
+if(mysqli_num_rows($result) > 0) error("Season with the same name and division does already exist\n");
 
 $query = "UPDATE season SET name='$name', division='$division', ruleset='$ruleset', ruleset_qualifying='$ruleset_qualifying', maxteams='$maxteams' WHERE id='$id'";
 $result = mysqli_query($link,$query);

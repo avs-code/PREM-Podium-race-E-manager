@@ -12,7 +12,7 @@ if(!$result) {
 	show_error("MySQL Error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($result) == 0) {
+if(mysqli_num_rows($result) == 0) {
 	show_error("Race does not exist\n");
 	return;
 }
@@ -40,7 +40,7 @@ if(!$rsresult) {
 	show_error("MySQL Error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($rsresult) == 0) {
+if(mysqli_num_rows($rsresult) == 0) {
 	show_error("Ruleset does not exist\n");
 	return;
 }
@@ -53,7 +53,7 @@ if($item['ruleset_qualifying'] != 0) {
 		show_error("MySQL Error: " . mysqli_error($link) . "\n");
 		return;
 	}
-	if(mysql_num_rows($qrsresult) == 0) {
+	if(mysqli_num_rows($qrsresult) == 0) {
 		show_error("Qualifying ruleset does not exist\n");
 		return;
 	}

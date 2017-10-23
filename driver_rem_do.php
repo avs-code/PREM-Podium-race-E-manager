@@ -13,7 +13,7 @@ $tresult = mysqli_query($link,$tquery);
 if(!$tresult) {
 	error("MySQL error: " . mysqli_error($link) . "\n");
 }
-if(mysql_num_rows($tresult) > 0) {
+if(mysqli_num_rows($tresult) > 0) {
 	$teams = "";
 	while($t = mysqli_fetch_array($tresult)) {
 		$teams .= "&bull; " . $t['name'] . "\n";

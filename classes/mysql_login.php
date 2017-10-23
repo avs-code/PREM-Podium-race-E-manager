@@ -38,7 +38,7 @@ class mysql_login {
 			return self::ERR_SQL_QUERY; // MySQL error
 		}
 
-		if(mysql_num_rows($result)==0) {
+		if(mysqli_num_rows($result)==0) {
 			$this->lasterror = "User does not exist";
 			return self::ERR_USER_LOGIN_INCORRECT;
 		}
@@ -89,7 +89,7 @@ class mysql_login {
 			return self::ERR_SQL_QUERY; // MySQL error
 		}
 
-		if(mysql_num_rows($result)==0) {
+		if(mysqli_num_rows($result)==0) {
 			$this->lasterror = "User does not exist";
 			$this->flush(); // Gebruikersdata wissen
 			return self::ERR_USER_LOGIN_INCORRECT;

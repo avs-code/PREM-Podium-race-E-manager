@@ -87,7 +87,7 @@ if(!$result) {
 </div>
 
 <?php
-if(mysql_num_rows($result) == 0) {
+if(mysqli_num_rows($result) == 0) {
 	show_msg("No sim_results found\n");
 	return;
 }

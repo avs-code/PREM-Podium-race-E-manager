@@ -25,7 +25,7 @@ if(!$result) {
 </div>
 <a href=".?page=team_add">Add team</a>
 <?
-if(mysql_num_rows($result) == 0) {
+if(mysqli_num_rows($result) == 0) {
 	show_msg("No teams found\n");
 	return;
 }

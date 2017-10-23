@@ -10,7 +10,7 @@ if(!$result) {
 	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
-if(mysql_num_rows($result) == 0) {
+if(mysqli_num_rows($result) == 0) {
 	show_error("File does not exist\n");
 	return;
 }

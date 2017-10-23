@@ -81,7 +81,7 @@ while($sitem = mysqli_fetch_array($sresult)) {
 <h2>Events</h2>
 <? } ?>
 <?
-if(mysql_num_rows($result) == 0) {
+if(mysqli_num_rows($result) == 0) {
 	show_msg("No races found\n");
 	return;
 }

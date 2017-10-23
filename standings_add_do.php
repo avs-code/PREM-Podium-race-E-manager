@@ -19,7 +19,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM standing_pages WHERE page = '$page'";
 $result = mysqli_query($link,$query);
 if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
-if(mysql_num_rows($result) > 0) error("Standing with the same page does already exist\n");
+if(mysqli_num_rows($result) > 0) error("Standing with the same page does already exist\n");
 
 $query = "INSERT INTO standing_pages (page, season) VALUES ('$page', '$season')";
 $result = mysqli_query($link,$query);

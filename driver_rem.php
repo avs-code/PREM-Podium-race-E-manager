@@ -11,7 +11,7 @@ if(!$result) {
 	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($result) == 0){
+if(mysqli_num_rows($result) == 0){
 	show_error("Driver does not exist\n");
 	return;
 }
@@ -23,7 +23,7 @@ if(!$tresult) {
 	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($tresult) > 0) {
+if(mysqli_num_rows($tresult) > 0) {
 	$teams = "";
 	while($t = mysqli_fetch_array($tresult)) {
 		$teams .= "&bull; " . $t['name'] . "\n";
