@@ -8,7 +8,7 @@ if(!$exe_standing_pages) {
 	error("MySQL error: " . mysql_error($link) . "\n");
 }
 if(mysql_num_rows($exe_standing_pages) > 0) {
-	while(list($spID, $spPage, $spSeason, $seasonName, $divisionName, $seasonDivision_n) = mysql_fetch_array($exe_standing_pages)) {
+	while(list($spID, $spPage, $spSeason, $seasonName, $divisionName, $seasonDivision_n) = mysqli_fetch_array($exe_standing_pages)) {
 		$standing_pages[$spID] = array(
 			'page' => $spPage,
 			'season' => $spSeason,
@@ -24,7 +24,7 @@ if(mysql_num_rows($exe_standing_pages) > 0) {
 
 $sql_season_details = "SELECT `id`, `name`, `division`, `ruleset` FROM `season`";
 $exe_season_details = mysqli_query($link,$sql_season_details);
-while(list($seasonID, $seasonName, $seasonDivision, $seasonRuleset) = mysql_fetch_array($exe_season_details)) {
+while(list($seasonID, $seasonName, $seasonDivision, $seasonRuleset) = mysqli_fetch_array($exe_season_details)) {
 	$season[$seasonID] = array(
 		'name' => $seasonName,
 		'division' => $seasonDivision,
@@ -35,7 +35,7 @@ mysql_free_result($exe_season_details);
 
 $sql_point_ruleset = "SELECT pr.id, pr.rp1, pr.rp2, pr.rp3, pr.rp4, pr.rp5, pr.rp6, pr.rp7, pr.rp8, pr.rp9, pr.rp10, pr.rp11, pr.rp12, pr.rp13, pr.rp14, pr.rp15 FROM `point_ruleset` AS pr";
 $exe_point_ruleset = mysqli_query($link,$sql_point_ruleset);
-while(list($prID, $prrp1, $prrp2, $prrp3, $prrp4, $prrp5, $prrp6, $prrp7, $prrp8, $prrp9, $prrp10, $prrp11, $prrp12, $prrp13, $prrp14, $prrp15) = mysql_fetch_array($exe_point_ruleset)) {
+while(list($prID, $prrp1, $prrp2, $prrp3, $prrp4, $prrp5, $prrp6, $prrp7, $prrp8, $prrp9, $prrp10, $prrp11, $prrp12, $prrp13, $prrp14, $prrp15) = mysqli_fetch_array($exe_point_ruleset)) {
 	$point_ruleset[$prID] = array(
 		'rp1' => $prrp1,
 		'rp2' => $prrp2,
@@ -85,7 +85,7 @@ mysql_free_result($exe_point_ruleset);
 			<?php
 			$sql_teams = "SELECT t.id, t.name FROM `team` AS t LEFT JOIN `season_team` AS st ON st.team = t.id WHERE st.season = ".intval($spDetails['season']);
 			$exe_teams = mysqli_query($link,$sql_teams);
-			while(list($teamID, $teamName) = mysql_fetch_array($exe_teams)) {
+			while(list($teamID, $teamName) = mysqli_fetch_array($exe_teams)) {
 				echo $teamName."<br/>";
 			}
 			mysql_free_result($exe_teams);
@@ -102,7 +102,7 @@ mysql_free_result($exe_point_ruleset);
 			<?php
 			$sql_drivers = "SELECT d.id did, d.name dname FROM season_team st JOIN team t ON (st.team = t.id) JOIN team_driver td ON (td.team = t.id) JOIN driver d ON (d.id = td.driver) WHERE st.season = '".intval($spDetails['season'])."' ORDER BY t.name ASC, d.name ASC";
 			$exe_drivers = mysqli_query($link,$sql_drivers);
-			while(list($driverID, $driverName) = mysql_fetch_array($exe_drivers)) {
+			while(list($driverID, $driverName) = mysqli_fetch_array($exe_drivers)) {
 				echo $driverName."<br/>";
 			}
 			mysql_free_result($exe_drivers);

@@ -51,7 +51,7 @@ if(!$rresult) {
 	<td>
 		<select id="season" name="season" onchange="showOptions();">
 		<option value="0">--NO SEASON--</option>
-		<? while($sitem = mysql_fetch_array($sresult)) { ?>
+		<? while($sitem = mysqli_fetch_array($sresult)) { ?>
 			<option value="<?=$sitem['id']?>"<?=$season == $sitem['id'] ? " selected=\"1\"" : ""?>><?=$sitem['name']?> (<?=$sitem['dname']?>)</option>
 		<? } ?>
 		</select>
@@ -65,7 +65,7 @@ if(!$rresult) {
 	<td>Division:</td>
 	<td>
 		<select name="division" onchange="void(0);">
-		<? while($ditem = mysql_fetch_array($dresult)) { ?>
+		<? while($ditem = mysqli_fetch_array($dresult)) { ?>
 			<option value="<?=$ditem['id']?>"><?=$ditem['name']?> (<?=$ditem['type']?>)</option>
 		<? } ?>
 		</select>
@@ -75,7 +75,7 @@ if(!$rresult) {
 	<td>Ruleset:</td>
 	<td>
 		<select name="ruleset" onchange="void(0);">
-		<? while($ritem = mysql_fetch_array($rresult)) { ?>
+		<? while($ritem = mysqli_fetch_array($rresult)) { ?>
 			<option value="<?=$ritem['id']?>"><?=$ritem['name']?></option>
 		<? } ?>
 		</select>
@@ -87,7 +87,7 @@ if(!$rresult) {
 		<select name="ruleset_qualifying" onchange="void(0);">
 		<? mysql_data_seek($rresult, 0); ?>
 		<option value="">&nbsp;</option>
-		<? while($ritem = mysql_fetch_array($rresult)) { ?>
+		<? while($ritem = mysqli_fetch_array($rresult)) { ?>
 			<option value="<?=$ritem['id']?>"><?=$ritem['name']?></option>
 		<? } ?>
 		</select>

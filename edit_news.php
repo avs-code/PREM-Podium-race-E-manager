@@ -10,7 +10,7 @@ if (isset($_POST['news'])) {
     mysqli_query($link,"UPDATE main_news SET `title` = '$title', `news` = '$news' WHERE id='$id'");
 }
 $exe_news = mysqli_query($link,"SELECT title, news FROM main_news WHERE id='$id' LIMIT 1");
-list($title, $news) = mysql_fetch_array($exe_news);
+list($title, $news) = mysqli_fetch_array($exe_news);
 mysql_free_result($exe_news);
 $news = htmlspecialchars($news);
 ?>

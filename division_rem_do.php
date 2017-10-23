@@ -14,7 +14,7 @@ if(!$sresult) {
 }
 if(mysql_num_rows($sresult) > 0) {
 	$seasons = "";
-	while($s = mysql_fetch_array($sresult)) {
+	while($s = mysqli_fetch_array($sresult)) {
 		$seasons .= "&bull; " . $s['name'] . "\n";
 	}
 	error("Division cannot be deleted because it is related to the following season(s):\n" . $seasons);

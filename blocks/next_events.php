@@ -24,7 +24,7 @@
 		</tr>
 		<?php
 
-		while ($sitem = mysql_fetch_array($result)) { ?>
+		while ($sitem = mysqli_fetch_array($result)) { ?>
 
 		<tr class="w3-hover-blue">
 			<td><?= $sitem['date'] ?></td>

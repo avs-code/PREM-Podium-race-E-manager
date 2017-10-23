@@ -12,7 +12,7 @@ if(!$ndresult) {
 }
 
 $drivers = array();
-while($nditem = mysql_fetch_array($ndresult)) {
+while($nditem = mysqli_fetch_array($ndresult)) {
 	$drivers[$nditem['id']] = $nditem['name'];
 }
 

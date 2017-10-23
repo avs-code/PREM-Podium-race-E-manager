@@ -15,7 +15,7 @@ if(mysql_num_rows($result) == 0){
 	show_error("Team does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $dquery = "SELECT td.id, d.id did, d.name, COUNT(rd.race) rcount FROM team_driver td JOIN driver d ON (td.driver = d.id) LEFT JOIN race_driver rd ON (td.id = rd.team_driver) WHERE td.team = '$id' GROUP BY td.id ORDER BY name ASC";
 $dresult = mysqli_query($link,$dquery);
@@ -35,7 +35,7 @@ if(!$ndresult) {
 }
 
 $drivers = array();
-while($nditem = mysql_fetch_array($ndresult)) {
+while($nditem = mysqli_fetch_array($ndresult)) {
 	$drivers[$nditem['id']] = $nditem['name'];
 }
 
@@ -70,7 +70,7 @@ function show_driver_combo($did = 0, $enabled = true) {
 	<td>
 	<?
 	for($x = 0; $x < 5; $x++) {
-		if($ditem = mysql_fetch_array($dresult)) {
+		if($ditem = mysqli_fetch_array($dresult)) {
 			show_driver_combo($ditem['did'], ($ditem['rcount'] == 0));
 			if($ditem['rcount'] > 0) {
 				echo "<img src=\"images/info16.png\" title=\"You cannot change this because this driver is related to " . $ditem['rcount'] . " race(s)\" onclick=\"alert('You cannot change this because this driver is related to " . $ditem['rcount'] . " race(s)');\" alt=\"\">";
@@ -81,7 +81,7 @@ function show_driver_combo($did = 0, $enabled = true) {
 		echo "<br>\n";
 	}
 	?>
-	<? while($ditem = mysql_fetch_array($dresult)) { ?>
+	<? while($ditem = mysqli_fetch_array($dresult)) { ?>
 		<a href="?page=team_driver_rem&amp;id=<?=$ditem['id']?>"><img src="images/delete16.png" alt="delete"></a> <?=$ditem['name']?><br>
 	<? } ?>
 	</td>

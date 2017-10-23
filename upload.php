@@ -102,7 +102,7 @@ return;
     <?php
  $sql="SELECT * FROM uploads";
  $result_set=mysqli_query($link,$sql);
- while($row=mysql_fetch_array($result_set))
+ while($row=mysqli_fetch_array($result_set))
  {
   ?>
         <tr class="w3-hover-green">

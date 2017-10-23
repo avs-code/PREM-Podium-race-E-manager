@@ -15,7 +15,7 @@ if(!$dresult) {
 }
 if(mysql_num_rows($dresult) > 0) {
 	$drivers = "";
-	while($d = mysql_fetch_array($dresult)) {
+	while($d = mysqli_fetch_array($dresult)) {
 		$drivers .= "&bull; " . $d['name'] . "\n";
 	}
 	error("Team cannot be deleted because it is related to the following driver(s):\n" . $drivers);

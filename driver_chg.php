@@ -13,7 +13,7 @@ if(mysql_num_rows($result) == 0){
 	show_error("Driver does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $tquery = "SELECT td.*, t.name teamname FROM team_driver td JOIN team t ON (t.id = td.team) WHERE td.driver = '$id'";
 $tresult = mysqli_query($link,$tquery);
@@ -38,7 +38,7 @@ $teamcount = mysql_num_rows($tresult);
 <tr class="w3-hover-green">
 	<td>Teams (<?=$teamcount?>):</td>
 	<td>
-	<? while($titem = mysql_fetch_array($tresult)) { ?>
+	<? while($titem = mysqli_fetch_array($tresult)) { ?>
 		<a href="?page=team_driver_rem&amp;id=<?=$titem['id']?>"><img src="images/delete16.png" alt="delete"></a> <?=$titem['teamname']?><br>
 	<? } ?>
 	</td>

@@ -155,7 +155,7 @@ $active_standings = $_POST["active_standings"];
 
 <?
 
-    while($item = mysql_fetch_array($result_sp_list)) {
+    while($item = mysqli_fetch_array($result_sp_list)) {
 ?>
 
     <tr class="w3-hover-green">

@@ -15,7 +15,7 @@ if(mysql_num_rows($result) == 0){
 	show_error("Season does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $diquery = "SELECT * FROM division ORDER BY name ASC";
 $diresult = mysqli_query($link,$diquery);
@@ -47,7 +47,7 @@ if(mysql_num_rows($tresult) == 0) {
 }
 
 $team = array();
-while($titem = mysql_fetch_array($tresult)) {
+while($titem = mysqli_fetch_array($tresult)) {
 	$team[$titem['id']] = $titem['name'];
 }
 
@@ -83,7 +83,7 @@ if(!$stresult) {
 	<td>Division:</td>
 	<td>
 	<select name="division">
-	<? while($diitem = mysql_fetch_array($diresult)) { ?>
+	<? while($diitem = mysqli_fetch_array($diresult)) { ?>
 		<option value="<?=$diitem['id']?>"<?=($diitem['id'] == $item['division']) ? " selected" : ""?>><?=$diitem['name']?></option>
 	<? } ?>
 	</select>
@@ -93,7 +93,7 @@ if(!$stresult) {
 	<td>Ruleset:</td>
 	<td>
 	<select name="ruleset">
-	<? while($rsitem = mysql_fetch_array($rsresult)) { ?>
+	<? while($rsitem = mysqli_fetch_array($rsresult)) { ?>
 		<option value="<?=$rsitem['id']?>"<?=($rsitem['id'] == $item['ruleset']) ? " selected" : ""?>><?=$rsitem['name']?></option>
 	<? } ?>
 	</select>
@@ -105,7 +105,7 @@ if(!$stresult) {
 	<select name="ruleset_qualifying">
 	<? mysql_data_seek($rsresult, 0); ?>
 	<option value="0">&nbsp;</option>
-	<? while($rsitem = mysql_fetch_array($rsresult)) { ?>
+	<? while($rsitem = mysqli_fetch_array($rsresult)) { ?>
 		<option value="<?=$rsitem['id']?>"<?=($rsitem['id'] == $item['ruleset_qualifying']) ? " selected" : ""?>><?=$rsitem['name']?></option>
 	<? } ?>
 	</select>
@@ -120,7 +120,7 @@ if(!$stresult) {
 	<td>
 		<?
 		for($x = 0; $x < $item['maxteams']; $x++) {
-			if($stitem = mysql_fetch_array($stresult))
+			if($stitem = mysqli_fetch_array($stresult))
 				show_team_combo($stitem['team']);
 			else
 				show_team_combo();

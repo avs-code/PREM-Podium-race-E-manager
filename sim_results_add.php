@@ -34,7 +34,7 @@ if(!$sresult) {
 	<td>
 		<select id="season" name="season" onchange="showOptions();">
 		<option value="0">--NO SEASON--</option>
-		<? while($sitem = mysql_fetch_array($sresult)) { ?>
+		<? while($sitem = mysqli_fetch_array($sresult)) { ?>
 			<option value="<?=$sitem['id']?>"<?=$season == $sitem['id'] ? " selected=\"1\"" : ""?>><?=$sitem['name']?> (<?=$sitem['dname']?>)</option>
 		<? } ?>
 		</select>
@@ -102,7 +102,7 @@ if(mysql_num_rows($result) == 0) {
 	</tr>
 
 	<?
-	while($item = mysql_fetch_array($result)) {
+	while($item = mysqli_fetch_array($result)) {
 		?>
 		<tr class="w3-hover-green">
 			<td>

@@ -15,7 +15,7 @@ if(mysql_num_rows($result) == 0){
 	show_error("Standing page does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $squery = "SELECT s.* FROM season s";
 $sresult = mysqli_query($link,$squery);
@@ -38,7 +38,7 @@ if(!$sresult) {
 	<td>
 		<select id="season" name="season" onchange="showOptions();">
 		<option value="0">--NO SEASON--</option>
-		<? while($sitem = mysql_fetch_array($sresult)) { ?>
+		<? while($sitem = mysqli_fetch_array($sresult)) { ?>
 			<option value="<?=$sitem['id']?>"<?=$item['season'] == $sitem['id'] ? " selected=\"1\"" : ""?>><?=$sitem['name']?></option>
 		<? }
         mysql_free_result($sresult);

@@ -42,7 +42,7 @@ if(mysql_num_rows($result) == 0) {
 
 <?
 $style = "odd";
-while($item = mysql_fetch_array($result)) {
+while($item = mysqli_fetch_array($result)) {
 ?>
 <!--old style.css<tr class="<?=$style?>">-->
 <tr class="w3-hover-green">

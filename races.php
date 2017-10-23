@@ -32,7 +32,7 @@ if(!$s2result) {
 	return;
 }
 
-$s2item = mysql_fetch_array($s2result);
+$s2item = mysqli_fetch_array($s2result);
 $noseasonracecount = $s2item['racecount'];
 ?>
 <h1>Races</h1>
@@ -44,7 +44,7 @@ $noseasonracecount = $s2item['racecount'];
 <select name="season" onchange="this.form.submit();">
 <option value="0">NO SEASON - <?=$noseasonracecount?> race<?=$noseasonracecount == 1 ? "" : "s"?></option>
 <optgroup label="Seasons">
-<? while($sitem = mysql_fetch_array($sresult)) { ?>
+<? while($sitem = mysqli_fetch_array($sresult)) { ?>
 	<option value="<?=$sitem['id']?>"<?=$season == $sitem['id'] ? " selected" : ""?>><?=$sitem['name']?> - <?=$sitem['dname']?> - <?=$sitem['racecount']?> race<?=$sitem['racecount'] == 1 ? "" : "s"?></option>
 <? } ?>
 </optgroup>
@@ -66,7 +66,7 @@ $noseasonracecount = $s2item['racecount'];
 <?
 mysql_data_seek($sresult, 0);
 #$style = "odd";
-while($sitem = mysql_fetch_array($sresult)) {
+while($sitem = mysqli_fetch_array($sresult)) {
 	?>
 <tr class="w3-hover-green">
 	<td><a href="?page=races&amp;season=<?=$sitem['id']?>"><?=$sitem['name']?></a></td>
@@ -108,7 +108,7 @@ if(mysql_num_rows($result) == 0) {
 
 <?
 #$style = "odd";
-while($item = mysql_fetch_array($result)) {
+while($item = mysqli_fetch_array($result)) {
 	$date = strtotime($item['date']);
 ?>
 <tr class="w3-hover-green">

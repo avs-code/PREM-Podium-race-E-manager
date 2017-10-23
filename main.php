@@ -6,7 +6,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 
 $exe_blocks = mysqli_query($link,"SELECT `id`, `title`, `content_file`, `content_html`, `language`, `sort_order` FROM blocks WHERE `active` = 1 ORDER BY `sort_order` ASC");
 if ($exe_blocks) {
-	while (list($blockID, $blockTitle, $blockContentFile, $blockContentHtml, $blockSortOrder) = mysql_fetch_array($exe_blocks)) {
+	while (list($blockID, $blockTitle, $blockContentFile, $blockContentHtml, $blockSortOrder) = mysqli_fetch_array($exe_blocks)) {
 		if (!$blockTitle)
 			continue;
 
@@ -189,7 +189,7 @@ if ($exe_news) {
 	?>
 
 	<?php
-	while (list($id, $title, $news, $day) = mysql_fetch_array($exe_news)) {
+	while (list($id, $title, $news, $day) = mysqli_fetch_array($exe_news)) {
 		?>
 
 			<div class="w3-center w3-black w3-text-white"><h3><?=$title;?>&nbsp;<?=$day;?></h3></div>

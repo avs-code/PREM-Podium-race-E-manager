@@ -23,7 +23,7 @@ if(mysql_num_rows($result) == 0) {
 	return;
 }
 
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 // Get the rulesets
 $rsquery = "SELECT * FROM point_ruleset";
@@ -36,7 +36,7 @@ if(mysql_num_rows($rsresult) == 0) {
 	show_error("Ruleset does not exist\n");
 	return;
 }
-while($rsitem = mysql_fetch_array($rsresult)) {
+while($rsitem = mysqli_fetch_array($rsresult)) {
 	$ruleset[$rsitem['id']] = $rsitem;
 }
 
@@ -50,7 +50,7 @@ if(!$drresult) {
 
 $team = array();
 $driver = array();
-while($dritem = mysql_fetch_array($drresult)) {
+while($dritem = mysqli_fetch_array($drresult)) {
 	if(!isset($team[$dritem['tid']])) {
 		$team[$dritem['tid']]['name'] = $dritem['tname'];
 		$team[$dritem['tid']]['points'] = 0;
@@ -87,7 +87,7 @@ $last_race = 0;
 $race = 0;
 $races = array();
 /* Creates an array of all drivers and team, and their race information (points, positions) */
-while($ritem = mysql_fetch_array($rresult)) {
+while($ritem = mysqli_fetch_array($rresult)) {
 	if($last_race != $ritem['race']) {
 		$position = 0;
 		$race++;

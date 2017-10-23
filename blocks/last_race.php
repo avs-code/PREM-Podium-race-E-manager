@@ -17,7 +17,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
     	return;
     }
 
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 $last = ($item['id']);
 
     $dquery = "SELECT rd.*, d.name dname, t.name tname FROM race_driver rd JOIN team_driver td ON (td.id = rd.team_driver) JOIN team t ON (t.id = td.team) JOIN driver d ON (d.id = td.driver) JOIN race r ON (rd.race = r.id) WHERE rd.race='$last' AND (rd.status = 0) ORDER BY rd.position ASC LIMIT 3";
@@ -48,7 +48,7 @@ mysql_free_result($result);
     <tr></tr>
 <table class="w3-table-all">
     <td class="w3-dark-grey"><strong>Pos</strong></td><td class="w3-dark-grey"><strong>Driver</strong></td><td class="w3-dark-grey"><strong>Team</strong></td>
-    <? while($ditem = mysql_fetch_array($dresult)) {    ?>
+    <? while($ditem = mysqli_fetch_array($dresult)) {    ?>
     <tr class="w3-hover-blue">
     <td class="w3-dark-grey"><?=$ditem['position']?></td>
     <td><?=$ditem['dname']?></td>

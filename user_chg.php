@@ -16,7 +16,7 @@ if(mysql_num_rows($result) == 0) {
 	show_error("User does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 ?>
 
 <form action="user_chg_do.php" method="post">

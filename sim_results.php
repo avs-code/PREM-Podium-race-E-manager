@@ -15,7 +15,7 @@ if (!$result) {
 <h1>Simresults</h1>
 <?php
 if ($simresultID) {
-	$sitem = mysql_fetch_array($result);
+	$sitem = mysqli_fetch_array($result);
 	?>
 	<h2><a href="?page=sim_results">&#8606; Go back</a></h2>
 	<iframe src="<?=$sitem['simresults_url'];?>" width="100%" height="600px"></iframe>
@@ -31,7 +31,7 @@ if ($simresultID) {
 			<td><h1>Simresults_URL</h1></td>
 		</tr>
 		<?
-		while ($sitem = mysql_fetch_array($result)) {
+		while ($sitem = mysqli_fetch_array($result)) {
 			?>
 			<tr class="w3-hover-green">
 				<td><?= $sitem['race_name'] ?></td>

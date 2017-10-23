@@ -17,7 +17,7 @@ if(mysql_num_rows($result) == 0) {
 	return;
 }
 
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 $date = strtotime($item['date']);
 
 $dquery = "SELECT rd.*, d.name dname, t.name tname FROM race_driver rd JOIN team_driver td ON (td.id = rd.team_driver) JOIN team t ON (t.id = td.team) JOIN driver d ON (d.id = td.driver) WHERE rd.race='$race' AND (rd.status = 0) ORDER BY rd.position ASC";
@@ -44,7 +44,7 @@ if(mysql_num_rows($rsresult) == 0) {
 	show_error("Ruleset does not exist\n");
 	return;
 }
-$ruleset = mysql_fetch_array($rsresult);
+$ruleset = mysqli_fetch_array($rsresult);
 
 if($item['ruleset_qualifying'] != 0) {
 	$qrsquery = "SELECT * FROM point_ruleset WHERE id='{$item['ruleset_qualifying']}'";
@@ -57,7 +57,7 @@ if($item['ruleset_qualifying'] != 0) {
 		show_error("Qualifying ruleset does not exist\n");
 		return;
 	}
-	$ruleset_qualifying = mysql_fetch_array($qrsresult);
+	$ruleset_qualifying = mysqli_fetch_array($qrsresult);
 }
 ?>
 <h1>Race results</h1>
@@ -143,7 +143,7 @@ if($item['ruleset_qualifying'] != 0) {
 </tr>
 <?
 
-while($ditem = mysql_fetch_array($dresult)) {
+while($ditem = mysqli_fetch_array($dresult)) {
 	if(!isset($best_time)) $best_time = $ditem['time'];
 	if(!isset($most_laps)) $most_laps = $ditem['laps'];
 	if($ditem['status'] != 0)
@@ -192,7 +192,7 @@ while($ditem = mysql_fetch_array($dresult)) {
 <?
 }
 
-while($ditem = mysql_fetch_array($ndresult)) {
+while($ditem = mysqli_fetch_array($ndresult)) {
 	if(!isset($best_time)) $best_time = $ditem['time'];
 	if(!isset($most_laps)) $most_laps = $ditem['laps'];
 	if($ditem['status'] != 0)

@@ -37,7 +37,7 @@ if($season != 0) {
 	if(!$result) error("MySQL error: " . mysql_error($link) . "\n");
 	if(mysql_num_rows($result) == 0) error("Season does not exist\n");
 
-	$item = mysql_fetch_array($result);
+	$item = mysqli_fetch_array($result);
 
 	$division = $item['division'];
 	if(!$diff_ruleset) {

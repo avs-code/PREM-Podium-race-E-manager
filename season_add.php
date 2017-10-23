@@ -37,7 +37,7 @@ if(mysql_num_rows($rsresult) == 0) {
 	<td>Division:</td>
 	<td>
 	<select name="division">
-	<? while($diitem = mysql_fetch_array($diresult)) { ?>
+	<? while($diitem = mysqli_fetch_array($diresult)) { ?>
 		<option value="<?=$diitem['id']?>"><?=$diitem['name']?></option>
 	<? } ?>
 	</select>
@@ -47,7 +47,7 @@ if(mysql_num_rows($rsresult) == 0) {
 	<td>Ruleset:</td>
 	<td>
 	<select name="ruleset">
-	<? while($rsitem = mysql_fetch_array($rsresult)) { ?>
+	<? while($rsitem = mysqli_fetch_array($rsresult)) { ?>
 		<option value="<?=$rsitem['id']?>"><?=$rsitem['name']?></option>
 	<? } ?>
 	</select>
@@ -59,7 +59,7 @@ if(mysql_num_rows($rsresult) == 0) {
 	<select name="ruleset_qualifying">
 	<option value="0">&nbsp;</option>
 	<? mysql_data_seek($rsresult, 0); ?>
-	<? while($rsitem = mysql_fetch_array($rsresult)) { ?>
+	<? while($rsitem = mysqli_fetch_array($rsresult)) { ?>
 		<option value="<?=$rsitem['id']?>"><?=$rsitem['name']?></option>
 	<? } ?>
 	</select>

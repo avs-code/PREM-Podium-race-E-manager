@@ -15,7 +15,7 @@ if(mysql_num_rows($result) == 0){
 	show_error("Ruleset does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $error = "";
 
@@ -27,7 +27,7 @@ if(!$sresult) {
 }
 if(mysql_num_rows($sresult) > 0) {
 	$seasons = "";
-	while($s = mysql_fetch_array($sresult)) {
+	while($s = mysqli_fetch_array($sresult)) {
 		$seasons .= "&bull; " . $s['name'] . " (" . $s['division'] . ")\n";
 	}
 	$error .= "Ruleset cannot be deleted because it is related to the following season(s):\n" . $seasons;
@@ -41,7 +41,7 @@ if(!$rresult) {
 }
 if(mysql_num_rows($rresult) > 0) {
 	$races = "";
-	while($r = mysql_fetch_array($rresult)) {
+	while($r = mysqli_fetch_array($rresult)) {
 		$races .= "&bull; " . $r['name'] . " (" . $r['track'] . ")\n";
 	}
 	$error .= "Ruleset cannot be deleted because it is related to the following race(s):\n" . $races;

@@ -7,7 +7,7 @@ if (!$exe_drivers) {
     show_error("MySQL Error: " . mysql_error($link) . "\n");
     return;
 }
-while ($drivers = mysql_fetch_array($exe_drivers)) {
+while ($drivers = mysqli_fetch_array($exe_drivers)) {
 	$driver[$drivers['teamID']][$drivers['driverID']] = $drivers['driverName'];
 }
 mysql_free_result($exe_drivers);
@@ -33,7 +33,7 @@ if (!$result) {
 	</tr>
 	<?php
 	#$style = "odd";
-	while ($sitem = mysql_fetch_array($result)) {
+	while ($sitem = mysqli_fetch_array($result)) {
 	 if ($sitem['logo'] == '') { $url = 'images/logo.png' ; } else { $url = $sitem['logo']; }
 	?>
 	<tr class="w3-hover-green">

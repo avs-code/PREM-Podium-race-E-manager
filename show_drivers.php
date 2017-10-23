@@ -5,7 +5,7 @@ require_once("functions.php"); // import mysql function
 $link = mysqlconnect(); // call mysql function to get the link to the database
 $sql_positions = "SELECT `team_driver`, `position` FROM race_driver WHERE `position` <= 3";
 $exe_positions = mysqli_query($link,$sql_positions);
-while ($positions = mysql_fetch_array($exe_positions)) {
+while ($positions = mysqli_fetch_array($exe_positions)) {
 	$position[$positions['team_driver']][$positions['position']]++;
 }
 mysql_free_result($exe_positions);
@@ -38,7 +38,7 @@ if (!$exe_drivers) {
 </tr>
 <?
 
-while ($sitem = mysql_fetch_array($exe_drivers)) {
+while ($sitem = mysqli_fetch_array($exe_drivers)) {
 	if ($sitem['driver_photo'] == '') { $url = 'images/helmet.png' ; } else { $url = $sitem['driver_photo']; }
 	$first_position = intval($position[$sitem['teamDriverID']][1]);
 	$second_position = intval($position[$sitem['teamDriverID']][2]);

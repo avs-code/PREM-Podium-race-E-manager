@@ -8,7 +8,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM team_driver WHERE id='$id'";
 $result = mysqli_query($link,$query);
 
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $tquery = "SELECT t.name FROM team_driver td JOIN team t ON (td.team = t.id) WHERE driver='$id'";
 $tresult = mysqli_query($link,$tquery);

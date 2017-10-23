@@ -21,7 +21,7 @@ if(mysql_num_rows($result) == 0){
 	show_error("Race does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $date = strtotime($item['date']);
 
@@ -80,7 +80,7 @@ if($item['season'] != 0) {
 	<td>
 		<select id="season" name="season" onchange="showOptions();">
 		<option value="0">--NO SEASON--</option>
-		<? while($sitem = mysql_fetch_array($sresult)) { ?>
+		<? while($sitem = mysqli_fetch_array($sresult)) { ?>
 			<option value="<?=$sitem['id']?>"<?=$item['season'] == $sitem['id'] ? " selected=\"1\"" : ""?>><?=$sitem['name']?> (<?=$sitem['dname']?>)</option>
 		<? } ?>
 		</select>
@@ -94,7 +94,7 @@ if($item['season'] != 0) {
 	<td>Division:</td>
 	<td>
 		<select name="division" onchange="void(0);">
-		<? while($ditem = mysql_fetch_array($dresult)) { ?>
+		<? while($ditem = mysqli_fetch_array($dresult)) { ?>
 			<option value="<?=$ditem['id']?>"<?=$item['division'] == $ditem['id'] ? " selected" : ""?>><?=$ditem['name']?> (<?=$ditem['type']?>)</option>
 		<? } ?>
 		</select>
@@ -104,7 +104,7 @@ if($item['season'] != 0) {
 	<td>Ruleset:</td>
 	<td>
 		<select name="ruleset" onchange="void(0);">
-		<? while($ritem = mysql_fetch_array($rresult)) { ?>
+		<? while($ritem = mysqli_fetch_array($rresult)) { ?>
 			<option value="<?=$ritem['id']?>"<?=$item['ruleset'] == $ritem['id'] ? " selected" : ""?>><?=$ritem['name']?></option>
 		<? } ?>
 		</select>
@@ -116,7 +116,7 @@ if($item['season'] != 0) {
 		<select name="ruleset_qualifying" onchange="void(0);">
 		<? mysql_data_seek($rresult, 0); ?>
 		<option value="">&nbsp;</option>
-		<? while($ritem = mysql_fetch_array($rresult)) { ?>
+		<? while($ritem = mysqli_fetch_array($rresult)) { ?>
 			<option value="<?=$ritem['id']?>"<?=$item['ruleset_qualifying'] == $ritem['id'] ? " selected" : ""?>><?=$ritem['name']?></option>
 		<? } ?>
 		</select>

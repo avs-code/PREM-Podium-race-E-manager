@@ -15,7 +15,7 @@ if(mysql_num_rows($result) == 0){
 	show_error("Standing page does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 ?>
 <h1>Delete standing page</h1>
 

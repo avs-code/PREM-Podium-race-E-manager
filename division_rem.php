@@ -15,7 +15,7 @@ if(mysql_num_rows($result) == 0){
 	show_error("Division does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $squery = "SELECT s.name FROM division d JOIN season s ON (s.division = d.id) WHERE s.division='$id'";
 $sresult = mysqli_query($link,$squery);
@@ -25,7 +25,7 @@ if(!$sresult) {
 }
 if(mysql_num_rows($sresult) > 0) {
 	$seasons = "";
-	while($s = mysql_fetch_array($sresult)) {
+	while($s = mysqli_fetch_array($sresult)) {
 		$seasons .= "&bull; " . $s['name'] . "\n";
 	}
 	show_error("Division cannot be deleted because it is related to the following season(s):\n" . $seasons);

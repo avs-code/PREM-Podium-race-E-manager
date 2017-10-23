@@ -110,7 +110,7 @@ if(mysql_num_rows($result) == 0){
 	show_error("Race does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $date = strtotime($item['date']);
 ?>
@@ -180,7 +180,7 @@ if(mysql_num_rows($dresult) == 0){
 }
 
 $drivers = array();
-while($ditem = mysql_fetch_array($dresult)) {
+while($ditem = mysqli_fetch_array($dresult)) {
 	$drivers[$ditem['id']]['name'] = $ditem['driver'];
 	$drivers[$ditem['id']]['team'] = $ditem['team'];
 }

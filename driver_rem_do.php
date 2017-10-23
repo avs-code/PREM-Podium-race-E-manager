@@ -15,7 +15,7 @@ if(!$tresult) {
 }
 if(mysql_num_rows($tresult) > 0) {
 	$teams = "";
-	while($t = mysql_fetch_array($tresult)) {
+	while($t = mysqli_fetch_array($tresult)) {
 		$teams .= "&bull; " . $t['name'] . "\n";
 	}
 	error("Driver cannot be deleted because it is related to the following team(s):\n" . $teams);

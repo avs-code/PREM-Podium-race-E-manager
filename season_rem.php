@@ -15,7 +15,7 @@ if(mysql_num_rows($result) == 0){
 	show_error("Season does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $stquery = "SELECT t.name FROM season_team st JOIN team t ON (t.id = st.team) WHERE season='$id'";
 $stresult = mysqli_query($link,$stquery);
@@ -47,7 +47,7 @@ if(!$stresult) {
 <tr>
 	<td>Teams:</td>
 	<td>
-	<? while($stitem = mysql_fetch_array($stresult)) { ?>
+	<? while($stitem = mysqli_fetch_array($stresult)) { ?>
 		&bull; <?=$stitem['name']?><br>
 	<? } ?>
 	</td>

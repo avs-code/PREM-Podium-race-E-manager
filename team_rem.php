@@ -15,7 +15,7 @@ if(mysql_num_rows($result) == 0){
 	show_error("Team does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $dquery = "SELECT d.name FROM team_driver td JOIN driver d ON (td.driver = d.id) WHERE team='$id'";
 $dresult = mysqli_query($link,$dquery);
@@ -25,7 +25,7 @@ if(!$dresult) {
 }
 if(mysql_num_rows($dresult) > 0) {
 	$drivers = "";
-	while($d = mysql_fetch_array($dresult)) {
+	while($d = mysqli_fetch_array($dresult)) {
 		$drivers .= "&bull; " . $d['name'] . "\n";
 	}
 	show_error("Team cannot be deleted because it is related to the following driver(s):\n" . $drivers);

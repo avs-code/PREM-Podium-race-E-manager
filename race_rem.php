@@ -14,7 +14,7 @@ if(mysql_num_rows($result) == 0){
 	show_error("Race does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $date = strtotime($item['date']);
 ?>

@@ -68,7 +68,7 @@ if(mysql_num_rows($result) == 0) {
 	</tr>
 
 	<?
-	while($item = mysql_fetch_array($result)) {
+	while($item = mysqli_fetch_array($result)) {
 		?>
 		<tr class="w3-hover-green">
 			<td>
