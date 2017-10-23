@@ -41,7 +41,7 @@ $query = "INSERT INTO team (name, logo) VALUES ('$name','$logo')";
 $result = mysqli_query($link,$query);
 if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
-$team_id = mysql_insert_id();
+$team_id = mysqli_insert_id($link)();
 
 if(is_array($driver) && count($driver > 0)) {
 	$query_values = "";
