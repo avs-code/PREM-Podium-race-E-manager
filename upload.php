@@ -38,6 +38,8 @@ Your uploads files will be in http://your_installation_url/uploads/your_file_nam
 
 <!--php upload code-->
 <?php
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 if(isset($_POST['btn-upload']))
 {
  $file = $_FILES['file']['name'];
@@ -63,8 +65,6 @@ return;
 
  if(move_uploaded_file($file_loc,$folder.$final_file))
  {
-  require_once("functions.php"); // import mysql function
-  $link = mysqlconnect(); // call mysql function to get the link to the database
   $sql="INSERT INTO uploads(file,type,size) VALUES('$final_file','$file_type','$new_size')";
   mysqli_query($link,$sql);
   ?>
