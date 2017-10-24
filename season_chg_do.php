@@ -18,20 +18,21 @@ if(!empty($error)) error($error);
 
 $msg = "";
 
-mysqlconnect();
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 
 $query = "SELECT * FROM season WHERE name = '$name' AND division = '$division' AND id != '$id'";
-$result = mysql_query($query);
-if(!$result) error("MySQL Error: " . mysql_error() . "\n");
-if(mysql_num_rows($result) > 0) error("Season with the same name and division does already exist\n");
+$result = mysqli_query($link,$query);
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
+if(mysqli_num_rows($result) > 0) error("Season with the same name and division does already exist\n");
 
 $query = "UPDATE season SET name='$name', division='$division', ruleset='$ruleset', ruleset_qualifying='$ruleset_qualifying', maxteams='$maxteams' WHERE id='$id'";
-$result = mysql_query($query);
-if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+$result = mysqli_query($link,$query);
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 $query = "DELETE FROM season_team WHERE season='$id'";
-$result = mysql_query($query);
-if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+$result = mysqli_query($link,$query);
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 if(is_array($team)) {
 	foreach($team as $t) {
@@ -43,8 +44,8 @@ if(is_array($team)) {
 
 	if(!empty($values)) {
 		$query = "INSERT INTO season_team (season, team) VALUES $values";
-		$result = mysql_query($query);
-		if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+		$result = mysqli_query($link,$query);
+		if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 	}
 }
 

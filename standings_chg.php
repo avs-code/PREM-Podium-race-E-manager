@@ -3,22 +3,24 @@
 <?
 $id = addslashes($_GET['id']);
 
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM standing_pages WHERE id='$id'";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($result) == 0){
+if(mysqli_num_rows($result) == 0){
 	show_error("Standing page does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $squery = "SELECT s.* FROM season s";
-$sresult = mysql_query($squery);
+$sresult = mysqli_query($link,$squery);
 if(!$sresult) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 
@@ -36,11 +38,11 @@ if(!$sresult) {
 	<td>
 		<select id="season" name="season" onchange="showOptions();">
 		<option value="0">--NO SEASON--</option>
-		<? while($sitem = mysql_fetch_array($sresult)) { ?>
+		<? while($sitem = mysqli_fetch_array($sresult)) { ?>
 			<option value="<?=$sitem['id']?>"<?=$item['season'] == $sitem['id'] ? " selected=\"1\"" : ""?>><?=$sitem['name']?></option>
 		<? }
-        mysql_free_result($sresult);
-        mysql_free_result($result);
+        mysqli_free_result($sresult);
+        mysqli_free_result($result);
          ?>
 		</select>
 	</td>

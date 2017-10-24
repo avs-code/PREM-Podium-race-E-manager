@@ -5,7 +5,7 @@
 
 You can upload for exampe image files to get after the url, to write it in drivers or teams profile, in image url text field.<br />
 Your uploads files will be in http://your_installation_url/uploads/your_file_name<br />
-<p></p> 
+<p></p>
 
 <form action="?page=upload" method="post" enctype="multipart/form-data">
 <input type="file" name="file" />
@@ -38,9 +38,11 @@ Your uploads files will be in http://your_installation_url/uploads/your_file_nam
 
 <!--php upload code-->
 <?php
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 if(isset($_POST['btn-upload']))
-{    
- $file = $_FILES['file']['name'];    
+{
+ $file = $_FILES['file']['name'];
  $file_loc = $_FILES['file']['tmp_name'];
  $file_size = $_FILES['file']['size'];
  $file_type = $_FILES['file']['type'];
@@ -50,21 +52,21 @@ if (file_exists($target_file))
 {
 echo "SORRY, FILE ALREADY EXISTS.";
 return;
-} 
+}
  // new file size in KB
- $new_size = $file_size/5000;  
+ $new_size = $file_size/5000;
  // new file size in KB
- 
+
  // make file name in lower case
  $new_file_name = strtolower($file);
  // make file name in lower case
- 
+
  $final_file=str_replace(' ','-',$new_file_name);
- 
+
  if(move_uploaded_file($file_loc,$folder.$final_file))
  {
   $sql="INSERT INTO uploads(file,type,size) VALUES('$final_file','$file_type','$new_size')";
-  mysql_query($sql);
+  mysqli_query($link,$sql);
   ?>
   <script>
   alert('successfully uploaded');
@@ -99,8 +101,8 @@ return;
     </tr>
     <?php
  $sql="SELECT * FROM uploads";
- $result_set=mysql_query($sql);
- while($row=mysql_fetch_array($result_set))
+ $result_set=mysqli_query($link,$sql);
+ while($row=mysqli_fetch_array($result_set))
  {
   ?>
         <tr class="w3-hover-green">

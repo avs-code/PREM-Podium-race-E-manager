@@ -14,16 +14,17 @@ if(!empty($error)) error($error);
 
 $msg = "";
 
-mysqlconnect();
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM standing_pages WHERE page = '$page'";
-$result = mysql_query($query);
-if(!$result) error("MySQL Error: " . mysql_error() . "\n");
-if(mysql_num_rows($result) > 0) error("Standing with the same page does already exist\n");
+$result = mysqli_query($link,$query);
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
+if(mysqli_num_rows($result) > 0) error("Standing with the same page does already exist\n");
 
 $query = "INSERT INTO standing_pages (page, season) VALUES ('$page', '$season')";
-$result = mysql_query($query);
-if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+$result = mysqli_query($link,$query);
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=blocks", "Standing page succesfully added\n$msg");
-mysql_free_result($result)
+mysqli_free_result($result)
 ?>

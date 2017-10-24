@@ -6,9 +6,11 @@ if(isset($_GET['filter'])) {
 	$query_where = "WHERE name LIKE '%$filter%' OR type LIKE '%$filter%'";
 }
 $query = "SELECT * FROM division $query_where ORDER BY name ASC";
-$result = mysql_query($query);
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 
@@ -23,7 +25,7 @@ if(!$result) {
 </div>
 <a href=".?page=division_add">Add division</a>
 <?
-if(mysql_num_rows($result) == 0) {
+if(mysqli_num_rows($result) == 0) {
 	show_msg("No divisions found\n");
 	return;
 }
@@ -40,7 +42,7 @@ if(mysql_num_rows($result) == 0) {
 
 <?
 $style = "odd";
-while($item = mysql_fetch_array($result)) {
+while($item = mysqli_fetch_array($result)) {
 ?>
 <!--old style.css<tr class="<?=$style?>">-->
 <tr class="w3-hover-green">

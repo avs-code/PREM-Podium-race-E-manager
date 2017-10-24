@@ -1,7 +1,7 @@
 <?
 /**
  * functions.php - Default functions for the skeleton
- * 
+ *
  * @author Bert Hekman <bert@condor.tv>
  * @copyright Copyright &copy; 2007, Condor Digital
  */
@@ -66,18 +66,22 @@ if(defined("USE_MYSQL")) {
 	 * with an error if unsuccesfull
 	 *
 	 * @global string $config The configuration from config.php is needed
-	 * @return resource MySQL connection link resource
+	 * @return resource MySQLi connection link resource
 	 */
 	function mysqlconnect() {
 		global $config;
 
-		$ret = @mysql_connect($config['mysql']['host'], $config['mysql']['user'], $config['mysql']['pass']);
-		if(!$ret) {
-			die("MySQL error: " . mysql_error() . "\n");
+		$mysqli = mysqli_connect(
+				$config['mysql']['host'],
+				$config['mysql']['user'],
+				$config['mysql']['pass'],
+				$config['mysql']['db'],
+				$config['mysql']['port']
+		);
+		if (mysqli_connect_errno($mysqli)) {
+    	echo "Failed to connect to MySQL: " . mysqli_connect_error();
 		}
-		mysql_select_db($config['mysql']['db']) or error("MySQL error: " . mysql_error() . "\n", ".");
-
-		return $ret;
+		return $mysqli;
 	}
 }
 
@@ -91,7 +95,7 @@ if(defined("USE_MYSQL")) {
 function filesize_hr($file) {
 	if(!is_readable($file))
 		return "?B";
-	
+
 	$units = array("B", "KB", "MB", "GB", "TB");
 	$s = filesize($file);
 	$u = 0;

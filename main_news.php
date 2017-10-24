@@ -9,12 +9,14 @@
 <!--REMOVE-->
 
 <?
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 
 $query = "SELECT id, title, day FROM main_news ORDER BY id DESC";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 
 if(!$result) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 
@@ -23,7 +25,7 @@ if(!$result) {
 
 
 <?php
-if(mysql_num_rows($result) == 0) {
+if(mysqli_num_rows($result) == 0) {
 	show_msg("No news found\n");
 	return;
 }
@@ -37,7 +39,7 @@ if(mysql_num_rows($result) == 0) {
 	</tr>
 
 	<?
-	while($item = mysql_fetch_array($result)) {
+	while($item = mysqli_fetch_array($result)) {
 		?>
 		<tr class="w3-hover-green">
 			<td>
@@ -45,7 +47,7 @@ if(mysql_num_rows($result) == 0) {
                 <a href=".?page=edit_news&amp;id=<?=$item['id']?>"><img src="images/edit16.png" alt="chg"></a>
 			</td>
 			<td><?=$item['day']?></td>
-			<td><?=$item['title']?></td>	
+			<td><?=$item['title']?></td>
 		</tr>
 		<?
 	}

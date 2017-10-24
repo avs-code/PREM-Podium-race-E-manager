@@ -3,24 +3,26 @@
 <?
 $season = $_GET['season'];
 
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $squery = "SELECT s.*, d.name dname FROM season s JOIN division d ON (d.id = s.division)";
-$sresult = mysql_query($squery);
+$sresult = mysqli_query($link,$squery);
 if(!$sresult) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 
 $dquery = "SELECT * FROM division";
-$dresult = mysql_query($dquery);
+$dresult = mysqli_query($link,$dquery);
 if(!$dresult) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 
 $rquery = "SELECT id, name FROM point_ruleset";
-$rresult = mysql_query($rquery);
+$rresult = mysqli_query($link,$rquery);
 if(!$rresult) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 ?>
@@ -49,7 +51,7 @@ if(!$rresult) {
 	<td>
 		<select id="season" name="season" onchange="showOptions();">
 		<option value="0">--NO SEASON--</option>
-		<? while($sitem = mysql_fetch_array($sresult)) { ?>
+		<? while($sitem = mysqli_fetch_array($sresult)) { ?>
 			<option value="<?=$sitem['id']?>"<?=$season == $sitem['id'] ? " selected=\"1\"" : ""?>><?=$sitem['name']?> (<?=$sitem['dname']?>)</option>
 		<? } ?>
 		</select>
@@ -63,7 +65,7 @@ if(!$rresult) {
 	<td>Division:</td>
 	<td>
 		<select name="division" onchange="void(0);">
-		<? while($ditem = mysql_fetch_array($dresult)) { ?>
+		<? while($ditem = mysqli_fetch_array($dresult)) { ?>
 			<option value="<?=$ditem['id']?>"><?=$ditem['name']?> (<?=$ditem['type']?>)</option>
 		<? } ?>
 		</select>
@@ -73,7 +75,7 @@ if(!$rresult) {
 	<td>Ruleset:</td>
 	<td>
 		<select name="ruleset" onchange="void(0);">
-		<? while($ritem = mysql_fetch_array($rresult)) { ?>
+		<? while($ritem = mysqli_fetch_array($rresult)) { ?>
 			<option value="<?=$ritem['id']?>"><?=$ritem['name']?></option>
 		<? } ?>
 		</select>
@@ -83,9 +85,9 @@ if(!$rresult) {
 	<td>Ruleset qualifying:</td>
 	<td>
 		<select name="ruleset_qualifying" onchange="void(0);">
-		<? mysql_data_seek($rresult, 0); ?>
+		<? mysqli_data_seek($rresult, 0); ?>
 		<option value="">&nbsp;</option>
-		<? while($ritem = mysql_fetch_array($rresult)) { ?>
+		<? while($ritem = mysqli_fetch_array($rresult)) { ?>
 			<option value="<?=$ritem['id']?>"><?=$ritem['name']?></option>
 		<? } ?>
 		</select>
@@ -119,7 +121,7 @@ if(!$rresult) {
 		<? for($x = 0; $x <= 23; $x++) { ?>
 			<option<?=$x == "12" ? " selected" : ""?>><?=sprintf("%02d", $x)?></option>
 		<? } ?>
-		</select> : 
+		</select> :
 		<select name="minute">
 		<? for($x = 0; $x <= 59; $x = $x + 5) { ?>
 			<option><?=sprintf("%02d", $x)?></option>
@@ -147,7 +149,7 @@ if(!$rresult) {
 function showOptions() {
 	var season = ele("season").value;
 	var chk_diff_ruleset = ele("chk_diff_ruleset").checked;
-	
+
 	if(season == 0) {
 		ele("diff_ruleset").style.display = "none";
 		ele("division").style.display = "table-row";

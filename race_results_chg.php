@@ -5,17 +5,19 @@ require_once("results_functions.php");
 
 $id = addslashes($_GET['id']);
 
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT r.*, d.name dname, rs.name rsname, s.name sname FROM race r JOIN division d ON (d.id = r.division) JOIN point_ruleset rs ON (rs.id = r.ruleset) LEFT JOIN season s ON (s.id = r.season) WHERE r.id='$id' ORDER BY r.date DESC";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($result) == 0){
+if(mysqli_num_rows($result) == 0){
 	show_error("Race does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $date = strtotime($item['date']);
 
@@ -24,18 +26,18 @@ if($item['season'] == 0)
 else
 	$dquery = "SELECT td.id, t.name team, d.name driver FROM season_team st JOIN team t ON (t.id = st.team) JOIN team_driver td ON (td.team = t.id) JOIN driver d ON (d.id = td.driver) WHERE st.season='{$item['season']}'";
 
-$dresult = mysql_query($dquery);
+$dresult = mysqli_query($link,$dquery);
 if(!$dresult) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($dresult) == 0){
+if(mysqli_num_rows($dresult) == 0){
 	show_error("No drivers exist in teams or no teams are in this season\n");
 	return;
 }
 
 $drivers = array();
-while($ditem = mysql_fetch_array($dresult)) {
+while($ditem = mysqli_fetch_array($dresult)) {
 	$drivers[$ditem['id']]['name'] = $ditem['driver'];
 	$drivers[$ditem['id']]['team'] = $ditem['team'];
 }
@@ -55,9 +57,9 @@ function show_driver_combo($did = 0) {
 }
 
 $rdquery = "SELECT * FROM race_driver WHERE race='$id' ORDER BY position ASC, time ASC, grid ASC";
-$rdresult = mysql_query($rdquery);
+$rdresult = mysqli_query($link,$rdquery);
 if(!$rdresult) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
 
@@ -65,8 +67,8 @@ if(!$rdresult) {
 <h1>Modify race results</h1>
 
 <br/>
-<a href="?page=race_result_import_rfactor&amp;id=<?=$id?>"><img src="images/properties16.png" alt=""/> Import rFactor XML</a> | 
-<a href="?page=race_result_import_lfspoints&amp;id=<?=$id?>"><img src="images/properties16.png" alt=""/> Import LFSPoints XML</a> | 
+<a href="?page=race_result_import_rfactor&amp;id=<?=$id?>"><img src="images/properties16.png" alt=""/> Import rFactor XML</a> |
+<a href="?page=race_result_import_lfspoints&amp;id=<?=$id?>"><img src="images/properties16.png" alt=""/> Import LFSPoints XML</a> |
 <a href="?page=race_result_import_ac&amp;id=<?=$id?>"><img src="images/properties16.png" alt=""/> Import Assetto Corsa JSON</a><br/>
 
 <br/>
@@ -131,8 +133,8 @@ if(!$rdresult) {
 			<td>Status</td>
 		</tr>
 		<? $style = "odd"; ?>
-		<? for($x = 0; $x < $item['maxplayers']; $x++) { 
-			if($rditem = mysql_fetch_array($rdresult)) {
+		<? for($x = 0; $x < $item['maxplayers']; $x++) {
+			if($rditem = mysqli_fetch_array($rdresult)) {
 				$driver = $rditem['team_driver'];
 				$grid = $rditem['grid'];
 				if($grid == 0) $grid = "";
@@ -205,7 +207,7 @@ if(!$rdresult) {
 <!--
 function showOptions() {
 	var season = ele("season").value;
-	
+
 	if(season == 0) {
 		ele("division").style.display = "table-row";
 		ele("ruleset").style.display = "table-row";

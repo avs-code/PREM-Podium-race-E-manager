@@ -2,17 +2,19 @@
 if(!isset($login)) { show_error("You do not have administrator rights\n"); return; }
 
 $id = addslashes($_GET['id']);
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM sim_results WHERE id = '$id' LIMIT 1";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
-if(mysql_num_rows($result) == 0) {
+if(mysqli_num_rows($result) == 0) {
 	show_error("Sim_results does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 ?>
 <h1>Delete Sim results entry</h1>
 

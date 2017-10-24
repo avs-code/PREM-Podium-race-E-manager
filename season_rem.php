@@ -3,22 +3,24 @@
 <?
 $id = addslashes($_GET['id']);
 
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT s.*, d.name dname, rs.name rsname, qrs.name qrsname FROM season s JOIN division d ON (s.division = d.id) JOIN point_ruleset rs ON (rs.id = s.ruleset) LEFT JOIN point_ruleset qrs ON (qrs.id = s.ruleset_qualifying) WHERE s.id='$id'";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($result) == 0){
+if(mysqli_num_rows($result) == 0){
 	show_error("Season does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $stquery = "SELECT t.name FROM season_team st JOIN team t ON (t.id = st.team) WHERE season='$id'";
-$stresult = mysql_query($stquery);
+$stresult = mysqli_query($link,$stquery);
 if(!$stresult) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
 ?>
@@ -45,7 +47,7 @@ if(!$stresult) {
 <tr>
 	<td>Teams:</td>
 	<td>
-	<? while($stitem = mysql_fetch_array($stresult)) { ?>
+	<? while($stitem = mysqli_fetch_array($stresult)) { ?>
 		&bull; <?=$stitem['name']?><br>
 	<? } ?>
 	</td>

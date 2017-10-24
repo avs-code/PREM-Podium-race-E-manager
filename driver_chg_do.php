@@ -6,10 +6,11 @@ $id = addslashes($_POST['id']);
 $name = htmlspecialchars($_POST['name']);
 $photo = htmlspecialchars($_POST['driver_photo']);
 
-mysqlconnect();
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "UPDATE driver SET name='$name', driver_photo='$photo' WHERE id='$id'";
-$result = mysql_query($query);
-if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+$result = mysqli_query($link,$query);
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=drivers", "Driver succesfully modified\n$msg");
 ?>

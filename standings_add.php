@@ -4,10 +4,12 @@
 <?
 $season = $_GET['season'];
 
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $squery = "SELECT s.* FROM season s";
-$sresult = mysql_query($squery);
+$sresult = mysqli_query($link,$squery);
 if(!$sresult) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 
@@ -26,10 +28,10 @@ if(!$sresult) {
 	<td>
 		<select id="season" name="season" onchange="showOptions();">
 		<option value="0">--NO SEASON--</option>
-		<? while($sitem = mysql_fetch_array($sresult)) { ?>
+		<? while($sitem = mysqli_fetch_array($sresult)) { ?>
 			<option value="<?=$sitem['id']?>"<?=$season == $sitem['id'] ? " selected=\"1\"" : ""?>><?=$sitem['name']?></option>
-		<? } 
-        mysql_free_result($sresult)
+		<? }
+        mysqli_free_result($sresult)
         ?>
 		</select>
 	</td>

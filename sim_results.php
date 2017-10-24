@@ -4,16 +4,18 @@ if ($simresultID = intval($_GET['sres']))
 	$sim_results = "SELECT simresults_url FROM sim_results WHERE `id` = '$simresultID' LIMIT 1";
 else
 	$sim_results = "SELECT `sim_results`.`id`, `sim_results`.`race_name` , `season`.`name` AS season_name, `sim_results`.`simresults_url` FROM sim_results LEFT JOIN season ON `sim_results`.`season` = `season`.`id` ORDER BY `season`.`name`, `sim_results`.`id` ASC LIMIT 0 , 30";
-$result = mysql_query($sim_results);
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
+$result = mysqli_query($link,$sim_results);
 if (!$result) {
-    show_error("MySQL Error: " . mysql_error() . "\n");
+    show_error("MySQL Error: " . mysqli_error($link) . "\n");
     return;
 }
 ?>
 <h1>Simresults</h1>
 <?php
 if ($simresultID) {
-	$sitem = mysql_fetch_array($result);
+	$sitem = mysqli_fetch_array($result);
 	?>
 	<h2><a href="?page=sim_results">&#8606; Go back</a></h2>
 	<iframe src="<?=$sitem['simresults_url'];?>" width="100%" height="600px"></iframe>
@@ -29,7 +31,7 @@ if ($simresultID) {
 			<td><h1>Simresults_URL</h1></td>
 		</tr>
 		<?
-		while ($sitem = mysql_fetch_array($result)) {
+		while ($sitem = mysqli_fetch_array($result)) {
 			?>
 			<tr class="w3-hover-green">
 				<td><?= $sitem['race_name'] ?></td>

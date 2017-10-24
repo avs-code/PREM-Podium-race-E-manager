@@ -3,17 +3,19 @@
 <?
 $id = addslashes($_GET['id']);
 
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM point_ruleset WHERE id='$id'";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($result) == 0){
+if(mysqli_num_rows($result) == 0){
 	show_error("Ruleset does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 ?>
 <h1>Modify ruleset</h1>

@@ -10,27 +10,29 @@ if(isset($_GET['filter'])) {
 	$query_where .= " AND (r.name LIKE '%$filter%' OR r.track LIKE '%$filter%')";
 }
 $query = "SELECT r.*, d.name dname, rs.name rsname, qrs.name qrsname, COUNT(rd.team_driver) drivers FROM race r JOIN division d ON (d.id = r.division) JOIN point_ruleset rs ON (rs.id = r.ruleset) LEFT JOIN point_ruleset qrs ON (qrs.id = r.ruleset_qualifying) LEFT JOIN race_driver rd ON (r.id = rd.race) $query_where GROUP BY r.id ORDER BY r.date DESC";
-$result = mysql_query($query);
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 
 $squery = "SELECT s.*, d.name dname, COUNT(r.id) racecount FROM season s JOIN division d ON (d.id = s.division) LEFT JOIN race r ON (r.season = s.id) GROUP BY s.id ORDER BY name ASC, dname ASC";
-$sresult = mysql_query($squery);
+$sresult = mysqli_query($link,$squery);
 if(!$sresult) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 
 $s2query = "SELECT COUNT(id) racecount FROM race WHERE season = 0";
-$s2result = mysql_query($s2query);
+$s2result = mysqli_query($link,$s2query);
 if(!$s2result) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 
-$s2item = mysql_fetch_array($s2result);
+$s2item = mysqli_fetch_array($s2result);
 $noseasonracecount = $s2item['racecount'];
 ?>
 <h1>Races</h1>
@@ -42,7 +44,7 @@ $noseasonracecount = $s2item['racecount'];
 <select name="season" onchange="this.form.submit();">
 <option value="0">NO SEASON - <?=$noseasonracecount?> race<?=$noseasonracecount == 1 ? "" : "s"?></option>
 <optgroup label="Seasons">
-<? while($sitem = mysql_fetch_array($sresult)) { ?>
+<? while($sitem = mysqli_fetch_array($sresult)) { ?>
 	<option value="<?=$sitem['id']?>"<?=$season == $sitem['id'] ? " selected" : ""?>><?=$sitem['name']?> - <?=$sitem['dname']?> - <?=$sitem['racecount']?> race<?=$sitem['racecount'] == 1 ? "" : "s"?></option>
 <? } ?>
 </optgroup>
@@ -62,9 +64,9 @@ $noseasonracecount = $s2item['racecount'];
 	<td>Races</td>
 </tr>
 <?
-mysql_data_seek($sresult, 0);
+mysqli_data_seek($sresult, 0);
 #$style = "odd";
-while($sitem = mysql_fetch_array($sresult)) {
+while($sitem = mysqli_fetch_array($sresult)) {
 	?>
 <tr class="w3-hover-green">
 	<td><a href="?page=races&amp;season=<?=$sitem['id']?>"><?=$sitem['name']?></a></td>
@@ -79,7 +81,7 @@ while($sitem = mysql_fetch_array($sresult)) {
 <h2>Events</h2>
 <? } ?>
 <?
-if(mysql_num_rows($result) == 0) {
+if(mysqli_num_rows($result) == 0) {
 	show_msg("No races found\n");
 	return;
 }
@@ -106,7 +108,7 @@ if(mysql_num_rows($result) == 0) {
 
 <?
 #$style = "odd";
-while($item = mysql_fetch_array($result)) {
+while($item = mysqli_fetch_array($result)) {
 	$date = strtotime($item['date']);
 ?>
 <tr class="w3-hover-green">

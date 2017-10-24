@@ -3,37 +3,39 @@
 <?
 $id = addslashes($_GET['id']);
 
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM team WHERE id='$id'";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($result) == 0){
+if(mysqli_num_rows($result) == 0){
 	show_error("Team does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $dquery = "SELECT td.id, d.id did, d.name, COUNT(rd.race) rcount FROM team_driver td JOIN driver d ON (td.driver = d.id) LEFT JOIN race_driver rd ON (td.id = rd.team_driver) WHERE td.team = '$id' GROUP BY td.id ORDER BY name ASC";
-$dresult = mysql_query($dquery);
+$dresult = mysqli_query($link,$dquery);
 if(!$dresult) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
 
-$drivercount = mysql_num_rows($dresult);
+$drivercount = mysqli_num_rows($dresult);
 
 // Potential new drivers
 $ndquery = "SELECT * FROM driver ORDER BY name ASC";
-$ndresult = mysql_query($ndquery);
+$ndresult = mysqli_query($link,$ndquery);
 if(!$ndresult) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
 
 $drivers = array();
-while($nditem = mysql_fetch_array($ndresult)) {
+while($nditem = mysqli_fetch_array($ndresult)) {
 	$drivers[$nditem['id']] = $nditem['name'];
 }
 
@@ -66,9 +68,9 @@ function show_driver_combo($did = 0, $enabled = true) {
 <tr>
 	<td>Drivers (<?=$drivercount?>):</td>
 	<td>
-	<? 
+	<?
 	for($x = 0; $x < 5; $x++) {
-		if($ditem = mysql_fetch_array($dresult)) {
+		if($ditem = mysqli_fetch_array($dresult)) {
 			show_driver_combo($ditem['did'], ($ditem['rcount'] == 0));
 			if($ditem['rcount'] > 0) {
 				echo "<img src=\"images/info16.png\" title=\"You cannot change this because this driver is related to " . $ditem['rcount'] . " race(s)\" onclick=\"alert('You cannot change this because this driver is related to " . $ditem['rcount'] . " race(s)');\" alt=\"\">";
@@ -79,7 +81,7 @@ function show_driver_combo($did = 0, $enabled = true) {
 		echo "<br>\n";
 	}
 	?>
-	<? while($ditem = mysql_fetch_array($dresult)) { ?>
+	<? while($ditem = mysqli_fetch_array($dresult)) { ?>
 		<a href="?page=team_driver_rem&amp;id=<?=$ditem['id']?>"><img src="images/delete16.png" alt="delete"></a> <?=$ditem['name']?><br>
 	<? } ?>
 	</td>

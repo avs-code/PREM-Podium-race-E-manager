@@ -17,15 +17,16 @@ if(!empty($error)) error($error);
 
 $msg = "";
 
-mysqlconnect();
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT * FROM season WHERE name = '$name' AND division = '$division'";
-$result = mysql_query($query);
-if(!$result) error("MySQL Error: " . mysql_error() . "\n");
-if(mysql_num_rows($result) > 0) error("Season with the same name and division does already exist\n");
+$result = mysqli_query($link,$query);
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
+if(mysqli_num_rows($result) > 0) error("Season with the same name and division does already exist\n");
 
 $query = "INSERT INTO season (name, division, ruleset, ruleset_qualifying, maxteams) VALUES ('$name', '$division', '$ruleset', '$ruleset_qualifying', '$maxteams')";
-$result = mysql_query($query);
-if(!$result) error("MySQL Error: " . mysql_error() . "\n");
+$result = mysqli_query($link,$query);
+if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 
 return_do(".?page=seasons", "Season succesfully added\n$msg");
 ?>

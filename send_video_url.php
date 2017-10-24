@@ -29,15 +29,17 @@ Example: https://www.youtube.com/<strong>embed</strong>/yAkJ97ago7g This is the 
 <!--REMOVE-->
 
 <?
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 if(isset($_GET['filter'])) {
-	$filter = mysql_real_escape_string($_GET['filter']);
+	$filter = mysqli_real_escape_string($link,$_GET['filter']);
 	$query_where = "WHERE video_name LIKE '%$filter%'";
 }
 $query = "SELECT id, video_name, video_url FROM video $query_where ORDER BY id ASC";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 
 if(!$result) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 
@@ -52,7 +54,7 @@ if(!$result) {
 </div>
 
 <?php
-if(mysql_num_rows($result) == 0) {
+if(mysqli_num_rows($result) == 0) {
 	show_msg("No videos found\n");
 	return;
 }
@@ -66,14 +68,14 @@ if(mysql_num_rows($result) == 0) {
 	</tr>
 
 	<?
-	while($item = mysql_fetch_array($result)) {
+	while($item = mysqli_fetch_array($result)) {
 		?>
 		<tr class="w3-hover-green">
 			<td>
 				<a href=".?page=send_video_url_rem&amp;id=<?=$item['id']?>"><img src="images/delete16.png" alt="rem"></a>
 			</td>
 			<td><?=$item['video_name']?></td>
-			<td><?=$item['video_url']?></td>	
+			<td><?=$item['video_url']?></td>
 		</tr>
 		<?
 	}

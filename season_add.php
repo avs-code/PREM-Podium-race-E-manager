@@ -1,24 +1,26 @@
 <? if(!defined("CONFIG")) exit(); ?>
 <? if(!isset($login)) { show_error("You do not have administrator rights\n"); return; } ?>
 <?
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $diquery = "SELECT * FROM division ORDER BY name ASC";
-$diresult = mysql_query($diquery);
+$diresult = mysqli_query($link,$diquery);
 if(!$diresult) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($diresult) == 0) {
+if(mysqli_num_rows($diresult) == 0) {
 	show_error("There are no divisions.\n<a href=\"?page=division_add\">Add one</a> first.\n");
 	return;
 }
 
 $rsquery = "SELECT * FROM point_ruleset ORDER BY name ASC";
-$rsresult = mysql_query($rsquery);
+$rsresult = mysqli_query($link,$rsquery);
 if(!$rsresult) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($rsresult) == 0) {
+if(mysqli_num_rows($rsresult) == 0) {
 	show_error("There are no rulesets.\n<a href=\"?page=point_add\">Add one</a> first.\n");
 	return;
 }
@@ -35,7 +37,7 @@ if(mysql_num_rows($rsresult) == 0) {
 	<td>Division:</td>
 	<td>
 	<select name="division">
-	<? while($diitem = mysql_fetch_array($diresult)) { ?>
+	<? while($diitem = mysqli_fetch_array($diresult)) { ?>
 		<option value="<?=$diitem['id']?>"><?=$diitem['name']?></option>
 	<? } ?>
 	</select>
@@ -45,7 +47,7 @@ if(mysql_num_rows($rsresult) == 0) {
 	<td>Ruleset:</td>
 	<td>
 	<select name="ruleset">
-	<? while($rsitem = mysql_fetch_array($rsresult)) { ?>
+	<? while($rsitem = mysqli_fetch_array($rsresult)) { ?>
 		<option value="<?=$rsitem['id']?>"><?=$rsitem['name']?></option>
 	<? } ?>
 	</select>
@@ -56,8 +58,8 @@ if(mysql_num_rows($rsresult) == 0) {
 	<td>
 	<select name="ruleset_qualifying">
 	<option value="0">&nbsp;</option>
-	<? mysql_data_seek($rsresult, 0); ?>
-	<? while($rsitem = mysql_fetch_array($rsresult)) { ?>
+	<? mysqli_data_seek($rsresult, 0); ?>
+	<? while($rsitem = mysqli_fetch_array($rsresult)) { ?>
 		<option value="<?=$rsitem['id']?>"><?=$rsitem['name']?></option>
 	<? } ?>
 	</select>

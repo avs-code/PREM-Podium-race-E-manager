@@ -5,10 +5,12 @@ if(isset($_GET['filter'])) {
 	$filter = $_GET['filter'];
 	$query_where = "WHERE t.name LIKE '%$filter%'";
 }
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT t.*, COUNT(td.driver) drivercount FROM team t LEFT JOIN team_driver td ON (t.id = td.team) $query_where GROUP BY t.id ORDER BY t.name ASC";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 
@@ -23,7 +25,7 @@ if(!$result) {
 </div>
 <a href=".?page=team_add">Add team</a>
 <?
-if(mysql_num_rows($result) == 0) {
+if(mysqli_num_rows($result) == 0) {
 	show_msg("No teams found\n");
 	return;
 }
@@ -38,7 +40,7 @@ if(mysql_num_rows($result) == 0) {
 
 <?
 #$style = "odd";
-while($item = mysql_fetch_array($result)) {
+while($item = mysqli_fetch_array($result)) {
 ?>
 <tr class="w3-hover-green">
 <!--<tr class="<?=$style?>">-->

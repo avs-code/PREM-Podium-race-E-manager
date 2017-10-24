@@ -41,7 +41,7 @@ if(isset($_POST['json'])) {
 			if($name == "DRIVER") $driver[] = array();
 			$elem = $name;
 		}
-		
+
 		function endElement($parser, $name) {
 			global $elem;
 			$elem = null;
@@ -59,19 +59,19 @@ if(isset($_POST['json'])) {
 				$driver[count($driver) - 1][strtolower($elem)] = $text;
 			}
 		}
-		
+
 		# Parse the JSON file
 		$file = file_get_contents($_FILES['userfile']['tmp_name']);
 		$json = json_decode($file, true);
 		$bestlap = false;
-		
+
 		foreach($json["Cars"] as $key => $row) {
 			$arr_race_cars[$row['CarId']] = array(
 				'DriverName' => $row['Driver']['Name'],
 				'DriverTeam' => $row['Driver']['Team']
 			);
 		}
-		
+
 		foreach($json["Result"] as $key => $row) {
 			$position[$key] = $key + 1;
 			$arr_race_result[] = array(
@@ -80,14 +80,14 @@ if(isset($_POST['json'])) {
 				'TotalTime' => $row['TotalTime'],
 				'Position' => $key + 1
 			);
-			
+
 			if ($row['BestLap'] < $bestlap || !$bestlap) {
 				$bestlap = $row['BestLap'];
 				$bestlap_driver = $row['CarId'];
 			}
-			
+
 		}
-		
+
 		foreach($json["Laps"] as $key => $row) {
 			$arr_race_laps[$row['CarId']][] = array(
 				'Timestamp' => $row['Timestamp'],
@@ -97,18 +97,19 @@ if(isset($_POST['json'])) {
 		}
 	}
 }
-
+require_once("functions.php"); // import mysql function
+$link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT r.*, d.name dname, rs.name rsname, s.name sname FROM race r JOIN division d ON (d.id = r.division) JOIN point_ruleset rs ON (rs.id = r.ruleset) LEFT JOIN season s ON (s.id = r.season) WHERE r.id='$id' ORDER BY r.date DESC";
-$result = mysql_query($query);
+$result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($result) == 0){
+if(mysqli_num_rows($result) == 0){
 	show_error("Race does not exist\n");
 	return;
 }
-$item = mysql_fetch_array($result);
+$item = mysqli_fetch_array($result);
 
 $date = strtotime($item['date']);
 ?>
@@ -167,18 +168,18 @@ if($item['season'] == 0)
 else
 	$dquery = "SELECT td.id, t.name team, d.name driver FROM season_team st JOIN team t ON (t.id = st.team) JOIN team_driver td ON (td.team = t.id) JOIN driver d ON (d.id = td.driver) WHERE st.season='{$item['season']}'";
 
-$dresult = mysql_query($dquery);
+$dresult = mysqli_query($link,$dquery);
 if(!$dresult) {
-	show_error("MySQL error: " . mysql_error() . "\n");
+	show_error("MySQL error: " . mysqli_error($link) . "\n");
 	return;
 }
-if(mysql_num_rows($dresult) == 0){
+if(mysqli_num_rows($dresult) == 0){
 	show_error("No drivers exist in teams or no teams are in this season\n");
 	return;
 }
 
 $drivers = array();
-while($ditem = mysql_fetch_array($dresult)) {
+while($ditem = mysqli_fetch_array($dresult)) {
 	$drivers[$ditem['id']]['name'] = $ditem['driver'];
 	$drivers[$ditem['id']]['team'] = $ditem['team'];
 }
@@ -211,7 +212,7 @@ function show_driver_combo($dname = '') {
 			<td>Status</td>
 		</tr>
 		<? $style = "odd"; ?>
-		<? for($x = 0; $x < $item['maxplayers']; $x++) { 
+		<? for($x = 0; $x < $item['maxplayers']; $x++) {
 			if($x < count($arr_race_result)) {
 				$did = $arr_race_result[$x]['DriverId'];
 				$ditem = $arr_race_cars[$did];
@@ -232,7 +233,7 @@ function show_driver_combo($dname = '') {
 				$time = $time % 600000;
 				$second = floor($time / 10000);
 				$ms = round(($time % 10000) / 10);
-				
+
 				if ($time == 0)
 					$status = 3;
 
