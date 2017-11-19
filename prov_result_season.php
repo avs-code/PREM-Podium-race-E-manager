@@ -152,24 +152,24 @@ if (count($driver) > 2) {
 		$secondlast = prev($tempPoints);
 		// get key of second last element
 		$secondlastKey = key($tempPoints);
-		// TODO keep key and value
-		// keep the keys for the results that were removed, need to mark those in the results table
-		$provisionals = array($lastKey,$secondlastKey);
+		// keep the keys and values for the results that were removed, need to mark those in the results table
+		$provisionals = array(
+			$lastKey => $last,
+			$secondlastKey => $secondlast
+		);
 		// add it to driver
 		$ditem['provisionals'] = $provisionals;
 
 		// set lowest two results to zero
 		$ditem['pointsrace'][$lastKey] = 0;
 		$ditem['pointsrace'][$secondlastKey] = 0;
-		// TODO recalculate points total
+		// recalculate points total
 		$oldPoints = $ditem['points'];
 		$newPoints = $oldPoints - $last - $secondlast;
 		$ditem['points'] = $newPoints;
 
 		// update information on drivers array
 		$driver[$id]= $ditem;
-		//echo '<pre>' . var_dump($ditem) . '</pre>';
-
 	}
 }
 
@@ -233,11 +233,12 @@ for($x = 1; $x <= $race; $x++) {
 	switch($show) {
 	case SHOW_POINTS:
 		$data = !empty($ditem['pointsrace'][$x]) ? $ditem['pointsrace'][$x] : "-";
-		$p1 = $ditem['provisionals'][0];
-		$p2 = $ditem['provisionals'][1];
-		if ($x == $p1 OR $x == $p2) {
+		$provisionals = $ditem['provisionals'];
+		if (array_key_exists($x, $provisionals)) {
 			// mark provisional in reddish color
-			 $color = "style=\"background-color:rgba(255, 99, 71, 0.5)\"";
+			 $color = "style=\"background-color:rgba(255, 99, 71, 0.5); color:white\"";
+			 // show original points
+			 $data = $provisionals[$x];
 		} else {
 			// do not mark valuable results in a different color
 			$color = "";
