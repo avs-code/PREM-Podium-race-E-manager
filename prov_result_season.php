@@ -159,15 +159,11 @@ if (count($driver) > 2) {
 		);
 		// add it to driver
 		$ditem['provisionals'] = $provisionals;
-
 		// set lowest two results to zero
 		$ditem['pointsrace'][$lastKey] = 0;
 		$ditem['pointsrace'][$secondlastKey] = 0;
 		// recalculate points total
-		$oldPoints = $ditem['points'];
-		$newPoints = $oldPoints - $last - $secondlast;
-		$ditem['points'] = $newPoints;
-
+		$ditem['points'] = $ditem['points'] - $last - $secondlast;
 		// update information on drivers array
 		$driver[$id]= $ditem;
 	}
