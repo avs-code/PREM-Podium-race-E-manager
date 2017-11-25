@@ -296,6 +296,14 @@ for($x = 1; $x <= $race; $x++) {
 		break;
 	case SHOW_POSITIONS:
 		$data = !empty($ditem['position'][$x]) ? $ditem['position'][$x] : "-";
+		$provisionals = $ditem['provisionals'];
+		if (array_key_exists($x, $provisionals)) {
+			// mark provisional in reddish color
+			 $color = "style=\"background-color:rgba(255, 99, 71, 0.5); color:white\"";
+		} else {
+			// do not mark valuable results in a different color
+			$color = "";
+		}
 		break;
 	}
 	?>
