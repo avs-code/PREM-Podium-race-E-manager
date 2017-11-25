@@ -55,13 +55,13 @@ while($dritem = mysqli_fetch_array($drresult)) {
 		$team[$dritem['tid']]['name'] = $dritem['tname'];
 		$team[$dritem['tid']]['points'] = 0;
 		$team[$dritem['tid']]['pointsrace'] = array();
-		$team[$dritem['tid']]['pointsraceinc'] = array();
+		$team[$dritem['tid']]['provisionals'] = array();
 	}
 	$driver[$dritem['did']]['name'] = $dritem['dname'];
 	$driver[$dritem['did']]['team'] = $dritem['tname'];
 	$driver[$dritem['did']]['points'] = 0;
 	$driver[$dritem['did']]['pointsrace'] = array();
-	$driver[$dritem['did']]['pointsraceinc'] = array();
+	$driver[$dritem['did']]['provisionals'] = array();
 }
 
 $rquery = <<<EOF
@@ -102,13 +102,11 @@ while($ritem = mysqli_fetch_array($rresult)) {
 		$position++;
 		$driver[$ritem['driver']]['points'] += points_total($position, $ritem['grid'], $ritem['fastest_lap'], $ruleset[$ritem['ruleset']]);
 		$driver[$ritem['driver']]['pointsrace'][$race] = points_total($position, $ritem['grid'], $ritem['fastest_lap'], $ruleset[$ritem['ruleset']]);
-		$driver[$ritem['driver']]['pointsraceinc'][$race] += $driver[$ritem['driver']]['points'];
 		$driver[$ritem['driver']]['position'][$race] = $position;
 
 		// Assign points for the team
 		$team[$ritem['team']]['points'] += $driver[$ritem['driver']]['pointsrace'][$race];
 		$team[$ritem['team']]['pointsrace'][$race] += $driver[$ritem['driver']]['pointsrace'][$race];
-		$team[$ritem['team']]['pointsraceinc'][$race] = $team[$ritem['team']]['points'];
 	}
 
 	if($ritem['ruleset_qualifying'] != 0) {
@@ -122,6 +120,7 @@ while($ritem = mysqli_fetch_array($rresult)) {
 }
 
 // calculate provisionals (hardcoded to the two lowest results) in case of more than two races completed
+// TODO check which array size to be used here
 if (count($driver) > 2) {
 
 	foreach($driver as $id => $ditem) {
@@ -141,9 +140,8 @@ if (count($driver) > 2) {
 			}
 		}
 
-		// sort points in desccending order
+		// sort points in descending order
 		arsort($tempPoints);
-		//echo '<pre>Driver : ' . $ditem['name'] . ' points: ' . var_dump($tempPoints) . '</pre>';
 		// get last element in Array
 		$last = end($tempPoints);
 		// get key of last element
@@ -166,6 +164,47 @@ if (count($driver) > 2) {
 		$ditem['points'] = $ditem['points'] - $last - $secondlast;
 		// update information on drivers array
 		$driver[$id]= $ditem;
+	}
+
+	// recalculate team points taking provisionals into account
+	// go through all the teams
+	foreach($team as $id => $titem) {
+
+		// collect provisionals of each team
+		$teamProvisionalPoints = 0;
+		// go through all the drivers
+		foreach($driver as $did => $ditem) {
+
+			// collect provisionals of each team driver
+			$driverProvisionalPoints = 0;
+			// get all drivers of a team
+			if ($ditem['team']==$titem['name']) {
+				// go through all races
+				for($x = 1; $x <= $race; $x++) {
+					// assign provisional points for the team
+					if (array_key_exists($x, $ditem['provisionals'])) {
+
+						// get provisional points of this driver
+						$driverProvisionalPoints = $ditem['provisionals'][$x];
+						// add those to the provisional points of the team
+						$teamProvisionalPoints += $driverProvisionalPoints;
+						// take other team driver into account
+						if (array_key_exists($x, $titem['provisionals'])) {
+
+							$titem['provisionals'][$x] = $titem['provisionals'][$x] + $driverProvisionalPoints;
+
+						} else {
+
+							$titem['provisionals'][$x] = $driverProvisionalPoints;
+
+						}
+					}
+				}
+			}
+		}
+		// Assign total points for the team
+		$titem['points'] = $titem['points'] - $teamProvisionalPoints;
+		$team[$id]= $titem;
 	}
 }
 
@@ -192,9 +231,9 @@ usort($team, "point_sort");
 </tr>
 <tr class="w3-green">
 	<td colspan="4" align="center">
-		<a href=".?page=result_season&amp;season=<?=$season?>&amp;show=<?=SHOW_POINTS?>">points per race</a> |
-		<a href=".?page=result_season&amp;season=<?=$season?>&amp;show=<?=SHOW_INCREMENTAL?>">points incremental</a> |
-		<a href=".?page=result_season&amp;season=<?=$season?>&amp;show=<?=SHOW_POSITIONS?>">positions</a>
+		<a href=".?page=prov_result_season&amp;season=<?=$season?>&amp;show=<?=SHOW_POINTS?>">points per race</a> |
+		<a href=".?page=prov_result_season&amp;season=<?=$season?>&amp;show=<?=SHOW_INCREMENTAL?>">points incremental</a> |
+		<a href=".?page=prov_result_season&amp;season=<?=$season?>&amp;show=<?=SHOW_POSITIONS?>">positions</a>
 	</td>
 </tr>
 </table>
@@ -241,8 +280,19 @@ for($x = 1; $x <= $race; $x++) {
 		}
 		break;
 	case SHOW_INCREMENTAL:
-		$total += $ditem['pointsrace'][$x];
-		$data = $total;
+		$provisionals = $ditem['provisionals'];
+		if (array_key_exists($x, $provisionals)) {
+			// mark provisional in reddish color
+			 $color = "style=\"background-color:rgba(255, 99, 71, 0.5); color:white\"";
+			 // show original points but do not take them into account
+			 $data = $provisionals[$x];
+		} else {
+			// do not mark valuable results in a different color
+			$color = "";
+			// take points into account
+			$total += $ditem['pointsrace'][$x];
+			$data = $total;
+		}
 		break;
 	case SHOW_POSITIONS:
 		$data = !empty($ditem['position'][$x]) ? $ditem['position'][$x] : "-";
@@ -287,15 +337,37 @@ for($x = 1; $x <= $race; $x++) {
 	switch($show) {
 	case SHOW_POINTS:
 	case SHOW_POSITIONS:
+		// show dash when DNS
 		$data = !empty($titem['pointsrace'][$x]) ? $titem['pointsrace'][$x] : "-";
+		// mark provisional results
+		$provisionals = $titem['provisionals'];
+		if (array_key_exists($x, $provisionals)) {
+			// mark provisional in reddish color
+			 $color = "style=\"background-color:rgba(255, 99, 71, 0.5); color:white\"";
+		} else {
+			// do not mark valuable results in a different color
+			$color = "";
+		}
 		break;
 	case SHOW_INCREMENTAL:
-		$total += $titem['pointsrace'][$x];
-		$data = $total;
+		$provisionals = $titem['provisionals'];
+		if (array_key_exists($x, $provisionals)) {
+			// mark provisional in reddish color
+			 $color = "style=\"background-color:rgba(255, 99, 71, 0.5); color:white\"";
+			 // show original points but do not take them into account
+			 $data = !empty($titem['pointsrace'][$x]) ? $titem['pointsrace'][$x] : "-";
+			 //$data = $titem['pointsrace'][$x];
+		} else {
+			// do not mark valuable results in a different color
+			$color = "";
+			// take points into account
+			$total += $titem['pointsrace'][$x];
+			$data = $total;
+		}
 		break;
 	}
 	?>
-	<td width="1" align="right"><?=$data?></td>
+	<td width="1" align="right"<?=$color?>><?=$data?></td>
 <? } ?>
 	<td width="1" align="right"><strong><?=!empty($titem['points']) ? $titem['points'] : "0" ?></strong></td>
 </tr>
