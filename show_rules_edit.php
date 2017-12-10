@@ -7,8 +7,8 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 <a href=".?page=add_rules"><input type="button" value="Add rules"/></a>
 
 <?
-$query = "$link,SELECT id, name, rules FROM rules_table ORDER BY id ASC";
-$result = mysql_query($query);
+$query = "SELECT id, name, rules FROM rules_table ORDER BY id ASC";
+$result = mysqli_query($link,$query);
 if(!$result) {
 	show_error("MySQL error: " . mysql_error());
 	return;
