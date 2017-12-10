@@ -11,7 +11,7 @@ if (isset($_POST['rules'])) {
 }
 $exe_rules = mysqli_query($link,"SELECT rules FROM rules_table WHERE id='$id' LIMIT 1");
 list($rules) = mysqli_fetch_array($exe_rules);
-mysql_free_result($exe_rules);
+mysqli_free_result($exe_rules);
 $rules = htmlspecialchars($rules);
 ?>
 <form method="post" action="index.php?page=edit_rules_mods">
