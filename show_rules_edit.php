@@ -16,7 +16,7 @@ if(!$result) {
 ?>
 <h1>Regulations</h1>
 <?php
-$name = $_POST["name"];
+//$name = $_POST["name"];
 if(mysqli_num_rows($result) == 0) {
 	show_msg("No Regulations found\n");
 	return;
