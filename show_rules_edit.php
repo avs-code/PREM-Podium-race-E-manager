@@ -10,7 +10,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 $query = "SELECT id, name, rules FROM rules_table ORDER BY id ASC";
 $result = mysqli_query($link,$query);
 if(!$result) {
-	show_error("MySQL error: " . mysql_error());
+	show_error("MySQL error: " . mysqli_error($link));
 	return;
 }
 ?>
