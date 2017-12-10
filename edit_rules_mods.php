@@ -3,7 +3,7 @@ if(!isset($login)) { show_error("You do not have administrator rights\n"); retur
 require_once("functions.php"); // import mysql function
 $link = mysqlconnect(); // call mysql function to get the link to the database
 
-//$id = intval($_GET['id']);
+$id = intval($_GET['id']);
 if (isset($_POST['rules'])) {
     $rules = mysqli_real_escape_string($link,$_POST['rules']);
        $id = addslashes($_POST['id']);
