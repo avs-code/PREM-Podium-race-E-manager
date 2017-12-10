@@ -10,7 +10,7 @@ if (isset($_POST['rules'])) {
     mysqli_query($link,"UPDATE rules_table SET `rules` = '$rules' WHERE id='$id'");
 }
 $exe_rules = mysqli_query($link,"SELECT rules FROM rules_table WHERE id='$id' LIMIT 1");
-list($rules) = mysql_fetch_array($exe_rules);
+list($rules) = mysqli_fetch_array($exe_rules);
 mysql_free_result($exe_rules);
 $rules = htmlspecialchars($rules);
 ?>
