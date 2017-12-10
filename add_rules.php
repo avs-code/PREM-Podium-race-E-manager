@@ -7,9 +7,9 @@ if (isset($_POST['rules'])) {
     $rules = mysql_real_escape_string($link,$_POST['rules']);
     mysql_query($link,"INSERT INTO rules_table (name, rules) VALUES ('$name', '$rules')");
 }
-$exe_rules = mysql_query("SELECT rules FROM rules_table ORDER BY id ASC");
-list($rules) = mysql_fetch_array($exe_rules);
-mysql_free_result($exe_rules);
+$exe_rules = mysqli_query($link,"SELECT rules FROM rules_table ORDER BY id ASC");
+list($rules) = mysqli_fetch_array($link,$exe_rules);
+mysqli_free_result($link,$exe_rules);
 $news = htmlspecialchars($rules);
 ?>
 
