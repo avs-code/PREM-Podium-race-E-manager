@@ -13,8 +13,8 @@
 <li class="w3-hide-small w3-dropdown-hover">
     <a href="?page=main" class="w3-hover-red w3-padding-large" title="RESULTS">REGISTRATION <i class="fa fa-caret-down"></i></a>
     <div class="w3-dropdown-content w3-white w3-card-4">
-       <a href="?page=main" class="w3-hover-none w3-hover-red w3-padding-large">FUN Trophy [FUN]</a>
-       <a href="?page=main" class="w3-hover-none w3-hover-red w3-padding-large">Porsche Racing Cup [PRC18-PCF]</a>
+       <a href="?page=main" class="w3-hover-none w3-hover-red w3-padding-large">..change this at nav.php..</a>
+       <a href="?page=main" class="w3-hover-none w3-hover-red w3-padding-large">external link</a>
     </div>
 </li>
 
@@ -24,19 +24,17 @@
 <li class="w3-hide-small w3-dropdown-hover">
     <a href="?page=main" class="w3-hover-red w3-padding-large" title="RESULTS">SERIES <i class="fa fa-caret-down"></i></a>
     <div class="w3-dropdown-content w3-white w3-card-4">
-       <a href="?page=result_season&season=16" class="w3-hover-red">Porsche Racing Cup [PRC18-PCF] (not started yet)</a>
-       <a href="?page=result_season&season=15" class="w3-hover-red">FUN Trophy [FUN] (not started yet)</a>
-       <a href="?page=result_season&season=12" class="w3-hover-red">Porsche Racing Cup [PRC17-EUR]</a>
-       <a href="?page=result_season&season=14" class="w3-hover-red">GT3 Masters 2016/17</a>
-       <a href="?page=result_season&season=13" class="w3-hover-red">GT3 Masters 2015/16</a>
+       <a href="?page=result_season&season=1" class="w3-hover-red">..change this at nav.php..</a>
+       <a href="?page=result_season&season=2" class="w3-hover-red">Display Season id 1</a>
+       <a href="?page=result_season&season=3" class="w3-hover-red">Display Season id 2</a>
     </div>
 </li>
 
 <li class="w3-hide-small w3-dropdown-hover">
     <a href="?page=main" class="w3-hover-red w3-padding-large" title="REGULATIONS">REGULATIONS <i class="fa fa-caret-down"></i></a>
     <div class="w3-dropdown-content w3-white w3-card-4">
-       <a href="?page=show_rules&id=1" class="w3-hover-red">Porsche Racing Cup [PRC]</a>
-       <a href="?page=show_rules&id=2" class="w3-hover-red">FUN Trophy [FUN]</a>
+       <a href="?page=show_rules&id=1" class="w3-hover-red">..to be created (admin panel)</a>
+       <a href="?page=show_rules&id=2" class="w3-hover-red">..to be created (admin panel)</a>
     </div>
 </li>
 
