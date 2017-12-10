@@ -17,7 +17,7 @@ if(!$result) {
 <h1>Regulations</h1>
 <?php
 $name = $_POST["name"];
-if(mysql_num_rows($result) == 0) {
+if(mysqli_num_rows($link,$result) == 0) {
 	show_msg("No Regulations found\n");
 	return;
 }
@@ -30,7 +30,7 @@ if(mysql_num_rows($result) == 0) {
 		<td align="center">Name</td>
 	</tr>
 	<?
-	while($item = mysql_fetch_array($result)) {
+	while($item = mysqli_fetch_array($link,$result)) {
 		?>
 		<tr class="w3-hover-green">
 			<td>
