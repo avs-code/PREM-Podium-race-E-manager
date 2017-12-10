@@ -3,7 +3,7 @@ require_once("functions.php"); // import mysql function
 $link = mysqlconnect(); // call mysql function to get the link to the database
 
 $circuits = "SELECT race.track, race.name, race.division, race.date, race.imagelink, race.maxplayers, race.season, division.name AS division_name
-    	FROM race LEFT JOIN division on division.id=race.division WHERE race.date>=CURDATE() ORDER BY race.division ASC, race.date ASC";
+    	FROM race LEFT JOIN division on division.id=race.division WHERE race.date>=CURDATE() ORDER BY race.date ASC, race.division ASC";
 $result = mysqli_query($link,$circuits);
 if (!$result) {
     show_error("MySQL Error: " . mysqli_error($link) . "\n");
@@ -11,8 +11,8 @@ if (!$result) {
 }
 ?>
 
-<h1>Circuits Calendar</h1>
-<h2>Circuits ordered by division</h2>
+<h1>Schedule</h1>
+<h2>Ordered by date</h2>
 
 <div class="w3-container">
 <div class="w3-responsive">
