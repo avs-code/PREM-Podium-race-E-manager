@@ -5,7 +5,7 @@ $link = mysqlconnect(); // call mysql function to get the link to the database
 if (isset($_POST['rules'])) {
     $name = mysqli_real_escape_string($link,$_POST['name']);
     $rules = mysqli_real_escape_string($link,$_POST['rules']);
-    mysql_query($link,"INSERT INTO rules_table (name, rules) VALUES ('$name', '$rules')");
+    mysqli_query($link,"INSERT INTO rules_table (name, rules) VALUES ('$name', '$rules')");
 }
 $exe_rules = mysqli_query($link,"SELECT rules FROM rules_table ORDER BY id ASC");
 list($rules) = mysqli_fetch_array($exe_rules);
