@@ -1,12 +1,14 @@
 <? if(!defined("CONFIG")) exit();
 if(!isset($login)) { show_error("You do not have administrator rights\n"); return; }
+
 require_once("functions.php"); // import mysql function
 $link = mysqlconnect(); // call mysql function to get the link to the database
 
 $id = intval($_GET['id']);
+
 if (isset($_POST['rules'])) {
     $rules = mysqli_real_escape_string($link,$_POST['rules']);
-       $id = addslashes($_POST['id']);
+     $id = addslashes($_POST['id']);
     mysqli_query($link,"UPDATE rules_table SET `rules` = '$rules' WHERE id='$id'");
 }
 $exe_rules = mysqli_query($link,"SELECT rules FROM rules_table WHERE id='$id' LIMIT 1");
