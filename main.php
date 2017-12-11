@@ -51,8 +51,8 @@ $exe_news = mysqli_query($link,"SELECT `id`, `title`, `news`, `day` FROM main_ne
 <?php
 if ($blocks) {
 	?>
-
-	<div class="w3-col s12 l3 w3-gray w3-border w3-border-black w3-round-xlarge">
+<!--class l# sets the width of the page, see w3.css-->
+	<div class="w3-col s12 l12 w3-gray w3-border w3-border-black w3-round-xlarge">
 		<?php
 		foreach($blocks as $blockTempID => $blockDetails) {
 			?>
@@ -73,10 +73,11 @@ if ($blocks) {
 }
 ?>
 
-
 <!--NEWS-->
-<div class="w3-col s12 l9 w3-dark-gray w3-border w3-border-black w3-round-large w3-center">
+<!--class l# sets the width of the page, see w3.css-->
+<div class="w3-col s12 l12 w3-dark-gray w3-border w3-border-black w3-round-large w3-center">
 <div class="w3-center w3-black w3-text-white"><h2>News</h2></div>
+
 <?php
 if ($exe_news) {
 	?>
