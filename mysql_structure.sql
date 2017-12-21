@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 21. Dez 2017 um 09:28
+-- Erstellungszeit: 21. Dez 2017 um 20:47
 -- Server-Version: 5.7.20-0ubuntu0.16.04.1
 -- PHP-Version: 7.0.22-0ubuntu0.16.04.1
 
@@ -166,7 +166,8 @@ CREATE TABLE `race` (
   `progress` int(11) NOT NULL DEFAULT '0',
   `imagelink` varchar(200) DEFAULT NULL,
   `replay` varchar(200) DEFAULT NULL,
-  `simresults` varchar(200) DEFAULT NULL
+  `simresults` varchar(200) DEFAULT NULL,
+  `forumlink` varchar(200) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -210,7 +211,8 @@ CREATE TABLE `season` (
   `division` int(11) NOT NULL DEFAULT '0',
   `ruleset` int(11) NOT NULL DEFAULT '0',
   `ruleset_qualifying` int(11) NOT NULL DEFAULT '0',
-  `maxteams` int(11) NOT NULL DEFAULT '0'
+  `maxteams` int(11) NOT NULL DEFAULT '0',
+  `series_logo_simresults` varchar(200) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -485,17 +487,17 @@ ALTER TABLE `point_ruleset`
 -- AUTO_INCREMENT für Tabelle `race`
 --
 ALTER TABLE `race`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT für Tabelle `rules_table`
 --
 ALTER TABLE `rules_table`
-  MODIFY `id` tinyint(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` tinyint(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT für Tabelle `season`
 --
 ALTER TABLE `season`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT für Tabelle `sim_results`
 --
