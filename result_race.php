@@ -250,6 +250,6 @@ while($ditem = mysqli_fetch_array($ndresult)) {
 </br>
 <div class="w3-container">
 <div class="w3-responsive">
-<iframe src="<?=$item['simresults'];?>" width="100%" height="1080px"></iframe>
+<iframe src="<?=$item['simresults'];?>?logo=http%3A%2F%2Fwww.netracingeurope.org%2Fmedia%2Fnre_stuff%2Flogosmall.png&logo_link=http%3A%2F%2Fwww.netracingeurope.org&hid" width="100%" height="1080px"></iframe>
 </div>
 </div>
