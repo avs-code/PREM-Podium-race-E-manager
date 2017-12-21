@@ -2,10 +2,9 @@
 
 <h1>Add driver</h1>
 
-<form action="driver_add_do_user.php" method="post">
-<div class="w3-container">
-<table class="w3-table-all">
-<tr class="w3-dark-grey">
+<form action="driver_add_user_do.php" method="post">
+<table border="0">
+<tr>
 	<td width="120">Name:</td>
 	<td><input type="text" name="name" maxlength="30"></td>
 </tr>
@@ -18,7 +17,7 @@
 	<td>
 		<input type="submit" class="button submit" value="Add">
 		<input type="button" class="button cancel" value="Cancel" onclick="history.go(-1);">
-	</td>    
+	</td>
 </tr>
 </table>
 </form>

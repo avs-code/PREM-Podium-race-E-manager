@@ -12,7 +12,7 @@ $show = isset($_GET['show']) ? $_GET['show'] : 0;
 require_once("functions.php"); // import mysql function
 $link = mysqlconnect(); // call mysql function to get the link to the database
 // Get season information
-$query = "SELECT s.*, d.name dname, COUNT(r.id) racecount FROM season s JOIN division d ON (s.division = d.id) LEFT JOIN race r ON (r.season = s.id) WHERE s.id='$season' GROUP BY s.id";
+$query = "SELECT s.*, d.name dname, COUNT(r.id) racecount FROM season s INNER JOIN division d ON (s.division = d.id) LEFT JOIN race r ON (r.season = s.id) WHERE s.id='$season' GROUP BY s.id";
 $result = mysqli_query($link,$query);
 if(!$result) {
 	show_error("MySQL Error: " . mysqli_error($link) . "\n");
@@ -41,7 +41,7 @@ while($rsitem = mysqli_fetch_array($rsresult)) {
 }
 
 // Get all teams and driver for this season
-$drquery = "SELECT d.id did, d.name dname, t.id tid, t.name tname FROM season_team st JOIN team t ON (st.team = t.id) JOIN team_driver td ON (td.team = t.id) JOIN driver d ON (d.id = td.driver) WHERE st.season = '$season' ORDER BY t.name ASC, d.name ASC";
+$drquery = "SELECT d.id did, d.name dname, d.country dcountry, t.id tid, t.name tname FROM season_team st JOIN team t ON (st.team = t.id) JOIN team_driver td ON (td.team = t.id) JOIN driver d ON (d.id = td.driver) WHERE st.season = '$season' ORDER BY t.name ASC, d.name ASC";
 $drresult = mysqli_query($link,$drquery);
 if(!$drresult) {
 	show_error("MySQL Error: " . mysqli_error($link) . "\n");
@@ -59,6 +59,7 @@ while($dritem = mysqli_fetch_array($drresult)) {
 	}
 	$driver[$dritem['did']]['name'] = $dritem['dname'];
 	$driver[$dritem['did']]['team'] = $dritem['tname'];
+	$driver[$dritem['did']]['dcountry'] = $dritem['dcountry'];
 	$driver[$dritem['did']]['points'] = 0;
 	$driver[$dritem['did']]['pointsrace'] = array();
 	$driver[$dritem['did']]['pointsraceinc'] = array();
@@ -156,9 +157,10 @@ usort($team, "point_sort");
 <div class="w3-responsive">
 <table class="w3-table-all">
 <tr class="w3-dark-grey">
-	<td>&nbsp;</td>
-	<td>Driver</td>
-	<td>Team</td>
+	<td align="right">&nbsp;</td>
+	<td align="left">Driver</td>
+	<td align="left">&nbsp;</td>
+	<td align="left">Team</td>
 <? for($x = 1; $x <= $race; $x++) { ?>
 	<td width="1" align="right"><javascript:void(0)" class="tablink" title="Click to more details"><div class="w3-topbar w3-bottombar w3-hover-border-red"><a href="?page=result_race&amp;race=<?=$races[$x]['id']?>"><img src="img_season_race.php?text=<?=urlencode($races[$x]['name'])?>&amp;text2=<?=urlencode($races[$x]['track'])?>" alt="<?=$x?>"></a></td>
 <? } ?>
@@ -167,12 +169,14 @@ usort($team, "point_sort");
 <?
 $style = "odd";
 $pos = 0;
-foreach($driver as $id => $ditem) {
+foreach($driver as $id => $ditem){
 ?>
 <tr class="w3-hover-green">
 	<td width="1" align="right"><?=++$pos?>&nbsp;</td>
 	<td><?=$ditem['name']?></td>
+	<td><img src="flags/<?=$ditem['dcountry']?>.png"></td>
 	<td><?=$ditem['team']?></td>
+
 <?
 $total = 0;
 for($x = 1; $x <= $race; $x++) {

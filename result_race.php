@@ -20,14 +20,14 @@ if(mysqli_num_rows($result) == 0) {
 $item = mysqli_fetch_array($result);
 $date = strtotime($item['date']);
 
-$dquery = "SELECT rd.*, d.name dname, t.name tname FROM race_driver rd JOIN team_driver td ON (td.id = rd.team_driver) JOIN team t ON (t.id = td.team) JOIN driver d ON (d.id = td.driver) WHERE rd.race='$race' AND (rd.status = 0) ORDER BY rd.position ASC";
+$dquery = "SELECT rd.*, d.name dname, d.country dcountry, t.name tname FROM race_driver rd JOIN team_driver td ON (td.id = rd.team_driver) JOIN team t ON (t.id = td.team) JOIN driver d ON (d.id = td.driver) WHERE rd.race='$race' AND (rd.status = 0) ORDER BY rd.position ASC";
 $dresult = mysqli_query($link,$dquery);
 if(!$dresult) {
 	show_error("MySQL Error: " . mysqli_error($link) . "\n");
 	return;
 }
 
-$ndquery = "SELECT rd.*, d.name dname, t.name tname FROM race_driver rd JOIN team_driver td ON (td.id = rd.team_driver) JOIN team t ON (t.id = td.team) JOIN driver d ON (d.id = td.driver) WHERE rd.race='$race' AND (rd.status != 0) ORDER BY rd.position ASC";
+$ndquery = "SELECT rd.*, d.name dname, d.country dcountry, t.name tname FROM race_driver rd JOIN team_driver td ON (td.id = rd.team_driver) JOIN team t ON (t.id = td.team) JOIN driver d ON (d.id = td.driver) WHERE rd.race='$race' AND (rd.status != 0) ORDER BY rd.position ASC";
 $ndresult = mysqli_query($link,$ndquery);
 if(!$dresult) {
 	show_error("MySQL Error: " . mysqli_error($link) . "\n");
@@ -129,6 +129,7 @@ if($item['ruleset_qualifying'] != 0) {
 <tr class="w3-dark-grey">
 	<td>&nbsp;</td>
 	<td>Driver</td>
+	<td>&nbsp;</td>
 	<td>Team</td>
 	<? if($item['progress'] != RACE_NEW) { ?>
 	<td align="right">Qual</td>
@@ -177,6 +178,7 @@ while($ditem = mysqli_fetch_array($dresult)) {
 <tr class="w3-hover-green">
 	<td align="right"><?=++$position?>&nbsp;</td>
 	<td><?=$ditem['dname']?></td>
+	<td><img src="flags/<?=$ditem['dcountry']?>.png"></td>
 	<td><?=$ditem['tname']?></td>
 	<? if($item['progress'] != RACE_NEW) { ?>
 	<td align="right"><?=$ditem['grid']?></td>
