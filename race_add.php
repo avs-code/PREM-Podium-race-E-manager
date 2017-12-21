@@ -43,6 +43,10 @@ if(!$rresult) {
 	<td><input type="url" name="imagelink" maxlength="200"></td>
 </tr>
 <tr>
+	<td>Forum link:</td>
+	<td><input type="url" name="forumlink" maxlength="200"></td>
+</tr>
+<tr>
 	<td>Laps:</td>
 	<td><input type="text" name="laps" maxlength="3" size="3"></td>
 </tr>

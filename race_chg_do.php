@@ -15,6 +15,7 @@ $date = mktime($_POST['hour'], $_POST['minute'], 0, $_POST['month'], $_POST['day
 $date = date("Y-m-d H:i:s",$date);
 $maxplayers = addslashes($_POST['maxplayers']);
 $imagelink = htmlspecialchars($_POST['imagelink']);
+$forumlink = htmlspecialchars($_POST['forumlink']);
 
 $error = "";
 
@@ -47,7 +48,7 @@ if($season != 0) {
 	}
 }
 
-$query = "UPDATE race SET name='$name', track='$track', laps='$laps', season='$season', division='$division', ruleset='$ruleset', ruleset_qualifying='$ruleset_qualifying', date='$date', maxplayers='$maxplayers', imagelink='$imagelink' WHERE id='$id'";
+$query = "UPDATE race SET name='$name', track='$track', laps='$laps', season='$season', division='$division', ruleset='$ruleset', ruleset_qualifying='$ruleset_qualifying', date='$date', maxplayers='$maxplayers', imagelink='$imagelink' forumlink='$forumlink' WHERE id='$id'";
 $result = mysqli_query($link,$query);
 if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 

@@ -91,7 +91,9 @@ if($item['ruleset_qualifying'] != 0) {
 </tr>
 <tr class="w3-grey">
     <td>Replay:</td>
-<td><a href="<?=$item['replay']?>" target="_blank"><img src="images/replay.png" alt="replay"></a></td>
+    <td><a href="<?=$item['replay']?>" target="_blank"><img src="images/replay.png" alt="replay"></a></td>
+		<td>Link Simresults and Forumthread:</td>
+    <td><a href="<?=$item['simresults']?>" target="_blank"><img src="images/simresults.png" alt="view_simresults"><a href="<?=$item['forumlink']?>" target="_blank"><img src="images/forum.png" alt="Discussion"></a></td>
 
 </tr>
 <tr class="w3-amber">
