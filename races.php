@@ -40,7 +40,7 @@ $noseasonracecount = $s2item['racecount'];
 <div align="right">
 <form action="." method="GET">
 <input type="hidden" name="page" value="races">
-<input type="text" class="search" name="filter" value="<?=$_GET['filter']?>"><br>
+<!--<input type="text" class="search" name="filter" value="<?//=$_GET['filter']?>"><br>-->
 <select name="season" onchange="this.form.submit();">
 <option value="0">NO SEASON - <?=$noseasonracecount?> race<?=$noseasonracecount == 1 ? "" : "s"?></option>
 <optgroup label="Seasons">

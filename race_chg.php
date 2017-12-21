@@ -72,7 +72,7 @@ if($item['season'] != 0) {
 	<td><input type="url" name="imagelink" value="<?=$item['imagelink']?>" maxlength="200"></td>
 </tr>
 <td>Forum link:</td>
-	<td><input type="url" name="imagelink" value="<?=$item['forumlink']?>" maxlength="200"></td>
+	<td><input type="url" name="forumlink" value="<?=$item['forumlink']?>" maxlength="200"></td>
 </tr>
 <tr>
 	<td>Laps:</td>
