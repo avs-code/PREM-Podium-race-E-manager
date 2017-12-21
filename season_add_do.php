@@ -7,6 +7,8 @@ $division = addslashes($_POST['division']);
 $ruleset = addslashes($_POST['ruleset']);
 $ruleset_qualifying = addslashes($_POST['ruleset_qualifying']);
 $maxteams = addslashes($_POST['maxteams']);
+$maxteams = addslashes($_POST['maxteams']);
+$series_logo_simresults = addslashes($_POST['series_logo_simresults']);
 
 $error = "";
 
@@ -24,7 +26,7 @@ $result = mysqli_query($link,$query);
 if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 if(mysqli_num_rows($result) > 0) error("Season with the same name and division does already exist\n");
 
-$query = "INSERT INTO season (name, division, ruleset, ruleset_qualifying, maxteams) VALUES ('$name', '$division', '$ruleset', '$ruleset_qualifying', '$maxteams')";
+$query = "INSERT INTO season (name, division, ruleset, ruleset_qualifying, maxteams, series_logo_simresults) VALUES ('$name', '$division', '$ruleset', '$ruleset_qualifying', '$maxteams', '$series_logo_simresults')";
 $result = mysqli_query($link,$query);
 if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 

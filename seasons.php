@@ -37,6 +37,7 @@ if(mysqli_num_rows($result) == 0) {
 	<td>Season</td>
 	<td>Division</td>
 	<td>Ruleset</td>
+	<td>Series Logo for Simresults link</td>
 	<td>Ruleset Qual</td>
 	<td align="center">Teams</td>
 </tr>
@@ -54,6 +55,7 @@ while($item = mysqli_fetch_array($result)) {
 	<td><?=$item['name']?></td>
 	<td><?=$item['dname']?></td>
 	<td><?=$item['rsname']?></td>
+	<td><?=$item['series_logo_simresults']?></td>
 	<td><?=$item['qrsname']?></td>
 	<td width="65" align="center"><?=$item['teamcount']?> / <?=$item['maxteams']?></td>
 </tr>
