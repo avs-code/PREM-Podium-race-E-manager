@@ -9,6 +9,10 @@
 	<td><input type="text" name="name" maxlength="30"></td>
 </tr>
 <tr>
+	<td width="120">Number-Plate:</td>
+	<td><input type="number" name="plate" min="1" max="999"></td>
+</tr>
+<tr>
   <td width="100">Country:</td>
 	<td>
 		<select name="country">

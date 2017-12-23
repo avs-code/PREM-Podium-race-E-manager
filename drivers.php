@@ -35,6 +35,7 @@ if(mysqli_num_rows($result) == 0) {
 <tr class="w3-dark-grey">
 	<td>&nbsp;</td>
 	<td>Name</td>
+	<td>Car</td>
 	<td>Country</td>
 	<td align="center">Teams</td>
 </tr>
@@ -50,6 +51,7 @@ while($item = mysqli_fetch_array($result)) {
 		<a href=".?page=driver_rem&amp;id=<?=$item['id']?>"><img src="images/delete16.png" alt="rem"></a>
 	</td>
 	<td width=20% ><?=$item['name']?></td>
+	<td width=2% ><?=$item['plate']?></td>
 	<td align="center" width="40px"><img src="flags/<?=$item['country']?>.png"</td>
 	<td width="20" align="center"><?=$item['teamcount']?></td>
 </tr>
