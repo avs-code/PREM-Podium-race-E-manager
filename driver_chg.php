@@ -32,9 +32,12 @@ $teamcount = mysqli_num_rows($tresult);
 <tr class="w3-dark-grey">
 	<td width="120">Name:</td>
 	<td><input type="text" name="name" value="<?=$item['name']?>" maxlength="30"></td>
+	<td width="40">Car Number:</td>
+	<td><input type="number" name="plate" value="<?=$item['plate']?>" min="1" max="999"></td>
 	<td width="100">Country:</td>
 	<td>
 		<select name="country">
+			<option value="<?=$item['country']?>">Old Entry</option>
 			<optgroup label="European Countries">
 				<option disabled>────────────────</option>
 				<option value="ax">Åland Islands</option>
