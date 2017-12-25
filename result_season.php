@@ -160,8 +160,8 @@ usort($team, "point_sort");
 <tr class="w3-dark-grey">
 	<td align="right">Pos</td>
 	<td align="left">Driver</td>
-	<td align="left">Country</td>
 	<td>Car #</td>
+	<td align="left">Country</td>
 	<td align="left">Team</td>
 <? for($x = 1; $x <= $race; $x++) { ?>
 	<td width="1" align="right"><javascript:void(0)" class="tablink" title="Click to more details"><div class="w3-topbar w3-bottombar w3-hover-border-red"><a href="?page=result_race&amp;race=<?=$races[$x]['id']?>"><img src="img_season_race.php?text=<?=urlencode($races[$x]['name'])?>&amp;text2=<?=urlencode($races[$x]['track'])?>" alt="<?=$x?>"></a></td>
@@ -176,8 +176,8 @@ foreach($driver as $id => $ditem){
 <tr class="w3-hover-green">
 	<td width="1" align="right"><?=++$pos?>&nbsp;</td>
 	<td><?=$ditem['name']?></td>
-	<td><img src="flags/<?=$ditem['dcountry']?>.png"></td>
 	<td><?=$ditem['dplate']?></td>
+	<td><img src="flags/<?=$ditem['dcountry']?>.png"></td>
 	<td><?=$ditem['team']?></td>
 
 <?
