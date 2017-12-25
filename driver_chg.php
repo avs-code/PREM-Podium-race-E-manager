@@ -38,6 +38,7 @@ $teamcount = mysqli_num_rows($tresult);
 	<td>
 		<select name="country">
 			<optgroup label="European Countries">
+				<option value="<?=$item['country']?>">Old Entry</option>
 				<option disabled>────────────────</option>
 				<option value="ax">Åland Islands</option>
 				<option value="al">Albania</option>
