@@ -12,7 +12,13 @@ $show = isset($_GET['show']) ? $_GET['show'] : 0;
 require_once("functions.php"); // import mysql function
 $link = mysqlconnect(); // call mysql function to get the link to the database
 // Get season information
-$query = "SELECT s.*, d.name dname, COUNT(r.id) racecount FROM season s INNER JOIN division d ON (s.division = d.id) LEFT JOIN race r ON (r.season = s.id) WHERE s.id='$season' GROUP BY s.id";
+$query = "SELECT s.*, d.name dname, COUNT(r.id) racecount
+					FROM season s
+					INNER JOIN division d
+					ON (s.division = d.id)
+					LEFT JOIN race r ON (r.season = s.id)
+					WHERE s.id='$season'
+					GROUP BY s.id";
 $result = mysqli_query($link,$query);
 if(!$result) {
 	show_error("MySQL Error: " . mysqli_error($link) . "\n");
@@ -41,7 +47,14 @@ while($rsitem = mysqli_fetch_array($rsresult)) {
 }
 
 // Get all teams and driver for this season
-$drquery = "SELECT d.id did, d.name dname, d.plate dplate, d.country dcountry, t.id tid, t.name tname FROM season_team st JOIN team t ON (st.team = t.id) JOIN team_driver td ON (td.team = t.id) JOIN driver d ON (d.id = td.driver) WHERE st.season = '$season' ORDER BY t.name ASC, d.name ASC";
+$drquery = "SELECT d.id did, d.name dname, rd.dplate dplate, d.country dcountry, t.id tid, t.name tname
+						FROM season_team st
+						JOIN team t ON (st.team = t.id)
+						JOIN team_driver td ON (td.team = t.id)
+						JOIN driver d ON (d.id = td.driver)
+						JOIN race_driver rd ON (rd.team_driver = td.id)
+						WHERE st.season = '$season'
+						ORDER BY t.name ASC, d.name ASC";
 $drresult = mysqli_query($link,$drquery);
 if(!$drresult) {
 	show_error("MySQL Error: " . mysqli_error($link) . "\n");
@@ -56,7 +69,8 @@ while($dritem = mysqli_fetch_array($drresult)) {
 		$team[$dritem['tid']]['points'] = 0;
 		$team[$dritem['tid']]['pointsrace'] = array();
 		$team[$dritem['tid']]['pointsraceinc'] = array();
-	}
+		$team[$dritem['tid']]['provisionals'] = array();
+		}
 	$driver[$dritem['did']]['name'] = $dritem['dname'];
 	$driver[$dritem['did']]['team'] = $dritem['tname'];
 	$driver[$dritem['did']]['dplate'] = $dritem['dplate'];
@@ -64,6 +78,7 @@ while($dritem = mysqli_fetch_array($drresult)) {
 	$driver[$dritem['did']]['points'] = 0;
 	$driver[$dritem['did']]['pointsrace'] = array();
 	$driver[$dritem['did']]['pointsraceinc'] = array();
+	$driver[$dritem['did']]['provisionals'] = array();
 }
 
 $rquery = <<<EOF
@@ -123,6 +138,96 @@ while($ritem = mysqli_fetch_array($rresult)) {
 
 }
 
+// calculate provisionals (hardcoded to the two lowest results) in case of more than two races completed
+// TODO check which array size to be used here
+if (count($driver) > 2) {
+
+	foreach($driver as $id => $ditem) {
+
+		// array for races in which the driver started
+		$points = $ditem['pointsrace'];
+		// array for all races including DNS
+		$tempPoints = array();
+
+		for($x = 1; $x <= $race; $x++) {
+			if (empty($ditem['pointsrace'][$x])) {
+				// driver did not take part in the race
+				$tempPoints[$x] = 0;
+			} else {
+				// driver did take part, copy points
+				$tempPoints[$x] = $points[$x];
+			}
+		}
+
+		// sort points in descending order
+		arsort($tempPoints);
+		// get last element in Array
+		$last = end($tempPoints);
+		// get key of last element
+		$lastKey = key($tempPoints);
+		// get last second element in Array
+		$secondlast = prev($tempPoints);
+		// get key of second last element
+		$secondlastKey = key($tempPoints);
+		// keep the keys and values for the results that were removed, need to mark those in the results table
+		$provisionals = array(
+			$lastKey => $last,
+			$secondlastKey => $secondlast
+		);
+		// add it to driver
+		$ditem['provisionals'] = $provisionals;
+		// set lowest two results to zero
+		$ditem['pointsrace'][$lastKey] = 0;
+		$ditem['pointsrace'][$secondlastKey] = 0;
+		// recalculate points total
+		$ditem['points'] = $ditem['points'] - $last - $secondlast;
+		// update information on drivers array
+		$driver[$id]= $ditem;
+	}
+
+	// recalculate team points taking provisionals into account
+	// go through all the teams
+	foreach($team as $id => $titem) {
+
+		// collect provisionals of each team
+		$teamProvisionalPoints = 0;
+		// go through all the drivers
+		foreach($driver as $did => $ditem) {
+
+			// collect provisionals of each team driver
+			$driverProvisionalPoints = 0;
+			// get all drivers of a team
+			if ($ditem['team']==$titem['name']) {
+				// go through all races
+				for($x = 1; $x <= $race; $x++) {
+					// assign provisional points for the team
+					if (array_key_exists($x, $ditem['provisionals'])) {
+
+						// get provisional points of this driver
+						$driverProvisionalPoints = $ditem['provisionals'][$x];
+						// add those to the provisional points of the team
+						$teamProvisionalPoints += $driverProvisionalPoints;
+						// take other team driver into account
+						if (array_key_exists($x, $titem['provisionals'])) {
+
+							$titem['provisionals'][$x] = $titem['provisionals'][$x] + $driverProvisionalPoints;
+
+						} else {
+
+							$titem['provisionals'][$x] = $driverProvisionalPoints;
+
+						}
+					}
+				}
+			}
+		}
+		// Assign total points for the team
+		$titem['points'] = $titem['points'] - $teamProvisionalPoints;
+		$team[$id]= $titem;
+	}
+}
+
+// sort drivers and teams by points
 usort($driver, "point_sort");
 usort($team, "point_sort");
 ?>
@@ -158,15 +263,15 @@ usort($team, "point_sort");
 <div class="w3-responsive">
 <table class="w3-table-all">
 <tr class="w3-dark-grey">
-	<td align="right">Pos</td>
-	<td align="left">Driver</td>
-	<td>Car #</td>
-	<td align="left">Country</td>
-	<td align="left">Team</td>
+	<td style="vertical-align:bottom" align="center">Pos</td>
+	<td style="vertical-align:bottom" align="center">Driver</td>
+	<td style="vertical-align:bottom" align="center">Car#</td>
+	<td style="vertical-align:bottom" align="center">Country</td>
+	<td style="vertical-align:bottom" align="center">Team</td>
 <? for($x = 1; $x <= $race; $x++) { ?>
 	<td width="1" align="right"><javascript:void(0)" class="tablink" title="Click to more details"><div class="w3-topbar w3-bottombar w3-hover-border-red"><a href="?page=result_race&amp;race=<?=$races[$x]['id']?>"><img src="img_season_race.php?text=<?=urlencode($races[$x]['name'])?>&amp;text2=<?=urlencode($races[$x]['track'])?>" alt="<?=$x?>"></a></td>
 <? } ?>
-	<td width="1" align="right">Pts</td>
+	<td style="vertical-align:bottom" width="1" align="right">Pts</td>
 </tr>
 <?
 $style = "odd";
@@ -184,15 +289,44 @@ foreach($driver as $id => $ditem){
 $total = 0;
 for($x = 1; $x <= $race; $x++) {
 	switch($show) {
-	case SHOW_POINTS:
+		case SHOW_POINTS:
 		$data = !empty($ditem['pointsrace'][$x]) ? $ditem['pointsrace'][$x] : "-";
+		$provisionals = $ditem['provisionals'];
+		if (array_key_exists($x, $provisionals)) {
+			// mark provisional in reddish color
+			 $color = "style=\"background-color:rgba(255, 99, 71, 0.5); color:white\"";
+			 // show original points
+			 $data = $provisionals[$x];
+		} else {
+			// do not mark valuable results in a different color
+			$color = "";
+		}
 		break;
 	case SHOW_INCREMENTAL:
-		$total += $ditem['pointsrace'][$x];
-		$data = $total;
+		$provisionals = $ditem['provisionals'];
+		if (array_key_exists($x, $provisionals)) {
+			// mark provisional in reddish color
+			 $color = "style=\"background-color:rgba(255, 99, 71, 0.5); color:white\"";
+			 // show original points but do not take them into account
+			 $data = $provisionals[$x];
+		} else {
+			// do not mark valuable results in a different color
+			$color = "";
+			// take points into account
+			$total += $ditem['pointsrace'][$x];
+			$data = $total;
+		}
 		break;
 	case SHOW_POSITIONS:
 		$data = !empty($ditem['position'][$x]) ? $ditem['position'][$x] : "-";
+		$provisionals = $ditem['provisionals'];
+		if (array_key_exists($x, $provisionals)) {
+			// mark provisional in reddish color
+			 $color = "style=\"background-color:rgba(255, 99, 71, 0.5); color:white\"";
+		} else {
+			// do not mark valuable results in a different color
+			$color = "";
+		}
 		break;
 	}
 	?>

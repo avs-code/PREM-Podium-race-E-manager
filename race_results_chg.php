@@ -7,7 +7,12 @@ $id = addslashes($_GET['id']);
 
 require_once("functions.php"); // import mysql function
 $link = mysqlconnect(); // call mysql function to get the link to the database
-$query = "SELECT r.*, d.name dname, rs.name rsname, s.name sname FROM race r JOIN division d ON (d.id = r.division) JOIN point_ruleset rs ON (rs.id = r.ruleset) LEFT JOIN season s ON (s.id = r.season) WHERE r.id='$id' ORDER BY r.date DESC";
+$query = "SELECT r.*, d.name dname, rs.name rsname, s.name sname
+					FROM race r
+					JOIN division d ON (d.id = r.division)
+					JOIN point_ruleset rs ON (rs.id = r.ruleset)
+					LEFT JOIN season s ON (s.id = r.season)
+					WHERE r.id='$id' ORDER BY r.date DESC";
 $result = mysqli_query($link,$query);
 if(!$result) {
 	show_error("MySQL error: " . mysqli_error($link) . "\n");
@@ -22,9 +27,17 @@ $item = mysqli_fetch_array($result);
 $date = strtotime($item['date']);
 
 if($item['season'] == 0)
-	$dquery = "SELECT td.id, t.name team, d.name driver FROM team_driver td JOIN team t ON (t.id = td.team) JOIN driver d ON (d.id = td.driver)";
+	$dquery = "SELECT td.id, t.name team, d.name driver, d.plate dplate
+						 FROM team_driver td
+						 JOIN team t ON (t.id = td.team)
+						 JOIN driver d ON (d.id = td.driver)";
 else
-	$dquery = "SELECT td.id, t.name team, d.name driver FROM season_team st JOIN team t ON (t.id = st.team) JOIN team_driver td ON (td.team = t.id) JOIN driver d ON (d.id = td.driver) WHERE st.season='{$item['season']}'";
+	$dquery = "SELECT td.id, t.name team, d.name driver, d.plate dplate
+	           FROM season_team st
+						 JOIN team t ON (t.id = st.team)
+						 JOIN team_driver td ON (td.team = t.id)
+						 JOIN driver d ON (d.id = td.driver)
+						 WHERE st.season='{$item['season']}'";
 
 $dresult = mysqli_query($link,$dquery);
 if(!$dresult) {
@@ -125,6 +138,7 @@ if(!$rdresult) {
 		<table border="0" cellspacing="0" cellpadding="1" width="100%">
 		<tr class="head">
 			<td>Driver (Team)</td>
+			<td align="center">Car #</td>
 			<td align="center">Grid</td>
 			<td align="center">Pos</td>
 			<td align="center">Laps</td>
@@ -136,6 +150,7 @@ if(!$rdresult) {
 		<? for($x = 0; $x < $item['maxplayers']; $x++) {
 			if($rditem = mysqli_fetch_array($rdresult)) {
 				$driver = $rditem['team_driver'];
+				$dplate = $rditem['dplate'];
 				$grid = $rditem['grid'];
 				if($grid == 0) $grid = "";
 				$position = $rditem['position'];
@@ -167,6 +182,7 @@ if(!$rdresult) {
 			?>
 			<tr class="<?=$style?>">
 				<td><? show_driver_combo($driver) ?></td>
+				<td align="center"><input type="text" name="dplate[]" value="<?=$dplate?>" size="3" maxlength="3"></td>
 				<td align="center"><input type="text" name="grid[]" value="<?=$grid?>" size="2" maxlength="2"></td>
 				<td align="center"><input type="text" name="pos[]" value="<?=$position?>" size="2" maxlength="2"></td>
 				<td align="center"><input type="text" name="laps[]" value="<?=$laps?>" size="3" maxlength="3"></td>
