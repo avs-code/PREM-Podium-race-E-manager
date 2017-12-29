@@ -24,7 +24,7 @@
     
     
 **Credits:**    
-(C)© Copyright Sep 25, 2016-2017
+(C)© Copyright Sep 25, 2016-2020
 
 **Toni Vicente (arv187), Pablo Oña (inguni), Stefan Meissner (stmeissner), Wolfgang Kronthaler (busterwolfman) **
 .
