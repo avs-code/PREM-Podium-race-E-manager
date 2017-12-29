@@ -251,6 +251,7 @@ while($ditem = mysqli_fetch_array($ndresult)) {
 <tr class="w3-hover-green">
 	<td align="right">-&nbsp;</td>
 	<td><?=$ditem['dname']?></td>
+  <td><img src="flags/<?=$ditem['dcountry']?>.png"></td>
 	<td><?=$ditem['tname']?></td>
 	<? if($item['progress'] != RACE_NEW) { ?>
 	<td align="right"><?=$ditem['grid']?></td>
