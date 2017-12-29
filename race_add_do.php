@@ -14,6 +14,7 @@ $date = mktime($_POST['hour'], $_POST['minute'], 0, $_POST['month'], $_POST['day
 $date = date("Y-m-d H:i:s",$date);
 $maxplayers = addslashes($_POST['maxplayers']);
 $imagelink = htmlspecialchars($_POST['imagelink']);
+$forumlink = htmlspecialchars($_POST['forumlink']);
 
 $error = "";
 
@@ -46,7 +47,7 @@ if($season != 0) {
 	}
 }
 
-$query = "INSERT INTO race (name, track, laps, season, division, ruleset, ruleset_qualifying, date, maxplayers, imagelink) VALUES ('$name', '$track', '$laps', '$season', '$division', '$ruleset', '$ruleset_qualifying', '$date', '$maxplayers', '$imagelink')";
+$query = "INSERT INTO race (name, track, laps, season, division, ruleset, ruleset_qualifying, date, maxplayers, imagelink, forumlink) VALUES ('$name', '$track', '$laps', '$season', '$division', '$ruleset', '$ruleset_qualifying', '$date', '$maxplayers', '$imagelink', '$forumlink')";
 $result = mysqli_query($link,$query);
 if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 

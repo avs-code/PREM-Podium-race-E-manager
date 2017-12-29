@@ -3,7 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
+<<<<<<< HEAD
 -- Erstellungszeit: 23. Dez 2017 um 11:50
+=======
+-- Erstellungszeit: 21. Dez 2017 um 20:47
+>>>>>>> logo_simresults
 -- Server-Version: 5.7.20-0ubuntu0.16.04.1
 -- PHP-Version: 7.0.22-0ubuntu0.16.04.1
 
