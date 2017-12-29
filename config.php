@@ -10,9 +10,9 @@ $config['org'] = "";
 $config['org_link'] = "http://";
 
 # MySQL server configuration
-$config['mysql']['host'] = "localhost";
-$config['mysql']['user'] = "root";
-$config['mysql']['pass'] = "rk8c14y5";
-$config['mysql']['db'] = "prem";
-$config['mysql']['port'] = "3306";
+$config['mysql']['host'] = "xxxxxx";
+$config['mysql']['user'] = "xxxxxx";
+$config['mysql']['pass'] = "xxxxxx";
+$config['mysql']['db'] = "xxxxxx";
+$config['mysql']['port'] = "xxxxx";
 ?>
