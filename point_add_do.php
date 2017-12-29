@@ -65,7 +65,7 @@ $result = mysqli_query($link,$query);
 if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 if(mysqli_num_rows($result) > 0) error("Ruleset name is already in use\n");
 
-$query = "INSERT INTO point_ruleset VALUES ('', '$name', '$rp1', '$rp2', '$rp3', '$rp4', '$rp5', '$rp6', '$rp7', '$rp8', '$rp9', '$rp10', '$rp11', '$rp12', '$rp13', '$rp14', '$rp15', '$rp16', '$rp17', '$rp18', '$rp19', '$rp20', '$rp21', '$rp22', '$rp23', '$rp24', '$rp25', '$rp26', '$rp27', '$rp28', '$rp29', '$rp30', '$rp31', '$rp32', '$rp33', '$rp34', '$rp35', '$rp36', '$rp37', '$rp38', '$rp39', '$rp40', '$qp1', '$qp2', '$qp3', '$qp4', '$qp5', '$fl')";
+$query = "INSERT INTO point_ruleset VALUES (null, '$name', '$rp1', '$rp2', '$rp3', '$rp4', '$rp5', '$rp6', '$rp7', '$rp8', '$rp9', '$rp10', '$rp11', '$rp12', '$rp13', '$rp14', '$rp15', '$rp16', '$rp17', '$rp18', '$rp19', '$rp20', '$rp21', '$rp22', '$rp23', '$rp24', '$rp25', '$rp26', '$rp27', '$rp28', '$rp29', '$rp30', '$rp31', '$rp32', '$rp33', '$rp34', '$rp35', '$rp36', '$rp37', '$rp38', '$rp39', '$rp40', '$qp1', '$qp2', '$qp3', '$qp4', '$qp5', '$fl')";
 $result = mysqli_query($link,$query);
 if(!$result) error("MySQL Error: " . mysqli_error($link) . "\n");
 

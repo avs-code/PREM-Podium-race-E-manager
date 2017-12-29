@@ -71,6 +71,9 @@ if($item['season'] != 0) {
 <td>image_link:</td>
 	<td><input type="url" name="imagelink" value="<?=$item['imagelink']?>" maxlength="200"></td>
 </tr>
+<td>Forum link:</td>
+	<td><input type="url" name="forumlink" value="<?=$item['forumlink']?>" maxlength="200"></td>
+</tr>
 <tr>
 	<td>Laps:</td>
 	<td><input type="text" name="laps" value="<?=$item['laps']?>" maxlength="3" size="3"></td>

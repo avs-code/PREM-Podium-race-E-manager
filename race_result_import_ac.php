@@ -99,7 +99,13 @@ if(isset($_POST['json'])) {
 }
 require_once("functions.php"); // import mysql function
 $link = mysqlconnect(); // call mysql function to get the link to the database
-$query = "SELECT r.*, d.name dname, rs.name rsname, s.name sname FROM race r JOIN division d ON (d.id = r.division) JOIN point_ruleset rs ON (rs.id = r.ruleset) LEFT JOIN season s ON (s.id = r.season) WHERE r.id='$id' ORDER BY r.date DESC";
+$query = "SELECT r.*, d.name dname, rs.name rsname, s.name sname
+					FROM race r
+					JOIN division d ON (d.id = r.division)
+					JOIN point_ruleset rs ON (rs.id = r.ruleset)
+					LEFT JOIN season s ON (s.id = r.season)
+					WHERE r.id='$id' ORDER BY r.date DESC";
+
 $result = mysqli_query($link,$query);
 if(!$result) {
 	show_error("MySQL error: " . mysqli_error($link) . "\n");
@@ -164,9 +170,17 @@ $date = strtotime($item['date']);
 <? require_once("results_functions.php"); ?>
 <?
 if($item['season'] == 0)
-	$dquery = "SELECT td.id, t.name team, d.name driver FROM team_driver td JOIN team t ON (t.id = td.team) JOIN driver d ON (d.id = td.driver)";
+	$dquery = "SELECT td.id, t.name team, d.name driver, d.plate dplate
+						 FROM team_driver td
+						 JOIN team t ON (t.id = td.team)
+						 JOIN driver d ON (d.id = td.driver)";
 else
-	$dquery = "SELECT td.id, t.name team, d.name driver FROM season_team st JOIN team t ON (t.id = st.team) JOIN team_driver td ON (td.team = t.id) JOIN driver d ON (d.id = td.driver) WHERE st.season='{$item['season']}'";
+		$dquery = "SELECT td.id, t.name team, d.name driver, d.plate dplate
+							 FROM season_team st
+							 JOIN team t ON (t.id = st.team)
+							 JOIN team_driver td ON (td.team = t.id)
+							 JOIN driver d ON (d.id = td.driver)
+							 WHERE st.season='{$item['season']}'";
 
 $dresult = mysqli_query($link,$dquery);
 if(!$dresult) {
@@ -204,6 +218,7 @@ function show_driver_combo($dname = '') {
 		<table border="0" cellspacing="0" cellpadding="1" width="100%">
 		<tr class="head">
 			<td>Driver (Team)</td>
+			<td align="center">Car #</td>
 			<td align="center">Grid</td>
 			<td align="center">Pos</td>
 			<td align="center">Laps</td>
@@ -217,6 +232,9 @@ function show_driver_combo($dname = '') {
 				$did = $arr_race_result[$x]['DriverId'];
 				$ditem = $arr_race_cars[$did];
 				$drivername = $ditem['DriverName'] . " (" . $ditem['DriverTeam'] . ")";
+				$driver_name = $ditem['DriverName'];
+				$dplatequery = "SELECT plate FROM driver where name = '$driver_name'";
+				$dplate = mysqli_fetch_assoc(mysqli_query($link,$dplatequery))['plate'];
 				$grid = $arr_race_result[$x]['Position'];
 				if($grid == 0) $grid = "";
 				$position = $arr_race_result[$x]['Position'];
@@ -237,9 +255,11 @@ function show_driver_combo($dname = '') {
 				if ($time == 0)
 					$status = 3;
 
+
 			} else {
 				$drivername = "";
 				$ditem['DriverName'] = "";
+				$dplate = "";
 				$grid = "";
 				$position = "";
 				$laps = "";
@@ -251,8 +271,10 @@ function show_driver_combo($dname = '') {
 				$status = 3;
 			}
 			?>
+
 			<tr class="<?=$style?>">
 				<td><?=$drivername . (!empty($drivername) ? "<br/>" : "")?><? show_driver_combo($ditem['DriverName']); ?></td>
+				<td align="center"><input type="text" name="dplate[]" value="<?=$dplate?>" size="3" maxlength="3"></td>
 				<td align="center"><input type="text" name="grid[]" value="<?=$grid?>" size="2" maxlength="2"></td>
 				<td align="center"><input type="text" name="pos[]" value="<?=$position?>" size="2" maxlength="2"></td>
 				<td align="center"><input type="text" name="laps[]" value="<?=$laps?>" size="3" maxlength="3"></td>

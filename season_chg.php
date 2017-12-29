@@ -116,6 +116,10 @@ if(!$stresult) {
 	<td><input type="text" name="maxteams" maxlength="3" size="2" value="<?=$item['maxteams']?>"></td>
 </tr>
 <tr>
+	<td>Series logo for Simresults:</td>
+	<td><input type="url" name="series_logo_simresults" maxlength="200" value="<?=$item['series_logo_simresults']?>"</td>
+</tr>
+<tr>
 	<td>Teams:</td>
 	<td>
 		<?

@@ -1,124 +1,106 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.8.2
+-- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
 --
--- Servidor: sql112.byethost17.com
--- Tiempo de generación: 08-12-2016 a las 17:15:49
--- Versión del servidor: 5.6.32-78.0
--- Versión de PHP: 5.3.3
+-- Host: localhost
+<<<<<<< HEAD
+-- Erstellungszeit: 23. Dez 2017 um 11:50
+=======
+-- Erstellungszeit: 21. Dez 2017 um 20:47
+>>>>>>> logo_simresults
+-- Server-Version: 5.7.20-0ubuntu0.16.04.1
+-- PHP-Version: 7.0.22-0ubuntu0.16.04.1
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `b17_19080370_prem`
+-- Datenbank: `prem`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `blocks`
+-- Tabellenstruktur für Tabelle `blocks`
 --
 
-CREATE TABLE IF NOT EXISTS `blocks` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `blocks` (
+  `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `content_file` varchar(150) NOT NULL,
   `content_html` text NOT NULL,
   `language` varchar(150) NOT NULL,
   `sort_order` int(11) NOT NULL,
-  `active` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `sort_order` (`sort_order`),
-  KEY `active` (`active`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `active` tinyint(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Volcado de datos para la tabla `blocks`
+-- Tabellenstruktur für Tabelle `division`
 --
 
-INSERT INTO `blocks` (`id`, `title`, `content_file`, `content_html`, `language`, `sort_order`, `active`) VALUES
-(1, 'Next Events', 'next_events', '', 'english', 1, 1),
-(2, 'Last Race', 'last_race', '', 'english', 2, 1),
-(3, 'Standings', 'standings', '', 'english', 3, 1),
-(4, 'Comms viewer', 'comms_viewer', '', 'english', 4, 1);
-
---
--- Estructura de tabla para la tabla `division`
---
-
-CREATE TABLE IF NOT EXISTS `division` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `division` (
+  `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL DEFAULT '',
-  `type` varchar(30) NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `type` varchar(30) NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `driver`
+-- Tabellenstruktur für Tabelle `driver`
 --
 
-CREATE TABLE IF NOT EXISTS `driver` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `driver` (
+  `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL DEFAULT '',
-  `1st` int(30) NOT NULL,
-  `2nd` int(30) NOT NULL,
-  `3rd` int(30) NOT NULL,
-  `driver_photo` varchar(200) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `plate` smallint(3) DEFAULT NULL,
+  `country` varchar(2) CHARACTER SET ascii DEFAULT NULL,
+  `1st` int(30) DEFAULT NULL,
+  `2nd` int(30) DEFAULT NULL,
+  `3rd` int(30) DEFAULT NULL,
+  `driver_photo` varchar(200) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `languages`
+-- Tabellenstruktur für Tabelle `languages`
 --
 
-CREATE TABLE IF NOT EXISTS `languages` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `language_name` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE `languages` (
+  `id` int(11) NOT NULL,
+  `language_name` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Volcado de datos para la tabla `languages`
+-- Tabellenstruktur für Tabelle `main_news`
 --
 
-INSERT INTO `languages` (`id`, `language_name`) VALUES
-(1, 'english');
-
---
--- Estructura de tabla para la tabla `main_news`
---
-
-CREATE TABLE IF NOT EXISTS `main_news` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `main_news` (
+  `id` int(11) NOT NULL,
   `title` varchar(30) CHARACTER SET utf8 NOT NULL,
   `news` text CHARACTER SET utf8 NOT NULL,
-  `day` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  `day` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `point_ruleset`
+-- Tabellenstruktur für Tabelle `point_ruleset`
 --
 
-CREATE TABLE IF NOT EXISTS `point_ruleset` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `point_ruleset` (
+  `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL DEFAULT '',
   `rp1` int(11) NOT NULL DEFAULT '0',
   `rp2` int(11) NOT NULL DEFAULT '0',
@@ -165,18 +147,17 @@ CREATE TABLE IF NOT EXISTS `point_ruleset` (
   `qp3` int(11) NOT NULL DEFAULT '0',
   `qp4` int(11) NOT NULL DEFAULT '0',
   `qp5` int(11) NOT NULL DEFAULT '0',
-  `fl` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `fl` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `race`
+-- Tabellenstruktur für Tabelle `race`
 --
 
-CREATE TABLE IF NOT EXISTS `race` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `race` (
+  `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL DEFAULT '',
   `track` varchar(30) NOT NULL DEFAULT '',
   `laps` int(11) NOT NULL DEFAULT '0',
@@ -184,23 +165,23 @@ CREATE TABLE IF NOT EXISTS `race` (
   `division` int(11) NOT NULL DEFAULT '0',
   `ruleset` int(11) NOT NULL DEFAULT '0',
   `ruleset_qualifying` int(11) NOT NULL DEFAULT '0',
-  `date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date` timestamp NOT NULL DEFAULT '2000-01-01 11:00:00',
   `maxplayers` int(11) NOT NULL DEFAULT '0',
   `result_official` tinyint(1) NOT NULL DEFAULT '0',
   `progress` int(11) NOT NULL DEFAULT '0',
-  `imagelink` varchar(200) NOT NULL,
-  `replay` varchar(200) NOT NULL,
-  `simresults` varchar(200) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `imagelink` varchar(200) DEFAULT NULL,
+  `replay` varchar(200) DEFAULT NULL,
+  `simresults` varchar(200) DEFAULT NULL,
+  `forumlink` varchar(200) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `race_driver`
+-- Tabellenstruktur für Tabelle `race_driver`
 --
 
-CREATE TABLE IF NOT EXISTS `race_driver` (
+CREATE TABLE `race_driver` (
   `race` int(11) NOT NULL DEFAULT '0',
   `team_driver` int(11) NOT NULL DEFAULT '0',
   `grid` int(11) NOT NULL DEFAULT '0',
@@ -208,163 +189,355 @@ CREATE TABLE IF NOT EXISTS `race_driver` (
   `fastest_lap` tinyint(1) NOT NULL DEFAULT '0',
   `laps` int(11) NOT NULL DEFAULT '0',
   `time` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`race`,`team_driver`)
+  `status` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `rules_table`
+-- Tabellenstruktur für Tabelle `rules_table`
 --
 
-CREATE TABLE IF NOT EXISTS `rules_table` (
-  `id` tinyint(1) NOT NULL AUTO_INCREMENT,
-  `default_language` varchar(15) NOT NULL,
-  `rules` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE `rules_table` (
+  `id` tinyint(1) NOT NULL,
+  `name` varchar(15) NOT NULL,
+  `rules` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Volcado de datos para la tabla `rules_table`
+-- Tabellenstruktur für Tabelle `season`
 --
 
-INSERT INTO `rules_table` (`id`, `default_language`, `rules`) VALUES
-(1, 'english', '<p>Set your rules and mods here.</p>');
-
---
--- Estructura de tabla para la tabla `season`
---
-
-CREATE TABLE IF NOT EXISTS `season` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `season` (
+  `id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL DEFAULT '',
   `division` int(11) NOT NULL DEFAULT '0',
   `ruleset` int(11) NOT NULL DEFAULT '0',
   `ruleset_qualifying` int(11) NOT NULL DEFAULT '0',
   `maxteams` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `season_team`
---
-
-CREATE TABLE IF NOT EXISTS `season_team` (
-  `season` int(11) NOT NULL DEFAULT '0',
-  `team` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`season`,`team`)
+  `series_logo_simresults` varchar(200) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sim_results`
+-- Tabellenstruktur für Tabelle `season_team`
 --
 
-CREATE TABLE IF NOT EXISTS `sim_results` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `season_team` (
+  `season` int(11) NOT NULL DEFAULT '0',
+  `team` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `sim_results`
+--
+
+CREATE TABLE `sim_results` (
+  `id` int(11) NOT NULL,
   `race_name` varchar(30) NOT NULL,
   `season` int(11) NOT NULL DEFAULT '0',
-  `simresults_url` varchar(200) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `simresults_url` varchar(200) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `standing_pages`
+-- Tabellenstruktur für Tabelle `standing_pages`
 --
 
-CREATE TABLE IF NOT EXISTS `standing_pages` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `standing_pages` (
+  `id` int(11) NOT NULL,
   `page` int(11) NOT NULL,
-  `season` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `season` (`season`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `season` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `team`
+-- Tabellenstruktur für Tabelle `team`
 --
 
-CREATE TABLE IF NOT EXISTS `team` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `team` (
+  `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL DEFAULT '',
-  `logo` varchar(200) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `logo` varchar(200) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `team_driver`
+-- Tabellenstruktur für Tabelle `team_driver`
 --
 
-CREATE TABLE IF NOT EXISTS `team_driver` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `team_driver` (
+  `id` int(11) NOT NULL,
   `team` int(11) NOT NULL DEFAULT '0',
-  `driver` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `driver` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `uploads`
+-- Stellvertreter-Struktur des Views `team_driver_top3`
+--
+CREATE TABLE `team_driver_top3` (
+`team_driver` int(11)
+,`position_1_count` decimal(23,0)
+,`position_2_count` decimal(23,0)
+,`position_3_count` decimal(23,0)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `uploads`
 --
 
-CREATE TABLE IF NOT EXISTS `uploads` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `uploads` (
+  `id` int(10) NOT NULL,
   `file` varchar(100) NOT NULL,
   `type` varchar(10) NOT NULL,
-  `size` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `size` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user`
+-- Tabellenstruktur für Tabelle `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL DEFAULT '',
   `passwd` varchar(40) NOT NULL DEFAULT '',
-  `active` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `active` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `video`
+-- Tabellenstruktur für Tabelle `video`
 --
 
-CREATE TABLE IF NOT EXISTS `video` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `video` (
+  `id` int(11) NOT NULL,
   `video_name` varchar(30) NOT NULL,
-  `video_url` varchar(200) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `video_url` varchar(200) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Struktur des Views `team_driver_top3`
+--
+DROP TABLE IF EXISTS `team_driver_top3`;
+
+CREATE VIEW `team_driver_top3`  AS  select `race_driver`.`team_driver` AS `team_driver`,sum((case when (`race_driver`.`position` = 1) then 1 else 0 end)) AS `position_1_count`,sum((case when (`race_driver`.`position` = 2) then 1 else 0 end)) AS `position_2_count`,sum((case when (`race_driver`.`position` = 3) then 1 else 0 end)) AS `position_3_count` from `race_driver` group by `race_driver`.`team_driver` order by `position_1_count` desc ;
+
+--
+-- Indizes der exportierten Tabellen
+--
+
+--
+-- Indizes für die Tabelle `blocks`
+--
+ALTER TABLE `blocks`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sort_order` (`sort_order`),
+  ADD KEY `active` (`active`);
+
+--
+-- Indizes für die Tabelle `division`
+--
+ALTER TABLE `division`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `driver`
+--
+ALTER TABLE `driver`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `languages`
+--
+ALTER TABLE `languages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `main_news`
+--
+ALTER TABLE `main_news`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `point_ruleset`
+--
+ALTER TABLE `point_ruleset`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `race`
+--
+ALTER TABLE `race`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `race_driver`
+--
+ALTER TABLE `race_driver`
+  ADD PRIMARY KEY (`race`,`team_driver`);
+
+--
+-- Indizes für die Tabelle `rules_table`
+--
+ALTER TABLE `rules_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `season`
+--
+ALTER TABLE `season`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `season_team`
+--
+ALTER TABLE `season_team`
+  ADD PRIMARY KEY (`season`,`team`);
+
+--
+-- Indizes für die Tabelle `sim_results`
+--
+ALTER TABLE `sim_results`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `standing_pages`
+--
+ALTER TABLE `standing_pages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `season` (`season`);
+
+--
+-- Indizes für die Tabelle `team`
+--
+ALTER TABLE `team`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `team_driver`
+--
+ALTER TABLE `team_driver`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `uploads`
+--
+ALTER TABLE `uploads`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `video`
+--
+ALTER TABLE `video`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT für exportierte Tabellen
+--
+
+--
+-- AUTO_INCREMENT für Tabelle `blocks`
+--
+ALTER TABLE `blocks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT für Tabelle `division`
+--
+ALTER TABLE `division`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT für Tabelle `driver`
+--
+ALTER TABLE `driver`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT für Tabelle `languages`
+--
+ALTER TABLE `languages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT für Tabelle `main_news`
+--
+ALTER TABLE `main_news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT für Tabelle `point_ruleset`
+--
+ALTER TABLE `point_ruleset`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT für Tabelle `race`
+--
+ALTER TABLE `race`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT für Tabelle `rules_table`
+--
+ALTER TABLE `rules_table`
+  MODIFY `id` tinyint(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT für Tabelle `season`
+--
+ALTER TABLE `season`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT für Tabelle `sim_results`
+--
+ALTER TABLE `sim_results`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT für Tabelle `standing_pages`
+--
+ALTER TABLE `standing_pages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT für Tabelle `team`
+--
+ALTER TABLE `team`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT für Tabelle `team_driver`
+--
+ALTER TABLE `team_driver`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT für Tabelle `uploads`
+--
+ALTER TABLE `uploads`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT für Tabelle `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT für Tabelle `video`
+--
+ALTER TABLE `video`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
--- helper view for show drivers page
-CREATE OR REPLACE VIEW `team_driver_top3` AS
-SELECT `race_driver`.`team_driver` AS `team_driver`,
-  sum((case when (`race_driver`.`position` = 1) then 1 else 0 end)) AS `position_1_count`,
-  sum((case when (`race_driver`.`position` = 2) then 1 else 0 end)) AS `position_2_count`,
-  sum((case when (`race_driver`.`position` = 3) then 1 else 0 end)) AS `position_3_count`
-FROM `race_driver`
-GROUP BY `race_driver`.`team_driver`
-ORDER BY `position_1_count` DESC;
