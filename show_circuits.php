@@ -12,7 +12,7 @@ if (!$result) {
 ?>
 
 <h1>Circuits Calendar</h1>
-<h2>Circuits ordered by division</h2>
+<h2>Circuits ordered by division & date</h2>
 
 <div class="w3-container">
 <div class="w3-responsive">
