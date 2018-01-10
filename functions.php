@@ -80,6 +80,7 @@ if(defined("USE_MYSQL")) {
 		);
 		if (mysqli_connect_errno($mysqli)) {
     	echo "Failed to connect to MySQL: " . mysqli_connect_error();
+		exit();
 		}
 		return $mysqli;
 	}
