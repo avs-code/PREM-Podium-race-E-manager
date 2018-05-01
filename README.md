@@ -26,7 +26,7 @@
 **Credits:**    
 (C)© Copyright Sep 25, 2016-2020
 
-**Toni Vicente (arv187), Pablo Oña (inguni), Stefan Meissner (stmeissner), Wolfgang Kronthaler (busterwolfman) **
+**Toni Vicente (arv187), Pablo Oña (inguni), Stefan Meissner (stmeissner)**
 .
 
 Bert Hekman (DemonTPx). (original autor of Paddock 7.10beta).
