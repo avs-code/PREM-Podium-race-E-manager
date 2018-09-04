@@ -113,13 +113,13 @@ if ($page != "error") {
 </div>
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-  <a href="#" class="w3-hover-text-indigo"><i class="fa fa-facebook-official"></i></a>
-  <a href="#" class="w3-hover-text-red"><i class="fa fa-pinterest-p"></i></a>
-  <a href="#" class="w3-hover-text-light-blue"><i class="fa fa-twitter"></i></a>
-  <a href="#" class="w3-hover-text-grey"><i class="fa fa-flickr"></i></a>
-  <a href="#" class="w3-hover-text-indigo"><i class="fa fa-linkedin"></i></a>
-  <a href="#" class="w3-hover-text-red"><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
-  <a href="https://github.com/arv187/PREM-Podium-race-E-manager" class="w3-hover-text-deep-purple"><i class="fa fa-github"></i></a>
+  <a href="#" target="_blank" class="w3-hover-text-indigo"><i class="fa fa-facebook-official"></i></a>
+  <a href="#" target="_blank" class="w3-hover-text-red"><i class="fa fa-pinterest-p"></i></a>
+  <a href="#" target="_blank" class="w3-hover-text-light-blue"><i class="fa fa-twitter"></i></a>
+  <a href="#" target="_blank" class="w3-hover-text-grey"><i class="fa fa-flickr"></i></a>
+  <a href="#" target="_blank" class="w3-hover-text-indigo"><i class="fa fa-linkedin"></i></a>
+  <a href="#" target="_blank" class="w3-hover-text-red"><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
+  <a href="https://github.com/arv187/PREM-Podium-race-E-manager" target="_blank" class="w3-hover-text-deep-purple"><i class="fa fa-github"></i></a>
   <p class="w3-medium">Powered by <a href="https://arv187.github.io/PREM-Podium-race-E-manager" target="_blank">PREM</a></p>
 </footer>
 

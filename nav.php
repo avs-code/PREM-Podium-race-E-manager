@@ -15,7 +15,6 @@
     <a href="javascript:void(0)" class="w3-hover-red w3-padding-large" title="Results">Results <i class="fa fa-caret-down"></i></a>     
     <div class="w3-dropdown-content w3-white w3-card-4">
     <a href="?page=results" class="w3-hover-red">Results</a>
-    <!--Disabled<a href="?page=sim_results" class="w3-hover-red">Sim_Results</a>-->
     </div>
   </li>
   
@@ -34,7 +33,7 @@
     <a href="javascript:void(0)" class="w3-hover-red w3-padding-large" title="Join">Join <i class="fa fa-caret-down"></i></a>     
     <div class="w3-dropdown-content w3-white w3-card-4">
     <a href="?page=driver_add_user" class="w3-hover-red">New Driver</a>
-    <a href="your_forum_url" class="w3-hover-red">Forum</a></li>
+    <a href="your_forum_url" target="_blank" class="w3-hover-red">Forum</a></li>
 <? if(defined("USE_MYSQL") && defined("USE_LOGIN")) { ?>
 <? if(!isset($login)) { ?>
     <li class="w3-hide-small"><a href="?page=login" class="w3-padding-large">Login Admin</a></li>
@@ -57,7 +56,6 @@
     <a href="?page=drivers" class="w3-hover-red">Drivers</a>
     <a href="?page=teams" class="w3-hover-red">Teams</a>
     <a href="?page=edit_rules_mods" class="w3-hover-red">Edit rules and mods</a>
-    <!--Disabled<a href="?page=sim_results_add" class="w3-hover-red">Send Simresults url</a>-->
     <a href="?page=send_video_url" class="w3-hover-red">Send video url</a>
     <a href="?page=main_news" class="w3-hover-red">News mainpage</a>
     <a href="?page=blocks" class="w3-hover-red">Blocks_setup</a>    
@@ -84,14 +82,13 @@
   <ul class="w3-navbar w3-left-align w3-black">
     <li><a class="w3-padding-large" href="?page=main">HOME</a></li>
     <li><a class="w3-padding-large" href="?page=results">Results</a></li>
-    <!--Disabled<li><a class="w3-padding-large" href="?page=sim_results">Sim_Results</a></li>-->
     <li><a class="w3-padding-large" href="?page=show_circuits">Circuit calendar</a></li>
     <li><a class="w3-padding-large" href="?page=show_drivers">Drivers</a></li>
     <li><a class="w3-padding-large" href="?page=show_teams">Teams</a></li>
     <li><a class="w3-padding-large" href="?page=show_rules">Rules</a></li>
     <li><a class="w3-padding-large" href="?page=show_videos">Videos</a></li>
     <li><a class="w3-padding-large" href="?page=driver_add_user">New_Driver</a>
-    <li><a class="w3-padding-large" href="your_forum_url">Forum</a>
+    <li><a class="w3-padding-large" href="your_forum_url" target="_blank">Forum</a>
     
 <? if(defined("USE_MYSQL") && defined("USE_LOGIN")) { ?>
 <? if(!isset($login)) { ?>
@@ -108,7 +105,6 @@
     <li><a class="w3-padding-large" href="?page=drivers">Edit drivers</a></li>
     <li><a class="w3-padding-large" href="?page=teams">Edit teams</a></li>
     <li><a class="w3-padding-large" href="?page=main_news">News mainpage</a></li>
-    <!--Disabled<li><a class="w3-padding-large" href="?page=sim_results_add">Send Simresults url</a></li>-->
     <li><a class="w3-padding-large" href="?page=users">Admins</a></li>
     <li><a class="w3-padding-large" href="?page=logout">Logout</a></li>
     
