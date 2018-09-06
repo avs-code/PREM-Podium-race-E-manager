@@ -95,6 +95,33 @@ $active_comms = $_POST["active_comms"];
     </form>
 <? } ?>
 
+<!--streaming block-->
+<h1>Streaming viewer block</h1>
+
+<?
+    $query_streaming_status = "SELECT active FROM blocks WHERE content_file='streaming'";
+    $result_streaming_status = mysqli_query($link,$query_streaming_status);
+    mysqli_free_result($result_streaming_status);
+
+$active_streaming = $_POST["active_streaming"];
+
+    if (isset($_POST['active_streaming'])) {
+        $query_streaming = "UPDATE blocks SET active='$active_streaming' WHERE content_file='streaming'";
+        $result_streaming = mysqli_query($link,$query_streaming);
+        if (!$result_streaming) error("MySQL Error: ".mysqli_error($link)."\n");
+        echo "<br /> <strong><h2>Streaming block succesfully modified</h2></strong>";
+    }else{ ?>
+
+
+    <form action=".?page=blocks" method="post">
+        Activate:
+        <input type="radio" name="active_streaming" <?php if (isset($result_streaming_status) && $result_streaming_status=="1") echo "checked";?> value="1">Yes
+        <input type="radio" name="active_streaming" <?php if (isset($result_streaming_status) && $result_streaming_status=="0") echo "checked";?> value="0">No
+        &nbsp;
+        </b> </b> <input type="submit" name="submit" value="Set">
+        <br><br>
+    </form>
+<? } ?>
 
 <!--standings block-->
 <h1>Standings block</h1>

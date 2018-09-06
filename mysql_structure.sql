@@ -46,10 +46,11 @@ CREATE TABLE IF NOT EXISTS `blocks` (
 --
 
 INSERT INTO `blocks` (`id`, `title`, `content_file`, `content_html`, `language`, `sort_order`, `active`) VALUES
-(1, 'Next Events', 'next_events', '', 'english', 1, 1),
-(2, 'Last Race', 'last_race', '', 'english', 2, 1),
-(3, 'Standings', 'standings', '', 'english', 3, 1),
-(4, 'Comms viewer', 'comms_viewer', '', 'english', 4, 1);
+(1, 'Streaming', 'streaming', '', 'english', 1, 1)
+(2, 'Next Events', 'next_events', '', 'english', 2, 1),
+(3, 'Last Race', 'last_race', '', 'english', 3, 1),
+(4, 'Standings', 'standings', '', 'english', 4, 1),
+(5, 'Comms viewer', 'comms_viewer', '', 'english', 5, 1);
 
 --
 -- Estructura de tabla para la tabla `division`
