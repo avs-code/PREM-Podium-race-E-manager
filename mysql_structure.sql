@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `blocks` (
 --
 
 INSERT INTO `blocks` (`id`, `title`, `content_file`, `content_html`, `language`, `sort_order`, `active`) VALUES
-(1, 'Streaming', 'streaming', '', 'english', 1, 1)
+(1, 'Streaming', 'streaming', '', 'english', 1, 1),
 (2, 'Next Events', 'next_events', '', 'english', 2, 1),
 (3, 'Last Race', 'last_race', '', 'english', 3, 1),
 (4, 'Standings', 'standings', '', 'english', 4, 1),
