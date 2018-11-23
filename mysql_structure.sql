@@ -346,6 +346,15 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- --------------------------------------------------------
 
 --
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `passwd`, `active`) VALUES
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `video`
 --
 
