@@ -226,7 +226,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .w3-spin{animation:w3-spin 2s infinite linear;-webkit-animation:w3-spin 2s infinite linear}
 @-webkit-keyframes w3-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}
 @keyframes w3-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}
-.w3-container{padding:0.01em 16px}
+.w3-container{padding:0.01em 16px; background-color: rgba(255, 255, 255, 0.7);}
 .w3-panel{padding:0.01em 16px;margin-top:16px!important;margin-bottom:16px!important}
 .w3-example{background-color:#f1f1f1;padding:0.01em 16px}
 .w3-code,.w3-codespan{font-family:Consolas,"courier new";font-size:16px}
